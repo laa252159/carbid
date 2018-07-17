@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!ELEMENT Items (Item*)>
 <!ELEMENT Item (Name, Category+, Currently,
 Buy_Price?,First_Bid, Number_of_Bids,Bids, Location, Country,

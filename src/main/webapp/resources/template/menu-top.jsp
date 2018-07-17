@@ -96,7 +96,7 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse collapse-buttons">
             <ul class="nav navbar-nav">
-                <li><a class="bottom-color" href="/Auctioner/auctions?categoryId=all">View All</a></li>
+                <li><a class="bottom-color" href="/Auctioner/auctions?categoryId=all">Просмотреть все</a></li>
 
                 <%-- Categories --%>
                 <%@ include file="/resources/template/categories.jsp" %>
