@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Items SYSTEM "ebay.dtd" >
+<Items>
+  <Item ItemID="">
+    <Name>Name</Name>
+    <Category>Category</Category>
+    <Currently>Currently</Currently>
+    <Buy_Price>Buy_Price</Buy_Price>
+    <First_Bid>First_Bid</First_Bid>
+    <Number_of_Bids>Number_of_Bids</Number_of_Bids>
+    <Bids/>
+    <Location Latitude="" Longitude="">Location</Location>
+    <Country>Country</Country>
+    <Started>Started</Started>
+    <Ends>Ends</Ends>
+    <Seller Rating="" UserID=""/>
+    <Description>Description</Description>
+  </Item>
+</Items>

@@ -1,0 +1,201 @@
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+}
+
+.single-item-content {
+    margin-top: 50px;
+}
+
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+#myCarousel{
+min-height: 480px;
+}
+.img-responsive,
+.thumbnail>img,
+.thumbnail a>img,
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img{
+margin: 0 auto;
+max-width: 100%;
+max-height: 480px;
+}
+
+/* Carousel Controls */
+.carousel-control {
+  width: 30px;
+  /*height: 30px;
+  top: -35px;*/
+
+}
+/*.left.carousel-control {
+  right: 30px;
+  left: inherit;
+}*/
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  line-height: 30px;
+}
+
+/* Recent and Suggestions */
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #4e5d6c;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+
+/*.col-item:hover .info {
+    background-color: #F5F5DC;
+}*/
+.col-item .price
+{
+    /*width: 50%;*/
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.price-text-color
+{
+    color: #219FD1;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .rating
+{
+    /*width: 50%;*/
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
+
+.col-item .separator
+{
+    border-top: 1px solid #E1E1E1;
+}
+
+.clear-left
+{
+    clear: left;
+}
+
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.controls
+{
+    margin-bottom: 20px;
+}
+[data-slide="prev"]
+{
+    margin-right: 10px;
+}
+
+.small-img-div {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.small-img-div a img {
+    height: 100%;
+    transform: translateX(-50%);
+    margin-left: 50%;
+}
+
+.text-limit {
+    height: 4.5em;
+    overflow: hidden;
+}
+
+.price {
+    font-size: 18px;
+}
+
+.price-panel {
+    text-align: center;
+}
+
+.bid-button {
+    padding-left: 0px;
+}
+
+.clock {
+    margin-bottom: 0px;
+}
+
+.price-number {
+    font-size: 35px;
+    text-shadow: 2px 2px 1px #999;
+    font-weight: bold;
+}
+
+.date-number {
+    font-size: 16px;
+    text-shadow: 2px 2px 1px #999;
+}
+
+.list-item {
+    border-top: 1px orange;
+    border-bottom: 1px orange;
+}
+
+.title {
+    margin-bottom: 20px
+}

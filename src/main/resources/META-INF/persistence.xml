@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+		http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+		
+	<persistence-unit name="Auctioner">
+		<class>com.ted.model.AuctionBidding</class>
+		<class>com.ted.model.AuctionBiddingPK</class>
+		<class>com.ted.model.Auction</class>
+		<class>com.ted.model.Authority</class>
+		<class>com.ted.model.AuthorityPK</class>
+		<class>com.ted.model.Location</class>
+		<class>com.ted.model.GlobalMessage</class>
+		<class>com.ted.model.Message</class>
+		<class>com.ted.model.Category</class>
+		<class>com.ted.model.AuctionPicture</class>
+		<class>com.ted.model.UserPicture</class>
+		<class>com.ted.model.BidderRating</class>
+		<class>com.ted.model.BidderRatingPK</class>
+		<class>com.ted.model.SellerRating</class>
+		<class>com.ted.model.SellerRatingPK</class>
+		<class>com.ted.model.User</class>
+		<class>com.ted.model.Similar</class>
+		<class>com.ted.model.SimilarPK</class>
+		<class>com.ted.model.Recommendation</class>
+		<class>com.ted.model.RecommendationPK</class>
+	</persistence-unit>
+	
+</persistence>
