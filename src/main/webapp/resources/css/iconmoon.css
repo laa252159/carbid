@@ -17,7 +17,7 @@
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  line-height: 0;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -86,4 +86,13 @@
 }
 .icon-eye-blocked:before {
   content: "\e9d1";
+}
+.icon-travel-car:before {
+  content: "\1F3CE";
+  font-size: 100px;
+}
+
+.icon-travel-car-small:before {
+  content: "\1F3CE";
+  font-size: 40px;
 }

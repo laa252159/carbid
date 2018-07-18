@@ -20,7 +20,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -50,7 +50,7 @@
                      <ul class="nav nav-tabs" role="tablist">
 
                          <li role="presentation" class="active">
-                             <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="User Info">
+                             <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Данные пользователя">
                                  <span class="round-tab">
                                      <i class="glyphicon glyphicon-pencil"></i>
                                  </span>
@@ -85,12 +85,13 @@
                  <form:form id="form" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                      <div class="tab-content">
                          <div class="tab-pane active" role="tabpanel" id="step1">
-                            <h2 class="text-center">User Info</h2>
+                            <h2 class="text-center">Данные пользователя</h2>
+                            <h3 class="text-center">пожалуйста заполните все поля</h3>
                             <div class="row content-row">
                                 <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label for="username" class="input-label col-md-3">Username:</label>
+                                            <label for="username" class="input-label col-md-3">Логин:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="text" name='username' path="username" class="form-control" id="username" />
@@ -116,7 +117,7 @@
                                     </div>
                                     <div class="row top-buffer">
                                         <div class="form-group">
-                                            <label for="pwd" class="input-label col-md-3">Password:</label>
+                                            <label for="pwd" class="input-label col-md-3">Пароль:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="password" name='password' path="password" class="form-control" id="pwd" />
@@ -131,7 +132,7 @@
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label for="firstName" class="input-label col-md-3">First Name:</label>
+                                            <label for="firstName" class="input-label col-md-3">Имя:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="text" id="firstName" name='firstName' path="firstName" class="form-control" />
@@ -144,7 +145,7 @@
                                     </div>
                                     <div class="row top-buffer">
                                         <div class="form-group">
-                                            <label for="lastName" class="input-label col-md-3">Last Name:</label>
+                                            <label for="lastName" class="input-label col-md-3">Фамилия:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="text" name='lastName' path="lastName" class="form-control" id="lastName" />
@@ -157,7 +158,7 @@
                                     </div>
                                     <div class="row top-buffer">
                                         <div class="form-group">
-                                            <label for="phone" class="input-label col-md-3">Phone:</label>
+                                            <label for="phone" class="input-label col-md-3">Телефон:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="text" name='phone' path="phone" class="form-control" id="phone" />
@@ -172,7 +173,7 @@
                              </div>
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
-                                     <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                     <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                  </ul>
                              </div>
                          </div>
@@ -182,7 +183,7 @@
                                  <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                      <div class="row">
                                          <div class="form-group">
-                                             <label for="country" class="input-label col-md-3">Country:</label>
+                                             <label for="country" class="input-label col-md-3">Страна:</label>
                                              <div class="col-lg-8">
                                                  <div class="in-group">
                                                      <form:select path="country" id="country" name="country" class="form-control"></form:select>
@@ -195,7 +196,7 @@
                                      </div>
                                      <div class="row top-buffer">
                                          <div class="form-group">
-                                             <label for="city" class="input-label col-md-3">City:</label>
+                                             <label for="city" class="input-label col-md-3">Город:</label>
                                              <div class="col-lg-8">
                                                  <div class="in_group">
                                                      <form:input type="text" name='city' path="city" class="form-control" id="city" />
@@ -212,36 +213,36 @@
                               </div>
                               <div class="row top-buffer">
                                   <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                   </ul>
                               </div>
                          </div>
                          <div class="tab-pane" role="tabpanel" id="step3">
-                             <h2 class="text-center">Upload Pictures</h2>
+                             <h2 class="text-center">Загрузить фото</h2>
                              <div class="row content-row">
                                  <input id="input-1" name="input1" type="file" class="file-loading" accept="image/x-png, image/jpeg"/>
-                                 <p>You can skip this step and add a photo later.</p>
+                                 <p>Вы можете пропустить этот шаг или загрузить фото позднее.</p>
                               </div>
                               <div class="row top-buffer">
                                   <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                   </ul>
                               </div>
                          </div>
                          <div class="tab-pane" role="tabpanel" id="complete">
-                             <h2 class="text-center">User Registration Completed.</h2>
+                             <h2 class="text-center">Регистрация пользователя окончена</h2>
                              <div class="row content-row">
                                  <div class="text-center">
-                                     <p class="lead">We will review your information and an email will be send when your account is approved.</p>
-                                     <p class="lead">Press Finish and and become a Bidder in Auctioner!</p>
+                                     <p class="lead">Мы проверим Вашу информацию и отправим на электронную почту или через SMS информацию о подтверждении аккаунта</p>
+                                     <p class="lead">Только подтвержденнеы аккаунты могут принимать участие в торгах</p>
                                  </div>
                              </div>
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
-                                     <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                     <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Finish</button></li>
+                                     <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                     <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Завершить</button></li>
                                  </ul>
                              </div>
                          </div>

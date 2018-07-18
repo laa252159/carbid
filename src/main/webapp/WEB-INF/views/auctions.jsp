@@ -25,7 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -46,7 +46,7 @@
                          <div class="col-md-3 col-sm-3">
                              <div class="panel panel-primary">
                                  <div class="panel-heading">
-                                     <h4 class="panel-title">Categories</h4>
+                                     <h4 class="panel-title">Категории</h4>
                                  </div>
                                  <div class="panel-body">
                                      <div class="fancy-collapse-panel">
@@ -92,7 +92,7 @@
                                              <li class="page-item">
                                                <a class="page-link" href="/Auctioner/auctions?page=${filter.pageNum - 1}" aria-label="Previous">
                                                  <span aria-hidden="true">&lt;</span>
-                                                 <span class="sr-only">Previous</span>
+                                                 <span class="sr-only">Предыдущий</span>
                                                </a>
                                              </li>
                                          </c:if>
@@ -108,7 +108,7 @@
                                              <li class="page-item">
                                                <a class="page-link" href="/Auctioner/auctions?page=${filter.pageNum + 1}" aria-label="Next">
                                                  <span aria-hidden="true">&gt;</span>
-                                                 <span class="sr-only">Next</span>
+                                                 <span class="sr-only">Следующий</span>
                                                </a>
                                              </li>
                                              <li class="page-item">

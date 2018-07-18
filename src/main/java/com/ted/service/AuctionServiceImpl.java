@@ -170,9 +170,9 @@ public class AuctionServiceImpl implements AuctionService {
 			filter.setSortBy(sortBy);
 
 			if(sortBy.equals("ends"))
-				filter.setSortByOutput("Ending Date");
+				filter.setSortByOutput("Дата окончания");
 			else if(sortBy.equals("firstBid")) {
-				filter.setSortByOutput("Starting Price");
+				filter.setSortByOutput("Стартовая цена");
 			}
 		}
 

@@ -5,7 +5,7 @@
   <form:form id="new-message-form" name="newMessageForm" role="form" modelAttribute="new_message" method="POST">
       <div class="panel panel-primary">
           	<div class="panel-heading">
-          		<h4 class="panel-title">New Message</h4>
+          		<h4 class="panel-title">Новое Сообщение</h4>
           	</div>
           	<div class="panel-body">
 
@@ -17,12 +17,12 @@
                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                  <p></p>
                 </div>
-                <form:input id = "replyTo" class="form-control" name="receiver" path="receiver.username" placeholder="Recipient username"></form:input>
+                <form:input id = "replyTo" class="form-control" name="receiver" path="receiver.username" placeholder="Логин получателя"></form:input>
                 <br />
-                <form:textarea class="form-control" name="message" path="message" placeholder="Type in your message" rows="10"></form:textarea>
+                <form:textarea class="form-control" name="message" path="message" placeholder="Ваше сообщение" rows="10"></form:textarea>
         	</div>
         	<div class="panel-footer">
-        		<input class="btn btn-success col-md-offset-9" type="submit" value="Send Message" id="appr-btn"></input>
+        		<input class="btn btn-success col-md-offset-9" type="submit" value="Отправить" id="appr-btn"></input>
         	</div>
       </div>
   </form:form>

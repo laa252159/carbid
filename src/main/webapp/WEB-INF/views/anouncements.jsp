@@ -7,14 +7,14 @@
 <div id="anouncements" class="col-sm-9">
   <div class="panel panel-primary">
   	<div class="panel-heading">
-  		<h4 class="panel-title">Anouncements</h4>
+  		<h4 class="panel-title">Анонсы</h4>
   	</div>
   	<div class="panel-body">
         <table id="anouncements-table" class="table table-hover table-condensed">
         	<thead>
         		<tr>
                     <td>Id</td>
-        			<td>Date</td>
+        			<td>Дата</td>
                     <td>Message</td>
         		</tr>
         	</thead>
@@ -30,7 +30,7 @@
 		</table>
 	</div>
 	<div class="panel-footer">
-		<input class="btn btn-success col-md-offset-10" type="submit" value="New Message" id="appr-btn"></input>
+		<input class="btn_anouns btn-success col-md-offset-10" type="submit" value="Новое сообщение" id="appr-btn"></input>
 	</div>
   </div>
 </div>

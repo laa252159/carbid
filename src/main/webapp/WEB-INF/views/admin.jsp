@@ -26,7 +26,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
     <style>
 
@@ -75,21 +75,21 @@
               <div class="col-sm-3 collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <h4 class="text-center">Admin Panel</h4>
                 <ul class="nav navbar-nav nav-pills">
-                  <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Overview<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></a></li>
+                  <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Обзор<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></a></li>
                   <li class="dropdown">
-                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
+                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Сообщения <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                      <li><a href="/Auctioner/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Inbox</a></li>
-                      <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">New Message</a></li>
-                      <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Sent</a></li>
+                      <li><a href="/Auctioner/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
+                      <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
+                      <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
                       <li class="divider" data-toggle="pill"></li>
-                      <li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Anouncements</a></li>
+                      <li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>
                       <li><a href="/Auctioner/messaging/new-anouncement" data-target="#section6" id="newAnouncement_tab" data-toggle="pill" rel="tooltip">New Anouncement</a></li>
                     </ul>
                   </li>
                   <li ><a class="left-color" href="admin/users" data-target="#section7" id="users_tab" data-toggle="pill" rel="tooltip">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                   <li class="dropdown">
-                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Auctions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity icon-hammer2"></span></a>
+                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Auctions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity icon-travel-car-small"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                       <li><a href="/Auctioner/admin/auctions" data-target="#section8" id="auctions_tab" data-toggle="pill" rel="tooltip">View Auctions</a></li>
                       <li><a href="/Auctioner/admin/xmlUpload" data-target="#section9" id="xml_tab" data-toggle="pill" rel="tooltip">XML Upload</a></li>

@@ -52,22 +52,22 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="col-md-6">
 					<div class="form-group">
-						 <label for="firstName">First Name:</label>
+						 <label for="firstName">Имя:</label>
 						 <form:input type="text" name='firstName' path="firstName" class="form-control" />
 						 <form:errors path="firstName" cssClass="error" />
 					 </div>
 					 <div class="form-group">
-						 <label for="lastName">Last Name:</label>
+						 <label for="lastName">Фамилия:</label>
 						 <form:input type="text" name='lastName' path="lastName" class="form-control" id="lastName" />
 						 <form:errors path="lastName" cssClass="error" />
 					 </div>
 					 <div class="form-group">
-						 <label for="username">Username:</label>
+						 <label for="username">Логин:</label>
 						 <form:input type="text" name='username' path="username" class="form-control" id="username" />
 						 <form:errors path="username" cssClass="error" />
 					 </div>
 					 <div class="form-group">
-						  <label for="pwd">Password:</label>
+						  <label for="pwd">Пароль:</label>
 						  <form:input type="password" name='password' path="password" class="form-control" id="pwd" />
 						  <form:errors path="password" cssClass="error" />
 					 </div>

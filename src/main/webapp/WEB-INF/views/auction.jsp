@@ -28,7 +28,7 @@
     }
     </style>
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -121,7 +121,7 @@
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Starting Price</h4>
+                            <h4 class="panel-title">Стартовая цена</h4>
                         </div>
                         <div class="panel-body">
                             <div class="price-number text-center">$${auction.firstBid}</div>
@@ -141,7 +141,7 @@
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Ending Date</h4>
+                            <h4 class="panel-title">Дата окончания</h4>
                         </div>
                         <div class="panel-body">
                             <span class="date-number text-center">${auction.ends}</span>
@@ -205,14 +205,14 @@
                             <div class="panel-footer">
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-hammer2"></i></span>Buy Now!</button>
+                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Buy Now!</button>
                                     </c:if>
                                     <c:if test="${user.userid == auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled"><i><span class="icon-hammer2"></i></span>Buy Now!</button>
+                                        <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled"><i><span class="icon-travel-car"></i></span>Buy Now!</button>
                                     </c:if>
                                 </c:if>
                                 <c:if test="${user.approved == 0}">
-                                    <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled"><i><span class="icon-hammer2"></i></span>Buy Now!</button>
+                                    <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled"><i><span class="icon-travel-car"></i></span>Buy Now!</button>
                                 </c:if>
                                 <div class="clearfix"></div>
                             </div>

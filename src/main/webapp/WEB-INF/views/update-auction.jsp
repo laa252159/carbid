@@ -20,7 +20,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -127,7 +127,7 @@
                              </div>
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
-                                     <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                     <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                  </ul>
                              </div>
                          </div>
@@ -208,8 +208,8 @@
                               </div>
                               <div class="row top-buffer">
                                   <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                   </ul>
                               </div>
                          </div>
@@ -242,8 +242,8 @@
                               </div>
                               <div class="row top-buffer">
                                   <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                   </ul>
                               </div>
                          </div>

@@ -1,17 +1,17 @@
 
     <div class="well well-sm">
         <div class="pull-left">
-            <p style="font-size: 16px" >Found ${filter.numberofItems} results<p>
+            <p style="font-size: 16px" >Найдено результатов: ${filter.numberofItems}<p>
         </div>
         <div class="btn-group">
-            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>List</a>
-            <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>Список</a>
+            <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Таблица</a>
         </div>
         <div class="pull-right dropdown">
             <button class="btn btn-default btn-sm" data-toggle="dropdown">${filter.sortByOutput} <span class="caret"></span></button>
             <ul class="dropdown-menu" id="sortDropdown">
-                <li><a href="/Auctioner/auctions?sortBy=ends">Ending Date</a></li>
-                <li><a href="/Auctioner/auctions?sortBy=firstBid">Starting Price</a></li>
+                <li><a href="/Auctioner/auctions?sortBy=ends">Дата окончания</a></li>
+                <li><a href="/Auctioner/auctions?sortBy=firstBid">Стартовая цена</a></li>
             </ul>
         </div>
     </div>

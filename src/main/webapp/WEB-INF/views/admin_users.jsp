@@ -10,7 +10,7 @@
 		        <table id="allUsers" class="table table-striped table-hover table-condensed">
 		        	<thead>
 						<tr>
-							<th>Username</th><th>Firstname</th><th>Lastname</th><th>Email</th><th>Approved</th><th></th>
+							<th>Username</th><th>Firstname</th><th>Фамилия</th><th>Email</th><th>Approved</th><th></th>
 						</tr>
 					<thead>
 					<tbody>

@@ -25,7 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
     <style>
 
@@ -71,21 +71,21 @@
     			</c:if>
                 <h4 class="text-center">${user.username}</h4>
                 <ul class="nav navbar-nav nav-pills">
-                  <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Overview<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                  <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Обзор<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                   <li class="dropdown">
-                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
+                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Сообщения <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                      <li><a href="/Auctioner/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Inbox</a></li>
-                      <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">New Message</a></li>
-                      <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Sent</a></li>
+                      <li><a href="/Auctioner/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
+                      <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
+                      <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
                       <li class="divider" data-toggle="pill"></li>
-                      <li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Anouncements</a></li>
+                      <li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>
                     </ul>
                   </li>
                   <sec:authorize ifAnyGranted="ROLE_SELLER">
-                  <li ><a class="left-color" href="#section6" id="auctions_tab" data-toggle="pill">My Auctions<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
+                  <li ><a class="left-color" href="#section6" id="auctions_tab" data-toggle="pill">Мои аукционы<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
                   </sec:authorize>
-                  <li ><a class="left-color" href="#section7" id="bought_tab" data-toggle="pill">Bought Auctions<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-usd"></span></a></li>
+                  <li ><a class="left-color" href="#section7" id="bought_tab" data-toggle="pill">Выиграные аукционы<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-usd"></span></a></li>
                 </ul>
               </div>
             </div>
@@ -94,27 +94,27 @@
 	     <div  id="loading" class="tab-content">
 	    	<div class="tab-pane fade in active" id="section1" name="overview">
                 <div class="col-md-9">
-                  <h3 class="text-center">Personal info</h3>
+                  <h3 class="text-center">Информация о контакте</h3>
                   <div class="col-md-offset-4 col-md-3">
-                      <h4 class="text-left">Name</h4>
+                      <h4 class="text-left">Имя</h4>
                   </div>
                   <div class="col-md-4">
                       <h4 class="text-left"><strong>${user.firstName}</strong></h4>
                   </div>
                   <div class="col-md-offset-4 col-md-3">
-                      <h4 class="text-left">Lastname</h4>
+                      <h4 class="text-left">Фамилия</h4>
                   </div>
                   <div class="col-md-4">
                       <h4 class="text-left"><strong>${user.lastName}</strong></h4>
                   </div>
                   <div class="col-md-offset-4 col-md-3">
-                      <h4 class="text-left">Country</h4>
+                      <h4 class="text-left">Страна</h4>
                   </div>
                   <div class="col-md-4">
                       <h4 class="text-left"><strong>${user.country}</strong></h4>
                   </div>
                   <div class="col-md-offset-4 col-md-3">
-                      <h4 class="text-left">City</h4>
+                      <h4 class="text-left">Город</h4>
                   </div>
                   <div class="col-md-4">
                       <h4 class="text-left"><strong>${user.city}</strong></h4>
@@ -127,26 +127,26 @@
                   </div>
                   <sec:authorize ifAnyGranted="ROLE_SELLER">
                       <div class="col-md-offset-4 col-md-3">
-                          <h4 class="text-left">Phone</h4>
+                          <h4 class="text-left">Телефон</h4>
                       </div>
                       <div class="col-md-4">
                           <h4 class="text-left"><strong>${user.phone}</strong></h4>
                       </div>
                       <div class="col-md-offset-4 col-md-3">
-                          <h4 class="text-left">Address</h4>
+                          <h4 class="text-left">Адрес</h4>
                       </div>
                       <div class="col-md-4">
                           <h4 class="text-left"><strong>${user.address}</strong></h4>
                       </div>
                       <div class="col-md-offset-4 col-md-3">
-                          <h4 class="text-left">Postal Code</h4>
+                          <h4 class="text-left">Почтовый индекс</h4>
                       </div>
                       <div class="col-md-4">
                           <h4 class="text-left"><strong>${user.postalCode}</strong></h4>
                       </div>
-                      <div class="col-md-offset-4 col-md-3">
-                          <h4 class="text-left">AFM</h4>
-                      </div>
+                      <%--<div class="col-md-offset-4 col-md-3">--%>
+                          <%--<h4 class="text-left">AFM</h4>--%>
+                      <%--</div>--%>
                       <div class="col-md-4">
                           <h4 class="text-left"><strong>${user.afm}</strong></h4>
                       </div>
@@ -154,12 +154,13 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
-                        <c:if test="${user.approved == 1}">
-                            <a href="/Auctioner/myprofile/update" class="btn btn-primary pull-right">Change Profile</a>
-                        </c:if>
-                        <c:if test="${user.approved == 0}">
-                            <a href="#" class="btn btn-primary pull-right" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">Change Profile</a>
-                        </c:if>
+                        <%--Менять свой профиль могут все!!!--%>
+                        <%--<c:if test="${user.approved == 1}">--%>
+                            <a href="/Auctioner/myprofile/update" class="btn btn-primary pull-right">Изменить данные</a>
+                        <%--</c:if>--%>
+                        <%--<c:if test="${user.approved == 0}">--%>
+                            <%--<a href="#" class="btn btn-primary pull-right" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">Change Profile</a>--%>
+                        <%--</c:if>--%>
                     </div>
                 </div>
             </div>

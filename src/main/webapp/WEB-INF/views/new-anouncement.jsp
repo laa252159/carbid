@@ -14,10 +14,10 @@
                  <p></p>
                 </div>
                 <br />
-                <form:textarea class="form-control" name="message" path="message" placeholder="Type in your message" rows="10"></form:textarea>
+                <form:textarea class="form-control" name="message" path="message" placeholder="Ваше сообщение" rows="10"></form:textarea>
         	</div>
         	<div class="panel-footer">
-        		<input class="btn btn-success col-md-offset-10" type="submit" value="Send Anouncement" id="appr-btn"></input>
+        		<input class="btn_anouns btn-success col-md-offset-10" type="submit" value="Send Anouncement" id="appr-btn"></input>
         	</div>
       </div>
   </form:form>

@@ -8,7 +8,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -36,7 +36,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -70,7 +70,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -111,7 +111,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -139,7 +139,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -167,7 +167,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -196,7 +196,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -225,7 +225,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -253,7 +253,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -281,7 +281,7 @@
                 <form class="navbar-center" role="search" action="/Auctioner/auctions">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchString" class="form-control" placeholder="Search">
+                            <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>

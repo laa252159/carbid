@@ -1,10 +1,10 @@
-<%@ page contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -22,7 +22,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -37,14 +37,16 @@
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <div class="col-lg-12 text-center intro-div">
-                        <h1 style="font-size: 63px;">Welcome to Auctioner <sec:authentication property="name" />!</h1>
-                        <p class="lead">Buy and Sell Anything</p>
+                        <h1 style="font-size: 63px;">Все перекупы в одном месте!</h1>
+                        <h2 style="font-size: 63px;"><sec:authentication property="name" />, теперь и Вы с нами!</h2>
+                        <p class="lead">Покупай машину с выгодой</p>
                         <div class="col-md-offset-3 col-md-2">
-                            <a class="btn btn-lg btn-success btn-block" href="/Auctioner/myprofile">My Account</a>
+                            <a class="btn btn-lg btn-success btn-block" href="/Auctioner/myprofile">Мой профиль</a>
                         </div>
-                        <sec:authorize ifAnyGranted="ROLE_SELLER">
+                        <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                        <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/myprofile-auctions">My Auctions</a>
+                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/myprofile-auctions">Мои лоты</a>
                         </div>
                         </sec:authorize>
                         <sec:authorize ifNotGranted="ROLE_SELLER">
@@ -53,7 +55,7 @@
                         </div>
                         </sec:authorize>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/auctions?categoryId=all">Search</a>
+                            <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/auctions?categoryId=all">Просмотреть лоты</a>
                         </div>
                     </div>
                 </sec:authorize>
@@ -74,13 +76,13 @@
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
                 <div class="col-lg-12 text-center intro-div">
-                    <h1 style="font-size: 63px;">Welcome to Auctioner!</h1>
-                    <p class="lead">Buy and Sell Anything</p>
+                    <h1 style="font-size: 63px;">Добро пожаловать на аукцион проверенных автомобилей!</h1>
+                    <p class="lead">Покупай машину с выгодой</p>
                     <div class="col-md-offset-4 col-md-2">
-                        <a class="btn btn-lg btn-success btn-block" href="/Auctioner/login">Login</a>
+                        <a class="btn_main btn-lg btn-success btn-block" href="/Auctioner/login">Войти</a>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/registration">Join us!</a>
+                        <a class="btn_main btn-lg btn-primary btn-block" href="/Auctioner/registration">Зарегистрироваться</a>
                     </div>
                 </div>
             </sec:authorize>

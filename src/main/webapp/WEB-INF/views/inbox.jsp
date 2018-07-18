@@ -8,7 +8,7 @@
 <div id="messages" class="col-sm-9">
   <div class="panel panel-primary">
   	<div class="panel-heading">
-  		<h4 class="panel-title">Inbox</h4>
+  		<h4 class="panel-title">Входящие сообщения</h4>
   	</div>
   	<div class="panel-body">
         <table id="inbox" class="table table-hover table-condensed">
@@ -16,8 +16,8 @@
         		<tr>
                     <td>Id</td>
                     <td>Receiver</td>
-        			<td>Sender</td>
-        			<td class="text-right">Date</td>
+        			<td>Отправитель</td>
+        			<td class="text-right">Дата</td>
                     <td>Message</td>
         		</tr>
         	</thead>

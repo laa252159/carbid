@@ -40,7 +40,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/Auctioner/"><span class="icon-hammer2"></span> Auctioner</a>
+		<a class="navbar-brand" href="/Auctioner/"><span class="icon-travel-car"></span> Аукцион проверенных машин Саратова</a>
 	</div>
 
 	<div class="collapse navbar-collapse js-navbar-collapse">
@@ -78,11 +78,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -134,11 +134,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -196,11 +196,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -273,11 +273,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -403,11 +403,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -474,11 +474,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -530,11 +530,11 @@
                <!-- Controls -->
                <a class="left carousel-control" href="#recentAuctions" role="button" data-slide="prev">
                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
+               <span class="sr-only">Предыдущий</span>
                </a>
                <a class="right carousel-control" href="#recentAuctions" role="button" data-slide="next">
                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
+               <span class="sr-only">Следующий</span>
                </a>
             </div>
             <!-- /.carousel -->
@@ -582,12 +582,13 @@
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href=
-                        "#" id="account">My Account (<sec:authentication property="name" />) <span class=
+                        "#" id="account">Мой профиль (<sec:authentication property="name" />) <span class=
                         "caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/Auctioner/myprofile">Account Settings</a></li>
-                            <sec:authorize ifAnyGranted="ROLE_SELLER">
-                                <li><a href="myauctions">My Auctions</a></li>
+                            <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                            <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
+                                <li><a href="myauctions">Мои лоты</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
                             <li><a href="/Auctioner/j_spring_security_logout">Logout</a></li>
@@ -596,9 +597,9 @@
                 </sec:authorize>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <a class="btn btn-primary" href="login">Login</a>
+                <a class="btn btn-primary" href="login">Вход</a>
                 or
-                <a class="btn btn-warning" href="registration">Sign up</a>
+                <a class="btn btn-warning" href="registration">Регистрация</a>
             </sec:authorize>
         </div>
 	</div><!-- /.nav-collapse -->
@@ -619,26 +620,26 @@
 	<div class="col-md-4 col-md-offset-4 well">
 		<form name="loginForm" role="form" action="j_spring_security_check" method="POST">
 			 <div class="form-group">
-				 <label for="email">Username:</label>
+				 <label for="email">Логин:</label>
 				 <input type="text" name='username' class="form-control" id="username">
 			 </div>
 			 <div class="form-group">
-				  <label for="pwd">Password:</label>
+				  <label for="pwd">Пароль:</label>
 				  <input type="password" name='password' class="form-control" id="pwd">
 			 </div>
 			 <div class="checkbox">
- 			      <label><input type="checkbox"> Remember me</label>
+ 			      <label><input type="checkbox"> Запомнить меня</label>
 			 </div>
 	  		 <button name="submit" type="submit"
-					value="submit" class="btn btn-success">Login</button>
+					value="submit" class="btn btn-success">Вход</button>
 		</form>
-		<p>Not a member? Sign up <a href="registration">here</a><p>
+		<p>Нет логина? Зарегистрироваться <a href="registration">здесь</a><p>
 	</div>
 
 	<!-- Footer -->
 	<div class="navbar navbar-default navbar-fixed-bottom" >
     <div class="container text-center">
-        <p class="text-muted">&copy; <span class="icon-hammer2"></span> Auctioner.com 2016. All rights reserved.</p>
+        <p class="text-muted">&copy; <span class="icon-travel-car"></span> Аукцион проверенных автомобилей</p>
     </div>
 </div>
 

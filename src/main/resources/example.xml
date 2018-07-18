@@ -2,7 +2,7 @@
 <!DOCTYPE Items SYSTEM "ebay.dtd" >
 <Items>
   <Item ItemID="">
-    <Name>Name</Name>
+    <Name>Имя</Name>
     <Category>Category</Category>
     <Currently>Currently</Currently>
     <Buy_Price>Buy_Price</Buy_Price>
@@ -10,7 +10,7 @@
     <Number_of_Bids>Number_of_Bids</Number_of_Bids>
     <Bids/>
     <Location Latitude="" Longitude="">Location</Location>
-    <Country>Country</Country>
+    <Country>Страна</Country>
     <Started>Started</Started>
     <Ends>Ends</Ends>
     <Seller Rating="" UserID=""/>

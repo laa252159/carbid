@@ -24,7 +24,7 @@
 
     <link href=<c:url value="/resources/css/fileinput.min.css" /> rel="stylesheet" type="text/css">
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -64,59 +64,59 @@
                        ${msg}
                      </div>
                  </c:if>
-                 <h3 class="text-center">Personal info</h3>
+                 <h3 class="text-center">Информация о контакте</h3>
 
                    <div class="form-group">
-                     <label for="firstName" class="col-lg-3 control-label">First name:</label>
+                     <label for="firstName" class="col-lg-3 control-label">Имя:</label>
                      <div class="col-lg-8">
                       <form:input type="text" name='firstName' path="firstName" class="form-control" value="${user.firstName}" />
                      </div>
                    </div>
                    <div class="form-group">
-                     <label for="lastName" class="col-lg-3 control-label">Last name:</label>
+                     <label for="lastName" class="col-lg-3 control-label">Фамилия:</label>
                      <div class="col-lg-8">
                       <form:input type="text" name='lastName' path="lastName" class="form-control" value="${user.lastName}" />
                      </div>
                    </div>
                    <div class="form-group">
-                     <label for="password" class="col-lg-3 control-label">Password:</label>
+                     <label for="password" class="col-lg-3 control-label">Пароль:</label>
                      <div class="col-lg-8">
                       <form:input type="password" name='password' path="password" class="form-control" value="p4DS*4a$hLA*4#ataPv" />
                      </div>
                    </div>
                    <div class="form-group">
-                     <label for="country" class="col-lg-3 control-label">Country:</label>
+                     <label for="country" class="col-lg-3 control-label">Страна:</label>
                      <div class="col-lg-8">
                       <form:input type="text" name='country' path="country" class="form-control" value="${user.country}" />
                      </div>
                    </div>
                    <div class="form-group">
-                     <label for="city" class="col-lg-3 control-label">City:</label>
+                     <label for="city" class="col-lg-3 control-label">Город:</label>
                      <div class="col-lg-8">
                       <form:input type="text" name='city' path="city" class="form-control" value="${user.city}" />
                      </div>
                    </div>
                    <sec:authorize ifAnyGranted="ROLE_SELLER">
                        <div class="form-group">
-                         <label for="address" class="col-lg-3 control-label">Address:</label>
+                         <label for="address" class="col-lg-3 control-label">Адрес:</label>
                          <div class="col-lg-8">
                           <form:input type="text" name='address' path="address" class="form-control" value="${user.address}" />
                          </div>
                        </div>
                        <div class="form-group">
-                         <label for="postalCode" class="col-lg-3 control-label">Postal Code:</label>
+                         <label for="postalCode" class="col-lg-3 control-label">Почтовый индекс:</label>
                          <div class="col-lg-8">
                           <form:input type="text" name='postalCode' path="postalCode" class="form-control" value="${user.postalCode}" />
                          </div>
                        </div>
+                       <%--<div class="form-group">--%>
+                         <%--<label for="afm" class="col-lg-3 control-label">AFM:</label>--%>
+                         <%--<div class="col-lg-8">--%>
+                          <%--<form:input type="text" name='afm' path="afm" class="form-control" value="${user.afm}" />--%>
+                         <%--</div>--%>
+                       <%--</div>--%>
                        <div class="form-group">
-                         <label for="afm" class="col-lg-3 control-label">AFM:</label>
-                         <div class="col-lg-8">
-                          <form:input type="text" name='afm' path="afm" class="form-control" value="${user.afm}" />
-                         </div>
-                       </div>
-                       <div class="form-group">
-                         <label for="phone" class="col-lg-3 control-label">Phone:</label>
+                         <label for="phone" class="col-lg-3 control-label">Телефон:</label>
                          <div class="col-lg-8">
                           <form:input type="text" name='phone' path="phone" class="form-control" value="${user.phone}" />
                          </div>
@@ -128,9 +128,9 @@
                    <div class="form-group">
                      <label class="col-md-3 control-label"></label>
                      <div class="col-md-8">
-                         <a href="/Auctioner/myprofile" class="btn btn-default">Cancel</a>
+                         <a href="/Auctioner/myprofile" class="btn btn-default">Отмена</a>
                          <span></span>
-                         <button name="submit" type="submit" value="submit" class="btn btn-success">Save Changes</button>
+                         <button name="submit" type="submit" value="submit" class="btn btn-success">Сохранить изменения</button>
                      </div>
                    </div>
                </div>

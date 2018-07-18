@@ -18,7 +18,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="home"><span class="icon-hammer2"></span> Auctioner</a>
+		<a class="navbar-brand" href="home"><span class="icon-travel-car"></span> Perekup64</a>
 	</div>
 
 	<div class="collapse navbar-collapse js-navbar-collapse">
@@ -53,12 +53,12 @@
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href=
-                        "#" id="account">My Account (<sec:authentication property="name" />) <span class=
+                        "#" id="account">Мой профиль (<sec:authentication property="name" />) <span class=
                         "caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/Auctioner/myprofile">Account Settings</a></li>
                             <sec:authorize ifAnyGranted="ROLE_SELLER">
-                                <li><a href="myauctions">My Auctions</a></li>
+                                <li><a href="myauctions">Мои аукционы</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
                             <li><a href="/Auctioner/j_spring_security_logout">Logout</a></li>
@@ -67,9 +67,9 @@
                 </sec:authorize>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <a class="btn btn-primary" href="login">Login</a>
+                <a class="btn btn-primary" href="login">Вход</a>
                 or
-                <a class="btn btn-warning" href="registration">Sign up</a>
+                <a class="btn btn-warning" href="registration">Регистрация</a>
             </sec:authorize>
         </form>
 	</div><!-- /.nav-collapse -->

@@ -20,7 +20,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -127,7 +127,7 @@
                              </div>
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
-                                     <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                     <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                  </ul>
                              </div>
                          </div>
@@ -208,20 +208,20 @@
                               </div>
                               <div class="row top-buffer">
                                   <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                   </ul>
                               </div>
                          </div>
                          <div class="tab-pane" role="tabpanel" id="step3">
-                             <h2 class="text-center">Upload Pictures</h2>
+                             <h2 class="text-center">Загрузить фото</h2>
                              <div class="row content-row">
                                  <input id="input-1" name="input1" type="file" class="file-loading" multiple accept="image/x-png, image/jpeg"/>
                               </div>
                               <div class="row top-buffer">
                                   <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Continue</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
+                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
                                   </ul>
                               </div>
                          </div>
@@ -236,7 +236,7 @@
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
                                      <form:input type="hidden" name='auctionid' path="auction.auctionid" class="form-control" />
-                                     <li><button type="button" class="btn btn-lg btn-default prev-step">Back</button></li>
+                                     <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
                                      <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Save Auction</button></li>
                                  </ul>
                              </div>

@@ -20,7 +20,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -68,7 +68,7 @@
             				 <input type="text" name='afm' class="form-control" id="afm" />
             			 </div>
                          <div class="form-group">
-    						 <label for="phone">Phone:</label>
+    						 <label for="phone">Телефон:</label>
     						 <input type="text" name='phone' path="phone" class="form-control" id="phone" />
     					 </div>
                          <div class="row top-buffer">

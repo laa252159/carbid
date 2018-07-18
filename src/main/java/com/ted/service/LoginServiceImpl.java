@@ -93,7 +93,7 @@ public class LoginServiceImpl implements LoginService {
 		perUser.setCity(user.getCity());
 		perUser.setAddress(user.getAddress());
 		perUser.setPostalCode(user.getPostalCode());
-		perUser.setAfm(user.getAfm());
+//		perUser.setAfm(user.getAfm());
 		
 		if(!user.getPassword().equals("p4DS*4a$hLA*4#ataPv")) {
 			// BCrypt password encryption
@@ -152,14 +152,14 @@ public class LoginServiceImpl implements LoginService {
 		user.setPostalCode(postalCode);
 		
 		/* AFM */
-		String afm = params.get("afm");
-		if(afm.isEmpty())
-			return "Please provide an AFM.";
-		user.setAfm(afm);
+//		String afm = params.get("afm");
+//		if(afm.isEmpty())
+//			return "Please provide an AFM.";
+//		user.setAfm(afm);
 		
 		/* Phone */
 		String phone = params.get("phone");
-		if(afm.isEmpty())
+		if(phone.isEmpty())
 			return "Please provide a phone number.";
 		user.setPhone(phone);
 		

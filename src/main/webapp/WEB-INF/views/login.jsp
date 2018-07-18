@@ -42,20 +42,20 @@
 	<div class="col-md-4 col-md-offset-4 well">
 		<form name="loginForm" role="form" action="<c:url value='j_spring_security_check' />" method="POST">
 			 <div class="form-group">
-				 <label for="email">Username:</label>
+				 <label for="email">Логин:</label>
 				 <input type="text" name='username' class="form-control" id="username">
 			 </div>
 			 <div class="form-group">
-				  <label for="pwd">Password:</label>
+				  <label for="pwd">Пароль:</label>
 				  <input type="password" name='password' class="form-control" id="pwd">
 			 </div>
 			 <div class="checkbox">
- 			      <label><input type="checkbox"> Remember me</label>
+ 			      <label><input type="checkbox"> Запомнить меня</label>
 			 </div>
 	  		 <button name="submit" type="submit"
-					value="submit" class="btn btn-success">Login</button>
+					value="submit" class="btn btn-success">Вход</button>
 		</form>
-		<p>Not a member? Sign up <a href="registration">here</a><p>
+		<p>Нет логина? Зарегистрироваться <a href="registration">здесь</a><p>
 	</div>
 
 	<!-- Footer -->

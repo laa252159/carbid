@@ -1,6 +1,6 @@
 <div class="navbar navbar-default navbar-fixed-bottom" >
     <div class="container text-center">
-        <p>&copy; <span class="icon-hammer2"></span> Auctioner.com 2016. All rights reserved.</p>
+        <p>&copy; <span class="icon-travel-car-small"></span> Аукцион проверенных автомобилей</p>
     </div>
 </div>
 

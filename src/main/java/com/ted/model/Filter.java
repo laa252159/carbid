@@ -35,7 +35,7 @@ public class Filter {
 		
 		price = null;
 
-		sortByOutput = "Ending Date";
+		sortByOutput = "Дата окончания";
 		
 		searchString = null;
 	}

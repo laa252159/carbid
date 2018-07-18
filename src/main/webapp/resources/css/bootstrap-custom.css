@@ -1957,7 +1957,7 @@ pre code {
     width: 25%;
   }
   .col-md-2 {
-    width: 16.66666667%;
+    width: 23.666667%;
   }
   .col-md-1 {
     width: 8.33333333%;
@@ -2065,7 +2065,7 @@ pre code {
     margin-left: 41.66666667%;
   }
   .col-md-offset-4 {
-    margin-left: 33.33333333%;
+    margin-left: 25.333333%;
   }
   .col-md-offset-3 {
     margin-left: 25%;
@@ -4341,7 +4341,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 14.5px;
+    padding-top: 40.5px;
     padding-bottom: 14.5px;
   }
 }
@@ -6711,7 +6711,7 @@ button.close {
   .visible-print-inline-block {
     display: inline-block !important;
   }
-}
+}btn btn-success col-md-offset-10
 @media print {
   .hidden-print {
     display: none !important;
@@ -6733,6 +6733,20 @@ button.close {
 }
 .btn {
   font-weight: 300;
+  width: 205px;
+}
+
+.btn_main {
+    font-weight: 300;
+    width: 245px;
+}
+.btn_new {
+    font-weight: 300;
+    width: 141px;
+}
+.btn_anouns {
+    font-weight: 300;
+    width: 140px;
 }
 .btn-default:hover {
   background-color: #485563;

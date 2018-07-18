@@ -18,7 +18,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/Auctioner/"><span class="icon-hammer2"></span> Auctioner</a>
+		<a class="navbar-brand" href="/Auctioner/"><span class="icon-travel-car"></span> Perekup64</a>
 	</div>
 
 	<div class="collapse navbar-collapse js-navbar-collapse">
@@ -27,7 +27,7 @@
             <form class="navbar-center" role="search" action="/Auctioner/auctions">
                 <div class="form-group" style="margin-bottom: 0px;">
                     <div class="input-group">
-                        <input type="text" name="searchString" class="form-control" placeholder="Search">
+                        <input type="text" name="searchString" class="form-control" placeholder="Поиск">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </span>
@@ -57,13 +57,15 @@
                     <li><a class="bottom-color" href="/Auctioner/admin" style="color:orange">Admin Console</a></li>
                     <li><a class="bottom-color" href="/Auctioner/j_spring_security_logout">Logout</a></li>
                 </sec:authorize>
+                <%--продавцов назначаем ручками через БД в перспективе--%>
                 <sec:authorize ifAnyGranted="ROLE_BIDDER">
                 <sec:authorize ifNotGranted="ROLE_SELLER">
                     <li><a class="bottom-color" href="upgrade" style="color:orange">Become An Auctioner</a></li>
                 </sec:authorize>
                 </sec:authorize>
-                <sec:authorize ifAnyGranted="ROLE_SELLER">
-                   <li><a class="bottom-color" href="/Auctioner/new-auction">New Auction</a></li>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
+                   <li><a class="bottom-color" href="/Auctioner/new-auction">Создать лот</a></li>
                </sec:authorize>
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <li class="dropdown">
@@ -73,8 +75,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/Auctioner/myprofile">Account Settings</a></li>
-                            <sec:authorize ifAnyGranted="ROLE_SELLER">
-                                <li><a href="/Auctioner/myprofile-auctions">My Auctions</a></li>
+                            <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                            <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
+                                <li><a href="/Auctioner/myprofile-auctions">Мои лоты</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
                             <li style="color: red;"><a href="/Auctioner/j_spring_security_logout"><span class="glyphicon glyphicon-off"></span><i class="glyphicon glyphicon-none"></i>Logout</a></li>
@@ -83,26 +86,25 @@
                 </sec:authorize>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <li><a class="bottom-color" href="/Auctioner/login">Login</a></li>
-                <li><a class="bottom-color" href="/Auctioner/registration">Sign up</a></li>
+                <li><a class="bottom-color" href="/Auctioner/login">Вход</a></li>
+                <li><a class="bottom-color" href="/Auctioner/registration">Регистрация</a></li>
             </sec:authorize>
         </div>
 	</div><!-- /.nav-collapse -->
   </div>
 </nav>
-
 <div class="nav-wrapper">
     <nav id="nav" class="navbar navbar-default navbar-lower" role="navigation">
       <div class="container-fluid">
-        <div class="collapse navbar-collapse collapse-buttons">
-            <ul class="nav navbar-nav">
-                <li><a class="bottom-color" href="/Auctioner/auctions?categoryId=all">Просмотреть все</a></li>
+        <%--<div class="collapse navbar-collapse collapse-buttons">--%>
+            <%--<ul class="nav navbar-nav">--%>
+                <%--<li><a class="bottom-color" href="/Auctioner/auctions?categoryId=all">Просмотреть все лоты</a></li>--%>
 
-                <%-- Categories --%>
-                <%@ include file="/resources/template/categories.jsp" %>
+                <%--&lt;%&ndash; Categories &ndash;%&gt;--%>
+                <%--&lt;%&ndash;<%@ include file="/resources/template/categories.jsp" %>&ndash;%&gt;--%>
 
-    		</ul>
-        </div>
+    		<%--</ul>--%>
+        <%--</div>--%>
       </div>
     </nav>
 </div>

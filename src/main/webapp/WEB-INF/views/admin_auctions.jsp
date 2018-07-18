@@ -10,7 +10,7 @@
                 <table id="allAuctions" class="table table-striped table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th>Name</th><th>Seller</th><th>Ends</th><th>First Bid</th><th>Export</th><th></th>
+                            <th>Имя</th><th>Seller</th><th>Ends</th><th>First Bid</th><th>Export</th><th></th>
                         </tr>
                     <thead>
                     <tbody>

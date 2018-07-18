@@ -21,7 +21,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Auctioner</title>
+    <title>Perekup64</title>
 
 </head>
 
@@ -61,27 +61,27 @@
                         </div>
                         <!-- edit form column -->
                         <div class="col-md-9 col-sm-6 col-xs-12 personal-info">
-                          <h3>Personal info</h3>
+                          <h3>Информация о контакте</h3>
                           <div class="col-md-offset-4 col-md-3">
-                            <h4 class="text-left">Name</h4>
+                            <h4 class="text-left">Имя</h4>
                           </div>
                           <div class="col-md-4">
                               <h4 class="text-left"><strong>${usr.firstName}</strong></h4>
                           </div>
                           <div class="col-md-offset-4 col-md-3">
-                            <h4 class="text-left">Lastname</h4>
+                            <h4 class="text-left">Фамилия</h4>
                           </div>
                           <div class="col-md-4">
                               <h4 class="text-left"><strong>${usr.lastName}</strong></h4>
                           </div>
                           <div class="col-md-offset-4 col-md-3">
-                            <h4 class="text-left">Country</h4>
+                            <h4 class="text-left">Страна</h4>
                           </div>
                           <div class="col-md-4">
                               <h4 class="text-left"><strong>${usr.country}</strong></h4>
                           </div>
                           <div class="col-md-offset-4 col-md-3">
-                            <h4 class="text-left">City</h4>
+                            <h4 class="text-left">Город</h4>
                           </div>
                           <div class="col-md-4">
                               <h4 class="text-left"><strong>${usr.city}</strong></h4>
@@ -97,10 +97,10 @@
                     <div class="row">
                         <div class="col-sm-11">
                             <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                                <a href="/Auctioner/admin-new-message/${usr.username}" class="btn btn-success pull-right">Send Message</a>
+                                <a href="/Auctioner/admin-new-message/${usr.username}" class="btn btn-success pull-right">Отправить</a>
                             </sec:authorize>
                             <sec:authorize ifNotGranted="ROLE_ADMIN">
-                                <a href="/Auctioner/myprofile-new-message/${usr.username}" class="btn btn-success pull-right">Send Message</a>
+                                <a href="/Auctioner/myprofile-new-message/${usr.username}" class="btn btn-success pull-right">Отправить</a>
                             </sec:authorize>
                         </div>
                     </div>
