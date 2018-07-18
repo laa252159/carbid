@@ -576,9 +576,9 @@
                     <li><a href="/Auctioner/admin" style="color:orange">Admin Console</a></li>
                     <li><a href="/Auctioner/j_spring_security_logout">Logout</a></li>
                 </sec:authorize>
-                 <sec:authorize ifAnyGranted="ROLE_BIDDER">
-                    <li><a href="upgrade" style="color:orange">Become An Auctioner</a></li>
-                </sec:authorize>
+                 <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
+                    <%--<li><a href="upgrade" style="color:orange">Become An Auctioner</a></li>--%>
+                <%--</sec:authorize>--%>
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href=

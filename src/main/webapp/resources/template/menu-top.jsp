@@ -58,11 +58,11 @@
                     <li><a class="bottom-color" href="/Auctioner/j_spring_security_logout">Logout</a></li>
                 </sec:authorize>
                 <%--продавцов назначаем ручками через БД в перспективе--%>
-                <sec:authorize ifAnyGranted="ROLE_BIDDER">
-                <sec:authorize ifNotGranted="ROLE_SELLER">
-                    <li><a class="bottom-color" href="upgrade" style="color:orange">Become An Auctioner</a></li>
-                </sec:authorize>
-                </sec:authorize>
+                <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
+                <%--<sec:authorize ifNotGranted="ROLE_SELLER">--%>
+                    <%--<li><a class="bottom-color" href="upgrade" style="color:orange">Become An Auctioner</a></li>--%>
+                <%--</sec:authorize>--%>
+                <%--</sec:authorize>--%>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
                    <li><a class="bottom-color" href="/Auctioner/new-auction">Создать лот</a></li>

@@ -49,11 +49,11 @@
                             <a class="btn btn-lg btn-info btn-block" href="/Auctioner/myprofile-auctions">Мои лоты</a>
                         </div>
                         </sec:authorize>
-                        <sec:authorize ifNotGranted="ROLE_SELLER">
-                        <div class="col-md-2">
-                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/upgrade"  data-toggle="tooltip" data-placement="top" title="Become an Auctioneer and sell everything!">Auctioneer</a>
-                        </div>
-                        </sec:authorize>
+                        <%--<sec:authorize ifNotGranted="ROLE_SELLER">--%>
+                        <%--<div class="col-md-2">--%>
+                            <%--<a class="btn btn-lg btn-info btn-block" href="/Auctioner/upgrade"  data-toggle="tooltip" data-placement="top" title="Become an Auctioneer and sell everything!">Auctioneer</a>--%>
+                        <%--</div>--%>
+                        <%--</sec:authorize>--%>
                         <div class="col-md-2">
                             <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/auctions?categoryId=all">Просмотреть лоты</a>
                         </div>
