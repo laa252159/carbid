@@ -109,19 +109,20 @@
                           <form:input type="text" name='postalCode' path="postalCode" class="form-control" value="${user.postalCode}" />
                          </div>
                        </div>
+
                        <%--<div class="form-group">--%>
                          <%--<label for="afm" class="col-lg-3 control-label">AFM:</label>--%>
                          <%--<div class="col-lg-8">--%>
                           <%--<form:input type="text" name='afm' path="afm" class="form-control" value="${user.afm}" />--%>
                          <%--</div>--%>
                        <%--</div>--%>
-                       <div class="form-group">
-                         <label for="phone" class="col-lg-3 control-label">Телефон:</label>
-                         <div class="col-lg-8">
-                          <form:input type="text" name='phone' path="phone" class="form-control" value="${user.phone}" />
-                         </div>
-                       </div>
                    </sec:authorize>
+                   <div class="form-group">
+                       <label for="phone" class="col-lg-3 control-label">Телефон:</label>
+                       <div class="col-lg-8">
+                           <form:input type="text" name='phone' path="phone" class="form-control" value="${user.phone}" />
+                       </div>
+                   </div>
                    <form:input type="hidden" name='userid' path="userid" class="form-control" value="${user.userid}" />
                    <form:input type="hidden" name='email' path="email" class="form-control" value="${user.email}" />
                    <form:input type="hidden" name='username' path="username" class="form-control" value="${user.username}" />
