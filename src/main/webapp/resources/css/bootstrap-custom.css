@@ -6731,11 +6731,19 @@ button.close {
   background-color: #fff;
   color: #df691a;
 }
+/*.btn {*/
+  /*font-weight: 300;*/
+  /*width: 205px;*/
+/*}*/
+
 .btn {
-  font-weight: 300;
-  width: 205px;
+    font-weight: 300;
 }
 
+.btn_lot {
+    font-weight: 300;
+    width: 108px;
+}
 .btn_main {
     font-weight: 300;
     width: 245px;

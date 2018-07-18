@@ -52,9 +52,9 @@
                             </div>
                             </c:if>
                             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
-                                <label for="seller-rating" class="control-label"><h3>Auctioneer Rating</h3></label>
+                                <label for="seller-rating" class="control-label"><h3>Рейтинг продавца</h3></label>
                                 <input id="seller-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${usr.sellerRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
-                                <label for="bidder-rating" class="control-label"><h3>Bidder Rating</h3></label>
+                                <label for="bidder-rating" class="control-label"><h3>Рейтинг покупателя</h3></label>
                                 <input id="bidder-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${usr.bidderRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
                             </sec:authorize>
                           </div>

@@ -63,13 +63,13 @@
                     <div class="col-lg-12 text-center intro-div">
                         <h1 style="font-size: 63px;">Welcome Admin!</h1>
                         <div class="col-md-offset-3 col-md-2">
-                            <a class="btn btn-lg btn-success btn-block" href="/Auctioner/admin-users">Users</a>
+                            <a class="btn btn-lg btn-success btn-block" href="/Auctioner/admin-users">Пользователи</a>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/admin">Dashboard</a>
+                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/admin">Доска</a>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/admin-auctions">Auctions</a>
+                            <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/auctions?categoryId=all">Аукционы</a>
                         </div>
                     </div>
                 </sec:authorize>

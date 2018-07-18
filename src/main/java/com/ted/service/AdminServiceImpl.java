@@ -37,7 +37,7 @@ public class AdminServiceImpl implements AdminService {
 		
 		dashboard.setAuctionNum(auctionRepository.count());
 		
-		dashboard.setNewAuctions(auctionRepository.countLast3Days());
+		dashboard.setNewAuctions(auctionRepository.countLast15Days());
 		
 		dashboard.setLatestAuctions(auctionRepository.findTop5ByOrderByStarted());
 		

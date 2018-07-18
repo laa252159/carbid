@@ -54,8 +54,8 @@
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                    <li><a class="bottom-color" href="/Auctioner/admin" style="color:orange">Admin Console</a></li>
-                    <li><a class="bottom-color" href="/Auctioner/j_spring_security_logout">Logout</a></li>
+                    <li><a class="bottom-color" href="/Auctioner/admin" style="color:orange">Админка</a></li>
+                    <li><a class="bottom-color" href="/Auctioner/j_spring_security_logout">Выйти</a></li>
                 </sec:authorize>
                 <%--продавцов назначаем ручками через БД в перспективе--%>
                 <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
@@ -80,7 +80,7 @@
                                 <li><a href="/Auctioner/myprofile-auctions">Мои лоты</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
-                            <li style="color: red;"><a href="/Auctioner/j_spring_security_logout"><span class="glyphicon glyphicon-off"></span><i class="glyphicon glyphicon-none"></i>Logout</a></li>
+                            <li style="color: red;"><a href="/Auctioner/j_spring_security_logout"><span class="glyphicon glyphicon-off"></span><i class="glyphicon glyphicon-none"></i>Выйти</a></li>
                         </ul>
                     </li>
                 </sec:authorize>

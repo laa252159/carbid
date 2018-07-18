@@ -25,9 +25,9 @@
 						</td>
                         <td style="text-align: right">
                             <div class="dropdown">
-                            <button class="btn btn-xs btn-primary" data-toggle="dropdown">More</button>
+                            <%--<button class="btn btn-xs btn-primary" data-toggle="dropdown">More</button>--%>
                             <ul class="dropdown-menu">
-                                <li><a href="Profile">Details</a>
+                                <li><a href="Profile">ПОДРОБНЕЕ</a>
                                 <li><a href="Profile">Seller</a>
                                 <li><a href="api/auctions/${auction.auctionid}">Auction XML</a>
                                 <%-- <li class="divider"></li>

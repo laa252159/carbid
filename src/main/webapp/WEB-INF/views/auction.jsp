@@ -43,7 +43,7 @@
 
         <c:if test="${modify == 1}">
             <div class="col-md-offset-10 col-md-2">
-                <a href="/Auctioner/update-auction/${auction.auctionid}" class="btn btn-warning">Modify Auction</a>
+                <a href="/Auctioner/update-auction/${auction.auctionid}" class="btn btn-warning">Изменить лот</a>
             </div>
         </c:if>
 
@@ -124,14 +124,14 @@
                             <h4 class="panel-title">Стартовая цена</h4>
                         </div>
                         <div class="panel-body">
-                            <div class="price-number text-center">$${auction.firstBid}</div>
+                            <div class="price-number text-center">${auction.firstBid} Руб</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Starting Date</h4>
+                            <h4 class="panel-title">Дата заведения</h4>
                         </div>
                         <div class="panel-body">
                             <span class="date-number text-center">${auction.started}</span>
@@ -164,14 +164,14 @@
                             <h4 class="panel-title">Current Price</h4>
                         </div>
                         <div class="panel-body">
-                            <div class="price-number text-center"><span id="currentPrice">$${auction.firstBid}</span></div>
+                            <div class="price-number text-center"><span id="currentPrice">${auction.firstBid} Руб</span></div>
                         </div>
                         <div class="panel-footer">
                             <div class="col-md-9" style="padding-left: 0px;">
                                 <div class="form-group" style="margin-bottom: 0px;">
                                     <div class="input-group">
-                                        <span class="input-group-addon">$</span>
-                                        <input type="text" class="form-control" id="bidInput" placeholder="Place Bid">
+                                        <span class="input-group-addon">Руб</span>
+                                        <input type="text" style="font-size: 8pt" class="form-control" id="bidInput" placeholder="Новая ставка">
                                         <span class="input-group-addon">.00</span>
                                     </div>
                                 </div>
@@ -179,14 +179,14 @@
                             <div class="col-md-3 bid-button" style="padding-right: 0px;">
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid == auction.user.userid}">
-                                        <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction" disabled="disabled">Bid</button>
+                                        <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction" disabled="disabled">ДА</button>
                                     </c:if>
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bidModal">Bid</button>
+                                        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bidModal">ДА</button>
                                     </c:if>
                                 </c:if>
                                 <c:if test="${user.approved == 0}">
-                                    <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">Bid</button>
+                                    <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">ДА</button>
                                 </c:if>
                             </div>
                             <div class="clearfix"></div>
@@ -200,19 +200,19 @@
                                 <h4 class="panel-title">Buy Price</h4>
                             </div>
                             <div class="panel-body">
-                                <div class="price-number text-center">$${auction.buyPrice}</div>
+                                <div class="price-number text-center">${auction.buyPrice} Руб</div>
                             </div>
                             <div class="panel-footer">
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Buy Now!</button>
+                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
                                     </c:if>
                                     <c:if test="${user.userid == auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled"><i><span class="icon-travel-car"></i></span>Buy Now!</button>
+                                        <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
                                     </c:if>
                                 </c:if>
                                 <c:if test="${user.approved == 0}">
-                                    <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled"><i><span class="icon-travel-car"></i></span>Buy Now!</button>
+                                    <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
                                 </c:if>
                                 <div class="clearfix"></div>
                             </div>
@@ -246,7 +246,7 @@
                   <p>Are you sure you want to continue? This action cannot be cancelled later.</p>
                 </div>
                 <div class="modal-footer">
-                  <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">Bid</button>
+                  <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
               </div>
@@ -267,7 +267,7 @@
                     <p>Are you sure you want to continue? This action cannot be cancelled later.</p>
                   </div>
                   <div class="modal-footer">
-                    <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">Bid</button>
+                    <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
                 </div>
@@ -278,14 +278,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#detailsTab" data-toggle="tab">DETAILS</a></li>
-                    <li><a href="#locationTab" data-toggle="tab">LOCATION</a></li>
-                    <li><a href="#auctioneerTab" data-toggle="tab">AUCTIONEER INFO</a></li>
+                    <li class="active"><a href="#detailsTab" data-toggle="tab">ПОДРОБНЕЕ</a></li>
+                    <li><a href="#locationTab" data-toggle="tab">МЕСТО НАХОЖДЕНИЯ</a></li>
+                    <li><a href="#auctioneerTab" data-toggle="tab">ДАННЫЕ ПОСРЕДНИКА</a></li>
                 </ul>
 
                 <div class="tab-content">
                     <div class="well tab-pane active" id="detailsTab">
-                        <h3>Description</h3>
+                        <h3>Описание</h3>
                         <p>
                             ${auction.description}
                         </p>
@@ -318,9 +318,9 @@
                             </div>
                             <div class="col-sm-6">
                                 <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
-                                    <label for="seller-rating" class="control-label"><h3>Auctioneer Rating</h3></label>
+                                    <label for="seller-rating" class="control-label"><h3>Рейтинг продавца</h3></label>
                                     <input id="seller-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.sellerRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
-                                    <label for="bidder-rating" class="control-label"><h3>Bidder Rating</h3></label>
+                                    <label for="bidder-rating" class="control-label"><h3>Рейтинг покупателя</h3></label>
                                     <input id="bidder-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.bidderRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
                                 </sec:authorize>
                             </div>
@@ -341,7 +341,7 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Suggestions</h3>
+                            <h3>Предложения</h3>
                         </div>
                         <div class="col-md-3">
                             <!-- Controls -->
@@ -380,7 +380,7 @@
                                                     <p class="lead">$${rec.firstBid}</p>
                                                 </div>
                                                 <div class="col-xs-12 col-md-6">
-                                                    <a class="btn btn-primary" href="/Auctioner/auction/${auction.auctionid}">View More</a>
+                                                    <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>
                                                 </div>
                                             </div>
                                         </div>

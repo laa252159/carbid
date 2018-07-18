@@ -73,7 +73,7 @@
 
               <!-- Desktop sidebar -->
               <div class="col-sm-3 collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                <h4 class="text-center">Admin Panel</h4>
+                <h4 class="text-center">Админ-панель</h4>
                 <ul class="nav navbar-nav nav-pills">
                   <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Обзор<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></a></li>
                   <li class="dropdown">
@@ -87,7 +87,7 @@
                       <li><a href="/Auctioner/messaging/new-anouncement" data-target="#section6" id="newAnouncement_tab" data-toggle="pill" rel="tooltip">New Anouncement</a></li>
                     </ul>
                   </li>
-                  <li ><a class="left-color" href="admin/users" data-target="#section7" id="users_tab" data-toggle="pill" rel="tooltip">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                  <li ><a class="left-color" href="admin/users" data-target="#section7" id="users_tab" data-toggle="pill" rel="tooltip">Пользователи<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                   <li class="dropdown">
                     <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Auctions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity icon-travel-car-small"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
@@ -105,18 +105,18 @@
 			    <div class="col-sm-9">
 			      <div class="panel panel-primary">
                       <div class="panel-heading">
-                          <h4 class="panel-title">Dashboard</h4>
+                          <h4 class="panel-title">Доска</h4>
                       </div>
                       <div class="panel-body">
-                          <p><span class="glyphicon glyphicon-alert text-danger" style="margin-right:10px;"></span><strong >${dashboard.nonApprovedUsers}</strong> non approved <strong >Users</strong>.</p>
-                          <p><span class="glyphicon glyphicon-info-sign text-info" style="margin-right:10px;"></span><strong>${dashboard.newAuctions}</strong> new <strong>Auctions</strong> in the last 3 days.</p>
+                          <p><span class="glyphicon glyphicon-alert text-danger" style="margin-right:10px;"></span><strong >${dashboard.nonApprovedUsers}</strong> не подтвержденных <strong >пользователей</strong>.</p>
+                          <p><span class="glyphicon glyphicon-info-sign text-info" style="margin-right:10px;"></span><strong>${dashboard.newAuctions}</strong> new <strong>Аукционы</strong> за последние 15 дней.</p>
                       </div>
                   </div>
 			      <div class="row">
 			        <div class="col-sm-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Users</h4>
+                                <h4 class="panel-title">Пользователи</h4>
                             </div>
                             <div class="panel-body">
 			                    <div class="dash-number text-center">${dashboard.userNum}</div>
@@ -126,7 +126,7 @@
 			        <div class="col-sm-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Bidders</h4>
+                                <h4 class="panel-title">Игроков</h4>
                             </div>
                             <div class="panel-body">
                                 <div class="dash-number text-center">${dashboard.bidders}</div>
@@ -136,17 +136,18 @@
 			        <div class="col-sm-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Auctioneers</h4>
+                                <h4 class="panel-title">Продавцов</h4>
                             </div>
                             <div class="panel-body">
-                                <div class="dash-number text-center">${dashboard.sellers}</div>
+                                <%--<div class="dash-number text-center">${dashboard.sellers}</div>--%>
+                                <div class="dash-number text-center">1</div>
                             </div>
                         </div>
 			        </div>
 			        <div class="col-sm-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Auctions</h4>
+                                <h4 class="panel-title">Аукционов</h4>
                             </div>
                             <div class="panel-body">
                                 <div class="dash-number text-center">${dashboard.auctionNum}</div>
@@ -158,7 +159,7 @@
 			        <div class="col-sm-4">
                       <div class="panel panel-primary">
                           <div class="panel-heading">
-                              <h4 class="panel-title">Latest Users</h4>
+                              <h4 class="panel-title">Последние созданные пользователи</h4>
                           </div>
                           <div class="panel-body">
                               <ul class="list-group">
@@ -172,12 +173,12 @@
 			        <div class="col-sm-8">
                       <div class="panel panel-primary">
                           <div class="panel-heading">
-                              <h4 class="panel-title">Latest Auctions</h4>
+                              <h4 class="panel-title">Последние аукционы</h4>
                           </div>
                           <div class="panel-body">
                               <ul class="list-group">
                                 <c:forEach items="${dashboard.latestAuctions}" var="latestAuction">
-                                <li class="list-group-item list-item"><a href="/Auctioner/profile/${latestAuction.auctionid}">${latestAuction.name}</a></li>
+                                <li class="list-group-item list-item"><a href="/Auctioner/auction/${latestAuction.auctionid}">${latestAuction.name}</a></li>
                                 </c:forEach>
                               </ul>
                           </div>

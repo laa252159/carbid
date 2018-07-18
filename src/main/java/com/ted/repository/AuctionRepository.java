@@ -53,8 +53,8 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
 	List<Integer> getTopAuctionsIds(@Param("limit") int limit);
 	
 	/* Dashboard Info */
-	@Query(value = "SELECT COUNT(*) FROM auctions WHERE started >= ( CURDATE() - INTERVAL 3 DAY )", nativeQuery = true)
-	Long countLast3Days();
+	@Query(value = "SELECT COUNT(*) FROM auctions WHERE started >= ( CURDATE() - INTERVAL 15 DAY )", nativeQuery = true)
+	Long countLast15Days();
 	
 	@Transactional
 	List<Auction> findTop5ByOrderByStarted();

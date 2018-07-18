@@ -36,7 +36,7 @@
                                 <p class="price-tag"><strong>&#36;${auction.currently}</strong></p>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <a class="btn btn-primary" href="/Auctioner/auction/${auction.auctionid}">View More</a>
+                                <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>
                             </div>
                         </div>
                     </div>

@@ -44,8 +44,8 @@
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                    <li><a href="/Auctioner/admin" style="color:orange">Admin Console</a></li>
-                    <li><a href="/Auctioner/j_spring_security_logout">Logout</a></li>
+                    <li><a href="/Auctioner/admin" style="color:orange">Админка</a></li>
+                    <li><a href="/Auctioner/j_spring_security_logout">Выйти</a></li>
                 </sec:authorize>
                  <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
                     <%--<li><a href="upgrade" style="color:orange">Become An Auctioner</a></li>--%>
@@ -61,7 +61,7 @@
                                 <li><a href="myauctions">Мои аукционы</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
-                            <li><a href="/Auctioner/j_spring_security_logout">Logout</a></li>
+                            <li><a href="/Auctioner/j_spring_security_logout">Выйти</a></li>
                         </ul>
                     </li>
                 </sec:authorize>

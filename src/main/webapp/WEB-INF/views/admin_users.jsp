@@ -4,13 +4,13 @@
    	<form id="authorize-form" method="GET">
       <div class="panel panel-primary">
       	<div class="panel-heading">
-      		<h4 class="panel-title">All Users</h4>
+      		<h4 class="panel-title">Все пользователи</h4>
       	</div>
       	<div class="panel-body">
 		        <table id="allUsers" class="table table-striped table-hover table-condensed">
 		        	<thead>
 						<tr>
-							<th>Username</th><th>Firstname</th><th>Фамилия</th><th>Email</th><th>Approved</th><th></th>
+							<th>Логин</th><th>Имя</th><th>Фамилия</th><th>Email</th><th>Подтвержден</th><th></th>
 						</tr>
 					<thead>
 					<tbody>
