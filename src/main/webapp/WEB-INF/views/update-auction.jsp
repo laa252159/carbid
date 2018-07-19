@@ -308,10 +308,10 @@
     	});
     });
 
-    // $(function () {
-    //     $('#datetimepicker1').datetimepicker();
-    //     populateCountries("country");
-    // });
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+        // populateCountries("country");
+    });
 
     /* File Upload */
     $(document).on('ready', function() {
