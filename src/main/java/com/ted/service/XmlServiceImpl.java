@@ -225,7 +225,7 @@ public class XmlServiceImpl implements XmlService {
 		String[] phones = {"6975552224", "6995554446", "6987775552", "6985556661"};
 		String[] addresses = {"Portland 23", "Cleanwater 55", "Mainland 4", "Cleverlane 78"};
 		String[] postalCodes = {"45868", "11541", "88746", "44866", "48684", "88742"};
-		String[] cities = {"Atalanta", "Chicago", "New York"};
+		String[] cities = {"Саратов", "Chicago", "New York"};
 		
 		/* Check if user exists */
 		User dbuser = userMap.get(user.getUsername());
@@ -243,18 +243,14 @@ public class XmlServiceImpl implements XmlService {
 		String hashedPass = passEncoder.encode("secret");
 		user.setPassword(hashedPass);
 		
-		/* Check location and country */
-		if(user.getCountry() == null) {
-			user.setCountry("USA");
-		}
+		/* Check location */
 		if(user.getCity() == null) {
 			user.setCity(getRandom(cities));
 		}
 		
-		/* Email & afm */
+		/* Email */
 		user.setEmail(user.getUsername() + "@gmail.com");
-		user.setAfm("111122223333");
-		
+
 		/* Enabled & Approved */
 		user.setEnabled((byte)1);
 		user.setApproved((byte)0);
@@ -331,18 +327,13 @@ public class XmlServiceImpl implements XmlService {
 		String hashedPass = passEncoder.encode("secret");
 		user.setPassword(hashedPass);
 		
-		/* Check location and country */
-		if(user.getCountry() == null) {
-			user.setCountry("USA");
-		}
 		if(user.getCity() == null) {
 			user.setCity(getRandom(cities));
 		}
 		
 		/* Email & afm */
 		user.setEmail(user.getUsername() + "@gmail.com");
-		user.setAfm("111122223333");
-		
+
 		/* Enabled & Approved */
 		user.setEnabled((byte)1);
 		user.setApproved((byte)0);

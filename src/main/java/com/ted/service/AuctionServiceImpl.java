@@ -383,8 +383,6 @@ public class AuctionServiceImpl implements AuctionService {
 		Auction auction = formAuction.getAuction();
 
 		/* Check */
-		if(auction.getCountry() == null || auction.getCountry().isEmpty())
-			return "Please provide a Country and a location.";
 		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
 			return "You must select a category for the Auction.";
 		if(auction.getEnds() == null || auction.getEnds().getTime() < new Date().getTime())
@@ -436,16 +434,12 @@ public class AuctionServiceImpl implements AuctionService {
 		Auction auction = formAuction.getAuction();
 		Auction perAuction = auctionRepository.findByAuctionid(auction.getAuctionid());
 		perAuction.setBuyPrice(auction.getBuyPrice());
-		perAuction.setCountry(auction.getCountry());
 		perAuction.setDescription(auction.getDescription());
 		perAuction.setEnds(auction.getEnds());
 		perAuction.setName(auction.getName());
-		perAuction.setCountry(auction.getCountry());
 		perAuction.setFirstBid(auction.getFirstBid());
 
 		/* Check */
-		if(perAuction.getCountry() == null || perAuction.getCountry().isEmpty())
-			return "Please provide a Country and a location.";
 		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
 			return "You must select a category for the Auction.";
 		if(perAuction.getEnds() == null ||perAuction.getEnds().getTime() < new Date().getTime())

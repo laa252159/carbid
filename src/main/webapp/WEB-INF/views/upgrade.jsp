@@ -56,17 +56,17 @@
                 <div class="col-md-4 col-md-offset-4">
             		<form name="upgradeForm" role="form" method="POST">
             			 <div class="form-group">
-            				 <label for="address">Address: </label>
+            				 <label for="address">Адресс :</label>
             				 <input type="text" name='address' class="form-control" id="address" />
             			 </div>
             			 <div class="form-group">
-            				  <label for="postalCode">Postal Code: </label>
+            				  <label for="postalCode">Почтовый индекс: </label>
             				  <input type="postalCode" name='postalCode' class="form-control" id="postalCode" />
             			 </div>
-                         <div class="form-group">
-            				 <label for="afm">AFM: </label>
-            				 <input type="text" name='afm' class="form-control" id="afm" />
-            			 </div>
+                         <%--<div class="form-group">--%>
+            				 <%--<label for="afm">AFM: </label>--%>
+            				 <%--<input type="text" name='afm' class="form-control" id="afm" />--%>
+            			 <%--</div>--%>
                          <div class="form-group">
     						 <label for="phone">Телефон:</label>
     						 <input type="text" name='phone' path="phone" class="form-control" id="phone" />
@@ -126,9 +126,6 @@
     			phone: {
     				required:true
     			},
-    			country: {
-    				required:true
-    			},
     			city: {
     				required:true
     			},
@@ -136,9 +133,6 @@
     				required:true
     			},
     			postalCode: {
-    				required:true
-    			},
-    			afm: {
     				required:true
     			}
     		},
@@ -154,10 +148,10 @@
     	});
     });
 
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
-        populateCountries("country");
-    });
+    // $(function () {
+    //     $('#datetimepicker1').datetimepicker();
+    //     populateCountries("country");
+    // });
 
     /* File Upload */
     $(document).on('ready', function() {

@@ -181,19 +181,6 @@
                              <h2 class="text-center">Location & Time</h2>
                              <div class="row content-row">
                                  <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
-                                     <div class="row">
-                                         <div class="form-group">
-                                             <label for="country" class="input-label col-md-3">Страна:</label>
-                                             <div class="col-lg-8">
-                                                 <div class="in-group">
-                                                     <form:select path="country" id="country" name="country" class="form-control"></form:select>
-                                                     <form:errors path="country" cssClass="error" />
-                                                 </div>
-                                                <div class="err">
-                                                </div>
-                                             </div>
-                                         </div>
-                                     </div>
                                      <div class="row top-buffer">
                                          <div class="form-group">
                                              <label for="city" class="input-label col-md-3">Город:</label>
@@ -291,9 +278,6 @@
     			phone: {
     				required:true
     			},
-    			country: {
-    				required:true
-    			},
     			city: {
     				required:true
     			},
@@ -319,10 +303,10 @@
     	});
     });
 
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
-        populateCountries("country");
-    });
+    // $(function () {
+    //     $('#datetimepicker1').datetimepicker();
+    //     populateCountries("country");
+    // });
 
     /* File Upload */
     $(document).on('ready', function() {

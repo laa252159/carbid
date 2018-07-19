@@ -39,7 +39,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "auctions")
 @NamedQuery(name = "Auction.findAll", query = "SELECT a FROM Auction a")
 @XmlType(propOrder = {"name", "categories", "currentlyString", "buyPriceString", "firstBidString", "numberOfBids", 
-		"auctionBiddings", "location", "country", "xmlStarted", "xmlEnds", "xmlSeller", "description"})
+		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -51,10 +51,6 @@ public class Auction implements Serializable {
 
 	@Column(name="buy_price", columnDefinition="Decimal(15,2)")
 	private BigDecimal buyPrice;
-
-	@NotEmpty
-	@Column(nullable = false, length = 45)
-	private String country;
 
 	@NotNull
 	@Column(name="currently", columnDefinition="Decimal(15,2)")
@@ -196,11 +192,6 @@ public class Auction implements Serializable {
 		return this.categories;
 	}
 
-	@XmlElement(name = "Country")
-	public String getCountry() {
-		return this.country;
-	}
-
 	@XmlTransient
 	public BigDecimal getCurrently() {
 		return this.currently;
@@ -332,10 +323,6 @@ public class Auction implements Serializable {
 
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public void setCurrently(BigDecimal currently) {

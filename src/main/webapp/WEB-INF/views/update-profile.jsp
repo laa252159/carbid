@@ -64,7 +64,7 @@
                        ${msg}
                      </div>
                  </c:if>
-                 <h3 class="text-center">Информация о контакте</h3>
+                 <h3 class="text-center">Мои данные</h3>
 
                    <div class="form-group">
                      <label for="firstName" class="col-lg-3 control-label">Имя:</label>
@@ -82,12 +82,6 @@
                      <label for="password" class="col-lg-3 control-label">Пароль:</label>
                      <div class="col-lg-8">
                       <form:input type="password" name='password' path="password" class="form-control" value="p4DS*4a$hLA*4#ataPv" />
-                     </div>
-                   </div>
-                   <div class="form-group">
-                     <label for="country" class="col-lg-3 control-label">Страна:</label>
-                     <div class="col-lg-8">
-                      <form:input type="text" name='country' path="country" class="form-control" value="${user.country}" />
                      </div>
                    </div>
                    <div class="form-group">
@@ -160,9 +154,6 @@
                 required:true
             },
             phone: {
-                required:true
-            },
-            country: {
                 required:true
             },
             city: {

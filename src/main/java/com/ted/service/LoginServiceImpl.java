@@ -89,7 +89,6 @@ public class LoginServiceImpl implements LoginService {
 		perUser.setLastName(user.getLastName());
 		perUser.setEmail(user.getEmail());
 		perUser.setUsername(user.getUsername());
-		perUser.setCountry(user.getCountry());
 		perUser.setCity(user.getCity());
 		perUser.setAddress(user.getAddress());
 		perUser.setPostalCode(user.getPostalCode());

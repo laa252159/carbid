@@ -180,21 +180,9 @@
                                      </div>
                                  </div>
                                  <div class="col-md-6">
-                                     <div class="row">
-                                         <div class="form-group">
-                                             <label for="country" class="input-label col-md-3">Country:</label>
-                                             <div class="col-lg-8">
-                                                 <div class="in-group">
-                                                     <form:select path="auction.country" id="country" name="country" class="form-control"></form:select>
-                                                 </div>
-                                                 <div class="err">
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
                                      <div class="row top-buffer">
                                          <div class="form-group">
-                                             <label for="location" class="input-label col-md-3">City:</label>
+                                             <label for="location" class="input-label col-md-3">Город:</label>
                                              <div class="col-lg-8">
                                                  <div class="in_group">
                                                      <form:input path="auction.location.name" id="location" name="location" class="form-control"></form:input>
@@ -283,9 +271,6 @@
                 'auction.ends': {
     				required: true
     			},
-                'auction.country': {
-    				required: true
-    			},
                 'auction.location.name': {
     				required: true
     			}
@@ -302,10 +287,10 @@
     	});
     });
 
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
-        populateCountries("country");
-    });
+    // $(function () {
+    //     $('#datetimepicker1').datetimepicker();
+    //     populateCountries("country");
+    // });
 
     /* File Upload */
     $(document).on('ready', function() {

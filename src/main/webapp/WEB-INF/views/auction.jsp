@@ -295,7 +295,7 @@
                             <div class="col-sm-4">
                                 <p class="lead">
                                     <br />
-                                    ${auction.country} <br />
+                                    <%--${auction.country} <br />--%>
                                     ${auction.location.name}
                                 </p>
                             </div>
@@ -312,7 +312,6 @@
                                     ${auction.user.firstName} <br />
                                     ${auction.user.lastName} <br />
                                     <span class="icon-phone"></span> ${auction.user.phone} <br /><br />
-                                    ${auction.user.country} <br />
                                     ${auction.user.city}
                                 </p>
                             </div>

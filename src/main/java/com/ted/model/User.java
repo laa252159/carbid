@@ -39,9 +39,6 @@ public class User implements Serializable {
 	@Column(nullable = false, length = 45)
 	private String address;
 
-	@Column(nullable = false, length = 45)
-	private String afm;
-
 	@Column(nullable = false)
 	private byte approved;
 
@@ -51,10 +48,6 @@ public class User implements Serializable {
 	@NotEmpty
 	@Column(nullable = false, length = 100)
 	private String city;
-
-	@NotEmpty
-	@Column(nullable = false, length = 45)
-	private String country;
 
 	@NotEmpty
 	@Column(nullable = false, length = 55)
@@ -146,11 +139,6 @@ public class User implements Serializable {
 	}
 
 	@XmlTransient
-	public String getAfm() {
-		return this.afm;
-	}
-
-	@XmlTransient
 	public byte getApproved() {
 		return this.approved;
 	}
@@ -178,11 +166,6 @@ public class User implements Serializable {
 	@XmlElement(name = "Location")
 	public String getCity() {
 		return this.city;
-	}
-
-	@XmlElement(name = "Country")
-	public String getCountry() {
-		return this.country;
 	}
 
 	@XmlTransient
@@ -280,10 +263,6 @@ public class User implements Serializable {
 		this.address = address;
 	}
 
-	public void setAfm(String afm) {
-		this.afm = afm;
-	}
-
 	public void setApproved(byte approved) {
 		this.approved = approved;
 	}
@@ -306,10 +285,6 @@ public class User implements Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public void setEmail(String email) {

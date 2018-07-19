@@ -10,7 +10,6 @@
     <Number_of_Bids>Number_of_Bids</Number_of_Bids>
     <Bids/>
     <Location Latitude="" Longitude="">Location</Location>
-    <Country>Страна</Country>
     <Started>Started</Started>
     <Ends>Ends</Ends>
     <Seller Rating="" UserID=""/>

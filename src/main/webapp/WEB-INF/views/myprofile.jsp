@@ -94,7 +94,7 @@
 	     <div  id="loading" class="tab-content">
 	    	<div class="tab-pane fade in active" id="section1" name="overview">
                 <div class="col-md-9">
-                  <h3 class="text-center">Информация о контакте</h3>
+                  <h3 class="text-center">Мои данные</h3>
                   <div class="col-md-offset-4 col-md-3">
                       <h4 class="text-left">Имя</h4>
                   </div>
@@ -108,12 +108,6 @@
                       <h4 class="text-left"><strong>${user.lastName}</strong></h4>
                   </div>
                   <div class="col-md-offset-4 col-md-3">
-                      <h4 class="text-left">Страна</h4>
-                  </div>
-                  <div class="col-md-4">
-                      <h4 class="text-left"><strong>${user.country}</strong></h4>
-                  </div>
-                  <div class="col-md-offset-4 col-md-3">
                       <h4 class="text-left">Город</h4>
                   </div>
                   <div class="col-md-4">
@@ -125,13 +119,14 @@
                   <div class="col-md-4">
                       <h4 class="text-left"><strong>${user.email}</strong></h4>
                   </div>
+                    <div class="col-md-offset-4 col-md-3">
+                        <h4 class="text-left">Телефон</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="text-left"><strong>${user.phone}</strong></h4>
+                    </div>
                   <sec:authorize ifAnyGranted="ROLE_SELLER">
-                      <div class="col-md-offset-4 col-md-3">
-                          <h4 class="text-left">Телефон</h4>
-                      </div>
-                      <div class="col-md-4">
-                          <h4 class="text-left"><strong>${user.phone}</strong></h4>
-                      </div>
+
                       <div class="col-md-offset-4 col-md-3">
                           <h4 class="text-left">Адрес</h4>
                       </div>
@@ -147,9 +142,9 @@
                       <%--<div class="col-md-offset-4 col-md-3">--%>
                           <%--<h4 class="text-left">AFM</h4>--%>
                       <%--</div>--%>
-                      <div class="col-md-4">
-                          <h4 class="text-left"><strong>${user.afm}</strong></h4>
-                      </div>
+                      <%--<div class="col-md-4">--%>
+                          <%--<h4 class="text-left"><strong>${user.afm}</strong></h4>--%>
+                      <%--</div>--%>
                   </sec:authorize>
                 </div>
                 <div class="row">

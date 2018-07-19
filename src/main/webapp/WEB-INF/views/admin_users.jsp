@@ -25,13 +25,8 @@
 							/>
 						</td>
 						<td style="text-align: right">
-							<div class="dropdown">
-							<button class="btn btn-xs btn-primary" data-toggle="dropdown">More</button>
-							<ul class="dropdown-menu">
-								<li><a href="/Auctioner/profile/${user.userid}">Profile</a>
-								<%-- <li class="divider"></li>
-								<li id="deleteU"><a href="#">Delete</a> --%>
-							</ul>
+							<div class="btn-default">
+							<a href="/Auctioner/profile/${user.userid}">Подробнее</a>
 						</div>
 						</td>
 					</tr>

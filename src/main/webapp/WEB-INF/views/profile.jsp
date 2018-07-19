@@ -75,12 +75,6 @@
                               <h4 class="text-left"><strong>${usr.lastName}</strong></h4>
                           </div>
                           <div class="col-md-offset-4 col-md-3">
-                            <h4 class="text-left">Страна</h4>
-                          </div>
-                          <div class="col-md-4">
-                              <h4 class="text-left"><strong>${usr.country}</strong></h4>
-                          </div>
-                          <div class="col-md-offset-4 col-md-3">
                             <h4 class="text-left">Город</h4>
                           </div>
                           <div class="col-md-4">
@@ -92,6 +86,12 @@
                           <div class="col-md-4">
                               <h4 class="text-left"><strong>${usr.email}</strong></h4>
                           </div>
+                            <div class="col-md-offset-4 col-md-3">
+                                <h4 class="text-left">Телефон</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <h4 class="text-left"><strong>${user.phone}</strong></h4>
+                            </div>
                         </div>
                     </div>
                     <div class="row">

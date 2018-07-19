@@ -78,19 +78,14 @@
 					 </div>
 				 </div>
 				 <div class="col-md-6">
-					 <div class="form-group">
-						 <label for="country">Country:</label>
-						 <form:input type="text" name='country' path="country" class="form-control" id="country" />
-						 <form:errors path="country" cssClass="error" />
-					 </div>
 					  <div class="form-group">
-						 <label for="city">City:</label>
+						 <label for="city">Город:</label>
 						 <form:input type="text" name='city' path="city" class="form-control" id="city" />
 						 <form:errors path="city" cssClass="error" />
 					 </div>
 					 <br>
 			 		 <button name="submit" type="submit"
-						     value="submit" class="btn btn-success">Submit</button>
+						     value="submit" class="btn btn-success">Выполнить</button>
 				 </div>
 			</div>
 		</form:form>
@@ -119,9 +114,6 @@
 				required:true
 			},
 			password: {
-				required:true
-			},
-			country: {
 				required:true
 			},
 			city: {
