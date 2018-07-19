@@ -15,10 +15,10 @@
         	<thead>
         		<tr>
                     <td>Id</td>
-                    <td>Receiver</td>
+                    <td>Получатель</td>
         			<td>Отправитель</td>
         			<td class="text-right">Дата</td>
-                    <td>Message</td>
+                    <td>Сообщение</td>
         		</tr>
         	</thead>
 			<tbody>

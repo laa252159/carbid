@@ -15,7 +15,7 @@
         		<tr>
                     <td>Id</td>
         			<td>Дата</td>
-                    <td>Message</td>
+                    <td>Сообщение</td>
         		</tr>
         	</thead>
 			<tbody>

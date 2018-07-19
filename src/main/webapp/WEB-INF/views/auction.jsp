@@ -377,7 +377,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-md-6">
-                                                    <p class="lead">$${rec.firstBid}</p>
+                                                    <p class="lead">Руб ${rec.firstBid}</p>
                                                 </div>
                                                 <div class="col-xs-12 col-md-6">
                                                     <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>

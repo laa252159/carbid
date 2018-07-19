@@ -33,7 +33,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
-                                <p class="price-tag"><strong>&#36;${auction.currently}</strong></p>
+                                <p class="price-tag"><strong>Руб ${auction.currently}</strong></p>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>

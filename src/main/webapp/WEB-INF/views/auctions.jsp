@@ -43,37 +43,37 @@
                      <h1 class="page-header"><strong>${filter.category.name}</strong></h1>
                      <div class="row">
                          <%-- Left Column --%>
-                         <div class="col-md-3 col-sm-3">
-                             <div class="panel panel-primary">
-                                 <div class="panel-heading">
-                                     <h4 class="panel-title">Категории</h4>
-                                 </div>
-                                 <div class="panel-body">
-                                     <div class="fancy-collapse-panel">
-                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                             <c:forEach items="${filter.category.categories}" var="childCategory" varStatus="loop">
-                                             <div class="panel">
-                                                 <div class="panel-heading" role="tab" id="heading${loop.index}">
-                                                     <h4 class="panel-title">
-                                                         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse${loop.index}" aria-expanded="false" aria-controls="#collapse${loop.index}">${childCategory.name}</a>
-                                                     </h4>
-                                                 </div>
-                                                 <div id="collapse${loop.index}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${loop.index}">
-                                                <div class="panel-body">
-                                                    <ul class="list-group">
-                                                        <c:forEach items="${childCategory.categories}" var="childCategory2">
-                                                        <li class="list-group-item"><a href="/Auctioner/auctions?categoryId=${childCategory2.categoryId}">${childCategory2.name}</a></li>
-                                                        </c:forEach>
-                                                    </ul>
-                                                </div>
-                                                 </div>
-                                             </div>
-                                             </c:forEach>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
+                         <%--<div class="col-md-3 col-sm-3">--%>
+                             <%--<div class="panel panel-primary">--%>
+                                 <%--<div class="panel-heading">--%>
+                                     <%--<h4 class="panel-title">Категории</h4>--%>
+                                 <%--</div>--%>
+                                 <%--<div class="panel-body">--%>
+                                     <%--<div class="fancy-collapse-panel">--%>
+                                         <%--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">--%>
+                                             <%--<c:forEach items="${filter.category.categories}" var="childCategory" varStatus="loop">--%>
+                                             <%--<div class="panel">--%>
+                                                 <%--<div class="panel-heading" role="tab" id="heading${loop.index}">--%>
+                                                     <%--<h4 class="panel-title">--%>
+                                                         <%--<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse${loop.index}" aria-expanded="false" aria-controls="#collapse${loop.index}">${childCategory.name}</a>--%>
+                                                     <%--</h4>--%>
+                                                 <%--</div>--%>
+                                                 <%--<div id="collapse${loop.index}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${loop.index}">--%>
+                                                <%--<div class="panel-body">--%>
+                                                    <%--<ul class="list-group">--%>
+                                                        <%--<c:forEach items="${childCategory.categories}" var="childCategory2">--%>
+                                                        <%--<li class="list-group-item"><a href="/Auctioner/auctions?categoryId=${childCategory2.categoryId}">${childCategory2.name}</a></li>--%>
+                                                        <%--</c:forEach>--%>
+                                                    <%--</ul>--%>
+                                                <%--</div>--%>
+                                                 <%--</div>--%>
+                                             <%--</div>--%>
+                                             <%--</c:forEach>--%>
+                                         <%--</div>--%>
+                                     <%--</div>--%>
+                                 <%--</div>--%>
+                             <%--</div>--%>
+                         <%--</div>--%>
                          <%-- Right Column --%>
                          <div class="col-md-9 col-xs-12" >
 

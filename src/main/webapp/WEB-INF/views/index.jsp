@@ -61,7 +61,7 @@
                 </sec:authorize>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
                     <div class="col-lg-12 text-center intro-div">
-                        <h1 style="font-size: 63px;">Welcome Admin!</h1>
+                        <h1 style="font-size: 63px;">Приветсвую тебя, о повелитель барыг!</h1>
                         <div class="col-md-offset-3 col-md-2">
                             <a class="btn btn-lg btn-success btn-block" href="/Auctioner/admin-users">Пользователи</a>
                         </div>

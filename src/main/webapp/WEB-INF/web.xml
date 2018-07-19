@@ -87,6 +87,9 @@
 		</jsp-property-group>
 	</jsp-config>
 
+	<error-page>
+		<location>/errors</location>
+	</error-page>
 
 
   <display-name>Archetype Created Web Application</display-name>

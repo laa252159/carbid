@@ -40,7 +40,7 @@
 				</table>
 		</div>
 		<div class="panel-footer">
-			<input class="btn btn-success col-md-offset-10" type="submit" value="Approve" id="appr-btn" disabled="disabled"></input>
+			<input class="btn btn-success col-md-offset-10" type="submit" value="Подтвердить" id="appr-btn" disabled="disabled"></input>
 		</div>
       </div>
     </form>

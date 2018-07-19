@@ -83,18 +83,18 @@
                       <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
                       <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
                       <li class="divider" data-toggle="pill"></li>
-                      <li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>
-                      <li><a href="/Auctioner/messaging/new-anouncement" data-target="#section6" id="newAnouncement_tab" data-toggle="pill" rel="tooltip">New Anouncement</a></li>
+                      <%--<li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>--%>
+                      <%--<li><a href="/Auctioner/messaging/new-anouncement" data-target="#section6" id="newAnouncement_tab" data-toggle="pill" rel="tooltip">New Anouncement</a></li>--%>
                     </ul>
                   </li>
                   <li ><a class="left-color" href="admin/users" data-target="#section7" id="users_tab" data-toggle="pill" rel="tooltip">Пользователи<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-                  <li class="dropdown">
-                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Auctions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity icon-travel-car-small"></span></a>
-                    <ul class="dropdown-menu forAnimate" role="menu">
-                      <li><a href="/Auctioner/admin/auctions" data-target="#section8" id="auctions_tab" data-toggle="pill" rel="tooltip">View Auctions</a></li>
-                      <li><a href="/Auctioner/admin/xmlUpload" data-target="#section9" id="xml_tab" data-toggle="pill" rel="tooltip">XML Upload</a></li>
-                    </ul>
-                  </li>
+                  <%--<li class="dropdown">--%>
+                    <%--<a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Auctions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity icon-travel-car-small"></span></a>--%>
+                    <%--<ul class="dropdown-menu forAnimate" role="menu">--%>
+                      <%--<li><a href="/Auctioner/admin/auctions" data-target="#section8" id="auctions_tab" data-toggle="pill" rel="tooltip">View Auctions</a></li>--%>
+                      <%--<li><a href="/Auctioner/admin/xmlUpload" data-target="#section9" id="xml_tab" data-toggle="pill" rel="tooltip">XML Upload</a></li>--%>
+                    <%--</ul>--%>
+                  <%--</li>--%>
                 </ul>
               </div>
             </div>

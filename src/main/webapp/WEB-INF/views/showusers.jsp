@@ -585,7 +585,7 @@
                         "#" id="account">Мой профиль (<sec:authentication property="name" />) <span class=
                         "caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/Auctioner/myprofile">Account Settings</a></li>
+                            <li><a href="/Auctioner/myprofile">Настройки аккаунта</a></li>
                             <sec:authorize ifAnyGranted="ROLE_ADMIN">
                             <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
                                 <li><a href="myauctions">Мои лоты</a></li>
