@@ -30,4 +30,6 @@ public interface UserService {
 	
 	String getUserPicture(User user);
 
+	void deleteUserById(Integer id);
+
 }

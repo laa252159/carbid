@@ -222,5 +222,11 @@ public class UserServiceImpl implements UserService {
 		
 		return base64Picture;
 	}
-	
+
+	@Override
+	public void deleteUserById(Integer id) {
+		User user = userRepository.findByUserid(id);
+		userRepository.delete(user);
+	}
+
 }

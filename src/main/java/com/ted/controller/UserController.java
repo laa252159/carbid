@@ -213,7 +213,13 @@ public class UserController {
 	
 		return "myprofile";
 	}
-	
+
+	@RequestMapping(value = "/deleteuser/{id}", method = RequestMethod.GET)
+	public String deleteUser(Model model, @PathVariable(value="id") Integer id) {
+		userService.deleteUserById(id);
+		return "redirect:/admin-users";
+	}
+
 	@RequestMapping(value = "/myprofile-new-message/{receiver}", method = RequestMethod.GET)
 	public String getMyProfileNewMessageReply(Model model, @PathVariable(value="receiver") String receiver) {
 		

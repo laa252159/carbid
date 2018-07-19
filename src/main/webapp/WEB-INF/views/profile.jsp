@@ -104,6 +104,14 @@
                             </sec:authorize>
                         </div>
                     </div>
+                    </br>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                                <a href="/Auctioner/deleteuser/${usr.userid}" class="btn btn-danger pull-right">УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ</a>
+                            </sec:authorize>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
