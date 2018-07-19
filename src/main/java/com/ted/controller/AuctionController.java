@@ -206,7 +206,7 @@ public class AuctionController {
 		
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
-		return "redirect:/myprofile-auctions";
+		return "redirect:/auctions";
 	}
 	
 	@RequestMapping(value = "update-auction/{id}", method = RequestMethod.GET)
