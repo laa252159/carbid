@@ -37,9 +37,9 @@
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <div class="col-lg-12 text-center intro-div">
-                        <h1 style="font-size: 63px;">Все перекупы в одном месте!</h1>
-                        <h2 style="font-size: 63px;"><sec:authentication property="name" />, теперь и Вы с нами!</h2>
-                        <p class="lead">Покупай машину с выгодой</p>
+                        <h3 style="font-size: 43px;">Все перекупы в одном месте!</h3>
+                        <h4 style="font-size: 33px;"><sec:authentication property="name" />, теперь и Вы с нами!</h4>
+                        <%--<p class="lead">Покупай машину с выгодой</p>--%>
                         <div class="col-md-offset-3 col-md-2">
                             <a class="btn btn-lg btn-success btn-block" href="/Auctioner/myprofile">Мой профиль</a>
                         </div>
@@ -80,9 +80,9 @@
                 </sec:authorize>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <div class="col-lg-12 text-center intro-div">
-                    <h1 style="font-size: 63px;">Добро пожаловать на аукцион проверенных автомобилей!</h1>
-                    <p class="lead">Покупай машину с выгодой</p>
+                <div class="col-lg-12 text-center intro-div" style="padding-top: 15%">
+                    <h1 style="font-size: 43px; font-family: 'Calibri Light'">Добро пожаловать на аукцион проверенных автомобилей!</h1>
+                    <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
                     <div class="col-md-offset-4 col-md-2">
                         <a class="btn_main btn-lg btn-success btn-block" href="/Auctioner/login">Войти</a>
                     </div>

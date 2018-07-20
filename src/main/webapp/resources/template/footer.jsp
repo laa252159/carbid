@@ -1,6 +1,6 @@
 <div class="navbar navbar-default navbar-fixed-bottom" >
     <div class="container text-center">
-        <p>&copy; <span class="icon-travel-car-small"></span> Аукцион проверенных автомобилей</p>
+        <p>&copy; <span class="icon-travel-car-small"></span> Покупай машину с выгодой</p>
     </div>
 </div>
 

@@ -33,7 +33,7 @@
    	 <%@ include file="/resources/template/menu-top.jsp" %>
 
      <div class="container">
-        <h1>Edit Profile</h1>
+        <h1>Редактировать профиль</h1>
        	<hr>
         <form:form id="form" name="regForm" class="form-horizontal" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
          	<div class="row">

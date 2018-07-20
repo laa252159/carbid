@@ -639,7 +639,7 @@
 	<!-- Footer -->
 	<div class="navbar navbar-default navbar-fixed-bottom" >
     <div class="container text-center">
-        <p class="text-muted">&copy; <span class="icon-travel-car"></span> Аукцион проверенных автомобилей</p>
+        <p class="text-muted">&copy; <span class="icon-travel-car"></span> Покупай машину с выгодой</p>
     </div>
 </div>
 
