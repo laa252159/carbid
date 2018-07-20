@@ -50,7 +50,7 @@
                          <img src="<c:url value="/resources/images/default_avatar.png"/>" class="avatar img-circle img-thumbnail" alt="avatar">
                      </div>
                      </c:if>
-                     <label for="input-1">Upload New Picture</label>
+                     <label for="input-1">Загрузить фотографию</label>
                      <input id="input-1" name="input1" type="file" class="file-loading" accept="image/x-png, image/jpeg"/>
                  </div>
                </div>

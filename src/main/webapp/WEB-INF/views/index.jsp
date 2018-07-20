@@ -66,6 +66,11 @@
                             <a class="btn btn-lg btn-success btn-block" href="/Auctioner/admin-users">Пользователи</a>
                         </div>
                         <div class="col-md-2">
+                            <a class="btn btn-lg btn-danger btn-block" href="/Auctioner/myprofile">Мой профиль</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center intro-div">
+                        <div class="col-md-offset-3 col-md-2">
                             <a class="btn btn-lg btn-info btn-block" href="/Auctioner/admin">Доска</a>
                         </div>
                         <div class="col-md-2">

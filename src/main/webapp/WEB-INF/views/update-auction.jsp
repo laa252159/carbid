@@ -224,7 +224,7 @@
                                 </c:if>
                              </div>
                              <div class="row content-row">
-                                 <h2 class="text-center">Upload new pictures</h2>
+                                 <h2 class="text-center">Загрузить фотографию</h2>
                                  <input id="input-1" name="input1" type="file" class="file-loading" multiple accept="image/x-png, image/jpeg"/>
                                  <p>At least one picture is required.</p>
                               </div>
