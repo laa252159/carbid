@@ -57,7 +57,7 @@
                          </li>
 
                          <li role="presentation" class="disabled">
-                             <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Location & Time">
+                             <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Локация">
                                  <span class="round-tab">
                                      <i class="glyphicon glyphicon-globe"></i>
                                  </span>
@@ -89,7 +89,7 @@
                                 <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label for="name" class="input-label col-md-3">Auction Name:</label>
+                                            <label for="name" class="input-label col-md-3">Название лота:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="text" name="auction.name" path="auction.name" id="name" class="form-control" placeholder="Auction" value="${formAuction.auction.name}" />
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="row top-buffer">
                                         <div class="form-group">
-                                            <label for="description" class="input-label col-md-3">Description:</label>
+                                            <label for="description" class="input-label col-md-3">Описание:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:textarea rows="5" name="description" path="auction.description" id="description" class="form-control" placeholder="Auction Info..." />
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name" class="input-label col-md-3">Category:</label>
+                                        <label for="name" class="input-label col-md-3">Категория:</label>
                                         <div class="col-lg-8">
                                             <form:select path="categoryName" name="categoryName" class="selectpicker" data-live-search="true" data-container="body" data-max-options="1" title="Choose one of the following...">
                                                 <form:options items="${categories}" itemValue="name" itemLabel="name"></form:options>
@@ -132,12 +132,12 @@
                              </div>
                          </div>
                          <div class="tab-pane" role="tabpanel" id="step2">
-                             <h2 class="text-center">Location & Time</h2>
+                             <h2 class="text-center">Локация</h2>
                              <div class="row content-row">
                                  <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                      <div class="row">
                                          <div class="form-group">
-                                             <label for="firstBid" class="input-label col-md-3">Starting Price:</label>
+                                             <label for="firstBid" class="input-label col-md-3">Стартовая цена:</label>
                                              <div class="col-lg-8">
                                                  <div class="input-group">
                                                      <span class="input-group-addon">&euro;</span>
@@ -152,7 +152,7 @@
                                      </div>
                                      <div class="row top-buffer">
                                          <div class="form-group">
-                                             <label for="buyPrice" class="input-label col-md-3">Buy Price:</label>
+                                             <label for="buyPrice" class="input-label col-md-3">Цена покупки сейчас:</label>
                                              <div class="col-lg-8">
                                                  <div class="input-group">
                                                      <span class="input-group-addon">&euro;</span>
@@ -165,7 +165,7 @@
                                      </div>
                                      <div class="row top-buffer">
                                          <div class="form-group">
-                                             <label for="ends" class="input-label col-md-3">Ending Date & Time:</label>
+                                             <label for="ends" class="input-label col-md-3">Дата и время окончания:</label>
                                              <div class="col-lg-8">
                                                  <div class='input-group date' id='datetimepicker1'>
                                                      <form:input type='text' path="auction.ends" id="ends" name="ends" class="form-control" />

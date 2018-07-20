@@ -80,7 +80,7 @@
 				 <div class="col-md-6">
 					  <div class="form-group">
 						 <label for="city">Город:</label>
-						 <form:input type="text" name='city' path="city" class="form-control" id="city" />
+						 <form:input type="text" name='city' path="city" class="form-control" id="city"/>
 						 <form:errors path="city" cssClass="error" />
 					 </div>
 					 <br>

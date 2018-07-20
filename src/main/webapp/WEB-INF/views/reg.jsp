@@ -58,7 +58,7 @@
                          </li>
 
                          <li role="presentation" class="disabled">
-                             <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Location & Time">
+                             <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Локация">
                                  <span class="round-tab">
                                      <i class="glyphicon glyphicon-globe"></i>
                                  </span>
@@ -178,7 +178,7 @@
                              </div>
                          </div>
                          <div class="tab-pane" role="tabpanel" id="step2">
-                             <h2 class="text-center">Location & Time</h2>
+                             <h2 class="text-center">Локация</h2>
                              <div class="row content-row">
                                  <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                      <div class="row top-buffer">

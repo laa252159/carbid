@@ -151,7 +151,7 @@
                 <div class="col-md-12">
                     <div class="clock-div panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Auction Ends In</h4>
+                            <h4 class="panel-title">Закончится через</h4>
                         </div>
                         <div class="panel-body" style="text-align: center;">
                             <div class="lead clock" id="clock" class="clock"></div>
@@ -161,7 +161,7 @@
                 <div id="bid-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Current Price</h4>
+                            <h4 class="panel-title">Текущая цена</h4>
                         </div>
                         <div class="panel-body">
                             <div class="price-number text-center"><span id="currentPrice">${auction.firstBid} Руб</span></div>
@@ -197,7 +197,7 @@
                     <div id="buy-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Buy Price</h4>
+                                <h4 class="panel-title">Цена покупки сейчас</h4>
                             </div>
                             <div class="panel-body">
                                 <div class="price-number text-center">${auction.buyPrice} Руб</div>
@@ -306,8 +306,9 @@
                     <div class="well tab-pane" id="auctioneerTab">
 
                         <div class="container">
-                            <h2>${auction.user.username}</h2>
-                            <div class="col-sm-6">
+                            <%--<h2>${auction.user.username}</h2>--%>
+                            <h2>Продавец</h2>
+                                <div class="col-sm-6">
                                 <p class="lead">
                                     ${auction.user.firstName} <br />
                                     ${auction.user.lastName} <br />
