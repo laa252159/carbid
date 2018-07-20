@@ -22,12 +22,12 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
- 	<link href=/Auctioner/resources/css/bootstrap.min.css rel="stylesheet" type="text/css">
-<link href=/Auctioner/resources/css/bootstrap-lumen.css rel="stylesheet" type="text/css">
-<link href=/Auctioner/resources/css/iconmoon.css rel="stylesheet" type="text/css">
-<link href=/Auctioner/resources/css/jquery.mCustomScrollbar.min.css rel="stylesheet" type="text/css">
-<link href=/Auctioner/resources/css/topnav.css rel="stylesheet" type="text/css">
-<link href=/Auctioner/resources/css/style.css rel="stylesheet" type="text/css">
+ 	<link href=/resources/css/bootstrap.min.css rel="stylesheet" type="text/css">
+<link href=/resources/css/bootstrap-lumen.css rel="stylesheet" type="text/css">
+<link href=/resources/css/iconmoon.css rel="stylesheet" type="text/css">
+<link href=/resources/css/jquery.mCustomScrollbar.min.css rel="stylesheet" type="text/css">
+<link href=/resources/css/topnav.css rel="stylesheet" type="text/css">
+<link href=/resources/css/style.css rel="stylesheet" type="text/css">
 
 
 
@@ -40,7 +40,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/Auctioner/"><span class="icon-travel-car"></span> Аукцион проверенных машин Саратова</a>
+		<a class="navbar-brand" href="/"><span class="icon-travel-car"></span> Аукцион проверенных машин Саратова</a>
 	</div>
 
 	<div class="collapse navbar-collapse js-navbar-collapse">
@@ -561,10 +561,10 @@
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <li>
                     <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                        <a href="/Auctioner/admin-inbox" class="btn btn-default btn-sm btn-link">
+                        <a href="/admin-inbox" class="btn btn-default btn-sm btn-link">
                     </sec:authorize>
                     <sec:authorize ifNotGranted="ROLE_ADMIN">
-                        <a href="/Auctioner/myprofile-inbox" class="btn btn-default btn-sm btn-link">
+                        <a href="/myprofile-inbox" class="btn btn-default btn-sm btn-link">
                     </sec:authorize>
                         <div class="notification-icon">
                             <span class="glyphicon glyphicon-envelope"></span>
@@ -573,8 +573,8 @@
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                    <li><a href="/Auctioner/admin" style="color:orange">Админка</a></li>
-                    <li><a href="/Auctioner/j_spring_security_logout">Выйти</a></li>
+                    <li><a href="/admin" style="color:orange">Админка</a></li>
+                    <li><a href="/j_spring_security_logout">Выйти</a></li>
                 </sec:authorize>
                  <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
                     <%--<li><a href="upgrade" style="color:orange">Become An Auctioner</a></li>--%>
@@ -585,13 +585,13 @@
                         "#" id="account">Мой профиль (<sec:authentication property="name" />) <span class=
                         "caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/Auctioner/myprofile">Настройки аккаунта</a></li>
+                            <li><a href="/myprofile">Настройки аккаунта</a></li>
                             <sec:authorize ifAnyGranted="ROLE_ADMIN">
                             <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
                                 <li><a href="myauctions">Мои лоты</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
-                            <li><a href="/Auctioner/j_spring_security_logout">Выйти</a></li>
+                            <li><a href="/j_spring_security_logout">Выйти</a></li>
                         </ul>
                     </li>
                 </sec:authorize>
@@ -643,10 +643,10 @@
     </div>
 </div>
 
-<script src=/Auctioner/resources/js/jquery.min.js></script>
-<script src=/Auctioner/resources/js/bootstrap.min.js></script>
-<script src=/Auctioner/resources/js/jquery.mCustomScrollbar.concat.min.js></script>
-<script src=/Auctioner/resources/js/style.js></script>
+<script src=/resources/js/jquery.min.js></script>
+<script src=/resources/js/bootstrap.min.js></script>
+<script src=/resources/js/jquery.mCustomScrollbar.concat.min.js></script>
+<script src=/resources/js/style.js></script>
 
 
 

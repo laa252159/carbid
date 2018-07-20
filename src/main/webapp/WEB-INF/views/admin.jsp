@@ -79,20 +79,20 @@
                   <li class="dropdown">
                     <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Сообщения <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                      <li><a href="/Auctioner/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
-                      <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
-                      <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
+                      <li><a href="/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
+                      <li><a href="/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
+                      <li><a href="/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
                       <li class="divider" data-toggle="pill"></li>
-                      <%--<li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>--%>
-                      <%--<li><a href="/Auctioner/messaging/new-anouncement" data-target="#section6" id="newAnouncement_tab" data-toggle="pill" rel="tooltip">New Anouncement</a></li>--%>
+                      <%--<li><a href="/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>--%>
+                      <%--<li><a href="/messaging/new-anouncement" data-target="#section6" id="newAnouncement_tab" data-toggle="pill" rel="tooltip">New Anouncement</a></li>--%>
                     </ul>
                   </li>
                   <li ><a class="left-color" href="admin/users" data-target="#section7" id="users_tab" data-toggle="pill" rel="tooltip">Пользователи<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                   <%--<li class="dropdown">--%>
                     <%--<a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Auctions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity icon-travel-car-small"></span></a>--%>
                     <%--<ul class="dropdown-menu forAnimate" role="menu">--%>
-                      <%--<li><a href="/Auctioner/admin/auctions" data-target="#section8" id="auctions_tab" data-toggle="pill" rel="tooltip">View Auctions</a></li>--%>
-                      <%--<li><a href="/Auctioner/admin/xmlUpload" data-target="#section9" id="xml_tab" data-toggle="pill" rel="tooltip">XML Upload</a></li>--%>
+                      <%--<li><a href="/admin/auctions" data-target="#section8" id="auctions_tab" data-toggle="pill" rel="tooltip">View Auctions</a></li>--%>
+                      <%--<li><a href="/admin/xmlUpload" data-target="#section9" id="xml_tab" data-toggle="pill" rel="tooltip">XML Upload</a></li>--%>
                     <%--</ul>--%>
                   <%--</li>--%>
                 </ul>
@@ -164,7 +164,7 @@
                           <div class="panel-body">
                               <ul class="list-group">
                                 <c:forEach items="${dashboard.newUsers}" var="newuser">
-                                <li class="list-group-item list-item"><a href="/Auctioner/profile/${newuser.userid}">${newuser.username}</a></li>
+                                <li class="list-group-item list-item"><a href="/profile/${newuser.userid}">${newuser.username}</a></li>
                                 </c:forEach>
                               </ul>
                           </div>
@@ -178,7 +178,7 @@
                           <div class="panel-body">
                               <ul class="list-group">
                                 <c:forEach items="${dashboard.latestAuctions}" var="latestAuction">
-                                <li class="list-group-item list-item"><a href="/Auctioner/auction/${latestAuction.auctionid}">${latestAuction.name}</a></li>
+                                <li class="list-group-item list-item"><a href="/auction/${latestAuction.auctionid}">${latestAuction.name}</a></li>
                                 </c:forEach>
                               </ul>
                           </div>
@@ -251,7 +251,7 @@
      /* XML File Upload */
      $(document).on('ready', function() {
          $("#input-1").fileinput({
-            uploadUrl: "/Auctioner/api/auction/upload", // server upload action
+            uploadUrl: "/api/auction/upload", // server upload action
             uploadAsync: true,
             showPreview: false,
             allowedFileExtensions: ['xml'],

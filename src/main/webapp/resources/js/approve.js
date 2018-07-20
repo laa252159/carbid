@@ -37,7 +37,7 @@ $("#authorize-form").submit(function(e) {
 	e.preventDefault();
 
 	$.ajax({
-		url: '/Auctioner/approveUsers',
+		url: '/approveUsers',
    		type: 'POST',
    		data: {
 	    	names: namesToApprove

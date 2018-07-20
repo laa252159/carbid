@@ -11,10 +11,10 @@
                 <div class="thumbnail">
                     <div class="auction-list-img-div">
                         <c:if test="${not empty auction.primaryImage}">
-                            <a href="/Auctioner/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" /></a>
+                            <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" /></a>
                         </c:if>
                         <c:if test="${empty auction.primaryImage}">
-                            <a href="/Auctioner/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
+                            <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
                         </c:if>
                     </div>
                     <div class="caption">
@@ -26,7 +26,7 @@
                                 <p class="lead">&#36;${auction.currently}</p>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>
+                                <a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">Подробнее</a>
                             </div>
                         </div>
                     </div>

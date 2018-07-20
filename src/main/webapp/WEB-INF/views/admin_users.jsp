@@ -26,7 +26,7 @@
 						</td>
 						<td style="text-align: right">
 							<div class="btn-default">
-							<a href="/Auctioner/profile/${user.userid}">Подробнее</a>
+							<a href="/profile/${user.userid}">Подробнее</a>
 						</div>
 						</td>
 					</tr>
@@ -94,7 +94,7 @@
     	e.preventDefault();
 
     	$.ajax({
-    		url: '/Auctioner/approveUsers',
+    		url: '/approveUsers',
        		type: 'POST',
        		data: {
     	    	names: namesToApprove

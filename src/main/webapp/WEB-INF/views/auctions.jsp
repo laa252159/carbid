@@ -62,7 +62,7 @@
                                                 <%--<div class="panel-body">--%>
                                                     <%--<ul class="list-group">--%>
                                                         <%--<c:forEach items="${childCategory.categories}" var="childCategory2">--%>
-                                                        <%--<li class="list-group-item"><a href="/Auctioner/auctions?categoryId=${childCategory2.categoryId}">${childCategory2.name}</a></li>--%>
+                                                        <%--<li class="list-group-item"><a href="/auctions?categoryId=${childCategory2.categoryId}">${childCategory2.name}</a></li>--%>
                                                         <%--</c:forEach>--%>
                                                     <%--</ul>--%>
                                                 <%--</div>--%>
@@ -84,13 +84,13 @@
                                      <ul class="pagination pagination-lg">
                                          <c:if test="${filter.pageNum > 1 }">
                                              <li class="page-item">
-                                               <a class="page-link" href="/Auctioner/auctions?page=1" aria-label="First">
+                                               <a class="page-link" href="/auctions?page=1" aria-label="First">
                                                  <span aria-hidden="true">&lt;&lt;</span>
                                                  <span class="sr-only">First</span>
                                                </a>
                                              </li>
                                              <li class="page-item">
-                                               <a class="page-link" href="/Auctioner/auctions?page=${filter.pageNum - 1}" aria-label="Previous">
+                                               <a class="page-link" href="/auctions?page=${filter.pageNum - 1}" aria-label="Previous">
                                                  <span aria-hidden="true">&lt;</span>
                                                  <span class="sr-only">Предыдущий</span>
                                                </a>
@@ -98,21 +98,21 @@
                                          </c:if>
                                          <c:forEach items="${filter.pages}" var="page">
                                              <c:if test="${page == filter.pageNum}">
-                                                  <li class="page-item active"><a class="page-link" href="/Auctioner/auctions?page=${page}">${page}</a></li>
+                                                  <li class="page-item active"><a class="page-link" href="/auctions?page=${page}">${page}</a></li>
                                              </c:if>
                                              <c:if test="${page != filter.pageNum}">
-                                                  <li class="page-item"><a class="page-link" href="/Auctioner/auctions?page=${page}">${page}</a></li>
+                                                  <li class="page-item"><a class="page-link" href="/auctions?page=${page}">${page}</a></li>
                                              </c:if>
                                          </c:forEach>
                                          <c:if test="${filter.pageNum < filter.numberofPages}">
                                              <li class="page-item">
-                                               <a class="page-link" href="/Auctioner/auctions?page=${filter.pageNum + 1}" aria-label="Next">
+                                               <a class="page-link" href="/auctions?page=${filter.pageNum + 1}" aria-label="Next">
                                                  <span aria-hidden="true">&gt;</span>
                                                  <span class="sr-only">Следующий</span>
                                                </a>
                                              </li>
                                              <li class="page-item">
-                                               <a class="page-link" href="/Auctioner/auctions?page=${filter.numberofPages}" aria-label="Last">
+                                               <a class="page-link" href="/auctions?page=${filter.numberofPages}" aria-label="Last">
                                                  <span aria-hidden="true">&gt;&gt;</span>
                                                  <span class="sr-only">Last</span>
                                                </a>

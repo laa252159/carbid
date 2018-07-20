@@ -10,8 +10,8 @@
         <div class="pull-right dropdown">
             <button class="btn btn-default btn-sm" data-toggle="dropdown">${filter.sortByOutput} <span class="caret"></span></button>
             <ul class="dropdown-menu" id="sortDropdown">
-                <li><a href="/Auctioner/auctions?sortBy=ends">Дата окончания</a></li>
-                <li><a href="/Auctioner/auctions?sortBy=firstBid">Стартовая цена</a></li>
+                <li><a href="/auctions?sortBy=ends">Дата окончания</a></li>
+                <li><a href="/auctions?sortBy=firstBid">Стартовая цена</a></li>
             </ul>
         </div>
     </div>
@@ -21,10 +21,10 @@
                 <div class="thumbnail item-shadow">
                     <div class="auction-list-img-div">
                         <c:if test="${not empty auction.primaryImage}">
-                            <a href="/Auctioner/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" /></a>
+                            <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" /></a>
                         </c:if>
                         <c:if test="${empty auction.primaryImage}">
-                            <a href="/Auctioner/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
+                            <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
                         </c:if>
                     </div>
                     <div class="caption">
@@ -36,7 +36,7 @@
                                 <p class="price-tag"><strong>Руб ${auction.currently}</strong></p>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>
+                                <a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">Подробнее</a>
                             </div>
                         </div>
                     </div>

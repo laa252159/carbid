@@ -43,7 +43,7 @@
 
         <c:if test="${modify == 1}">
             <div class="col-md-offset-10 col-md-2">
-                <a href="/Auctioner/update-auction/${auction.auctionid}" class="btn btn-warning">Изменить лот</a>
+                <a href="/update-auction/${auction.auctionid}" class="btn btn-warning">Изменить лот</a>
             </div>
         </c:if>
 
@@ -325,7 +325,7 @@
                                 </sec:authorize>
                             </div>
                             <div class="col-sm-11">
-                                <a href="/Auctioner/profile/${auction.user.userid}" class="btn btn-primary pull-right">View Profile</a>
+                                <a href="/profile/${auction.user.userid}" class="btn btn-primary pull-right">View Profile</a>
                             </div>
                         </div>
                     </div>
@@ -363,10 +363,10 @@
                                     <div class="col-item">
                                         <div class="photo">
                                             <c:if test="${not empty rec.primaryImage}">
-                                                <a href="/Auctioner/auction/${rec.auctionid}"><img src="data:image/jpeg;base64,${rec.primaryImage}" alt="auction-image" /></a>
+                                                <a href="/auction/${rec.auctionid}"><img src="data:image/jpeg;base64,${rec.primaryImage}" alt="auction-image" /></a>
                                             </c:if>
                                             <c:if test="${empty rec.primaryImage}">
-                                                <a href="/Auctioner/auction/${rec.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
+                                                <a href="/auction/${rec.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
                                             </c:if>
                                         </div>
                                         <div class="info">
@@ -380,7 +380,7 @@
                                                     <p class="lead">Руб ${rec.firstBid}</p>
                                                 </div>
                                                 <div class="col-xs-12 col-md-6">
-                                                    <a class="btn_lot btn-primary" href="/Auctioner/auction/${auction.auctionid}">Подробнее</a>
+                                                    <a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">Подробнее</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -429,7 +429,7 @@
         if(stopFlag == 1)   // Recursive returns
             return;
 
-        var url = "/Auctioner/checkBids/" + auctionId
+        var url = "/checkBids/" + auctionId
 
         if (request) {
             request.abort();  // abort any pending request
@@ -515,7 +515,7 @@
     /* Function to ajax post the bid */
     function bidPost() {
 
-        var bidUrl = "/Auctioner/auction/bid/" + auctionId;
+        var bidUrl = "/auction/bid/" + auctionId;
 
         var amount = $('#bidInput').val();
         console.log("Amount: " + amount);
@@ -537,7 +537,7 @@
     /* Function to ajax post the purchase */
     function buyPost() {
 
-        var bidUrl = "/Auctioner/auction/bid/" + auctionId;
+        var bidUrl = "/auction/bid/" + auctionId;
 
         var amount = ${auction.buyPrice};
         console.log("Amount: " + amount);
@@ -614,7 +614,7 @@
     /* Function to ajax post the Seller Rating */
     function sellerRatingPost(value) {
 
-        var url = "/Auctioner/rate/seller/" + userId;
+        var url = "/rate/seller/" + userId;
 
         $.ajax({
             url: url,
@@ -632,7 +632,7 @@
     /* Function to ajax post the Bidder Rating */
     function bidderRatingPost(value) {
 
-        var url = "/Auctioner/rate/bidder/" + userId;
+        var url = "/rate/bidder/" + userId;
 
         $.ajax({
             url: url,

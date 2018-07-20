@@ -41,21 +41,21 @@
                         <h4 style="font-size: 33px;"><sec:authentication property="name" />, теперь и Вы с нами!</h4>
                         <%--<p class="lead">Покупай машину с выгодой</p>--%>
                         <div class="col-md-offset-3 col-md-2">
-                            <a class="btn btn-lg btn-success btn-block" href="/Auctioner/myprofile">Мой профиль</a>
+                            <a class="btn btn-lg btn-success btn-block" href="/myprofile">Мой профиль</a>
                         </div>
                         <sec:authorize ifAnyGranted="ROLE_ADMIN">
                         <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/myprofile-auctions">Мои лоты</a>
+                            <a class="btn btn-lg btn-info btn-block" href="/myprofile-auctions">Мои лоты</a>
                         </div>
                         </sec:authorize>
                         <%--<sec:authorize ifNotGranted="ROLE_SELLER">--%>
                         <%--<div class="col-md-2">--%>
-                            <%--<a class="btn btn-lg btn-info btn-block" href="/Auctioner/upgrade"  data-toggle="tooltip" data-placement="top" title="Become an Auctioneer and sell everything!">Auctioneer</a>--%>
+                            <%--<a class="btn btn-lg btn-info btn-block" href="/upgrade"  data-toggle="tooltip" data-placement="top" title="Become an Auctioneer and sell everything!">Auctioneer</a>--%>
                         <%--</div>--%>
                         <%--</sec:authorize>--%>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/auctions?categoryId=all">Просмотреть лоты</a>
+                            <a class="btn btn-lg btn-primary btn-block" href="/auctions?categoryId=all">Просмотреть лоты</a>
                         </div>
                     </div>
                 </sec:authorize>
@@ -63,18 +63,18 @@
                     <div class="col-lg-12 text-center intro-div">
                         <h1 style="font-size: 63px;">Приветсвую тебя, о повелитель барыг!</h1>
                         <div class="col-md-offset-3 col-md-2">
-                            <a class="btn btn-lg btn-success btn-block" href="/Auctioner/admin-users">Пользователи</a>
+                            <a class="btn btn-lg btn-success btn-block" href="/admin-users">Пользователи</a>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-danger btn-block" href="/Auctioner/myprofile">Мой профиль</a>
+                            <a class="btn btn-lg btn-danger btn-block" href="/myprofile">Мой профиль</a>
                         </div>
                     </div>
                     <div class="col-lg-12 text-center intro-div">
                         <div class="col-md-offset-3 col-md-2">
-                            <a class="btn btn-lg btn-info btn-block" href="/Auctioner/admin">Доска</a>
+                            <a class="btn btn-lg btn-info btn-block" href="/admin">Доска</a>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-primary btn-block" href="/Auctioner/auctions?categoryId=all">Аукционы</a>
+                            <a class="btn btn-lg btn-primary btn-block" href="/auctions?categoryId=all">Аукционы</a>
                         </div>
                     </div>
                 </sec:authorize>
@@ -84,10 +84,10 @@
                     <h1 style="font-size: 43px; font-family: 'Calibri Light'">Добро пожаловать на аукцион проверенных автомобилей!</h1>
                     <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
                     <div class="col-md-offset-4 col-md-2">
-                        <a class="btn_main btn-lg btn-success btn-block" href="/Auctioner/login">Войти</a>
+                        <a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn_main btn-lg btn-primary btn-block" href="/Auctioner/registration">Зарегистрироваться</a>
+                        <a class="btn_main btn-lg btn-primary btn-block" href="/registration">Зарегистрироваться</a>
                     </div>
                 </div>
             </sec:authorize>

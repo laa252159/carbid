@@ -61,10 +61,10 @@
             <a id="delete" href="" class="btn btn-sm btn-danger col-md-offset-10">Delete</a>
             <%-- Prepare Response --%>
             <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                <a id = "reply" href="/Auctioner/admin-new-message" class="btn btn-sm btn-success">Reply</a>
+                <a id = "reply" href="/admin-new-message" class="btn btn-sm btn-success">Reply</a>
             </sec:authorize>
             <sec:authorize ifNotGranted="ROLE_ADMIN">
-                <a id = "reply" href="/Auctioner/myprofile-new-message" class="btn btn-sm btn-success">Reply</a>
+                <a id = "reply" href="/myprofile-new-message" class="btn btn-sm btn-success">Reply</a>
             </sec:authorize>
     	</div>
     </div>
@@ -122,7 +122,7 @@
             message = data[4];
 
         /* Populate Message View */
-        $('#delete').attr("href", "/Auctioner/messaging/delete/" + id);
+        $('#delete').attr("href", "/messaging/delete/" + id);
         $('#header').text(date);
         $('#sender').text('From: '+ sender);
         $('#receiver').text('To: ' + receiver);
@@ -136,7 +136,7 @@
 
         /* Ajax update message.isRead value */
         $.ajax({
-    		url: '/Auctioner/messaging/isRead/' + data[0],
+    		url: '/messaging/isRead/' + data[0],
        		type: 'GET',
     	    success: function(data)
     	    {

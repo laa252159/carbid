@@ -41,7 +41,7 @@
                 </table>
         </div>
         <div class="panel-footer">
-			<a class="btn btn-success col-md-offset-10" href="/Auctioner/admin/xmlDownload" id="xml-link" name="xml-link" disabled="disabled">Export XML</a>
+			<a class="btn btn-success col-md-offset-10" href="/admin/xmlDownload" id="xml-link" name="xml-link" disabled="disabled">Export XML</a>
 		</div>
       </div>
     </form>
@@ -112,7 +112,7 @@
             console.log('submit');
 
         	$.ajax({
-        		url: '/Auctioner/admin/xmlDownload',
+        		url: '/admin/xmlDownload',
            		type: 'GET',
            		data: {
         	    	ids: auctionIds
@@ -126,7 +126,7 @@
                         $('#xml-link').attr('disabled', 'disabled');
         		   	});
                     console.log(data);
-                    window.location = "/Auctioner/admin/xmlDownload";
+                    window.location = "/admin/xmlDownload";
         	    },
         		error: function(data)
         		{

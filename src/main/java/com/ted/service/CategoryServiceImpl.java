@@ -34,9 +34,9 @@ public class CategoryServiceImpl implements CategoryService {
 					+ category.getName()
 					+ "<span class=\"caret\"></span></a>\r\n   <ul class=\"dropdown-menu mega-dropdown-menu\">\r\n      <li class=\"col-sm-3\">\r\n         <ul>\r\n            <li class=\"dropdown-header\">Search in "
 					+ category.getName()
-					+ "</li>\r\n            <div id=\"recentAuctions\">\r\n                <form class=\"navbar-center\" role=\"search\" action=\"/Auctioner/auctions\">\r\n                    <div class=\"form-group\">\r\n                        <div class=\"input-group\">\r\n                            <input type=\"text\" name=\"searchString\" class=\"form-control\" placeholder=\"Search\">\r\n                            <span class=\"input-group-btn\">\r\n                                <button class=\"btn btn-default\" type=\"submit\"><span class=\"glyphicon glyphicon-search\"></span></button>\r\n                            </span>\r\n                            <input type=\"hidden\" name=\"categoryId\" value=\""
+					+ "</li>\r\n            <div id=\"recentAuctions\">\r\n                <form class=\"navbar-center\" role=\"search\" action=\"/auctions\">\r\n                    <div class=\"form-group\">\r\n                        <div class=\"input-group\">\r\n                            <input type=\"text\" name=\"searchString\" class=\"form-control\" placeholder=\"Search\">\r\n                            <span class=\"input-group-btn\">\r\n                                <button class=\"btn btn-default\" type=\"submit\"><span class=\"glyphicon glyphicon-search\"></span></button>\r\n                            </span>\r\n                            <input type=\"hidden\" name=\"categoryId\" value=\""
 					+ category.getCategoryId()
-					+ "\">\r\n                            <input type=\"hidden\" name=\"page\" value=\"1\">\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n                </div>\r\n            <li class=\"divider\"></li>\r\n            <li><a href=\"/Auctioner/auctions?categoryId="
+					+ "\">\r\n                            <input type=\"hidden\" name=\"page\" value=\"1\">\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n                </div>\r\n            <li class=\"divider\"></li>\r\n            <li><a href=\"/auctions?categoryId="
 					+ category.getCategoryId()
 					+ "\">View all Auctions<span class=\"glyphicon glyphicon-chevron-right pull-right\"></span></a></li>\r\n         </ul>\r\n      </li>\r\n      <div class=\"col-9 pre-scrollabler\">";
 			
@@ -54,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
 				
 				/* Second Category Start HTML */
 				html += "<li class=\"col-sm-3\"><ul>"
-						+"<li class=\"dropdown-header hvr-grow\"><a href=\"/Auctioner/auctions?categoryId=" + category2.getCategoryId() + "\"><i class=\"glyphicon glyphicon-chevron-right\"></i>" + category2.getName() + "</a>"
+						+"<li class=\"dropdown-header hvr-grow\"><a href=\"/auctions?categoryId=" + category2.getCategoryId() + "\"><i class=\"glyphicon glyphicon-chevron-right\"></i>" + category2.getName() + "</a>"
 						+"</li>";
 				
 				
@@ -63,7 +63,7 @@ public class CategoryServiceImpl implements CategoryService {
 				for(Category category3 : categories3) {
 					
 					/* Third Category HTML */
-					html += "<li><a class=\"hvr-grow\" href=\"/Auctioner/auctions?categoryId=" + category3.getCategoryId() + "\">"
+					html += "<li><a class=\"hvr-grow\" href=\"/auctions?categoryId=" + category3.getCategoryId() + "\">"
 							+category3.getName()
 							+"</a></li>";
 					

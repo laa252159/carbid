@@ -37,7 +37,7 @@
             <div class="col-lg-12 text-center">
                 <h4 class="text-center">${errorMsg}</h4>
                 <div class="row text-center">
-                    <a href="/Auctioner/" class="btn btn-primary">Вернуться на главную</a>
+                    <a href="/" class="btn btn-primary">Вернуться на главную</a>
                 </div>
             </div>
         </div>

@@ -97,10 +97,10 @@
                     <div class="row">
                         <div class="col-sm-11">
                             <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                                <a href="/Auctioner/admin-new-message/${usr.username}" class="btn btn-success pull-right">Отправить</a>
+                                <a href="/admin-new-message/${usr.username}" class="btn btn-success pull-right">Отправить</a>
                             </sec:authorize>
                             <sec:authorize ifNotGranted="ROLE_ADMIN">
-                                <a href="/Auctioner/myprofile-new-message/${usr.username}" class="btn btn-success pull-right">Отправить</a>
+                                <a href="/myprofile-new-message/${usr.username}" class="btn btn-success pull-right">Отправить</a>
                             </sec:authorize>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-sm-11">
                             <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                                <a href="/Auctioner/deleteuser/${usr.userid}" class="btn btn-danger pull-right">УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ</a>
+                                <a href="/deleteuser/${usr.userid}" class="btn btn-danger pull-right">УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ</a>
                             </sec:authorize>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
     /* Function to ajax post the Seller Rating */
     function sellerRatingPost(value) {
 
-        var url = "/Auctioner/rate/seller/" + userId;
+        var url = "/rate/seller/" + userId;
 
         $.ajax({
             url: url,
@@ -158,7 +158,7 @@
     /* Function to ajax post the Bidder Rating */
     function bidderRatingPost(value) {
 
-        var url = "/Auctioner/rate/bidder/" + userId;
+        var url = "/rate/bidder/" + userId;
 
         $.ajax({
             url: url,

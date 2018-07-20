@@ -32,10 +32,10 @@
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <li>
                     <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                        <a href="/Auctioner/admin-inbox" class="btn btn-default btn-sm btn-link">
+                        <a href="/admin-inbox" class="btn btn-default btn-sm btn-link">
                     </sec:authorize>
                     <sec:authorize ifNotGranted="ROLE_ADMIN">
-                        <a href="/Auctioner/myprofile-inbox" class="btn btn-default btn-sm btn-link">
+                        <a href="/myprofile-inbox" class="btn btn-default btn-sm btn-link">
                     </sec:authorize>
                         <div class="notification-icon">
                             <span class="glyphicon glyphicon-envelope"></span>
@@ -44,8 +44,8 @@
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                    <li><a href="/Auctioner/admin" style="color:orange">Админка</a></li>
-                    <li><a href="/Auctioner/j_spring_security_logout">Выйти</a></li>
+                    <li><a href="/admin" style="color:orange">Админка</a></li>
+                    <li><a href="/j_spring_security_logout">Выйти</a></li>
                 </sec:authorize>
                  <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
                     <%--<li><a href="upgrade" style="color:orange">Become An Auctioner</a></li>--%>
@@ -56,12 +56,12 @@
                         "#" id="account">Мой профиль (<sec:authentication property="name" />) <span class=
                         "caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/Auctioner/myprofile">Настройки аккаунта</a></li>
+                            <li><a href="/myprofile">Настройки аккаунта</a></li>
                             <sec:authorize ifAnyGranted="ROLE_SELLER">
                                 <li><a href="myauctions">Мои аукционы</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
-                            <li><a href="/Auctioner/j_spring_security_logout">Выйти</a></li>
+                            <li><a href="/j_spring_security_logout">Выйти</a></li>
                         </ul>
                     </li>
                 </sec:authorize>

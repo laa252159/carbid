@@ -123,7 +123,7 @@
                    <div class="form-group">
                      <label class="col-md-3 control-label"></label>
                      <div class="col-md-8">
-                         <a href="/Auctioner/myprofile" class="btn btn-default">Отмена</a>
+                         <a href="/myprofile" class="btn btn-default">Отмена</a>
                          <span></span>
                          <button name="submit" type="submit" value="submit" class="btn btn-success">Сохранить изменения</button>
                      </div>

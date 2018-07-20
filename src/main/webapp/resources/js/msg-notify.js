@@ -23,7 +23,7 @@ function chekforMessages(){
     }
 
     var request = $.ajax({
-        url: "/Auctioner/messaging/checkNewMessages",
+        url: "/messaging/checkNewMessages",
         type: "GET",
         timeout:45000,
         success: function( notification ) {
@@ -48,7 +48,7 @@ function chekforMessages(){
 function chekforMessagesOnce(){
 
     $.ajax({
-        url: "/Auctioner/messaging/checkNewMessages",
+        url: "/messaging/checkNewMessages",
         type: "GET",
         success: function( notification ) {
             //Check if any notifications are returned - if so then display alert

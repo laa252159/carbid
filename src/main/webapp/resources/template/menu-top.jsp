@@ -18,13 +18,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/Auctioner/"><span class="icon-travel-car"></span> Perekup64</a>
+		<a class="navbar-brand" href="/"><span class="icon-travel-car"></span> Perekup64</a>
 	</div>
 
 	<div class="collapse navbar-collapse js-navbar-collapse">
 
         <div class="col-md-offset-3 col-md-4">
-            <form class="navbar-center" role="search" action="/Auctioner/auctions">
+            <form class="navbar-center" role="search" action="/auctions">
                 <div class="form-group" style="margin-bottom: 0px;">
                     <div class="input-group">
                         <input type="text" name="searchString" class="form-control" placeholder="Поиск">
@@ -42,10 +42,10 @@
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <li>
                     <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                        <a class="bottom-color" href="/Auctioner/admin-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px">
+                        <a class="bottom-color" href="/admin-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px">
                     </sec:authorize>
                     <sec:authorize ifNotGranted="ROLE_ADMIN">
-                        <a class="bottom-color" href="/Auctioner/myprofile-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px;">
+                        <a class="bottom-color" href="/myprofile-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px;">
                     </sec:authorize>
                         <div class="notification-icon">
                             <span class="glyphicon glyphicon-envelope"></span>
@@ -54,8 +54,8 @@
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                    <li><a class="bottom-color" href="/Auctioner/admin" style="color:orange">Админка</a></li>
-                    <li><a class="bottom-color" href="/Auctioner/j_spring_security_logout">Выйти</a></li>
+                    <li><a class="bottom-color" href="/admin" style="color:orange">Админка</a></li>
+                    <li><a class="bottom-color" href="/j_spring_security_logout">Выйти</a></li>
                 </sec:authorize>
                 <%--продавцов назначаем ручками через БД в перспективе--%>
                 <%--<sec:authorize ifAnyGranted="ROLE_BIDDER">--%>
@@ -65,7 +65,7 @@
                 <%--</sec:authorize>--%>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
-                   <li><a class="bottom-color" href="/Auctioner/new-auction">Создать лот</a></li>
+                   <li><a class="bottom-color" href="/new-auction">Создать лот</a></li>
                </sec:authorize>
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <li class="dropdown">
@@ -74,20 +74,20 @@
                             <sec:authentication property="name" /><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/Auctioner/myprofile">Настройки аккаунта</a></li>
+                            <li><a href="/myprofile">Настройки аккаунта</a></li>
                             <sec:authorize ifAnyGranted="ROLE_ADMIN">
                             <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
-                                <li><a href="/Auctioner/myprofile-auctions">Мои лоты</a></li>
+                                <li><a href="/myprofile-auctions">Мои лоты</a></li>
                             </sec:authorize>
                             <li class="divider"></li>
-                            <li style="color: red;"><a href="/Auctioner/j_spring_security_logout"><span class="glyphicon glyphicon-off"></span><i class="glyphicon glyphicon-none"></i>Выйти</a></li>
+                            <li style="color: red;"><a href="/j_spring_security_logout"><span class="glyphicon glyphicon-off"></span><i class="glyphicon glyphicon-none"></i>Выйти</a></li>
                         </ul>
                     </li>
                 </sec:authorize>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <li><a class="bottom-color" href="/Auctioner/login">Вход</a></li>
-                <li><a class="bottom-color" href="/Auctioner/registration">Регистрация</a></li>
+                <li><a class="bottom-color" href="/login">Вход</a></li>
+                <li><a class="bottom-color" href="/registration">Регистрация</a></li>
             </sec:authorize>
         </div>
 	</div><!-- /.nav-collapse -->
@@ -98,7 +98,7 @@
       <div class="container-fluid">
         <%--<div class="collapse navbar-collapse collapse-buttons">--%>
             <%--<ul class="nav navbar-nav">--%>
-                <%--<li><a class="bottom-color" href="/Auctioner/auctions?categoryId=all">Просмотреть все лоты</a></li>--%>
+                <%--<li><a class="bottom-color" href="/auctions?categoryId=all">Просмотреть все лоты</a></li>--%>
 
                 <%--&lt;%&ndash; Categories &ndash;%&gt;--%>
                 <%--&lt;%&ndash;<%@ include file="/resources/template/categories.jsp" %>&ndash;%&gt;--%>

@@ -116,7 +116,7 @@ $('#sent tbody').on('click', 'tr', function () {
         message = data[4];
 
     /* Populate Message View */
-    $('#delete-sent').attr("href", "/Auctioner/messaging/delete/" + id);
+    $('#delete-sent').attr("href", "/messaging/delete/" + id);
     $('#header_sent').text(date);
     $('#sender_sent').text('From: '+ sender);
     $('#receiver_sent').text('To: ' + receiver);

@@ -51,7 +51,7 @@ $("#auction-form").submit(function(e) {
     console.log('submit');
 
 	$.ajax({
-		url: '/Auctioner/admin/xmlDownload',
+		url: '/admin/xmlDownload',
    		type: 'GET',
    		data: {
 	    	ids: auctionIds
@@ -64,7 +64,7 @@ $("#auction-form").submit(function(e) {
 				auctionIds = [];
 		   	});
             console.log(data);
-            window.location = "/Auctioner/admin/xmlDownload";
+            window.location = "/admin/xmlDownload";
 	    },
 		error: function(data)
 		{

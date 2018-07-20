@@ -84,7 +84,7 @@
         <c:if test="${user.approved == 0}" >
             <h4 class="text-center">Your account has to be approved in order to be able to place bids and become an Auctioneer.</h4>
             <div class="row text-center">
-                <a href="/Auctioner/" class="btn btn-primary">Back To Homepage</a>
+                <a href="/" class="btn btn-primary">Back To Homepage</a>
             </div>
         </c:if>
     </div>

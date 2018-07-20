@@ -75,11 +75,11 @@
                   <li class="dropdown">
                     <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Сообщения <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                      <li><a href="/Auctioner/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
-                      <li><a href="/Auctioner/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
-                      <li><a href="/Auctioner/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
+                      <li><a href="/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
+                      <li><a href="/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
+                      <li><a href="/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
                       <li class="divider" data-toggle="pill"></li>
-                      <li><a href="/Auctioner/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>
+                      <li><a href="/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>
                     </ul>
                   </li>
                   <sec:authorize ifAnyGranted="ROLE_SELLER">
@@ -151,7 +151,7 @@
                     <div class="col-sm-9">
                         <%--Менять свой профиль могут все!!!--%>
                         <%--<c:if test="${user.approved == 1}">--%>
-                            <a href="/Auctioner/myprofile/update" class="btn btn-primary pull-right">Изменить данные</a>
+                            <a href="/myprofile/update" class="btn btn-primary pull-right">Изменить данные</a>
                         <%--</c:if>--%>
                         <%--<c:if test="${user.approved == 0}">--%>
                             <%--<a href="#" class="btn btn-primary pull-right" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">Change Profile</a>--%>

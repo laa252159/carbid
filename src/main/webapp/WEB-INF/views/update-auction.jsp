@@ -336,7 +336,7 @@
             var id = $(this).attr('id');
             console.log("Delete " + id)
 
-            var url = "/Auctioner/delete-image/" + id;
+            var url = "/delete-image/" + id;
 
             $.ajax({
         		url: url,
