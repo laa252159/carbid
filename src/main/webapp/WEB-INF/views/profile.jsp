@@ -90,7 +90,7 @@
                                 <h4 class="text-left">Телефон</h4>
                             </div>
                             <div class="col-md-4">
-                                <h4 class="text-left"><strong>${user.phone}</strong></h4>
+                                <h4 class="text-left"><strong>${usr.phone}</strong></h4>
                             </div>
                         </div>
                     </div>

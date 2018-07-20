@@ -231,7 +231,7 @@
   </dependencies>
   
   <build>
-    <finalName>Auctioner</finalName>
+    <finalName>ROOT</finalName>
 	  <plugins>
 		  <plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
