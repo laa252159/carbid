@@ -131,7 +131,7 @@
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Дата заведения</h4>
+                            <h4 class="panel-title">Дата начала</h4>
                         </div>
                         <div class="panel-body">
                             <span class="date-number text-center">${auction.started}</span>
@@ -472,7 +472,7 @@
     }
 
     function updatePriceAndLiveFeed(data) {
-        $('#currentPrice').text("$"+ data.info.latestBid);
+        $('#currentPrice').text(data.info.latestBid + " Руб");
 
         var bids = data.bids;
         var bid;
