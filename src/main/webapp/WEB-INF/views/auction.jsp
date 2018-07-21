@@ -483,7 +483,7 @@
             var time = new Date(bid.time);
             var formattedTime = time.format("isoTime");
 
-            $('#liveFeed').prepend('<li class="list-group-item">'+ formattedTime + ' ' + bid.username + ' bidded $'+ bid.amount + '</li>');
+            $('#liveFeed').prepend('<li class="list-group-item">'+ formattedTime + ' ' + bid.username + ' перебил ставкой '+ bid.amount + ' Руб</li>');
         }
     }
 
