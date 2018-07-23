@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import com.sun.istack.internal.Nullable;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -39,7 +40,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "auctions")
 @NamedQuery(name = "Auction.findAll", query = "SELECT a FROM Auction a")
 @XmlType(propOrder = {"name", "categories", "currentlyString", "buyPriceString", "firstBidString", "numberOfBids", 
-		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description"})
+		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
+		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
+		"owners", "vin", "gibdd", "fssp", "engineState", "colloredElement", "driveState"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -56,10 +59,86 @@ public class Auction implements Serializable {
 	@Column(name="currently", columnDefinition="Decimal(15,2)")
 	private BigDecimal currently;
 
-	@NotNull
+	@Nullable
 	@Lob
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String description;
+
+	@Nullable
+	@Column(name="brand", nullable = true)
+	private String brand;
+
+	@Nullable
+	@Column(name="model", nullable = true)
+	private String model;
+
+	@Nullable
+	@Column(name="released", nullable = true)
+	private String released;
+
+	@Nullable
+	@Column(name="run", nullable = true)
+	private String run;
+
+	@Nullable
+	@Column(name="engine_type", nullable = true)
+	private String engineType;
+
+	@Nullable
+	@Column(name="power", nullable = true)
+	private String power;
+
+	@Nullable
+	@Column(name="transmission", nullable = true)
+	private String transmission;
+
+	@Nullable
+	@Column(name="body", nullable = true)
+	private String body;
+
+	@Nullable
+	@Column(name="drive", nullable = true)
+	private String drive;
+
+	@Nullable
+	@Column(name="color", nullable = true)
+	private String color;
+
+	@Nullable
+	@Column(name="doors", nullable = true)
+	private String doors;
+
+	@Nullable
+	@Column(name="body_state", nullable = true)
+	private String bodyState;
+
+	@Nullable
+	@Column(name="owners", nullable = true)
+	private String owners;
+
+	@Nullable
+	@Column(name="vin", nullable = true)
+	private String vin;
+
+	@Nullable
+	@Column(name="gibdd", nullable = true)
+	private String gibdd;
+
+	@Nullable
+	@Column(name="fssp", nullable = true)
+	private String fssp;
+
+	@Nullable
+	@Column(name="drive_state", nullable = true)
+	private String driveState;
+
+	@Nullable
+	@Column(name="engine_state", nullable = true)
+	private String engineState;
+
+	@Nullable
+	@Column(name="collored_elements", nullable = true)
+	private String colloredElement;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -70,8 +149,8 @@ public class Auction implements Serializable {
 	@Column(name="first_bid", columnDefinition="Decimal(15,2)")
 	private BigDecimal firstBid;
 
-	@NotEmpty
-	@Column(nullable = false, length = 45)
+	@Nullable
+	@Column(nullable = true, length = 45)
 	private String name;
 
 	@Column(name = "number_of_bids", nullable = false)
@@ -170,6 +249,158 @@ public class Auction implements Serializable {
 	@XmlTransient
 	public List<AuctionPicture> getAuctionPictures() {
 		return auctionPictures;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public String getReleased() {
+		return released;
+	}
+
+	public void setReleased(String released) {
+		this.released = released;
+	}
+
+	public String getRun() {
+		return run;
+	}
+
+	public void setRun(String run) {
+		this.run = run;
+	}
+
+	public String getEngineType() {
+		return engineType;
+	}
+
+	public void setEngineType(String engineType) {
+		this.engineType = engineType;
+	}
+
+	public String getPower() {
+		return power;
+	}
+
+	public void setPower(String power) {
+		this.power = power;
+	}
+
+	public String getTransmission() {
+		return transmission;
+	}
+
+	public void setTransmission(String transmission) {
+		this.transmission = transmission;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+	public String getDrive() {
+		return drive;
+	}
+
+	public void setDrive(String drive) {
+		this.drive = drive;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getDoors() {
+		return doors;
+	}
+
+	public void setDoors(String doors) {
+		this.doors = doors;
+	}
+
+	public String getBodyState() {
+		return bodyState;
+	}
+
+	public void setBodyState(String bodyState) {
+		this.bodyState = bodyState;
+	}
+
+	public String getOwners() {
+		return owners;
+	}
+
+	public void setOwners(String owners) {
+		this.owners = owners;
+	}
+
+	public String getVin() {
+		return vin;
+	}
+
+	public void setVin(String vin) {
+		this.vin = vin;
+	}
+
+	public String getGibdd() {
+		return gibdd;
+	}
+
+	public void setGibdd(String gibdd) {
+		this.gibdd = gibdd;
+	}
+
+	public String getFssp() {
+		return fssp;
+	}
+
+	public void setFssp(String fssp) {
+		this.fssp = fssp;
+	}
+
+	public String getDriveState() {
+		return driveState;
+	}
+
+	public void setDriveState(String drive_state) {
+		this.driveState = drive_state;
+	}
+
+	public String getEngineState() {
+		return engineState;
+	}
+
+	public void setEngineState(String engine_state) {
+		this.engineState = engine_state;
+	}
+
+	public String getColloredElement() {
+		return colloredElement;
+	}
+
+	public void setColloredElement(String collored_elements) {
+		this.colloredElement = collored_elements;
 	}
 
 	@XmlTransient

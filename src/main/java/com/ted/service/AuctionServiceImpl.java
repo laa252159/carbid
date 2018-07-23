@@ -474,14 +474,37 @@ public class AuctionServiceImpl implements AuctionService {
 		perAuction.setFirstBidString(perAuction.getFirstBid().toString());
 		perAuction.setCurrentlyString(perAuction.getCurrently().toString());
 
-		/* Persist Auction */
-		perAuction = auctionRepository.saveAndFlush(perAuction);
+
 
 		/* Pictures */
 		MultipartFile[] files = formAuction.getFiles();
 		if(!files[0].isEmpty())
 			perAuction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
 
+
+		perAuction.setBrand(formAuction.getAuction().getBrand());
+		perAuction.setModel(formAuction.getAuction().getModel());
+		perAuction.setReleased(formAuction.getAuction().getReleased());
+		perAuction.setRun(formAuction.getAuction().getRun());
+		perAuction.setEngineType(formAuction.getAuction().getEngineType());
+		perAuction.setPower(formAuction.getAuction().getPower());
+		perAuction.setTransmission(formAuction.getAuction().getTransmission());
+		perAuction.setBody(formAuction.getAuction().getBody());
+		perAuction.setDrive(formAuction.getAuction().getDrive());
+		perAuction.setColor(formAuction.getAuction().getColor());
+		perAuction.setDoors(formAuction.getAuction().getDoors());
+		perAuction.setBodyState(formAuction.getAuction().getBodyState());
+		perAuction.setOwners(formAuction.getAuction().getOwners());
+		perAuction.setVin(formAuction.getAuction().getVin());
+		perAuction.setGibdd(formAuction.getAuction().getGibdd());
+		perAuction.setFssp(formAuction.getAuction().getFssp());
+		perAuction.setColloredElement(formAuction.getAuction().getColloredElement());
+		perAuction.setDriveState(formAuction.getAuction().getDriveState());
+		perAuction.setEngineState(formAuction.getAuction().getEngineState());
+
+
+		/* Persist Auction */
+		perAuction = auctionRepository.saveAndFlush(perAuction);
 		return null;
 	}
 

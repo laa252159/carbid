@@ -1,5 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `auctionerdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `auctionerdb`;
+UNLOCK TABLES;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: auctionerdb
@@ -80,8 +81,29 @@ DROP TABLE IF EXISTS `auctions`;
 CREATE TABLE `auctions` (
   `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `seller_userid` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `description` mediumtext NOT NULL,
+  `name` varchar(45),
+  `description` mediumtext,
+
+  `brand` varchar(45),
+  `model` varchar(45),
+  `released` varchar(45),
+  `run` varchar(45),
+  `engine_type` varchar(45),
+  `power` varchar(45),
+  `transmission` varchar(45),
+  `body` varchar(45),
+  `drive` varchar(45),
+  `color` varchar(45),
+  `doors` varchar(45),
+  `body_state` mediumtext,
+  `owners` varchar(45),
+  `vin` varchar(45),
+  `gibdd` varchar(45),
+  `fssp` varchar(45),
+  `collored_elements` varchar(45),
+  `drive_state` mediumtext,
+  `engine_state` mediumtext,
+
   `first_bid` decimal(15,2) NOT NULL,
   `buy_price` decimal(15,2) DEFAULT NULL,
   `currently` decimal(15,2) NOT NULL,
@@ -325,3 +347,31 @@ CREATE TABLE `users` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-10-05  1:06:49
+
+--
+-- Dumping data for table `users`
+--
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$8YVmT3D5yxBCiVInRboVsOK3k91umZxK1XXPwltTyakPFBh7d06Uq','9042440462','Саратов',NULL,NULL,1,1,0,0,0,0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `authorities`
+--
+LOCK TABLES `authorities` WRITE;
+/*!40000 ALTER TABLE `authorities` DISABLE KEYS */;
+INSERT INTO `authorities` VALUES (3936,'ROLE_ADMIN');
+/*!40000 ALTER TABLE `authorities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `categories`
+--
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'cars',NULL);
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+

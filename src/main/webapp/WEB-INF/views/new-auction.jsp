@@ -87,32 +87,297 @@
                             <h2 class="text-center">Auction Info</h2>
                             <div class="row content-row">
                                 <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <label for="name" class="input-label col-md-3">Название лота:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="text" name="auction.name" path="auction.name" id="name" class="form-control" placeholder="Auction" value="${formAuction.auction.name}" />
-                                            		<form:errors path="auction.name" cssClass="error" />
-                                                </div>
-                                                <div class="err">
+                                    <%--<div class="row">--%>
+                                        <%--<div class="form-group">--%>
+                                            <%--<label for="name" class="input-label col-md-3">Название лота:</label>--%>
+                                            <%--<div class="col-lg-8">--%>
+                                                <%--<div class="in-group">--%>
+                                                    <%--<form:input type="text" name="auction.name" path="auction.name" id="name" class="form-control" placeholder="Auction" value="${formAuction.auction.name}" />--%>
+                                            		<%--<form:errors path="auction.name" cssClass="error" />--%>
+                                                <%--</div>--%>
+                                                <%--<div class="err">--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                    <%--<div class="row top-buffer">--%>
+                                        <%--<div class="form-group">--%>
+                                            <%--<label for="description" class="input-label col-md-3">Описание:</label>--%>
+                                            <%--<div class="col-lg-8">--%>
+                                                <%--<div class="in-group">--%>
+                                                    <%--<form:textarea rows="5" name="description" path="auction.description" id="description" class="form-control" placeholder="Auction Info..." />--%>
+                                                	<%--&lt;%&ndash; <form:errors path="formAuction.auction.description" cssClass="error" /> &ndash;%&gt;--%>
+                                                <%--</div>--%>
+                                                <%--<div class="err">--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="brand" class="input-label col-md-3">Макрка:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.brand" path="auction.brand" id="brand" class="form-control" placeholder="Марка" value="${formAuction.auction.brand}" />
+                                                        <form:errors path="auction.brand" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="description" class="input-label col-md-3">Описание:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:textarea rows="5" name="description" path="auction.description" id="description" class="form-control" placeholder="Auction Info..." />
-                                                	<%-- <form:errors path="formAuction.auction.description" cssClass="error" /> --%>
-                                                </div>
-                                                <div class="err">
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="model" class="input-label col-md-3">Модель:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.model" path="auction.model" id="model" class="form-control" placeholder="Модель" value="${formAuction.auction.model}" />
+                                                        <form:errors path="auction.model" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="released" class="input-label col-md-3">Год выпуска:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.released" path="auction.released" id="released" class="form-control" placeholder="Год выпуска" value="${formAuction.auction.released}" />
+                                                        <form:errors path="auction.released" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="run" class="input-label col-md-3">Пробег:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.run" path="auction.run" id="run" class="form-control" placeholder="Пробег" value="${formAuction.auction.run}" />
+                                                        <form:errors path="auction.run" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="engineType" class="input-label col-md-3">Тип двигателя:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.engineType" path="auction.engineType" id="engineType" class="form-control" placeholder="Тип двигателя" value="${formAuction.auction.engineType}" />
+                                                        <form:errors path="auction.engineType" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="power" class="input-label col-md-3">Мощность:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.power" path="auction.power" id="power" class="form-control" placeholder="Мощность" value="${formAuction.auction.power}" />
+                                                        <form:errors path="auction.power" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="transmission" class="input-label col-md-3">Коробка:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.transmission" path="auction.transmission" id="transmission" class="form-control" placeholder="Коробка" value="${formAuction.auction.transmission}" />
+                                                        <form:errors path="auction.transmission" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="body" class="input-label col-md-3">Кузов:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.body" path="auction.body" id="body" class="form-control" placeholder="Кузов" value="${formAuction.auction.body}" />
+                                                        <form:errors path="auction.body" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="drive" class="input-label col-md-3">Привод:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.drive" path="auction.drive" id="drive" class="form-control" placeholder="Привод" value="${formAuction.auction.drive}" />
+                                                        <form:errors path="auction.drive" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="color" class="input-label col-md-3">Цвет:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.color" path="auction.color" id="color" class="form-control" placeholder="Цвет" value="${formAuction.auction.color}" />
+                                                        <form:errors path="auction.color" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="doors" class="input-label col-md-3">Количество дверей:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.doors" path="auction.doors" id="doors" class="form-control" placeholder="Количество дверей" value="${formAuction.auction.doors}" />
+                                                        <form:errors path="auction.doors" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="bodyState" class="input-label col-md-3">Состояние кузова:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:textarea rows="5" name="auction.bodyState" path="auction.bodyState" id="bodyState" class="form-control" placeholder="Состояние кузова" />
+                                                        <form:errors path="auction.bodyState" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="owners" class="input-label col-md-3">Владельцев по ПТС:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.owners" path="auction.owners" id="owners" class="form-control" placeholder="Владельцев по ПТС" value="${formAuction.auction.owners}" />
+                                                        <form:errors path="auction.owners" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="vin" class="input-label col-md-3">VIN код:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.vin" path="auction.vin" id="vin" class="form-control" placeholder="VIN код" value="${formAuction.auction.vin}" />
+                                                        <form:errors path="auction.vin" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="gibdd" class="input-label col-md-3">База ГИБДД:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.gibdd" path="auction.gibdd" id="gibdd" class="form-control" placeholder="База ГИБДД" value="${formAuction.auction.gibdd}" />
+                                                        <form:errors path="auction.gibdd" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="fssp" class="input-label col-md-3">База судебных приставов:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.fssp" path="auction.fssp" id="fssp" class="form-control" placeholder="База судебных приставов" value="${formAuction.auction.fssp}" />
+                                                        <form:errors path="auction.fssp" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="colloredElement" class="input-label col-md-3">Количество крашенных элементов:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:input type="text" name="auction.colloredElement" path="auction.colloredElement" id="colloredElement" class="form-control" placeholder="Количество крашенных элементов" value="${formAuction.auction.colloredElement}" />
+                                                        <form:errors path="auction.colloredElement" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="driveState" class="input-label col-md-3">Cостояние ходовой:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:textarea rows="5" name="auction.driveState" path="auction.driveState" id="driveState" class="form-control" placeholder="Cостояние ходовой" value="${formAuction.auction.driveState}" />
+                                                        <form:errors path="auction.driveState" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="engineState" class="input-label col-md-3">Cостояние двигателя:</label>
+                                                <div class="col-lg-8">
+                                                    <div class="in-group">
+                                                        <form:textarea rows="5" name="auction.engineState" path="auction.engineState" id="engineState" class="form-control" placeholder="Cостояние двигателя" value="${formAuction.auction.engineState}" />
+                                                        <form:errors path="auction.engineState" cssClass="error" />
+                                                    </div>
+                                                    <div class="err">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
