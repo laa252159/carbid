@@ -18,6 +18,16 @@
                         </c:if>
                     </div>
                     <div class="caption">
+                        <table class="text-in-galery-pannels">
+                            <tr><td>Марка:</td><td><b>${auction.brand}</b></td></tr>
+                            <tr><td>Модель:</td><td><b>${auction.model}</b></td></tr>
+                            <tr><td>Год выпуска:</td><td><b>${auction.released}</b></td></tr>
+                            <tr><td>Пробег:</td><td><b>${auction.run}</b></td></tr>
+                            <tr><td>Двигатель:</td><td><b>${auction.released}</b></td></tr>
+                            <tr><td>Коробка:</td><td><b>${auction.transmission}</b></td></tr>
+                            <tr><td>Кузов:</td><td><b>${auction.body}</b></td></tr>
+                            <tr><td>Привод:</td><td><b>${auction.drive}</b></td></tr>
+                        </table>
                         <div class="text-limit">
                             <h4 class="group inner list-group-item-heading">${auction.name}</h4>
                         </div>

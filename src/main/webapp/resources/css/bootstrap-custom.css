@@ -6932,3 +6932,9 @@ label,
 .popover-title {
   border: none;
 }
+.text-in-galery-pannels{
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 14pt;
+}
