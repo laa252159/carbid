@@ -88,7 +88,7 @@ btn-link:hover, btn-link:active, btn-link:focus {
 
 .auction-list-img-div {
     /*width: 250px;*/
-    /*height: 250px;*/
+    height: 280px;
     overflow: hidden;
 }
 
@@ -105,5 +105,5 @@ btn-link:hover, btn-link:active, btn-link:focus {
 }
 
 .intro-div {
-    margin-top: 10%;
+    margin-top: 2%;
 }

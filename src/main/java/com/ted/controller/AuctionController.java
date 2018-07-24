@@ -105,7 +105,7 @@ public class AuctionController {
 		return "auction-list";
 	}
 	
-	@RequestMapping(value = "auctions", method = RequestMethod.GET)
+	@RequestMapping(value = {"auctions"} , method = RequestMethod.GET)
 	public String getAuctions(Model model, HttpServletRequest request) {		
 		
 		auctionService.updateFilter(request);
@@ -121,7 +121,25 @@ public class AuctionController {
 		
 		return "auctions";
 	}
-	
+
+	@RequestMapping(value = {"/", ""} , method = RequestMethod.GET)
+	public String getIndex(Model model, HttpServletRequest request) {
+
+		auctionService.updateFilter(request);
+
+		Page<Auction> auctions = auctionService.pageAuctions(request);
+		List<Auction> auctionList = auctions.getContent();
+		auctionList = auctionService.putPrimaryImage(auctionList);
+		model.addAttribute("auctions", auctionList);
+
+		System.out.println(filter.getSortBy());
+
+		model.addAttribute("filter", filter);
+
+		return "index";
+	}
+
+
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String searchAuctions(Model model, HttpServletRequest request) {
 		

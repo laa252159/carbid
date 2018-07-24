@@ -50,7 +50,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Model model) {
-		return "index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
