@@ -284,10 +284,63 @@
                 </ul>
 
                 <div class="tab-content">
-                    <div class="well tab-pane active" id="detailsTab">
-                        <h3>Описание</h3>
+                    <div class="well tab-pane active" id="detailsTab" style="font-size: 10pt">
                         <p>
-                            ${auction.description}
+                            Марка: <b>${auction.brand}</b>
+                        </p>
+                        <p>
+                            Модель: <b>${auction.model}</b>
+                        </p>
+                        <p>
+                            Год выпуска: <b>${auction.released}</b>
+                        </p>
+                        <p>
+                            Пробег: <b>${auction.run}</b>
+                        </p>
+                        <p>
+                            Двигатель: <b>${auction.engineType}</b>
+                        </p>
+                        <p>
+                            Состояние двигателя: <b>${auction.engineState}</b>
+                        </p>
+                        <p>
+                            Коробка: <b>${auction.transmission}</b>
+                        </p>
+                        <p>
+                            Кузов: <b>${auction.body}</b>
+                        </p>
+                        <p>
+                            Состояние кузова: <b>${auction.bodyState}</b>
+                        </p>
+                        <p>
+                            Привод: <b>${auction.drive}</b>
+                        </p>
+                        <p>
+                            Мощность: <b>${auction.power}</b>
+                        </p>
+                        <p>
+                            Цвет: <b>${auction.color}</b>
+                        </p>
+                        <p>
+                            Дверей: <b>${auction.doors}</b>
+                        </p>
+                        <p>
+                            Владельцев по птс: <b>${auction.owners}</b>
+                        </p>
+                        <p>
+                            VIN: <b>${auction.vin}</b>
+                        </p>
+                        <p>
+                            База ГИБДД РФ: <b>${auction.gibdd}</b>
+                        </p>
+                        <p>
+                            База судебных приставов: <b>${auction.fssp}</b>
+                        </p>
+                        <p>
+                            Количество крашенных элементов: <b>${auction.colloredElement}</b>
+                        </p>
+                        <p>
+                            Cостояние ходовой: <b>${auction.driveState}</b>
                         </p>
                     </div>
                     <div class="well tab-pane" id="locationTab">
