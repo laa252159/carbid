@@ -300,6 +300,7 @@
                         <p>
                             Двигатель: <b>${auction.engineType}</b>
                         </p>
+                        <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                         <p>
                             Состояние двигателя: <b>${auction.engineState}</b>
                         </p>
@@ -342,6 +343,12 @@
                         <p>
                             Cостояние ходовой: <b>${auction.driveState}</b>
                         </p>
+                        </sec:authorize>
+                        <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+                            <p>
+                                <b style="color: red">Остальная информация доступна только зарегистрированным пользователям!</b>
+                            </p>
+                        </sec:authorize>
                     </div>
                     <div class="well tab-pane" id="locationTab">
                         <div class="container">
