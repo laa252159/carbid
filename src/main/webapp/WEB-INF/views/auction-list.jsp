@@ -20,7 +20,7 @@
             <div class="item  col-xs-4 col-lg-4 list-group-item list-group-item">
                 <div class="thumbnail item-shadow">
                     <div class="auction-list-img-div">
-                        <div style="float:left">
+                        <div style="float:left; width:350px">
                             <c:if test="${not empty auction.primaryImage}">
                                 <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" /></a>
                             </c:if>
