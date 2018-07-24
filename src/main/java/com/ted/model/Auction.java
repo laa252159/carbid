@@ -29,9 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.sun.istack.internal.Nullable;
-import org.hibernate.validator.constraints.NotEmpty;
-
 /**
  * The persistent class for the auctions database table.
  * 
@@ -59,84 +56,83 @@ public class Auction implements Serializable {
 	@Column(name="currently", columnDefinition="Decimal(15,2)")
 	private BigDecimal currently;
 
-	@Nullable
 	@Lob
 	@Column(nullable = true)
 	private String description;
 
-	@Nullable
+	
 	@Column(name="brand", nullable = true)
 	private String brand;
 
-	@Nullable
+	
 	@Column(name="model", nullable = true)
 	private String model;
 
-	@Nullable
+	
 	@Column(name="released", nullable = true)
 	private String released;
 
-	@Nullable
+	
 	@Column(name="run", nullable = true)
 	private String run;
 
-	@Nullable
+	
 	@Column(name="engine_type", nullable = true)
 	private String engineType;
 
-	@Nullable
+	
 	@Column(name="power", nullable = true)
 	private String power;
 
-	@Nullable
+	
 	@Column(name="transmission", nullable = true)
 	private String transmission;
 
-	@Nullable
+	
 	@Column(name="body", nullable = true)
 	private String body;
 
-	@Nullable
+	
 	@Column(name="drive", nullable = true)
 	private String drive;
 
-	@Nullable
+	
 	@Column(name="color", nullable = true)
 	private String color;
 
-	@Nullable
+	
 	@Column(name="doors", nullable = true)
 	private String doors;
 
-	@Nullable
+	
 	@Column(name="body_state", nullable = true)
 	private String bodyState;
 
-	@Nullable
+	
 	@Column(name="owners", nullable = true)
 	private String owners;
 
-	@Nullable
+	
 	@Column(name="vin", nullable = true)
 	private String vin;
 
-	@Nullable
+	
 	@Column(name="gibdd", nullable = true)
 	private String gibdd;
 
-	@Nullable
+	
 	@Column(name="fssp", nullable = true)
 	private String fssp;
 
-	@Nullable
+	
 	@Column(name="drive_state", nullable = true)
 	private String driveState;
 
-	@Nullable
+	
 	@Column(name="engine_state", nullable = true)
 	private String engineState;
 
-	@Nullable
+	
 	@Column(name="collored_elements", nullable = true)
 	private String colloredElement;
 
@@ -149,7 +145,7 @@ public class Auction implements Serializable {
 	@Column(name="first_bid", columnDefinition="Decimal(15,2)")
 	private BigDecimal firstBid;
 
-	@Nullable
+	
 	@Column(nullable = true, length = 45)
 	private String name;
 
