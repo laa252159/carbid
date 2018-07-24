@@ -4259,7 +4259,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 14.5px 15px;
   font-size: 19px;
   line-height: 21px;
-  height: 50px;
+  /*height: 50px;*/
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -6747,7 +6747,7 @@ button.close {
 }
 .btn_main {
     font-weight: 300;
-    width: 245px;
+    /*width: 245px;*/
 }
 .btn_new {
     font-weight: 300;

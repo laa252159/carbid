@@ -20,12 +20,12 @@
             <div class="item  col-xs-12 list-group-item list-group-item">
                 <div class="thumbnail item-shadow">
                     <div class="auction-list-img-div">
-                        <div style="float:left; width:350px">
+                        <div style="float:left">
                             <c:if test="${not empty auction.primaryImage}">
-                                <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" /></a>
+                                <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" style="width: 250px"/></a>
                             </c:if>
                             <c:if test="${empty auction.primaryImage}">
-                                <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
+                                <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" style="width: 250px" /></a>
                             </c:if>
                         </div>
 
