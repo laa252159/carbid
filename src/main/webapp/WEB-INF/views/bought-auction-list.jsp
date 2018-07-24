@@ -1,13 +1,13 @@
 
     <div class="well well-sm">
         <div class="btn-group">
-            <a href="#" id="list-bought" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>Список</a>
-            <a href="#" id="grid-bought" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Таблица</a>
+            <%--<a href="#" id="list-bought" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>Список</a>--%>
+            <%--<a href="#" id="grid-bought" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Таблица</a>--%>
         </div>
     </div>
     <div id="products-bought" class="row list-group">
         <c:forEach items="${boughtAuctions}" var="auction">
-            <div class="item  col-xs-4 col-lg-4">
+            <div class="item  col-xs-4 col-lg-4 list-group-item">
                 <div class="thumbnail">
                     <div class="auction-list-img-div">
                         <c:if test="${not empty auction.primaryImage}">
@@ -28,9 +28,9 @@
                             <tr><td>Кузов:</td><td><b>${auction.body}</b></td></tr>
                             <tr><td>Привод:</td><td><b>${auction.drive}</b></td></tr>
                         </table>
-                        <div class="text-limit">
-                            <h4 class="group inner list-group-item-heading">${auction.name}</h4>
-                        </div>
+                        <%--<div class="text-limit">--%>
+                            <%--<h4 class="group inner list-group-item-heading">${auction.name}</h4>--%>
+                        <%--</div>--%>
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
                                 <p class="lead">&#36;${auction.currently}</p>

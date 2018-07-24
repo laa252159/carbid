@@ -235,12 +235,12 @@
 
     $(document).ready(function() {
         $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
-        $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+        $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('list-group-item');});
     });
 
     $(document).ready(function() {
         $('#list-bought').click(function(event){event.preventDefault();$('#products-bought .item').addClass('list-group-item');});
-        $('#grid-bought').click(function(event){event.preventDefault();$('#products-bought .item').removeClass('list-group-item');$('#products-bought .item').addClass('grid-group-item');});
+        $('#grid-bought').click(function(event){event.preventDefault();$('#products-bought .item').removeClass('list-group-item');$('#products-bought .item').addClass('list-group-item');});
     });
 
 

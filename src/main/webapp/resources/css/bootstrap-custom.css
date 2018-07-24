@@ -1075,7 +1075,7 @@ html {
 }
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 25px;
   line-height: 1.42857143;
   color: #ebebeb;
   background-color: #2b3e50;
@@ -6937,4 +6937,9 @@ label,
   padding-top: 10px;
   padding-left: 10px;
   font-size: 14pt;
+}
+
+td {
+  padding: 3px;
+  padding-left: 10px;
 }
