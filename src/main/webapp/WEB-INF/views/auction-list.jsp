@@ -29,18 +29,19 @@
                             </c:if>
                         </div>
                         <div style="float:left">
-                            <table class="text-in-galery-pannels">
-                                <tr><td>Марка:</td><td><b>${auction.brand}</b></td></tr>
-                                <tr><td>Модель:</td><td><b>${auction.model}</b></td></tr>
-                                <tr><td>Год выпуска:</td><td><b>${auction.released}</b></tr>
-                                <tr></td><td>Пробег:</td><td><b>${auction.run}</b></td></tr>
-                                <tr><td>Двигатель:</td><td><b>${auction.released}</b></td></tr>
-                                <tr><td>Коробка:</td><td><b>${auction.transmission}</b></td></tr>
-                                <tr><td>Кузов:</td><td><b>${auction.body}</b></td></tr>
-                                <tr><td>Привод:</td><td><b>${auction.drive}</b></td></tr>
-                            </table>
+                            <div>
+                                <table class="text-in-galery-pannels">
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Марка:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.brand}</b></td></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Модель:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.model}</b></td></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Год выпуска:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.released}</b></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Пробег:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.run}</b></td></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Двигатель:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.released}</b></td></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Коробка:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.transmission}</b></td></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Кузов:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.body}</b></td></tr>
+                                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Привод:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.drive}</b></td></tr>
+                                </table>
+                            </div>
                         </div>
-
                     </div>
                     <div class="caption">
 
