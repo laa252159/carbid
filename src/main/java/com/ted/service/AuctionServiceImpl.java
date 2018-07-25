@@ -559,7 +559,7 @@ public class AuctionServiceImpl implements AuctionService {
 		return auctions;
 	}
 
-//	@Scheduled(fixedDelay = 60000)	// Every minute
+	@Scheduled(fixedDelay = 60000)	// Every minute
 	@Transactional
 	public void updateAuctions() {
 
