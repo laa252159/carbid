@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:security="http://www.springframework.org/schema/security"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:websocket="http://www.springframework.org/schema/websocket"
+	   xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.ted" />
 
-	<import resource="classpath:/jpaContext.xml"/>
-	
-	
+	<!--<security:global-method-security pre-post-annotations="enabled" />-->
+
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+
+	<import resource="file:src/main/webapp/WEB-INF/config/auctioner-servlet.xml"/>
+	<import resource="file:src/main/webapp/WEB-INF/config/security-config.xml"/>
+	<import resource="file:src/main/webapp/WEB-INF/config/jpaContext.xml"/>
+	<import resource="file:src/main/webapp/WEB-INF/config/springMail.xml"/>
+
 
 </beans>

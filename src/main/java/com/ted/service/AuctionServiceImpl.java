@@ -72,6 +72,9 @@ public class AuctionServiceImpl implements AuctionService {
 	@Autowired
 	MessageRepository messageRepository;
 
+	@Autowired
+	private MailService mailer;
+
 	@Transactional
 	public void saveAuction(Auction auction) {
 
@@ -425,6 +428,8 @@ public class AuctionServiceImpl implements AuctionService {
 		if(!files[0].isEmpty())
 			auction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
 
+		//notify approved users about auction
+		mailer.notifyUsersAboutNewAuction(auction);
 		return null;
 	}
 

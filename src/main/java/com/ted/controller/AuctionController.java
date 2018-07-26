@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.ted.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -30,40 +31,36 @@ import com.ted.model.Location;
 import com.ted.model.User;
 import com.ted.repository.AuctionBiddingRepository;
 import com.ted.repository.CategoryRepository;
-import com.ted.service.AuctionPictureService;
-import com.ted.service.AuctionService;
-import com.ted.service.CategoryService;
-import com.ted.service.RecommendationService;
-import com.ted.service.UserService;
 
 @Controller
 @SessionAttributes("filter")
 public class AuctionController {
 	
 	@Autowired
-	AuctionService auctionService;
+	private AuctionService auctionService;
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
 	@Autowired
-	CategoryService categoryService;
+	private CategoryService categoryService;
 	
 	@Autowired
-	RecommendationService recommendationService;
+	private RecommendationService recommendationService;
 	
 	@Autowired
-	AuctionPictureService auctionPictureService;
+	private AuctionPictureService auctionPictureService;
 	
 	@Autowired
-	AuctionBiddingRepository auctionBiddingRepository;
+	private AuctionBiddingRepository auctionBiddingRepository;
 	
 	@Autowired
-	CategoryRepository categoryRepository;
+	private CategoryRepository categoryRepository;
 	
 	@Autowired
-	Filter filter;
-	
+	private Filter filter;
+
+
 	@RequestMapping(value = "auction/{id}", method = RequestMethod.GET)
 	public String getAuction(Model model, @PathVariable Integer id) {
 		

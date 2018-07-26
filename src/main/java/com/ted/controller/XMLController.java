@@ -30,8 +30,8 @@ import com.ted.service.AuctionService;
 import com.ted.service.UserService;
 import com.ted.service.XmlService;
 
-@Controller
-@RequestMapping(value = "/api")
+//@Controller
+//@RequestMapping(value = "/api")
 public class XMLController {
 	
 	@Autowired

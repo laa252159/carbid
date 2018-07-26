@@ -33,8 +33,8 @@ public class AdminController {
 	@Autowired
 	AuctionService auctionService;
 	
-	@Autowired
-	XmlService xmlService;
+//	@Autowired
+//	XmlService xmlService;
 	
 	@Autowired
 	AdminService adminService;
@@ -141,24 +141,24 @@ public class AdminController {
 		return "admin_auctions";
 	}
 	
-	@RequestMapping(value = "/admin/xmlDownload", method = RequestMethod.GET)
-	public void xmlDownload( HttpServletRequest request, HttpServletResponse response,
-			@RequestParam(value="ids[]") List<Integer> ids) {
-		
-		String path = request.getContextPath();
-		System.out.println(path);
-
-        try
-        {
-        	File file = xmlService.xmlFileProduce(ids);
-        	InputStream is = new FileInputStream(file);
-			org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
-			response.setContentType("application/xml");
-			response.addHeader("Content-Disposition", "attachment; filename=" + file.getName());
-			response.flushBuffer();
-        } 
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-	}
+//	@RequestMapping(value = "/admin/xmlDownload", method = RequestMethod.GET)
+//	public void xmlDownload( HttpServletRequest request, HttpServletResponse response,
+//			@RequestParam(value="ids[]") List<Integer> ids) {
+//
+//		String path = request.getContextPath();
+//		System.out.println(path);
+//
+//        try
+//        {
+//        	File file = xmlService.xmlFileProduce(ids);
+//        	InputStream is = new FileInputStream(file);
+//			org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+//			response.setContentType("application/xml");
+//			response.addHeader("Content-Disposition", "attachment; filename=" + file.getName());
+//			response.flushBuffer();
+//        }
+//        catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//	}
 }

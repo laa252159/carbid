@@ -43,7 +43,7 @@ import com.ted.repository.CategoryRepository;
 import com.ted.repository.LocationRepository;
 import com.ted.repository.UserRepository;
 
-@Service("xmlService")
+//@Service("xmlService")
 public class XmlServiceImpl implements XmlService {
 	
 	@Autowired

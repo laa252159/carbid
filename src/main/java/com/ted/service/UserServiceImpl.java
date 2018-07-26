@@ -1,5 +1,6 @@
 package com.ted.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -230,4 +231,8 @@ public class UserServiceImpl implements UserService {
 		userRepository.delete(user);
 	}
 
+	@Override
+	public List<User> getApprovedUsers() {
+		return new ArrayList<>(userRepository.findByApproved((byte) 1));
+	}
 }

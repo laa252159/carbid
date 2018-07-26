@@ -18,6 +18,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 //	User findByAfm(String afm);
 	
 	User findByUserid(int id);
+
+	List<User> findByApproved(byte approved);
 	
 	/* Dashboard Info */
 	List<User> findTop5ByOrderByUseridDesc();
