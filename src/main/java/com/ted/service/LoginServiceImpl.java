@@ -3,6 +3,7 @@ package com.ted.service;
 import java.io.IOException;
 import java.util.Map;
 
+import com.ted.mail.Mailer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,6 +31,9 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private MailService mailer;
 
 	@Transactional
 	public User saveUser(User user, MultipartFile file) {
@@ -75,7 +79,9 @@ public class LoginServiceImpl implements LoginService {
 		
 		// Persist authority
 		authorityRepository.saveAndFlush(authority);
-		
+
+		//sending email about registration new user
+		mailer.notifyAdminAboutNewUser(user);
 		return user;
 	}
 	

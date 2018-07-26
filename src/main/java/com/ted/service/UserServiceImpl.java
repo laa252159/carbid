@@ -3,6 +3,7 @@ package com.ted.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserPictureRepository userPictureRepository;
-	
+
 	@Autowired
 	ImageService imageService;
 

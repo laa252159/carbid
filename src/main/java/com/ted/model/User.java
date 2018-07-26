@@ -342,7 +342,16 @@ public class User implements Serializable {
 	public void setUserPictures(List<UserPicture> userPictures) {
 		this.userPictures = userPictures;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "Пользователь: \n" +
+				"ID =" + userid + '\n' +
+				"город ='" + city +  '\n' +
+				"email ='" + email + '\n' +
+				"имя ='" + firstName + '\n' +
+				"фамилия ='" + lastName + '\n' +
+				"телефон ='" + phone + '\n' +
+				"логин ='" + username + '\n';
+	}
 }
