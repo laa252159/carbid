@@ -39,7 +39,7 @@ public class TestUserRepository {
 	}
 
 
-	@Test
+//	@Test
 	public void testNotifyProcess() {
 		Auction auction = new Auction();
 		mailService.notifyUsersAboutNewAuction(auction);
