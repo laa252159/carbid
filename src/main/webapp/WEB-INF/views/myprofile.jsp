@@ -72,16 +72,16 @@
                 <h4 class="text-center">${user.username}</h4>
                 <ul class="nav navbar-nav nav-pills">
                   <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Обзор<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-                  <li class="dropdown">
-                    <a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Сообщения <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
-                    <ul class="dropdown-menu forAnimate" role="menu">
-                      <li><a href="/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>
-                      <li><a href="/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>
-                      <li><a href="/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>
-                      <li class="divider" data-toggle="pill"></li>
-                      <li><a href="/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>
-                    </ul>
-                  </li>
+                  <%--<li class="dropdown">--%>
+                    <%--<a class="left-color" href="#" class="dropdown-toggle" data-toggle="dropdown">Сообщения <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>--%>
+                    <%--<ul class="dropdown-menu forAnimate" role="menu">--%>
+                      <%--<li><a href="/messaging/inbox" data-target="#section2" id="inbox_tab" data-toggle="pill" rel="tooltip">Входящие сообщения</a></li>--%>
+                      <%--<li><a href="/messaging/new-message" data-target="#section3" id="newMessage_tab" data-toggle="pill" rel="tooltip">Новое Сообщение</a></li>--%>
+                      <%--<li><a href="/messaging/sent" data-target="#section4" id="sent_tab" data-toggle="pill" rel="tooltip">Отправленные</a></li>--%>
+                      <%--<li class="divider" data-toggle="pill"></li>--%>
+                      <%--<li><a href="/messaging/anouncements" data-target="#section5" id="anouncements_tab" data-toggle="pill" rel="tooltip">Анонсы</a></li>--%>
+                    <%--</ul>--%>
+                  <%--</li>--%>
                   <sec:authorize ifAnyGranted="ROLE_SELLER">
                   <li ><a class="left-color" href="#section6" id="auctions_tab" data-toggle="pill">Мои аукционы<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
                   </sec:authorize>

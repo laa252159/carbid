@@ -23,20 +23,20 @@
 
 	<div class="collapse navbar-collapse js-navbar-collapse">
 
-        <div class="col-md-offset-3 col-md-4">
-            <form class="navbar-center" role="search" action="/auctions">
-                <div class="form-group" style="margin-bottom: 0px;">
-                    <div class="input-group">
-                        <input type="text" name="searchString" class="form-control" placeholder="Поиск">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                        <input type="hidden" name="categoryId" value="all">
-                        <input type="hidden" name="page" value="1">
-                    </div>
-                </div>
-            </form>
-        </div>
+        <%--<div class="col-md-offset-3 col-md-4">--%>
+            <%--<form class="navbar-center" role="search" action="/auctions">--%>
+                <%--<div class="form-group" style="margin-bottom: 0px;">--%>
+                    <%--<div class="input-group">--%>
+                        <%--<input type="text" name="searchString" class="form-control" placeholder="Поиск">--%>
+                        <%--<span class="input-group-btn">--%>
+                            <%--<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>--%>
+                        <%--</span>--%>
+                        <%--<input type="hidden" name="categoryId" value="all">--%>
+                        <%--<input type="hidden" name="page" value="1">--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</form>--%>
+        <%--</div>--%>
 
         <div class="nav navbar-nav navbar-right z-class">
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
@@ -47,10 +47,10 @@
                     <sec:authorize ifNotGranted="ROLE_ADMIN">
                         <a class="bottom-color" href="/myprofile-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px;">
                     </sec:authorize>
-                        <div class="notification-icon">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            <span id="msg-badge" class="badge" style="display: none"></span>
-                        </div>
+                        <%--<div class="notification-icon">--%>
+                            <%--<span class="glyphicon glyphicon-envelope"></span>--%>
+                            <%--<span id="msg-badge" class="badge" style="display: none"></span>--%>
+                        <%--</div>--%>
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">

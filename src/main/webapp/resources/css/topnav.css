@@ -114,7 +114,7 @@ body {
 }
 .dropdown-header {
   font-size: 18px;
-  color: #df691a;
+  color: #4B81A3;
   padding: 5px 60px 5px 5px;
   line-height: 30px;
 }
@@ -153,11 +153,11 @@ body {
 }*/
 
 .navbar-nav li .bottom-color:hover {
-    box-shadow: inset 0 -3px 0 0 #df691a;
+    box-shadow: inset 0 -3px 0 0 #4B81A3;
 }
 
 .orange {
-    color: #df691a;
+    color: #4B81A3;
 }
 
 .navbar {
@@ -165,5 +165,5 @@ body {
 }
 
 .hvr-grow:hover {
-    color: #df691a;
+    color: #4B81A3;
 }

@@ -1,7 +1,7 @@
 
     <div class="well well-sm">
         <div class="pull-left">
-            <p style="font-size: 16px" >Аукционы сейчас: ${filter.numberofItems}<p>
+            <p style="font-size: 16px; color: #ffffff" >Аукционы сейчас: ${filter.numberofItems}<p>
         </div>
         <div class="btn-group">
             <%--<a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Таблица</a>--%>

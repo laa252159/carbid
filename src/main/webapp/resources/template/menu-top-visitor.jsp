@@ -37,10 +37,10 @@
                     <sec:authorize ifNotGranted="ROLE_ADMIN">
                         <a href="/myprofile-inbox" class="btn btn-default btn-sm btn-link">
                     </sec:authorize>
-                        <div class="notification-icon">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            <span id="msg-badge" class="badge" style="display: none"></span>
-                        </div>
+                        <%--<div class="notification-icon">--%>
+                            <%--<span class="glyphicon glyphicon-envelope"></span>--%>
+                            <%--<span id="msg-badge" class="badge" style="display: none"></span>--%>
+                        <%--</div>--%>
                     </a>
                 </li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">

@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-fixed-bottom" >
-    <div class="container text-center">
+    <div class="container text-center" style="color: #FFFFFF">
         <p>&copy; <span class="icon-travel-car-small"></span> Покупай машину с выгодой</p>
     </div>
 </div>

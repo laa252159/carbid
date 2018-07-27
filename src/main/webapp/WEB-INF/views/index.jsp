@@ -78,23 +78,23 @@
                     </div>
                 </sec:authorize>
             </sec:authorize>
-            <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <div class="col-lg-12 text-center intro-div">
-                    <h1 style="font-size: 23px; font-family: 'Calibri Light'">Хотите знать больше или принять участие, - заходите!</h1>
-                        <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
-                    <div class="col-md-offset-4 col-md-2">
-                        <a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>
-                    </div>
-                    <div class="col-md-2">
-                        <a class="btn_main btn-lg btn-primary btn-block" href="/registration">Зарегистрироваться</a>
-                    </div>
-                </div>
-            </sec:authorize>
+            <%--<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">--%>
+                <%--<div class="col-lg-12 text-center intro-div">--%>
+                    <%--<h1 style="font-size: 23px; font-family: 'Calibri Light'">Хотите знать больше или принять участие, - заходите!</h1>--%>
+                        <%--&lt;%&ndash;<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>&ndash;%&gt;--%>
+                    <%--<div class="col-md-offset-4 col-md-2">--%>
+                        <%--<a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>--%>
+                    <%--</div>--%>
+                    <%--<div class="col-md-2">--%>
+                        <%--<a class="btn_main btn-lg btn-primary btn-block" href="/registration">Зарегистрироваться</a>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</sec:authorize>--%>
 
 
              <div class="col-sm-12 text-center">
                  <div class="container">
-                     <h1 class="page-header"><strong>${filter.category.name}</strong></h1>
+                     <%--<h1 class="page-header"><strong>${filter.category.name}</strong></h1>--%>
                      <div class="row">
                          <div class="col-md-9 col-xs-12" >
 
@@ -150,6 +150,19 @@
 
 
          </div>
+
+        <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+            <div class="col-lg-12 text-center intro-div">
+                <h1 style="font-size: 23px; font-family: 'Calibri Light'">Хотите знать больше или принять участие, - заходите!</h1>
+                    <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
+                <div class="col-md-offset-4 col-md-2">
+                    <a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn_main btn-lg btn-primary btn-block" href="/registration">Зарегистрироваться</a>
+                </div>
+            </div>
+        </sec:authorize>
 
      </div>
 
