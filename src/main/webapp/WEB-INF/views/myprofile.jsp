@@ -69,7 +69,7 @@
                     <img src="<c:url value="/resources/images/default_avatar.png"/>" class="avatar img-circle img-thumbnail" alt="avatar">
                 </div>
     			</c:if>
-                <h4 class="text-center">${user.username}</h4>
+                  <p></p>
                 <ul class="nav navbar-nav nav-pills">
                   <li class="active"><a class="left-color" href="#section1" data-toggle="pill">Обзор<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                   <%--<li class="dropdown">--%>

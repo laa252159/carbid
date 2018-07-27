@@ -48,7 +48,7 @@
         </c:if>
 
         <div class="row">
-            <div class="col-xs-5 single-content-left">
+            <div class="col-xs-12 single-content-left">
                 <div id="main_area">
                         <!-- Slider -->
                         <div class="row">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
             </div>
-            <div class="col-xs-7 single-content-right" >
+            <div class="col-xs-12 single-content-right" >
                 <div class="col-md-12">
                     <h2 class="text-uppercase title">${auction.name}</h2>
                     <div id="soldto-div" class="hidden">
@@ -197,7 +197,7 @@
                     <div id="buy-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Цена покупки сейчас</h4>
+                                <h4 class="panel-title">Купить без торга за</h4>
                             </div>
                             <div class="panel-body">
                                 <div class="price-number text-center">${auction.buyPrice} Руб</div>
@@ -205,7 +205,7 @@
                             <div class="panel-footer">
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
+                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Купить</button>
                                     </c:if>
                                     <c:if test="${user.userid == auction.user.userid}">
                                         <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
@@ -240,14 +240,14 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Confirmation</h4>
+                  <h4 class="modal-title">Подтверждение</h4>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure you want to continue? This action cannot be cancelled later.</p>
+                  <p>Вы уверены, что хотите продолжить? Это действие нельзя будет отменить потом.</p>
                 </div>
                 <div class="modal-footer">
-                  <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                 </div>
               </div>
 
@@ -261,14 +261,14 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Confirmation</h4>
+                    <h4 class="modal-title">Подтверждение</h4>
                   </div>
                   <div class="modal-body">
-                    <p>Are you sure you want to continue? This action cannot be cancelled later.</p>
+                    <p>Вы уверены, что хотите продолжить? Это действие нельзя будет отменить потом.</p>
                   </div>
                   <div class="modal-footer">
-                    <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                   </div>
                 </div>
 
@@ -384,9 +384,9 @@
                                     <input id="bidder-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.bidderRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
                                 </sec:authorize>
                             </div>
-                            <div class="col-sm-11">
-                                <a href="/profile/${auction.user.userid}" class="btn btn-primary pull-right">View Profile</a>
-                            </div>
+                            <%--<div class="col-sm-11">--%>
+                                <%--<a href="/profile/${auction.user.userid}" class="btn btn-primary pull-right">View Profile</a>--%>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </div>
@@ -394,73 +394,75 @@
             </div>
         </div>
 
-        <%-- Suggestions and New Auctions --%>
-        <div class="row">
-            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-            <div class="container">
-                <div class="row">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <h3>Предложения</h3>
-                        </div>
-                        <div class="col-md-3">
-                            <!-- Controls -->
-                            <div class="controls pull-right hidden-xs">
-                                <a class="left btn btn-primary" href="#carousel-example" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                                <a class="right btn btn-primary" href="#carousel-example" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <c:forEach var="rec" items="${recs}" varStatus="loop">
-                                <c:if test="${loop.count == 1}">
-                                    <div class="item active">
-                                        <div class="row">
-                                </c:if>
-                                <div class="col-sm-3">
-                                    <div class="col-item">
-                                        <div class="photo">
-                                            <c:if test="${not empty rec.primaryImage}">
-                                                <a href="/auction/${rec.auctionid}"><img src="data:image/jpeg;base64,${rec.primaryImage}" alt="auction-image" /></a>
-                                            </c:if>
-                                            <c:if test="${empty rec.primaryImage}">
-                                                <a href="/auction/${rec.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>
-                                            </c:if>
-                                        </div>
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <div class="text-limit">
-                                                        <h4>${rec.name}</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-md-6">
-                                                    <p class="lead">Руб ${rec.firstBid}</p>
-                                                </div>
-                                                <div class="col-xs-12 col-md-6">
-                                                    <a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">Подробнее</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <c:if test="${loop.count % 4 == 0 && loop.count != 1}">
-                                        </div>
-                                    </div>
-                                    <c:if test="${loop.count != 16}">
-                                    <div class="item">
-                                        <div class="row">
-                                    </c:if>
-                                </c:if>
+        <%--&lt;%&ndash; Suggestions and New Auctions &ndash;%&gt;--%>
+        <%--<div class="row">--%>
+            <%--<hr style="width: 100%; color: black; height: 1px; background-color:black;" />--%>
+            <%--<div class="container">--%>
+                <%--<div class="row">--%>
+                    <%--<div class="row">--%>
+                        <%--<div class="col-md-9">--%>
+                            <%--<h3>Все предложения</h3>--%>
+                        <%--</div>--%>
+                        <%--<div class="col-md-3">--%>
+                            <%--<!-- Controls -->--%>
+                            <%--<div class="controls pull-right hidden-xs">--%>
+                                <%--<a class="left btn btn-primary" href="#carousel-example" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>--%>
+                                <%--<a class="right btn btn-primary" href="#carousel-example" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">--%>
+                        <%--<!-- Wrapper for slides -->--%>
+                        <%--<div class="carousel-inner">--%>
+                            <%--<c:forEach var="rec" items="${recs}" varStatus="loop">--%>
+                                <%--<c:if test="${loop.count == 1}">--%>
+                                    <%--<div class="item active">--%>
+                                        <%--<div class="row">--%>
+                                <%--</c:if>--%>
+                                <%--<div class="col-sm-3">--%>
+                                    <%--<div class="col-item">--%>
+                                        <%--<div class="photo">--%>
+                                            <%--<c:if test="${not empty rec.primaryImage}">--%>
+                                                <%--<a href="/auction/${rec.auctionid}"><img src="data:image/jpeg;base64,${rec.primaryImage}" alt="auction-image" /></a>--%>
+                                            <%--</c:if>--%>
+                                            <%--<c:if test="${empty rec.primaryImage}">--%>
+                                                <%--<a href="/auction/${rec.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" /></a>--%>
+                                            <%--</c:if>--%>
+                                        <%--</div>--%>
+                                        <%--&lt;%&ndash;<div class="info">&ndash;%&gt;--%>
+                                            <%--&lt;%&ndash;<div class="row">&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;<a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;<div class="price col-md-12">&ndash;%&gt;--%>
+                                                    <%--&lt;%&ndash;<div class="text-limit">&ndash;%&gt;--%>
+                                                        <%--&lt;%&ndash;<h4>${rec.name}</h4>&ndash;%&gt;--%>
+                                                    <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;<div class="col-xs-12 col-md-6">&ndash;%&gt;--%>
+                                                    <%--&lt;%&ndash;<p class="lead">Руб ${rec.firstBid}</p>&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;<div class="col-xs-12 col-md-6">a&ndash;%&gt;--%>
+                                                    <%--&lt;%&ndash;&lt;%&ndash;<a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">Подробнее</a>&ndash;%&gt;&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                                <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                                <%--<c:if test="${loop.count % 4 == 0 && loop.count != 1}">--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                    <%--<c:if test="${loop.count != 16}">--%>
+                                    <%--<div class="item">--%>
+                                        <%--<div class="row">--%>
+                                    <%--</c:if>--%>
+                                <%--</c:if>--%>
 
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <%--</c:forEach>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
     </div>
 
@@ -549,7 +551,7 @@
 
     function updateBought(data) {
         $('.clock-div').addClass('hidden');
-        $('#soldto').text("Auction was sold to " + data.info.buyer + " for $" + data.info.latestBid);
+        $('#soldto').text("Аукцион выигран участником " + data.info.buyer + " с конечной ценой " + data.info.latestBid + " рублей");
         $('#soldto-div').removeClass('hidden');
         $('#bid-pricing').addClass('hidden');
         $('#buy-pricing').addClass('hidden');

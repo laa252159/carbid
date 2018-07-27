@@ -60,7 +60,7 @@
                 </sec:authorize>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
                     <div class="col-lg-12 text-center intro-div">
-                        <h1 style="font-size: 63px;">Приветсвую тебя, о повелитель барыг!</h1>
+                        <%--<h1 style="font-size: 63px;">Приветсвую тебя, о повелитель барыг!</h1>--%>
                         <div class="col-md-offset-3 col-md-2">
                             <a class="btn btn-lg btn-success btn-block" href="/admin-users">Пользователи</a>
                         </div>
@@ -153,7 +153,7 @@
 
         <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
             <div class="col-lg-12 text-center intro-div">
-                <h1 style="font-size: 23px; font-family: 'Calibri Light'">Хотите знать больше или принять участие, - заходите!</h1>
+                <h1 style="font-size: 23px; font-family: 'Calibri Light'; color: #ff0400">Хотите знать больше или принять участие, - заходите!</h1>
                     <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
                 <div class="col-md-offset-4 col-md-2">
                     <a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>

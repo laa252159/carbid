@@ -29,7 +29,7 @@ public class AuctionPictureServiceImpl implements AuctionPictureService {
 	
 	@Autowired
 	ImageService imageService;
-	public static final int ENDING_WIDTH = 600;
+	public static final int ENDING_WIDTH = 1080;
 
 	public List<AuctionPicture> saveMultipartList(MultipartFile[] images, Auction auction) {
 		
@@ -63,7 +63,7 @@ public class AuctionPictureServiceImpl implements AuctionPictureService {
 			double srcWidth = bufferedImage.getWidth();
 			double srcHeight = bufferedImage.getHeight();
 
-			double k = srcHeight <= ENDING_WIDTH ? 1 : ENDING_WIDTH/srcWidth;
+			double k = srcWidth <= ENDING_WIDTH ? 1 : ENDING_WIDTH/srcWidth;
 			int newWidth = (int) (srcWidth * k);
 			int newHeigh = (int) (srcHeight * k);
 			BufferedImage resizedImage = new BufferedImage(newWidth, newHeigh, 1);
