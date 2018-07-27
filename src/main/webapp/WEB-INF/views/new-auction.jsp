@@ -64,7 +64,7 @@
                              </a>
                          </li>
                          <li role="presentation" class="disabled">
-                             <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Images">
+                             <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Фото">
                                  <span class="round-tab">
                                      <i class="glyphicon glyphicon-picture"></i>
                                  </span>
@@ -72,7 +72,7 @@
                          </li>
 
                          <li role="presentation" class="disabled">
-                             <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                             <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Завершение">
                                  <span class="round-tab">
                                      <i class="glyphicon glyphicon-ok"></i>
                                  </span>

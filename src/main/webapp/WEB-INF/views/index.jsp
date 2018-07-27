@@ -36,16 +36,19 @@
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <sec:authorize ifNotGranted="ROLE_ADMIN">
                     <div class="col-lg-12 text-center intro-div">
-                        <h3 style="font-size: 43px;">Все перекупы в одном месте!</h3>
-                        <h4 style="font-size: 33px;"><sec:authentication property="name" />, теперь и Вы с нами!</h4>
-                            <%--<p class="lead">Покупай машину с выгодой</p>--%>
-                        <div class="col-md-offset-3 col-md-2">
-                            <a class="btn btn-lg btn-success btn-block" href="/myprofile">Мой профиль</a>
-                        </div>
+                        <%--<h3 style="font-size: 43px;">Все перекупы в одном месте!</h3>--%>
+                        <%--<h4 style="font-size: 33px;"><sec:authentication property="name" />, теперь и Вы с нами!</h4>--%>
+                            <%--&lt;%&ndash;<p class="lead">Покупай машину с выгодой</p>&ndash;%&gt;--%>
+                        <%--<div class="col-md-offset-3 col-md-2">--%>
+                            <%--<a class="btn btn-lg btn-success btn-block" href="/myprofile">Мой профиль</a>--%>
+                        <%--</div>--%>
                         <sec:authorize ifAnyGranted="ROLE_ADMIN">
                             <%--<sec:authorize ifAnyGranted="ROLE_SELLER">--%>
                             <div class="col-md-2">
                                 <a class="btn btn-lg btn-info btn-block" href="/myprofile-auctions">Мои лоты</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="btn btn-lg btn-primary btn-block" href="/auctions?categoryId=all">Просмотреть лоты</a>
                             </div>
                         </sec:authorize>
                             <%--<sec:authorize ifNotGranted="ROLE_SELLER">--%>
@@ -53,9 +56,6 @@
                             <%--<a class="btn btn-lg btn-info btn-block" href="/upgrade"  data-toggle="tooltip" data-placement="top" title="Become an Auctioneer and sell everything!">Auctioneer</a>--%>
                             <%--</div>--%>
                             <%--</sec:authorize>--%>
-                        <div class="col-md-2">
-                            <a class="btn btn-lg btn-primary btn-block" href="/auctions?categoryId=all">Просмотреть лоты</a>
-                        </div>
                     </div>
                 </sec:authorize>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
