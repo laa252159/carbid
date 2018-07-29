@@ -25,6 +25,10 @@ public class Mailer implements MailService
         this.mailSender = mailSender;
     }
 
+    static {
+        System.setProperty("mail.mime.charset", "utf8");
+    }
+
     @Override
     public void notifyAdminAboutNewUser(User user) {
         sendMail(SENDER,GUMAEV_EMAIL,"На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user );
