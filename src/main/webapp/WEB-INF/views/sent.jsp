@@ -73,6 +73,7 @@ var table = $('#sent').DataTable({
     lengthChange: false,
     ordering: false,
     info: false,
+    bPaginate: false,
     autoWidth: false,
 
     /* Hide Columns */

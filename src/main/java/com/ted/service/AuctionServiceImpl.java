@@ -1,6 +1,6 @@
 package com.ted.service;
 
-import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -270,7 +270,7 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 
 	/* Synchronized method to avoid race condition on persisting bid and updating AuctionMapper singleton bean */
-	public synchronized String bidSave(Integer auctionId, BigDecimal bidAmount) {
+	public synchronized String bidSave(Integer auctionId, Integer bidAmount) {
 
 		System.out.println("Persisting amount: " + bidAmount);
 		

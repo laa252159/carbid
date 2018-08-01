@@ -124,7 +124,7 @@
                             <h4 class="panel-title">Стартовая цена</h4>
                         </div>
                         <div class="panel-body">
-                            <div class="price-number text-center">${auction.firstBid} Руб</div>
+                            <div class="price-number text-center">${auction.firstBid} 000 Руб</div>
                         </div>
                     </div>
                 </div>
@@ -161,10 +161,10 @@
                 <div id="bid-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Текущая цена</h4>
+                            <h4 class="panel-title">Текущая цена (минимальный шаг 1 тыс рублей)</h4>
                         </div>
                         <div class="panel-body">
-                            <div class="price-number text-center"><span id="currentPrice">${auction.firstBid} Руб</span></div>
+                            <div class="price-number text-center"><span id="currentPrice">${auction.firstBid} 000 Руб</span></div>
                         </div>
                         <div class="panel-footer">
                             <div class="col-md-9" style="padding-left: 0px;">
@@ -172,7 +172,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">Руб</span>
                                         <input type="text" style="font-size: 8pt" class="form-control" id="bidInput" placeholder="Новая ставка">
-                                        <span class="input-group-addon">.00</span>
+                                        <span class="input-group-addon">тысяч</span>
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@
                                         <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction" disabled="disabled">ДА</button>
                                     </c:if>
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bidModal">ДА</button>
+                                        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bidModal">СТАВКА</button>
                                     </c:if>
                                 </c:if>
                                 <c:if test="${user.approved == 0}">
@@ -200,7 +200,7 @@
                                 <h4 class="panel-title">Купить без торга за</h4>
                             </div>
                             <div class="panel-body">
-                                <div class="price-number text-center">${auction.buyPrice} Руб</div>
+                                <div class="price-number text-center">${auction.buyPrice} 000 Руб</div>
                             </div>
                             <div class="panel-footer">
                                 <c:if test="${user.approved == 1}">
@@ -534,7 +534,7 @@
     }
 
     function updatePriceAndLiveFeed(data) {
-        $('#currentPrice').text(data.info.latestBid + " Руб");
+        $('#currentPrice').text(data.info.latestBid + " 000 Руб");
 
         var bids = data.bids;
         var bid;
@@ -545,13 +545,13 @@
             var time = new Date(bid.time);
             var formattedTime = time.format("isoTime");
 
-            $('#liveFeed').prepend('<li class="list-group-item">'+ formattedTime + ' ' + bid.username + ' перебил ставкой '+ bid.amount + '.00 Руб</li>');
+            $('#liveFeed').prepend('<li class="list-group-item">'+ formattedTime + ' ' + bid.username + ' перебил ставкой '+ bid.amount + '000 Руб</li>');
         }
     }
 
     function updateBought(data) {
         $('.clock-div').addClass('hidden');
-        $('#soldto').text("Аукцион выигран участником " + data.info.buyer + " с конечной ценой " + data.info.latestBid + " рублей");
+        $('#soldto').text("Аукцион выигран участником " + data.info.buyer + " с конечной ценой " + data.info.latestBid + " 000 Руб");
         $('#soldto-div').removeClass('hidden');
         $('#bid-pricing').addClass('hidden');
         $('#buy-pricing').addClass('hidden');

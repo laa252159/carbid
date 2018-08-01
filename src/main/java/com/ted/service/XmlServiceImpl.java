@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.math.BigDecimal;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -458,13 +458,13 @@ public class XmlServiceImpl implements XmlService {
 		return null;	
 	}
 	
-	BigDecimal formatMoney(String moneyString) {
+	Integer formatMoney(String moneyString) {
 		
 		if(moneyString != null) {
 			moneyString = moneyString.replaceAll("\\$", "");
 			moneyString = moneyString.replaceAll(",", "");
 			System.out.println("Money: " + moneyString);
-			return new BigDecimal(moneyString);
+			return new Integer(moneyString);
 		}
 		
 		return null;

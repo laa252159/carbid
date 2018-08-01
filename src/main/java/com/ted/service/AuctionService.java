@@ -1,6 +1,6 @@
 package com.ted.service;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public interface AuctionService {
 	
 	BidResponse checkBids(Integer numofBids, Integer id);
 	
-	String bidSave(Integer auctionId, BigDecimal bidAmount);
+	String bidSave(Integer auctionId, Integer bidAmount);
 	
 	void initializeMapper(Integer auctionId);
 	

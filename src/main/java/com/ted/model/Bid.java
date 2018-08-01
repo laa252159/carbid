@@ -1,20 +1,20 @@
 package com.ted.model;
 
-import java.math.BigDecimal;
+
 
 public class Bid {
 	
-	BigDecimal amount;
+	Integer amount;
 	
 	String username;
 	
 	Long time;
 
-	public BigDecimal getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 

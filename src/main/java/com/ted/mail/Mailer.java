@@ -61,9 +61,9 @@ public class Mailer implements MailService
             message.append("\nПробег - ");
             message.append(auction.getRun());
             message.append("\nСтартовая цена - ");
-            message.append(auction.getFirstBid() + " рублей");
+            message.append(auction.getFirstBid() + " 000 Руб");
             message.append("\nКупить до завершения аукциона можно за - ");
-            message.append(auction.getBuyPrice() + " рублей");
+            message.append(auction.getBuyPrice() + " 000 Руб");
             message.append("\nДля получения более подробной информации зайдите на сайт под своей учетной записью");
             message.append("\nСсылка для незарегистрированных пользователей: http://www.perekup64.ru/auction/" + auction.getAuctionid());
 

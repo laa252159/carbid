@@ -1,6 +1,6 @@
 package com.ted.controller;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -177,7 +177,7 @@ public class AuctionController {
 		if(bidAmount == null || bidAmount.isEmpty())
 			return "Please provide a price.";
 		
-		String msg = auctionService.bidSave(id, new BigDecimal(bidAmount));
+		String msg = auctionService.bidSave(id, new Integer(bidAmount));
 		
 		if(msg != null)
 			return msg;

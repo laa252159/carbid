@@ -1,6 +1,6 @@
 package com.ted.model;
 
-import java.math.BigDecimal;
+
 
 public class AuctionInfo {
 	
@@ -8,9 +8,9 @@ public class AuctionInfo {
 	
 	boolean bought;
 	
-	BigDecimal latestBid;
+	Integer latestBid;
 	
-	BigDecimal buyPrice;
+	Integer buyPrice;
 	
 	Long ends; 
 	
@@ -24,7 +24,7 @@ public class AuctionInfo {
 		this.buyer = buyer;
 	}
 
-	public BigDecimal getBuyPrice() {
+	public Integer getBuyPrice() {
 		return buyPrice;
 	}
 
@@ -32,7 +32,7 @@ public class AuctionInfo {
 		return ends;
 	}
 
-	public BigDecimal getLatestBid() {
+	public Integer getLatestBid() {
 		return latestBid;
 	}
 
@@ -48,7 +48,7 @@ public class AuctionInfo {
 		this.bought = bought;
 	}
 
-	public void setBuyPrice(BigDecimal buyPrice) {
+	public void setBuyPrice(Integer buyPrice) {
 		this.buyPrice = buyPrice;
 	}
 
@@ -56,7 +56,7 @@ public class AuctionInfo {
 		this.ends = ends;
 	}
 
-	public void setLatestBid(BigDecimal latestBid) {
+	public void setLatestBid(Integer latestBid) {
 		this.latestBid = latestBid;
 	}
 

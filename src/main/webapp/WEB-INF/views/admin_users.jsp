@@ -48,7 +48,7 @@
 		$('#allUsers').DataTable({
 
 			lengthChange: false,
-
+            bPaginate: false,
 			columnDefs: [
 			{ "orderable": false, "targets": 5 }
 			 ]

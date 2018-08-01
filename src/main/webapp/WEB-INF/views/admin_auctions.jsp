@@ -53,6 +53,7 @@
 	$('#allAuctions').DataTable({
 
 		lengthChange: false,
+        bPaginate: false,
 
 		"columnDefs": [
 		{ "orderable": false, "targets": [4, 5] }

@@ -405,9 +405,9 @@
                                              <label for="firstBid" class="input-label col-md-3">Стартовая цена:</label>
                                              <div class="col-lg-8">
                                                  <div class="input-group">
-                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-rub"></span></span>
                                                      <form:input type="text" name="firstBid" path="auction.firstBid" id="firstBid" class="form-control" placeholder="Required" />
-                                                     <span class="input-group-addon">.00</span>
+                                                     <span class="input-group-addon"> 000</span>
                                              		<%-- <form:errors path="auction.name" cssClass="error" /> --%>
                                                 </div>
                                                 <div class="err">
@@ -420,9 +420,9 @@
                                              <label for="buyPrice" class="input-label col-md-3">Цена покупки сейчас:</label>
                                              <div class="col-lg-8">
                                                  <div class="input-group">
-                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-rub"></span></span>
                                                      <form:input type="text" name="buyPrice" path="auction.buyPrice" id="buyPrice" class="form-control" placeholder="Optional" />
-                                                     <span class="input-group-addon">.00</span>
+                                                     <span class="input-group-addon"> 000</span>
                                                      <%-- <form:errors path="auction.name" cssClass="error" /> --%>
                                                  </div>
                                              </div>

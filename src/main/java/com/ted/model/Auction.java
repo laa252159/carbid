@@ -1,7 +1,6 @@
 package com.ted.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -49,12 +48,12 @@ public class Auction implements Serializable {
 	@Column(unique = true, nullable = false)
 	private int auctionid;
 
-	@Column(name="buy_price", columnDefinition="Decimal(15,2)")
-	private BigDecimal buyPrice;
+	@Column(name="buy_price")
+	private Integer buyPrice;
 
 	@NotNull
-	@Column(name="currently", columnDefinition="Decimal(15,2)")
-	private BigDecimal currently;
+	@Column(name="currently")
+	private Integer currently;
 
 	@Lob
 	@Column(nullable = true)
@@ -142,8 +141,8 @@ public class Auction implements Serializable {
 	private Date ends;
 
 	@NotNull
-	@Column(name="first_bid", columnDefinition="Decimal(15,2)")
-	private BigDecimal firstBid;
+	@Column(name="first_bid")
+	private Integer firstBid;
 
 	
 	@Column(nullable = true, length = 45)
@@ -405,7 +404,7 @@ public class Auction implements Serializable {
 	}
 
 	@XmlTransient
-	public BigDecimal getBuyPrice() {
+	public Integer getBuyPrice() {
 		return this.buyPrice;
 	}
 
@@ -420,7 +419,7 @@ public class Auction implements Serializable {
 	}
 
 	@XmlTransient
-	public BigDecimal getCurrently() {
+	public Integer getCurrently() {
 		return this.currently;
 	}
 
@@ -440,7 +439,7 @@ public class Auction implements Serializable {
 	}
 
 	@XmlTransient
-	public BigDecimal getFirstBid() {
+	public Integer getFirstBid() {
 		return this.firstBid;
 	}
 
@@ -540,7 +539,7 @@ public class Auction implements Serializable {
 		this.buyerNotified = buyerNotified;
 	}
 
-	public void setBuyPrice(BigDecimal buyPrice) {
+	public void setBuyPrice(Integer buyPrice) {
 		this.buyPrice = buyPrice;
 	}
 
@@ -552,7 +551,7 @@ public class Auction implements Serializable {
 		this.categories = categories;
 	}
 
-	public void setCurrently(BigDecimal currently) {
+	public void setCurrently(Integer currently) {
 		this.currently = currently;
 	}
 
@@ -568,7 +567,7 @@ public class Auction implements Serializable {
 		this.ends = ends;
 	}
 
-	public void setFirstBid(BigDecimal firstBid) {
+	public void setFirstBid(Integer firstBid) {
 		this.firstBid = firstBid;
 	}
 

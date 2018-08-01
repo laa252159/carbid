@@ -1,7 +1,7 @@
 package com.ted.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -22,8 +22,8 @@ public class AuctionBiddingPK implements Serializable {
 	@Column(name="bidder_userid", insertable=false, updatable=false, unique=true, nullable=false)
 	private int bidderUserid;
 	
-	@Column(name="amount", columnDefinition="Decimal(15,2)")
-	private BigDecimal amount;
+	@Column(name="amount")
+	private Integer amount;
 
 	public AuctionBiddingPK() {
 	}
@@ -39,7 +39,7 @@ public class AuctionBiddingPK implements Serializable {
 			(this.auctionid == castOther.auctionid)
 			&& (this.bidderUserid == castOther.bidderUserid);
 	}
-	public BigDecimal getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 	public int getAuctionid() {
@@ -56,7 +56,7 @@ public class AuctionBiddingPK implements Serializable {
 		
 		return hash;
 	}
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 

@@ -59,6 +59,7 @@
 	    lengthChange: false,
 	    ordering: false,
 	    info: false,
+        bPaginate: false,
 	    autoWidth: false,
 
         /* Hide Columns */

@@ -1,7 +1,7 @@
 package com.ted.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,10 +35,10 @@ public class Location implements Serializable {
 	private int locationId;
 
 	@Column(precision=10, scale=8)
-	private BigDecimal latitude;
+	private Integer latitude;
 
 	@Column(precision=10, scale=8)
-	private BigDecimal longitude;
+	private Integer longitude;
 
 	@Column(nullable=false, length=100)
 	private String name;
@@ -63,7 +63,7 @@ public class Location implements Serializable {
 	}
 
 	@XmlAttribute(name = "Latitude")
-	public BigDecimal getLatitude() {
+	public Integer getLatitude() {
 		return this.latitude;
 	}
 
@@ -73,7 +73,7 @@ public class Location implements Serializable {
 	}
 
 	@XmlAttribute(name = "Longitude")
-	public BigDecimal getLongitude() {
+	public Integer getLongitude() {
 		return this.longitude;
 	}
 
@@ -93,7 +93,7 @@ public class Location implements Serializable {
 		this.auctions = auctions;
 	}
 
-	public void setLatitude(BigDecimal latitude) {
+	public void setLatitude(Integer latitude) {
 		this.latitude = latitude;
 	}
 
@@ -101,7 +101,7 @@ public class Location implements Serializable {
 		this.locationId = locationId;
 	}
 
-	public void setLongitude(BigDecimal longitude) {
+	public void setLongitude(Integer longitude) {
 		this.longitude = longitude;
 	}
 
