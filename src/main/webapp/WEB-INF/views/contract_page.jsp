@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>Perekup64</title>
+
+</head>
+
+<body>
+
+     <link href=<c:url value="/resources/css/bootstrap-select.min.css" /> rel="stylesheet" type="text/css">
+     <link href=<c:url value="/resources/css/bootstrap-datetimepicker.min.css" /> rel="stylesheet" type="text/css">
+     <link href=<c:url value="/resources/css/fileinput.min.css" /> rel="stylesheet" type="text/css">
+     <link href=<c:url value="/resources/css/form.css" /> rel="stylesheet" type="text/css">
+
+      <%@ include file="/resources/template/menu-top.jsp" %>
+
+     <div class="container">
+        <div class="row">
+        	<section>
+                <div class="tab-pane" role="tabpanel" id="complete">
+                    <h2 class="text-center">Регистрация пользователя окончена</h2>
+                    <div class="row content-row">
+                        <div class="text-center">
+                            <jsp:include page="contract.jsp"/>
+                            <%--<p class="lead">Только подтвержденные аккаунты <b>с внесенным депозитом не менее 1000 рублей</b> могут принимать участие в торгах</p>--%>
+                            <p class="lead">Только подтвержденные аккаунты могут принимать участие в торгах</p>
+                            <p><a class="navbar-brand" href="/"><span class="icon-travel-car"></span>Перейти на стартовую страницу</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <%@ include file="/resources/template/footer.jsp" %>
+</body>
+
+</html>

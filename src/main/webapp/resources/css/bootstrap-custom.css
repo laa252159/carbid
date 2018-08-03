@@ -6953,3 +6953,7 @@ td {
   padding: 3px;
   padding-left: 10px;
 }
+
+.msonormal {
+  text-align: left;
+}

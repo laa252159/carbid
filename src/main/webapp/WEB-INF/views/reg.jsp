@@ -222,14 +222,15 @@
                              <h2 class="text-center">Регистрация пользователя окончена</h2>
                              <div class="row content-row">
                                  <div class="text-center">
+                                     <jsp:include page="contract.jsp"/>
                                      <p class="lead">Мы проверим Вашу информацию и в течение суток Ваш аккаунт сможет принимать участие в торгах</p>
-                                     <p class="lead">Только подтвержденнеы аккаунты могут принимать участие в торгах</p>
+                                     <p class="lead">Только подтвержденные аккаунты могут принимать участие в торгах</p>
                                  </div>
                              </div>
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
-                                     <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Завершить</button></li>
+                                     <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Принимаю условия</button></li>
                                  </ul>
                              </div>
                          </div>

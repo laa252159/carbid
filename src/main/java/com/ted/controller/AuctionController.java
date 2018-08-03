@@ -136,6 +136,11 @@ public class AuctionController {
 		return "index";
 	}
 
+	@RequestMapping(value = {"/contract_page"} , method = RequestMethod.GET)
+	public String getContract(Model model, HttpServletRequest request) {
+		return "contract_page";
+	}
+
 
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String searchAuctions(Model model, HttpServletRequest request) {
