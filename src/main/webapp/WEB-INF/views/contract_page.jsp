@@ -34,10 +34,9 @@
       <%@ include file="/resources/template/menu-top.jsp" %>
 
      <div class="container">
-        <div class="row">
+        <div class="row" style="margin: 10px">
         	<section>
                 <div class="tab-pane" role="tabpanel" id="complete">
-                    <h2 class="text-center">Регистрация пользователя окончена</h2>
                     <div class="row content-row">
                         <div class="text-center">
                             <jsp:include page="contract.jsp"/>
