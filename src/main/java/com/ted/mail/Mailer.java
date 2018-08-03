@@ -5,6 +5,7 @@ import com.ted.model.User;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Component;
@@ -84,6 +85,10 @@ public class Mailer implements MailService
         message.setTo(to);
         message.setSubject(subject);
         message.setText(msg);
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (MailSendException ex){
+            System.out.println("mailsend error: " + "to: "+ to);
+        }
     }
 }
