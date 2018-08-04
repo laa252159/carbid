@@ -179,11 +179,15 @@ public class AuctionController {
 		
 		System.out.println("BidPost controller");
 		
-		if(bidAmount == null || bidAmount.isEmpty())
-			return "Please provide a price.";
+//		if(bidAmount == null || bidAmount.isEmpty())
+//			return "Please provide a price.";
 		
-		String msg = auctionService.bidSave(id, new Integer(bidAmount));
-		
+//		String msg = auctionService.bidSave(id, new Integer(bidAmount));
+		Auction auction = auctionService.getAuctionById(id);
+		int amount = new Integer(bidAmount) > 1 ? new Integer(bidAmount) : auction.getCurrently() + 1;
+
+		String msg = auctionService.bidSave(id, amount);
+
 		if(msg != null)
 			return msg;
 		

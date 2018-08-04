@@ -161,34 +161,41 @@
                 <div id="bid-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Текущая цена (минимальный шаг 1 тыс рублей)</h4>
+                            <h4 class="panel-title">Текущая цена</h4>
                         </div>
                         <div class="panel-body">
                             <div class="price-number text-center"><span id="currentPrice">${auction.firstBid} 000 Руб</span></div>
                         </div>
                         <div class="panel-footer">
-                            <div class="col-md-9" style="padding-left: 0px;">
-                                <div class="form-group" style="margin-bottom: 0px;">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">Руб</span>
-                                        <input type="text" style="font-size: 8pt" class="form-control" id="bidInput" placeholder="Новая ставка">
-                                        <span class="input-group-addon">тысяч</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 bid-button" style="padding-right: 0px;">
+                            <%--<div class="col-md-9" style="padding-left: 0px;">--%>
+                                <%--<div class="form-group" style="margin-bottom: 0px;">--%>
+                                    <%--<div class="input-group">--%>
+                                        <%--<span class="input-group-addon">Руб</span>--%>
+                                        <%--<input type="text" style="font-size: 8pt" class="form-control" id="bidInput" placeholder="Новая ставка">--%>
+                                        <%--<span class="input-group-addon">тысяч${user.approved}</span>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                            <%--<div class="col-md-3 bid-button" style="padding-right: 0px;">--%>
+                                <%--<c:if test="${user.approved == 1}">--%>
+                                    <%--<c:if test="${user.userid == auction.user.userid}">--%>
+                                        <%--<button type="button" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction">ДА</button>--%>
+                                    <%--</c:if>--%>
+                                    <%--<c:if test="${user.userid != auction.user.userid}">--%>
+                                        <%--<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bidModal">СТАВКА</button>--%>
+                                    <%--</c:if>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${user.approved == 0}">--%>
+                                    <%--<button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action.">ДА</button>--%>
+                                <%--</c:if>--%>
+                            <%--</div>--%>
                                 <c:if test="${user.approved == 1}">
-                                    <c:if test="${user.userid == auction.user.userid}">
-                                        <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction" disabled="disabled">ДА</button>
-                                    </c:if>
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bidModal">СТАВКА</button>
+                                    <b>
+                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" id="newxtBid" data-target="#bidModal" style="font-weight : bold">СДЕЛАТЬ СТАВКУ ${auction.currently + 1}  000 Руб</button>
+                                    </b>
                                     </c:if>
                                 </c:if>
-                                <c:if test="${user.approved == 0}">
-                                    <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">ДА</button>
-                                </c:if>
-                            </div>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -197,7 +204,7 @@
                     <div id="buy-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Купить без торга за</h4>
+                                <h4 class="panel-title">Купить без торга можно за</h4>
                             </div>
                             <div class="panel-body">
                                 <div class="price-number text-center">${auction.buyPrice} 000 Руб</div>
@@ -205,17 +212,25 @@
                             <div class="panel-footer">
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Купить</button>
+                                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><b>КУПИТЬ БЕЗ ТОРГА</b></button>
                                     </c:if>
-                                    <c:if test="${user.userid == auction.user.userid}">
-                                        <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
-                                    </c:if>
-                                </c:if>
-                                <c:if test="${user.approved == 0}">
-                                    <button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled"><i><span class="icon-travel-car"></i></span>Купить сейчас!</button>
                                 </c:if>
                                 <div class="clearfix"></div>
                             </div>
+                            <%--<div class="panel-footer">--%>
+                                <%--<c:if test="${user.approved == 1}">--%>
+                                    <%--<c:if test="${user.userid != auction.user.userid}">--%>
+                                        <%--<button class="btn btn-primary btn-block" data-toggle="modal" data-target="#buyModal"><i><span class="icon-travel-car"></i></span>Купить</button>--%>
+                                    <%--</c:if>--%>
+                                    <%--<c:if test="${user.userid == auction.user.userid}">--%>
+                                        <%--<button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction." disabled="disabled">Купить сейчас!</button>--%>
+                                    <%--</c:if>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${user.approved == 0}">--%>
+                                    <%--<button class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">Купить сейчас!</button>--%>
+                                <%--</c:if>--%>
+                                <%--<div class="clearfix"></div>--%>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </c:if>
@@ -535,7 +550,8 @@
 
     function updatePriceAndLiveFeed(data) {
         $('#currentPrice').text(data.info.latestBid + " 000 Руб");
-
+        var bid = data.info.latestBid + 1;
+        $('#newxtBid').text("СДЕЛАТЬ СТАВКУ " + bid + " 000 Руб");
         var bids = data.bids;
         var bid;
         var i;
@@ -579,7 +595,8 @@
 
         var bidUrl = "/auction/bid/" + auctionId;
 
-        var amount = $('#bidInput').val();
+        // var amount = $('#bidInput').val();
+        var amount = 1; //hardcode!!!
         console.log("Amount: " + amount);
 
         $.ajax({
