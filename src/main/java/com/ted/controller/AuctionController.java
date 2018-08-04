@@ -133,6 +133,12 @@ public class AuctionController {
 
 		model.addAttribute("filter", filter);
 
+		User user = userService.getLoggedInUser();
+		if(user != null){
+			boolean approved = user.getApproved() > (byte)0 ? true : false;
+			request.getSession().setAttribute("approved", approved);
+		}
+
 		return "index";
 	}
 

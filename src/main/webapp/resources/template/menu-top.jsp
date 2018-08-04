@@ -7,7 +7,6 @@
 <link href=<c:url value="/resources/css/style.css" /> rel="stylesheet" type="text/css">
 <link href=<c:url value="/resources/css/topnav.css" /> rel="stylesheet" type="text/css">
 
-
 <%--Top Navbar --%>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -39,14 +38,18 @@
         <%--</div>--%>
 
         <div class="nav navbar-nav navbar-right z-class">
+
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
+                <c:if test="${!approved}">
+                    <li style="color: red; padding: 30px;"><b>Аккаунт не подтвержден</b></li>
+                </c:if>
                 <li>
                     <sec:authorize ifAnyGranted="ROLE_ADMIN">
                         <a class="bottom-color" href="/admin-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px">
                     </sec:authorize>
-                    <sec:authorize ifNotGranted="ROLE_ADMIN">
-                        <a class="bottom-color" href="/myprofile-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px;">
-                    </sec:authorize>
+                    <%--<sec:authorize ifNotGranted="ROLE_ADMIN">--%>
+                        <%--<a class="bottom-color" href="/myprofile-inbox" class="btn btn-default btn-sm btn-link" style="padding-bottom:10px;">--%>
+                    <%--</sec:authorize>--%>
                         <%--<div class="notification-icon">--%>
                             <%--<span class="glyphicon glyphicon-envelope"></span>--%>
                             <%--<span id="msg-badge" class="badge" style="display: none"></span>--%>
