@@ -13,8 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class Mailer implements MailService
-{
+public class Mailer implements MailService {
 
     @Autowired
     private UserService userService;
@@ -73,8 +72,19 @@ public class Mailer implements MailService
     }
 
     @Override
-    public void notifyUserAboutApprovement() {
+    public void notifyUsersAboutApprovement(List<String> approved) {
+        for (String userName : approved) {
+            User user = userService.getUserByUsername(userName);
+            StringBuilder msg = new StringBuilder();
+            msg.append("Уважаемый ");
+            msg.append(user.getFirstName());
+            msg.append(" ваша учетная запись активирована! ");
+            msg.append(" Теперь у Вас есть возможность принимать участие в торгах.");
 
+            if (user.getEmail() != null && !user.getEmail().isEmpty()) {
+                sendMail(SENDER, user.getEmail(), "Подтверждение учетной записи", msg.toString());
+            }
+        }
     }
 
     private void sendMail(String from, String to, String subject, String msg) {
@@ -87,8 +97,10 @@ public class Mailer implements MailService
         message.setText(msg);
         try {
             mailSender.send(message);
-        } catch (MailSendException ex){
-            System.out.println("mailsend error: " + "to: "+ to);
+        } catch (MailSendException ex) {
+            System.out.println("mailsend error: " + "to: " + to);
+            sendMail(SENDER, GUMAEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
+            sendMail(SENDER, DEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
         }
     }
 }

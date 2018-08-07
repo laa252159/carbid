@@ -3,6 +3,8 @@ package com.ted.service;
 import com.ted.model.Auction;
 import com.ted.model.User;
 
+import java.util.List;
+
 public interface MailService {
 
     String SENDER = "perekup64mail@gmail.com";
@@ -15,6 +17,6 @@ public interface MailService {
 
     void notifyUsersAboutNewAuction(Auction auction);
 
-    void notifyUserAboutApprovement();
+    void notifyUsersAboutApprovement(List<String> approved);
 
 }

@@ -3,6 +3,7 @@ package com.ted.controller;
 import com.ted.model.Dashboard;
 import com.ted.service.AdminService;
 import com.ted.service.AuctionService;
+import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class AdminController {
 	
 	@Autowired
 	AdminService adminService;
+
+	@Autowired
+	private MailService mailer;
 
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -105,6 +109,7 @@ public class AdminController {
 			System.out.println("User id: " + id + " is approved!");
 
 		userService.approveUsers(approved);
+		mailer.notifyUsersAboutApprovement(approved);
 
 		return "200 OK";
 	}
