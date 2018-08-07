@@ -88,6 +88,13 @@ public class AuctionServiceImpl implements AuctionService {
 
 	}
 
+	@Override
+	public List<Auction> getBoughtAuctions() {
+
+		return auctionRepository.findByIsBought(true);
+
+	}
+
 	public Auction getAuctionById(Integer id) {
 
 		return auctionRepository.findByAuctionid(id);

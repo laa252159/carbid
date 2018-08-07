@@ -127,6 +127,17 @@ public class AdminController {
 
 		return "admin_auctions";
 	}
+
+
+	@RequestMapping(value = "/admin/boughtauctions", method = RequestMethod.GET)
+	public String adminBoughtAuctions(Model model) {
+
+		/* Auctions */
+		model.addAttribute("auctions", auctionService.getBoughtAuctions());
+		model.addAttribute("number", auctionService.getBoughtAuctions().size());
+
+		return "auctions-bought";
+	}
 	
 //	@RequestMapping(value = "/admin/xmlDownload", method = RequestMethod.GET)
 //	public void xmlDownload( HttpServletRequest request, HttpServletResponse response,

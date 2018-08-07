@@ -17,7 +17,9 @@ public interface AuctionService {
 	void saveAuction(Auction auction);
 	
 	List<Auction> getAllAuctions();
-	
+
+	List<Auction> getBoughtAuctions();
+
 	Page<Auction> pageAuctions(HttpServletRequest request);
 	
 	Auction getAuctionById(Integer id);

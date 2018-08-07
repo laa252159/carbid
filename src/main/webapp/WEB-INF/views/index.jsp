@@ -73,7 +73,7 @@
                             <a class="btn btn-lg btn-info btn-block" href="/admin">Доска</a>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn btn-lg btn-primary btn-block" href="/auctions?categoryId=all">Аукционы</a>
+                            <a class="btn btn-lg btn-primary btn-block" href="/admin/boughtauctions">Выкупленные</a>
                         </div>
                     </div>
                 </sec:authorize>
