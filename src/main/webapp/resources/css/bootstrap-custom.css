@@ -1078,7 +1078,8 @@ body {
   font-size: 25px;
   line-height: 1.42857143;
   color: #404C54;
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
+  background-image: url("/resources/images/background.jpg");
 }
 input,
 button,
