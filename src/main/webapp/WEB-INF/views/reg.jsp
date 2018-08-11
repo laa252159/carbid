@@ -46,7 +46,7 @@
         	<section>
                 <div class="wizard">
                  <div class="wizard-inner">
-                     <div class="connecting-line"></div>
+                     <%--<div class="connecting-line"></div>--%>
                      <ul class="nav nav-tabs" role="tablist">
 
                          <li role="presentation" class="active">
@@ -64,13 +64,13 @@
                                  </span>
                              </a>
                          </li>
-                         <li role="presentation" class="disabled">
-                             <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Фото">
-                                 <span class="round-tab">
-                                     <i class="glyphicon glyphicon-picture"></i>
-                                 </span>
-                             </a>
-                         </li>
+                         <%--<li role="presentation" class="disabled">--%>
+                             <%--<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Фото">--%>
+                                 <%--<span class="round-tab">--%>
+                                     <%--<i class="glyphicon glyphicon-picture"></i>--%>
+                                 <%--</span>--%>
+                             <%--</a>--%>
+                         <%--</li>--%>
 
                          <li role="presentation" class="disabled">
                              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Завершение">
@@ -205,19 +205,19 @@
                                   </ul>
                               </div>
                          </div>
-                         <div class="tab-pane" role="tabpanel" id="step3">
-                             <h2 class="text-center">Загрузить фото</h2>
-                             <div class="row content-row">
-                                 <input id="input-1" name="input1" type="file" class="file-loading" accept="image/x-png, image/jpeg"/>
-                                 <p>Вы можете пропустить этот шаг или загрузить фото позднее.</p>
-                              </div>
-                              <div class="row top-buffer">
-                                  <ul class="list-inline pull-right">
-                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
-                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>
-                                  </ul>
-                              </div>
-                         </div>
+                         <%--<div class="tab-pane" role="tabpanel" id="step3">--%>
+                             <%--<h2 class="text-center">Загрузить фото</h2>--%>
+                             <%--<div class="row content-row">--%>
+                                 <%--<input id="input-1" name="input1" type="file" class="file-loading" accept="image/x-png, image/jpeg"/>--%>
+                                 <%--<p>Вы можете пропустить этот шаг или загрузить фото позднее.</p>--%>
+                              <%--</div>--%>
+                              <%--<div class="row top-buffer">--%>
+                                  <%--<ul class="list-inline pull-right">--%>
+                                      <%--<li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>--%>
+                                      <%--<li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>--%>
+                                  <%--</ul>--%>
+                              <%--</div>--%>
+                         <%--</div>--%>
                          <div class="tab-pane" role="tabpanel" id="complete">
                              <h2 class="text-center">Регистрация пользователя окончена</h2>
                              <div class="row content-row">
@@ -249,7 +249,7 @@
     <script src=<c:url value="/resources/js/moment.min.js" />></script>
     <script src=<c:url value="/resources/js/bootstrap-datetimepicker.min.js" />></script>
     <script src=<c:url value="/resources/js/countries.js" />></script>
-    <script src=<c:url value="/resources/js/fileinput.min.js" />></script>
+    <%--<script src=<c:url value="/resources/js/fileinput.min.js" />></script>--%>
     <script src=<c:url value="/resources/js/jquery.validate.min.js" />></script>
 
     <script>
@@ -310,20 +310,20 @@
     // });
 
     /* File Upload */
-    $(document).on('ready', function() {
-        $("#input-1").fileinput({
-            showUpload: false,
-            maxFileCount: 1,
-            mainClass: "input-group-lg",
-            browseClass: "btn btn-success",
-            browseLabel: "Pick Images",
-            browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
-            removeClass: "btn btn-danger",
-            removeLabel: "Delete",
-            removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> "
-            // allowedFileTypes: "image",
-        });
-    });
+    // $(document).on('ready', function() {
+    //     $("#input-1").fileinput({
+    //         showUpload: false,
+    //         maxFileCount: 1,
+    //         mainClass: "input-group-lg",
+    //         browseClass: "btn btn-success",
+    //         browseLabel: "Pick Images",
+    //         browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+    //         removeClass: "btn btn-danger",
+    //         removeLabel: "Delete",
+    //         removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> "
+    //         // allowedFileTypes: "image",
+    //     });
+    // });
 
     </script>
 

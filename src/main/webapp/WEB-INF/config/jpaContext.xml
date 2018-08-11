@@ -43,8 +43,8 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/auctionerdb?characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
-		<property name="username" value="admin" />
-		<property name="password" value="admin" />
+		<property name="username" value="perekup" />
+		<property name="password" value="perekup" />
 	</bean>
 	
 </beans>

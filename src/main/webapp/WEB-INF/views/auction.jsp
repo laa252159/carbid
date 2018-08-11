@@ -393,10 +393,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
-                                    <label for="seller-rating" class="control-label"><h3>Рейтинг продавца</h3></label>
-                                    <input id="seller-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.sellerRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
-                                    <label for="bidder-rating" class="control-label"><h3>Рейтинг покупателя</h3></label>
-                                    <input id="bidder-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.bidderRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">
+                                    <%--<label for="seller-rating" class="control-label"><h3>Рейтинг продавца</h3></label>--%>
+                                    <%--<input id="seller-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.sellerRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">--%>
+                                    <%--<label for="bidder-rating" class="control-label"><h3>Рейтинг покупателя</h3></label>--%>
+                                    <%--<input id="bidder-rating" class="rating rating-loading" data-show-clear="false" data-show-caption="false" value="${auction.user.bidderRating}" data-min="0" data-max="5" data-step="0.5" data-size="xs">--%>
                                 </sec:authorize>
                             </div>
                             <%--<div class="col-sm-11">--%>

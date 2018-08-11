@@ -64,8 +64,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registrationPost(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
-			@RequestParam("input1") MultipartFile image) {
+	public String registrationPost(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		
 		
 		if(result.hasErrors()) {
@@ -79,7 +78,7 @@ public class LoginController {
 			return "reg";
 		}
 		
-		loginService.saveUser(user, image);
+		loginService.saveUser(user, null);
 		
 		return "redirect:login";
 	}

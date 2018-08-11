@@ -57,7 +57,7 @@ public class LoginServiceImpl implements LoginService {
 		user = userRepository.saveAndFlush(user);
 		
 		// Picture
-		if(!file.isEmpty()) {
+		if(file != null && !file.isEmpty()) {
 			UserPicture picture = new UserPicture();
 			try {
 				picture.setContent(file.getBytes());
