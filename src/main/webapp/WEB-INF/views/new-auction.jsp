@@ -49,7 +49,7 @@
                      <ul class="nav nav-tabs" role="tablist">
 
                          <li role="presentation" class="active">
-                             <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Auction Info">
+                             <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Данные аукциона">
                                  <span class="round-tab">
                                      <i class="glyphicon glyphicon-pencil"></i>
                                  </span>
@@ -84,7 +84,7 @@
                  <form:form id="form" name="auctionForm" role="form" modelAttribute="formAuction" method="POST" enctype="multipart/form-data">
                      <div class="tab-content">
                          <div class="tab-pane active" role="tabpanel" id="step1">
-                            <h2 class="text-center">Auction Info</h2>
+                            <h2 class="text-center">Данные аукциона</h2>
                             <div class="row content-row">
                                 <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                     <%--<div class="row">--%>
