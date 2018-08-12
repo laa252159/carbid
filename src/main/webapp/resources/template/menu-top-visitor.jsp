@@ -18,7 +18,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="home"><span class="icon-travel-car"></span> Perekup64</a>
+		<a class="navbar-brand" href="home"><span class="icon-travel-car"></span></a>
 	</div>
 
 	<div class="collapse navbar-collapse js-navbar-collapse">

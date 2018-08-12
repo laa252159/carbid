@@ -1,6 +1,6 @@
 <div class="navbar navbar-default navbar-fixed-bottom" >
     <div class="container text-center" style="color: #FFFFFF">
-        <p>&copy; <span class="icon-travel-car-small"></span> Покупай машину с выгодой</p>
+        <p>&copy; <span></span> Perekup64 2018</p>
     </div>
 </div>
 
