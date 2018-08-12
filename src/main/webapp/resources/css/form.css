@@ -65,7 +65,7 @@ span.round-tab:hover {
 }
 
 .wizard .nav-tabs > li {
-    width: 25%;
+    width: 33%;
 }
 
 .wizard li:after {
@@ -151,7 +151,7 @@ span.round-tab:hover {
 
 .content-row {
     min-height: 200px;
-    padding-top: 50px;
+    padding-top: 10px;
 }
 
 .error {

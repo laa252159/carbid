@@ -85,7 +85,7 @@
                  <form:form id="form" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                      <div class="tab-content">
                          <div class="tab-pane active" role="tabpanel" id="step1">
-                            <h2 class="text-center">Данные пользователя</h2>
+                            <%--<h2 class="text-center">Данные пользователя</h2>--%>
                             <h3 class="text-center">пожалуйста заполните все поля</h3>
                             <div class="row content-row">
                                 <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
@@ -178,7 +178,7 @@
                              </div>
                          </div>
                          <div class="tab-pane" role="tabpanel" id="step2">
-                             <h2 class="text-center">Локация</h2>
+                             <%--<h2 class="text-center">Локация</h2>--%>
                              <div class="row content-row">
                                  <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                                      <div class="row top-buffer">
