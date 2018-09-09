@@ -21,7 +21,7 @@
     <![endif]-->
 
     <title>Perekup64</title>
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -228,6 +228,7 @@
                                  </div>
                              </div>
                              <div class="row top-buffer">
+                                 <div class="g-recaptcha" data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
                                  <ul class="list-inline pull-right">
                                      <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
                                      <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Принимаю условия</button></li>
