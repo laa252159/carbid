@@ -115,7 +115,7 @@
                                     <%--</div>--%>
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="brand" class="input-label col-md-3">Макрка:</label>
+                                                <label for="brand" class="input-label col-md-3">Марка:</label>
                                                 <div class="col-lg-8">
                                                     <div class="in-group">
                                                         <form:input type="text" name="auction.brand" path="auction.brand" id="brand" class="form-control" placeholder="Марка" value="${formAuction.auction.brand}" />

@@ -39,10 +39,6 @@
 
 <div class="container">
     <div class="text-center">
-        <h2 class="lead">Ниже в форме предложите свой автомобиль для выставления в аукционе.</h2>
-        <h2 class="lead" style="color: red">Обязательно заполните все поля формы и прекрепите фото автомобиля!</h2>
-        <h2 class="lead">С Вами свяжутся по указанным данным, а на почту должно придти уведомление о
-            подаче заявки на аукцион.</h2>
         <%--SUGGEST FORM START--%>
         <form:form id="form" name="formSuggestAuction" role="form"
                    modelAttribute="suggestAuctionDto"
@@ -106,7 +102,7 @@
 
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="brand" class="input-label col-md-3">Макрка
+                                    <label for="brand" class="input-label col-md-3">Марка
                                         авто:</label>
                                     <div class="col-lg-8">
                                         <div class="in-group">
@@ -159,10 +155,9 @@
                                 <div class="form-group">
                                     <div class="col-lg-8">
                                         <div class="in-group">
-                                            <h2 class="text-center">Загрузить фото</h2>
                                             <div class="row content-row">
                                                 <input id="input-1" name="input1" type="file"
-                                                       multiple style="color: black"
+                                                       multiple style="color: black; size: 10px"
                                                        accept="image/x-png, image/jpeg"/>
                                             </div>
                                         </div>
@@ -179,7 +174,7 @@
                                         <ul class="list-inline pull-right">
                                             <li>
                                                 <button name="submit" type="submit" value="submit"
-                                                        class="btn btn-lg btn-success">Отправить
+                                                        class="btn btn-lg btn-success">Разместить аукцион
                                                 </button>
                                             </li>
                                         </ul>
