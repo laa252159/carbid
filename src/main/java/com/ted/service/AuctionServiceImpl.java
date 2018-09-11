@@ -1,15 +1,25 @@
 package com.ted.service;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import com.ted.model.*;
+import com.ted.model.Auction;
+import com.ted.model.AuctionBidding;
+import com.ted.model.AuctionBiddingPK;
+import com.ted.model.AuctionInfo;
+import com.ted.model.AuctionMapper;
+import com.ted.model.Bid;
+import com.ted.model.BidResponse;
+import com.ted.model.Category;
+import com.ted.model.Filter;
+import com.ted.model.FormAuction;
+import com.ted.model.Location;
+import com.ted.model.Message;
+import com.ted.model.SuggestAuctionDto;
+import com.ted.model.User;
+import com.ted.repository.AuctionBiddingRepository;
+import com.ted.repository.AuctionRepository;
+import com.ted.repository.CategoryRepository;
+import com.ted.repository.LocationRepository;
+import com.ted.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,12 +30,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ted.repository.AuctionBiddingRepository;
-import com.ted.repository.AuctionRepository;
-import com.ted.repository.CategoryRepository;
-import com.ted.repository.LocationRepository;
-import com.ted.repository.MessageRepository;
-import com.ted.repository.UserRepository;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService {
@@ -604,6 +614,8 @@ public class AuctionServiceImpl implements AuctionService {
 		message.setMessage("Congratulations! You've won the Auction " + auction.getName() + "!");
 		
 		messageRepository.save(message);
+
+		mailer.notifyUsersAboutVictory(auction);
 
 	}
 

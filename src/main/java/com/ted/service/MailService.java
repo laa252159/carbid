@@ -20,6 +20,8 @@ public interface MailService {
 
     void notifyUsersAboutApprovement(List<String> approved);
 
+    void notifyUsersAboutVictory(Auction auction);
+
     void suggestAuction(SuggestAuctionDto suggestAuctionDto);
 
 }

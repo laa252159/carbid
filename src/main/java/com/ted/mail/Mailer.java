@@ -163,4 +163,13 @@ public class Mailer implements MailService {
         sendMimeMail(suggestAuctionDto.getEmail(), GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(suggestAuctionDto.getEmail(), suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
+
+    @Override
+    public void notifyUsersAboutVictory(Auction auction) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
+        sb.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
+        sb.append("За " + auction.getCurrently() + " 000 рублей \n");
+        sendMail(SENDER, auction.getBuyer().getEmail(), "обеда на аукционе", sb.toString());
+    }
 }
