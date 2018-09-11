@@ -5,12 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.ted.model.*;
 import org.springframework.data.domain.Page;
-
-import com.ted.model.Auction;
-import com.ted.model.BidResponse;
-import com.ted.model.FormAuction;
-import com.ted.model.User;
 
 public interface AuctionService {
 
@@ -33,7 +29,9 @@ public interface AuctionService {
 	void initializeMapper(Integer auctionId);
 	
 	String saveFormAuction(FormAuction formAuction);
-	
+
+	void suggestFormAuction(SuggestAuctionDto suggestAuctionDto);
+
 	List<Auction> getUserAuctions(User user);
 	
 	List<Auction> putPrimaryImage(List<Auction> auctions);

@@ -1,15 +1,26 @@
 package com.ted.mail;
 
 import com.ted.model.Auction;
+import com.ted.model.SuggestAuctionDto;
 import com.ted.model.User;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamSource;
+import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Component
@@ -19,9 +30,9 @@ public class Mailer implements MailService {
     private UserService userService;
 
     @Autowired
-    private MailSender mailSender;
+    private JavaMailSender mailSender;
 
-    public void setMailSender(MailSender mailSender) {
+    public void setMailSender(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
@@ -31,14 +42,14 @@ public class Mailer implements MailService {
 
     @Override
     public void notifyAdminAboutNewUser(User user) {
-        sendMail(SENDER,GUMAEV_EMAIL,"На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user );
-        sendMail(SENDER,DEV_EMAIL,"На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user );
+        sendMail(SENDER, GUMAEV_EMAIL, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
+        sendMail(SENDER, DEV_EMAIL, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
     }
 
     @Override
     public void notifyUsersAboutNewAuction(Auction auction) {
         List<User> users = userService.getApprovedUsers();
-        for(User user : users){
+        for (User user : users) {
             StringBuilder subject = new StringBuilder();
             StringBuilder message = new StringBuilder();
 
@@ -102,5 +113,56 @@ public class Mailer implements MailService {
             sendMail(SENDER, GUMAEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
             sendMail(SENDER, DEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
         }
+    }
+
+    private void sendMimeMail(String from, String to, String subject, String msg, MultipartFile multipartFile) {
+        MimeMessage message = mailSender.createMimeMessage();
+
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setFrom(from);
+        simpleMailMessage.setTo(to);
+        simpleMailMessage.setSubject(subject);
+        simpleMailMessage.setText(msg);
+
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+            helper.setFrom(simpleMailMessage.getFrom());
+            helper.setTo(simpleMailMessage.getTo());
+            helper.setSubject(simpleMailMessage.getSubject());
+            helper.setText(String.format(
+                    simpleMailMessage.getText()));
+
+            if(multipartFile != null){
+                InputStreamSource inputStreamSource = new InputStreamSource() {
+                    @Override
+                    public InputStream getInputStream() throws IOException {
+                        return multipartFile.getInputStream();
+                    }
+                };
+
+                helper.addAttachment(multipartFile.getOriginalFilename(), inputStreamSource);
+            }
+
+        } catch (MessagingException e) {
+            throw new MailParseException(e);
+        }
+        mailSender.send(message);
+    }
+
+    @Override
+    public void suggestAuction(SuggestAuctionDto suggestAuctionDto) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(" | Имя - ");
+        sb.append(suggestAuctionDto.getName());
+        sb.append(" | email - ");
+        sb.append(suggestAuctionDto.getEmail());
+        sb.append(" | Марка - ");
+        sb.append(suggestAuctionDto.getBrand());
+        sb.append(" | Модель - ");
+        sb.append(suggestAuctionDto.getModel());
+        sb.append(" | Год выпуска - ");
+        sb.append(suggestAuctionDto.getYear());
+        sendMimeMail(suggestAuctionDto.getEmail(), DEV_EMAIL, "Предложение авто", "stub", suggestAuctionDto.getPhoto());
     }
 }

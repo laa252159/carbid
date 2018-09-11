@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.ted.model.*;
 import com.ted.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,14 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ted.model.Auction;
-import com.ted.model.BidResponse;
-import com.ted.model.Category;
-import com.ted.model.Filter;
-import com.ted.model.FormAuction;
-import com.ted.model.ImageInfo;
-import com.ted.model.Location;
-import com.ted.model.User;
 import com.ted.repository.AuctionBiddingRepository;
 import com.ted.repository.CategoryRepository;
 
@@ -237,6 +230,25 @@ public class AuctionController {
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
 		return "redirect:/auctions";
+	}
+
+    @RequestMapping(value = "suggest-auction", method = RequestMethod.GET)
+    public String suggestAuctionGet(Model model) {
+
+        SuggestAuctionDto suggestAuctionDto = new SuggestAuctionDto();
+
+        model.addAttribute("suggestAuctionDto", suggestAuctionDto);
+
+        return "suggest-auction-page";
+    }
+
+	@RequestMapping(value = "suggest-auction",  method = RequestMethod.POST)
+	public String suggestAuctionPost(@Valid @ModelAttribute("formSuggestAuction") SuggestAuctionDto suggestAuctionDto,
+                                     BindingResult result, Model model,
+                                     @RequestParam(value = "input1", required = false) MultipartFile image) {
+		suggestAuctionDto.setPhoto(image);
+		auctionService.suggestFormAuction(suggestAuctionDto);
+		return "index";
 	}
 	
 	@RequestMapping(value = "update-auction/{id}", method = RequestMethod.GET)
