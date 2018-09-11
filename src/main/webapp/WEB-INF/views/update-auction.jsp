@@ -479,18 +479,18 @@
                             </div>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="complete">
-                            <h2 class="text-center">Auction creation completed!</h2>
+                            <h2 class="text-center">Создание аукциона почти завершено.</h2>
                             <div class="row content-row">
                                 <div class="text-center">
-                                    <p class="lead">You have successfully completed all steps.</p>
-                                    <p class="lead">Press Save and your auction will become available for bidding.</p>
+                                    <p class="lead">Вы успешно прошли все шаги.</p>
+                                    <p class="lead">Нажмите сохранить, чтобы лот был опубликован для торгов.</p>
                                 </div>
                             </div>
                             <div class="row top-buffer">
                                 <ul class="list-inline pull-right">
                                     <form:input type="hidden" name='auctionid' path="auction.auctionid" class="form-control" />
                                     <li><button type="button" class="btn btn-lg btn-default prev-step">Назад</button></li>
-                                    <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Save Auction</button></li>
+                                    <li><button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">Сохранить</button></li>
                                 </ul>
                             </div>
                         </div>
