@@ -170,6 +170,6 @@ public class Mailer implements MailService {
         sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
         sb.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb.append("За " + auction.getCurrently() + " 000 рублей \n");
-        sendMail(SENDER, auction.getBuyer().getEmail(), "обеда на аукционе", sb.toString());
+        sendMail(SENDER, auction.getBuyer().getEmail(), "Победа на аукционе", sb.toString());
     }
 }
