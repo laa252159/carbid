@@ -134,13 +134,7 @@ public class Mailer implements MailService {
                     simpleMailMessage.getText()));
 
             if(multipartFile != null){
-                InputStreamSource inputStreamSource = new InputStreamSource() {
-                    @Override
-                    public InputStream getInputStream() throws IOException {
-                        return multipartFile.getInputStream();
-                    }
-                };
-
+                InputStreamSource inputStreamSource = () -> multipartFile.getInputStream();
                 helper.addAttachment(multipartFile.getOriginalFilename(), inputStreamSource);
             }
 
@@ -155,6 +149,8 @@ public class Mailer implements MailService {
         StringBuilder sb = new StringBuilder();
         sb.append(" | Имя - ");
         sb.append(suggestAuctionDto.getName());
+        sb.append(" | телефон - ");
+        sb.append(suggestAuctionDto.getPhone());
         sb.append(" | email - ");
         sb.append(suggestAuctionDto.getEmail());
         sb.append(" | Марка - ");
@@ -163,6 +159,8 @@ public class Mailer implements MailService {
         sb.append(suggestAuctionDto.getModel());
         sb.append(" | Год выпуска - ");
         sb.append(suggestAuctionDto.getYear());
-        sendMimeMail(suggestAuctionDto.getEmail(), DEV_EMAIL, "Предложение авто", "stub", suggestAuctionDto.getPhoto());
+        sendMimeMail(suggestAuctionDto.getEmail(), DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
+        sendMimeMail(suggestAuctionDto.getEmail(), GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
+        sendMimeMail(suggestAuctionDto.getEmail(), suggestAuctionDto.getName(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 }

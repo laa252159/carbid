@@ -21,7 +21,7 @@
     <![endif]-->
 
     <title>Perekup64</title>
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -40,6 +40,7 @@
 <div class="container">
     <div class="text-center">
         <h2 class="lead">Ниже в форме предложите свой автомобиль для выставления в аукционе.</h2>
+        <h2 class="lead" style="color: red">Обязательно заполните все поля формы и прекрепите фото автомобиля!</h2>
         <h2 class="lead">С Вами свяжутся по указанным данным, а на почту должно придти уведомление о
             подаче заявки на аукцион.</h2>
         <%--SUGGEST FORM START--%>
@@ -63,6 +64,22 @@
                                                         id="name"
                                                         class="form-control" placeholder="Имя"
                                                         value="${suggestAuctionDto.name}"/>
+                                        </div>
+                                        <div class="err">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="brand" class="input-label col-md-3">Телефон:</label>
+                                    <div class="col-lg-8">
+                                        <div class="in-group">
+                                            <form:input type="text" name="phone" path="phone"
+                                                        id="name"
+                                                        class="form-control" placeholder="Телефон"
+                                                        value="${suggestAuctionDto.phone}"/>
                                         </div>
                                         <div class="err">
                                         </div>
@@ -154,7 +171,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <div class="in-group-group">
+                                    <div class="in-group">
+                                        <c:if test="${notAll}">
+                                            <p style="color: red">Обязательно заполните все поля формы и прекрепите фото автомобиля!</p>
+                                        </c:if>
+                                        <div class="g-recaptcha" data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
                                         <ul class="list-inline pull-right">
                                             <li>
                                                 <button name="submit" type="submit" value="submit"

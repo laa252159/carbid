@@ -2,6 +2,8 @@ package com.ted.controller;
 
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -27,7 +29,10 @@ import com.ted.repository.CategoryRepository;
 
 @Controller
 @SessionAttributes("filter")
-public class AuctionController {
+public class AuctionController extends AbstractController {
+
+	public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+			Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	
 	@Autowired
 	private AuctionService auctionService;
@@ -244,9 +249,26 @@ public class AuctionController {
 
 	@RequestMapping(value = "suggest-auction",  method = RequestMethod.POST)
 	public String suggestAuctionPost(@Valid @ModelAttribute("formSuggestAuction") SuggestAuctionDto suggestAuctionDto,
-                                     BindingResult result, Model model,
+                                     BindingResult result, HttpServletRequest request, Model model,
                                      @RequestParam(value = "input1", required = false) MultipartFile image) {
 		suggestAuctionDto.setPhoto(image);
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(suggestAuctionDto.getEmail());
+		boolean emailIsInvalid =  !matcher.find();
+        model.addAttribute("suggestAuctionDto", suggestAuctionDto);
+		if(suggestAuctionDto.getName().isEmpty() ||
+				suggestAuctionDto.getEmail().isEmpty() ||
+				suggestAuctionDto.getBrand().isEmpty() ||
+				suggestAuctionDto.getModel().isEmpty() ||
+				suggestAuctionDto.getPhone().isEmpty() ||
+				suggestAuctionDto.getYear().isEmpty() ||
+				image.getSize() == 0 ||
+				emailIsInvalid){
+			model.addAttribute("notAll",true);
+			return "suggest-auction-page";
+		}
+        if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
+            return "suggest-auction-page";
+        }
 		auctionService.suggestFormAuction(suggestAuctionDto);
 		return "index";
 	}
