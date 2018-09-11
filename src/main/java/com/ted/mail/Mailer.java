@@ -161,6 +161,6 @@ public class Mailer implements MailService {
         sb.append(suggestAuctionDto.getYear());
         sendMimeMail(suggestAuctionDto.getEmail(), DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(suggestAuctionDto.getEmail(), GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
-        sendMimeMail(suggestAuctionDto.getEmail(), suggestAuctionDto.getName(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
+        sendMimeMail(suggestAuctionDto.getEmail(), suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 }
