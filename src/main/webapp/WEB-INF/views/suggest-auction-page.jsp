@@ -162,7 +162,7 @@
                                             <h2 class="text-center">Загрузить фото</h2>
                                             <div class="row content-row">
                                                 <input id="input-1" name="input1" type="file"
-                                                       multiple
+                                                       multiple style="color: black"
                                                        accept="image/x-png, image/jpeg"/>
                                             </div>
                                         </div>
