@@ -45,7 +45,7 @@
                    method="POST" enctype="multipart/form-data">
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel">
-                    <h2 class="text-center">Форма заявки</h2>
+                    <h2 class="text-center">Продать авто</h2>
                     <div class="row content-row">
                         <div class="col-md-6" style="padding-right:20px;">
 
