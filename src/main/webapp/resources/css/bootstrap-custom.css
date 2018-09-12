@@ -6958,3 +6958,49 @@ td {
 .msonormal {
   text-align: left;
 }
+
+.suggestbutton {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 24px;
+  padding: 5px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.suggestbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.suggestbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.suggestbutton:hover span {
+  padding-right: 25px;
+}
+
+.suggestbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.suggestbuttoncolor {
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+}

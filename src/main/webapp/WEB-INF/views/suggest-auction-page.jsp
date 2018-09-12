@@ -155,7 +155,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-8">
                                         <div class="in-group">
-                                            <div class="row content-row">
+                                            <div class="row">
                                                 <input id="input-1" name="input1" type="file"
                                                        multiple style="color: black; size: 10px"
                                                        accept="image/x-png, image/jpeg"/>

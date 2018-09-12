@@ -67,7 +67,6 @@
             </div>
         </c:forEach>
     </div>
-
         <%-- <div class="item  col-xs-4 col-lg-4 list-group-item">
             <div class="thumbnail">
                 <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
