@@ -5,6 +5,10 @@ import com.ted.service.CategoryService;
 import com.ted.service.LoginService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.Map;
 
 @Controller
@@ -31,6 +36,9 @@ public class LoginController extends AbstractController {
 	
 	@Autowired
 	UserService userService;
+
+//	@Autowired
+//	AuthenticationManager authenticationManager;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login (Model model) {
@@ -84,9 +92,21 @@ public class LoginController extends AbstractController {
         }
 
         loginService.saveUser(user, null);
-
+//		autoLogin(user.getUsername(), user.getPassword());
         return "redirect:login";
 	}
+
+//	private void autoLogin(String username, String password) {
+//		User user = userService.getUserByUsername(username);
+//		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
+//				new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
+//
+//		authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+//
+//		if (usernamePasswordAuthenticationToken.isAuthenticated()) {
+//			SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+//		}
+//	}
 
 
 
