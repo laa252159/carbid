@@ -171,5 +171,24 @@ public class Mailer implements MailService {
         sb.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb.append("За " + auction.getCurrently() + " 000 рублей \n");
         sendMail(SENDER, auction.getBuyer().getEmail(), "Победа на аукционе", sb.toString());
+
+
+
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
+        sb2.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
+        sb2.append("За " + auction.getCurrently() + " 000 рублей \n");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        sendMail(SENDER, GUMAEV_EMAIL, "Победа на аукционе", sb2.toString());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        sendMail(SENDER, DEV_EMAIL, "Победа на аукционе", sb2.toString());
     }
 }
