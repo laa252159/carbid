@@ -604,16 +604,16 @@ public class AuctionServiceImpl implements AuctionService {
 	@Transactional
 	public void notifyUser(Auction auction) {
 
-		Message message = new Message();
-		
-		message.setReceiver(auction.getBuyer());
-		message.setReceiverUsername(auction.getBuyer().getUsername());
-		message.setSender(userService.getUserById(1));
-		message.setSenderDelete((byte)1);
-		message.setSenderUsername("System Message");
-		message.setMessage("Congratulations! You've won the Auction " + auction.getName() + "!");
-		
-		messageRepository.save(message);
+//		Message message = new Message();
+//
+//		message.setReceiver(auction.getBuyer());
+//		message.setReceiverUsername(auction.getBuyer().getUsername());
+//		message.setSender(userService.getUserById(1));
+//		message.setSenderDelete((byte)1);
+//		message.setSenderUsername("System Message");
+//		message.setMessage("Congratulations! You've won the Auction " + auction.getName() + "!");
+//
+//		messageRepository.save(message);
 
 		mailer.notifyUsersAboutVictory(auction);
 
