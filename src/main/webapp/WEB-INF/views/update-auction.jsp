@@ -561,7 +561,7 @@
     $(document).on('ready', function() {
         $("#input-1").fileinput({
             showUpload: false,
-            maxFileCount: 10,
+            maxFileCount: 20,
             mainClass: "input-group-lg",
             browseClass: "btn btn-success",
             browseLabel: "Pick Images",
