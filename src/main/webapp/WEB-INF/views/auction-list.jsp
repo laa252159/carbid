@@ -47,7 +47,7 @@
                         </div>
 
                     </div>
-                    <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
+                    <%--<sec:authorize ifNotGranted="ROLE_ANONYMOUS">--%>
                     <div class="caption">
 
                         <%--<div class="text-limit">--%>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    </sec:authorize>
+                    <%--</sec:authorize>--%>
                 </div>
             </div>
         </c:forEach>
