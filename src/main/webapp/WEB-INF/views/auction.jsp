@@ -295,7 +295,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#detailsTab" data-toggle="tab">ПОДРОБНЕЕ</a></li>
                     <li><a href="#locationTab" data-toggle="tab">МЕСТО НАХОЖДЕНИЯ</a></li>
-                    <li><a href="#auctioneerTab" data-toggle="tab">ДАННЫЕ ПОСРЕДНИКА</a></li>
+                    <li><a href="#auctioneerTab" data-toggle="tab">КОНТАКТНЫЕ ДАННЫЕ</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -382,11 +382,12 @@
 
                         <div class="container">
                             <%--<h2>${auction.user.username}</h2>--%>
-                            <h2>Продавец</h2>
+                            <h2>Отдел продаж</h2>
                                 <div class="col-sm-6">
                                 <p class="lead">
-                                    ${auction.user.firstName} <br />
-                                    ${auction.user.lastName} <br />
+                                    <%--${auction.user.firstName} <br />--%>
+                                    <%--${auction.user.lastName} <br />--%>
+                                    менеджер <br />
                                     <span class="icon-phone"></span> ${auction.user.phone} <br /><br />
                                     ${auction.user.city}
                                 </p>
