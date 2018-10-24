@@ -22,10 +22,10 @@
                     <div class="auction-list-img-div">
                         <div style="float:left">
                             <c:if test="${not empty auction.primaryImage}">
-                                <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" style="width: 250px"/></a>
+                                <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" style="width: 350px"/></a>
                             </c:if>
                             <c:if test="${empty auction.primaryImage}">
-                                <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" style="width: 250px" /></a>
+                                <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" style="width: 350px" /></a>
                             </c:if>
                         </div>
 
