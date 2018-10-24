@@ -6762,6 +6762,7 @@ button.close {
     font-weight: 300;
     /*width: 245px;*/
     box-shadow: 1px 2px 6px rgba(0,0,0, 0.3);
+    border-radius: 12px;
 }
 .btn_new {
     font-weight: 300;
