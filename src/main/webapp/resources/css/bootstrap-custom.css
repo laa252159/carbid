@@ -120,6 +120,7 @@ textarea {
 }
 button {
   overflow: visible;
+  border-radius: 12px;
 }
 button,
 select {
@@ -5000,6 +5001,7 @@ a.badge:focus {
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out;
+  border-radius: 12px;
 }
 .thumbnail > img,
 .thumbnail a > img {
@@ -5819,6 +5821,7 @@ button.list-group-item-danger.active:focus {
 .well-sm {
   padding: 9px;
   border-radius: 0;
+  border-radius: 12px;
 }
 .close {
   float: right;
@@ -7003,4 +7006,5 @@ td {
     background-color: #f4511e;
     border: none;
     color: #FFFFFF;
+    border-radius: 12px;
 }
