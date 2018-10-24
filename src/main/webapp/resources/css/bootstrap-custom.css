@@ -1078,7 +1078,7 @@ body {
   font-size: 25px;
   line-height: 1.42857143;
   color: #ffff00;
-  /*background-color: #FFFFFF;*/
+  /*background-color: #000000;*/
   background-image: url("/resources/images/background.jpg");
 }
 input,
@@ -3103,7 +3103,7 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-default .badge {
   color: #4B81A3;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .btn-primary {
   color: #ffffff;
@@ -3160,7 +3160,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-primary .badge {
   color: #4B81A3;
-  background-color: #ffffff;
+  background-color: #000000;
   box-shadow: 1px 2px 6px rgba(0,0,0, 0.3)
 }
 .btn-success {
@@ -3221,7 +3221,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-success .badge {
   color: #81CEFF;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .btn-info {
   color: #ffffff;
@@ -3278,7 +3278,7 @@ fieldset[disabled] .btn-info.focus {
 }
 .btn-info .badge {
   color: #5bc0de;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .btn-warning {
   color: #ffffff;
@@ -3335,7 +3335,7 @@ fieldset[disabled] .btn-warning.focus {
 }
 .btn-warning .badge {
   color: #4B81A3;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .btn-danger {
   color: #ffffff;
@@ -3392,7 +3392,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 .btn-danger .badge {
   color: #d9534f;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .btn-link {
   color: #4B81A3;
@@ -4026,7 +4026,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #4B81A3;
-  background-color: #FFFFFF;
+  background-color: #000000;
   border: 1px solid #c9d0d0;
   border-bottom-color: transparent;
   cursor: default;
@@ -4934,7 +4934,7 @@ a.badge:focus {
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #4B81A3;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .list-group-item > .badge {
   float: right;
@@ -5431,7 +5431,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 21px;
-  background-color: #FFFFFF;
+  background-color: #000000;
   border: 1px solid transparent;
   border-radius: 0;
   /*-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);*/
@@ -5695,7 +5695,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-primary > .panel-heading .badge {
   color: #4B81A3;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: transparent;
@@ -6387,7 +6387,7 @@ button.close {
   margin: 0;
   width: 12px;
   height: 12px;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .carousel-caption {
   position: absolute;
@@ -6928,7 +6928,7 @@ label,
   color: #ebebeb;
 }
 .thumbnail {
-  background-color: #FFFFFF;
+  background-color: #000000;
   border: none;
 }
 .modal {
