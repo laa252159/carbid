@@ -3113,6 +3113,7 @@ fieldset[disabled] .btn-default.focus {
   color: #ffffff;
   background-color: #4B81A3;
   border-color: transparent;
+  border-radius: 10px;
 }
 .btn-primary:focus,
 .btn-primary.focus {
