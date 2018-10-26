@@ -1083,7 +1083,7 @@ body {
   /*color: #ffff00;*/
   /*background-color: darkgrey;*/
   background-image: url("/resources/images/background.jpg");
-  background-size: cover;
+  /*background-size: cover;*/
 }
 input,
 button,
