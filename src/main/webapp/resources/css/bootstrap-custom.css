@@ -1081,7 +1081,7 @@ body {
   font-size: 25px;
   line-height: 1.42857143;
   color: #ffff00;
-  /*background-color: #000000;*/
+  /*background-color: darkgrey;*/
   background-image: url("/resources/images/background.jpg");
 }
 input,
@@ -2550,7 +2550,7 @@ output {
   font-size: 15px;
   line-height: 1.42857143;
   color: #2b3e50;
-  background-color: #000000;
+  background-color: darkgrey;
   background-image: none;
   border: 1px solid #2b3e50;
   border-radius: 0;
@@ -3106,7 +3106,7 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-default .badge {
   color: #4B81A3;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .btn-primary {
   color: #ffffff;
@@ -3163,7 +3163,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-primary .badge {
   color: #4B81A3;
-  background-color: #000000;
+  background-color: darkgrey;
   box-shadow: 1px 2px 6px rgba(0,0,0, 0.3)
 }
 .btn-success {
@@ -3224,7 +3224,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-success .badge {
   color: #81CEFF;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .btn-info {
   color: #ffffff;
@@ -3281,7 +3281,7 @@ fieldset[disabled] .btn-info.focus {
 }
 .btn-info .badge {
   color: #5bc0de;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .btn-warning {
   color: #ffffff;
@@ -3338,7 +3338,7 @@ fieldset[disabled] .btn-warning.focus {
 }
 .btn-warning .badge {
   color: #4B81A3;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .btn-danger {
   color: #ffffff;
@@ -3395,7 +3395,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 .btn-danger .badge {
   color: #d9534f;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .btn-link {
   color: #4B81A3;
@@ -4029,7 +4029,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #4B81A3;
-  background-color: #000000;
+  background-color: darkgrey;
   border: 1px solid #c9d0d0;
   border-bottom-color: transparent;
   cursor: default;
@@ -4937,7 +4937,7 @@ a.badge:focus {
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #4B81A3;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .list-group-item > .badge {
   float: right;
@@ -4997,7 +4997,7 @@ a.badge:focus {
   margin-bottom: 21px;
   line-height: 1.42857143;
   box-shadow: 1px 2px 6px rgba(0,0,0, 0.3);
-  background-color: #000000;
+  background-color: darkgrey;
   border: 1px solid #dddddd;
   border-radius: 0;
   -webkit-transition: border 0.2s ease-in-out;
@@ -5437,7 +5437,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 21px;
-  background-color: #000000;
+  background-color: darkgrey;
   border: 1px solid transparent;
   border-radius: 0;
   /*-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);*/
@@ -5701,7 +5701,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-primary > .panel-heading .badge {
   color: #4B81A3;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: transparent;
@@ -5808,7 +5808,7 @@ button.list-group-item-danger.active:focus {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #000000;
+  background-color: darkgrey;
   /*border: 1px solid transparent;*/
   border-radius: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -5911,7 +5911,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .modal-backdrop.fade {
   opacity: 0;
@@ -6024,7 +6024,7 @@ button.close {
   padding: 3px 8px;
   color: #ffffff;
   text-align: center;
-  background-color: #000000;
+  background-color: darkgrey;
   border-radius: 0;
 }
 .tooltip-arrow {
@@ -6396,7 +6396,7 @@ button.close {
   margin: 0;
   width: 12px;
   height: 12px;
-  background-color: #000000;
+  background-color: darkgrey;
 }
 .carousel-caption {
   position: absolute;
@@ -6940,7 +6940,7 @@ label,
   color: #ebebeb;
 }
 .thumbnail {
-  background-color: #000000;
+  background-color: darkgrey;
   border: none;
 }
 .modal {
