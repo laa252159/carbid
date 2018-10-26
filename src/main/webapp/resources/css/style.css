@@ -90,6 +90,9 @@ btn-link:hover, btn-link:active, btn-link:focus {
     /*width: 250px;*/
     /*height: 280px;*/
     overflow: hidden;
+    border-color: white;
+    border-style: solid;
+    border-radius: 12px;
 }
 
 .auction-list-img-div img {
