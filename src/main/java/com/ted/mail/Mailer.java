@@ -1,6 +1,7 @@
 package com.ted.mail;
 
 import com.ted.model.Auction;
+import com.ted.model.PromoDto;
 import com.ted.model.SuggestAuctionDto;
 import com.ted.model.User;
 import com.ted.service.MailService;
@@ -162,6 +163,22 @@ public class Mailer implements MailService {
         sendMimeMail(suggestAuctionDto.getEmail(), DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(suggestAuctionDto.getEmail(), GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(suggestAuctionDto.getEmail(), suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
+    }
+
+    @Override
+    public void spamPromo(PromoDto promoDto) {
+        List<User> users = userService.getApprovedUsers();
+        for (User user : users) {
+            StringBuilder subject = new StringBuilder();
+            StringBuilder message = new StringBuilder();
+
+            subject.append(promoDto.getSubject());
+
+            message.append(promoDto.getSuggestion());
+//            if(user.getEmail().equals("laa252159@gmail.com")){
+                sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
+//            }
+        }
     }
 
     @Override

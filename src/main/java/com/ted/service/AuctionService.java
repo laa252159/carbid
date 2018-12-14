@@ -32,6 +32,8 @@ public interface AuctionService {
 
 	void suggestFormAuction(SuggestAuctionDto suggestAuctionDto);
 
+	void spamPromo(PromoDto promoDto);
+
 	List<Auction> getUserAuctions(User user);
 	
 	List<Auction> putPrimaryImage(List<Auction> auctions);

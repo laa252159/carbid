@@ -361,7 +361,27 @@ public class AuctionController extends AbstractController {
 		
 		return response;
 	}
-	
+
+
+	@RequestMapping(value = "promo-page", method = RequestMethod.GET)
+	public String promoGet(Model model) {
+
+		PromoDto promoDto = new PromoDto();
+
+		model.addAttribute("promoDto", promoDto);
+
+		return "promo-page";
+	}
+
+
+	@RequestMapping(value = "promo-page",  method = RequestMethod.POST)
+	public String promoPost(@Valid @ModelAttribute("promoDto") PromoDto promoDto) {
+		if(promoDto.getSuggestion().isEmpty() || promoDto.getSubject().isEmpty()){
+			return "promo-page";
+		}
+		auctionService.spamPromo(promoDto);
+		return "success";
+	}
 	
 
 }

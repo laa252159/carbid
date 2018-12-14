@@ -1,6 +1,7 @@
 package com.ted.service;
 
 import com.ted.model.Auction;
+import com.ted.model.PromoDto;
 import com.ted.model.SuggestAuctionDto;
 import com.ted.model.User;
 
@@ -23,5 +24,7 @@ public interface MailService {
     void notifyUsersAboutVictory(Auction auction);
 
     void suggestAuction(SuggestAuctionDto suggestAuctionDto);
+
+    void spamPromo(PromoDto promoDto);
 
 }
