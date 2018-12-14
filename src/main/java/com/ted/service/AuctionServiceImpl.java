@@ -1,20 +1,7 @@
 package com.ted.service;
 
 
-import com.ted.model.Auction;
-import com.ted.model.AuctionBidding;
-import com.ted.model.AuctionBiddingPK;
-import com.ted.model.AuctionInfo;
-import com.ted.model.AuctionMapper;
-import com.ted.model.Bid;
-import com.ted.model.BidResponse;
-import com.ted.model.Category;
-import com.ted.model.Filter;
-import com.ted.model.FormAuction;
-import com.ted.model.Location;
-import com.ted.model.Message;
-import com.ted.model.SuggestAuctionDto;
-import com.ted.model.User;
+import com.ted.model.*;
 import com.ted.repository.AuctionBiddingRepository;
 import com.ted.repository.AuctionRepository;
 import com.ted.repository.CategoryRepository;
@@ -443,7 +430,12 @@ public class AuctionServiceImpl implements AuctionService {
         mailer.suggestAuction(suggestAuctionDto);
     }
 
-    public String updateFormAuction(FormAuction formAuction) {
+	@Override
+	public void spamPromo(PromoDto promoDto) {
+		mailer.spamPromo(promoDto);
+	}
+
+	public String updateFormAuction(FormAuction formAuction) {
 
 		/* Copy new Auction Info */
 		Auction auction = formAuction.getAuction();

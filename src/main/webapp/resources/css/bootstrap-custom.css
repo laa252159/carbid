@@ -7022,3 +7022,13 @@ td {
     border-color: #8B4513;
     border-style: solid;
 }
+
+.promobtn {
+  background-color: #8B4513;
+  width: 245px;
+  border: none;
+  color: #FFF8DC;
+  border-radius: 12px;
+  border-color: #8B4513;
+  border-style: solid;
+}

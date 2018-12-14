@@ -76,6 +76,11 @@
                             <a class="btn btn-lg btn-primary btn-block" href="/admin/boughtauctions">Выкупленные</a>
                         </div>
                     </div>
+                    <div class="col-lg-12 text-center intro-div">
+                        <div class="col-md-offset-3 col-md-2">
+                            <a class="btn btn-lg btn-danger btn-block" href="/promo-page">Промо-рассылка</a>
+                        </div>
+                    </div>
                 </sec:authorize>
             </sec:authorize>
             <%--<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">--%>
