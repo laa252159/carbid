@@ -175,10 +175,9 @@ public class Mailer implements MailService {
             subject.append(promoDto.getSubject());
 
             message.append(promoDto.getSuggestion());
-            //TODO раскомментировать
-            if(user.getEmail().equals("laa252159@gmail.com")){
+//            if(user.getEmail().equals("laa252159@gmail.com")){
                 sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
-            }
+//            }
         }
     }
 
