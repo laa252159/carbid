@@ -27,8 +27,7 @@
 <body>
 
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>В соответствии с настоящим Соглашением Сервис </span><span
         lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>www</span><span
         lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>.</span><span
@@ -53,12 +52,10 @@ font-family:"Cambria",serif;color:#333333'>www</span><span lang=RU
 пониматься как термин «торги» или «аукцион» согласно действующему
 законодательству РФ.</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>1. ПРЕДМЕТ СОГЛАШЕНИЯ</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>1.1. Предметом настоящего Соглашения является предоставление
 возможности Пользователям, имеющим доступ в Интернет, размещать информацию о
 намерении купить или продать автомобиль путем размещения соответствующей
@@ -79,12 +76,10 @@ font-family:"Cambria",serif;color:#333333'>.</span><span lang=EN-US
 обязуется прилагать все необходимые усилия по развитию удобной и доверительной
 площадки по продаже автомобилей с пробегом.</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>2. РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЕЙ</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>2.1. Зарегистрированным Пользователем может быть физическое
 лицо.<br>
 Каждый Пользователь должен быть зарегистрирован в системе </span><span
@@ -109,12 +104,11 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
 2.2. При регистрации Пользователю может быть присвоен один тип регистрации:<br>
 • Покупатель, доступны только операции по покупке.</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>3. ПОРЯДОК И СРОКИ ОПЛАТЫ ЛОТОВ, ЦЕНООБРАЗОВАНИЕ И СТАВКИ</span></p>
 
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>3.1. Порядок и сроки оплаты лотов<br>
 3.1.1. Сайт </span><span lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>www</span><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
@@ -143,17 +137,17 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
 <b>3.2.2. Минимальный шаг аукциона составляет 1000 руб.</b></span></p>
 <%--
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>3.2.3. Стоимость участия в аукционе составляет
 1% от окончательной стоимости лота, но не менее 1000 рублей.</span></b></p>
 
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>3.2.4. Оплата производится после выигрыша
 аукциона, путем списания с виртуального счета пользователя.</span></b></p>
 
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>3.2.5. Для подтверждения участия в аукционе,
 необходимо внести минимальный авансовый платеж на виртуальный счет, не менее
 1000 рублей, посредством безналичной оплаты на счет Сервиса </span></b><b><span
@@ -166,23 +160,21 @@ normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0
         lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>ru</span></b></p>
 --%>
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>&nbsp;</span></b></p>
 
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>&nbsp;</span></b></p>
 
 <p class=msomormal style='text-align: left;margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;background:white'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
+normal;'><b><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
 "Cambria",serif;color:#333333'>&nbsp;</span></b></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>4. ВСТУПЛЕНИЕ СОГЛАШЕНИЯ В СИЛУ</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>4.1. Данное соглашение вступает в силу сразу после его
 подписания.<br>
 4.2. Фактическое использование Пользователем сервисе </span><span lang=EN-US
@@ -193,12 +185,10 @@ color:#333333'>4.1. Данное соглашение вступает в сил
         lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>64.ru
 также подтверждает согласие Пользователя с условиями настоящего Соглашения.</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>5. ПРАВА И ОБЯЗАННОСТИ СТОРОН</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>5.1. Пользователь вправе:<br>
 5.1.1. Делать ставки на покупку автомобиля на сервисе </span><span lang=EN-US
                                                                    style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>www</span><span
@@ -305,12 +295,10 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
 электронной почты), третьим лицам для рассылки нежелательной коммерческой
 информации («спама»).</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>6. ОТВЕТСТВЕННОСТЬ СТОРОН</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>6.1. За неисполнение или ненадлежащее исполнение своих
 обязательств по настоящему Соглашению Стороны несут ответственность в
 соответствии с законодательством Российской Федерации.<br>
@@ -353,13 +341,11 @@ font-family:"Cambria",serif;color:#333333'>www</span><span lang=RU
         lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>ru</span><span
         lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>.</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:15.0pt;line-height:16.5pt;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>7. ОГРАНИЧЕНИЕ ОТВЕТСТВЕННОСТИ И ПЕРЕЧЕНЬ ДЕФЕКТОВ, КОТОРЫЕ НЕ
 ЯВЛЯЮТСЯ ПРИЧИНОЙ ДЛЯ ОТКАЗА ОТ СДЕЛКИ</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>7.1. Ограничение ответственности<br>
 7.1.1. Сервис </span><span lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>www</span><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
@@ -411,12 +397,10 @@ color:#333333'>обязуется принимать все разумные м�
 <br>
 </span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>8. КОНФИДЕНЦИАЛЬНОСТЬ</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>8.1. Сервис </span><span lang=EN-US style='text-align: left;font-size:10.0pt;
 font-family:"Cambria",serif;color:#333333'>www</span><span lang=RU
                                                            style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>.</span><span
@@ -500,12 +484,10 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
 <br>
 </span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#111111'>9. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</span></p>
 
-<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;background:
-white'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
+<p class=msomormal style='text-align: left;margin-bottom:22.5pt;line-height:normal;'><span lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>9.1. При возникновении между Сторонами споров и разногласий по
 настоящему Соглашению или в связи с ним Стороны обязуются разрешать их путем
 переговоров.<br>
