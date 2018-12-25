@@ -633,7 +633,7 @@
 	  		 <button name="submit" type="submit"
 					value="submit" class="btn btn-success">Вход</button>
 		</form>
-		<p>Нет логина? Зарегистрироваться <a href="registration">здесь</a><p>
+       <p>Регистрация <a href="registration">приступить</a><p>
 	</div>
 
 	<!-- Footer -->
