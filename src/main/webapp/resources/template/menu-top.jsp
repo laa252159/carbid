@@ -6,9 +6,12 @@
 <link href=<c:url value="/resources/css/hover.css" /> rel="stylesheet" type="text/css">
 <link href=<c:url value="/resources/css/style.css" /> rel="stylesheet" type="text/css">
 <link href=<c:url value="/resources/css/topnav.css" /> rel="stylesheet" type="text/css">
+<link href=<c:url value="/resources/css/flying-movie.css" /> rel="stylesheet" type="text/css">
 
 <script src=<c:url value="/resources/js/snowflakes.min.js"/> ></script>
 <script src=<c:url value="/resources/js/snow.js"/> ></script>
+
+
 
 <%--Top Navbar --%>
 <nav class="navbar navbar-default navbar-fixed-top">
