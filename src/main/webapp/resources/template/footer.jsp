@@ -1,6 +1,6 @@
 <div class="navbar navbar-default navbar-fixed-bottom" >
-    <div class="container text-center" style="color: #FFFFFF">
-        <p>&copy; <span></span> Perekup64 2018</p>
+    <div class="container text-center" style="color: #FFFFFF; margin-top: 20px; font-size: 12pt" >
+        <p>&copy; Perekup64 2019</p>
     </div>
 </div>
 
