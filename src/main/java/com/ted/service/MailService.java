@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface MailService {
 
-    String SENDER = "perekup64mail@gmail.com";
+    String SENDER = "info@perekup64.ru";
 
     String GUMAEV_EMAIL = "alexey221284@mail.ru";
 
