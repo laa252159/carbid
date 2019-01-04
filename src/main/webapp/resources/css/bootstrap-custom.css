@@ -3205,7 +3205,7 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
   color: #ffffff;
-  background-color: #8B4513;
+  background-color: #0e385f;
   border-color: rgba(0, 0, 0, 0);
 }
 .btn-success:active,
@@ -4508,7 +4508,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #8B4513;
+  color: #0e385f;
   background-color: #FFFFFF;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -7024,11 +7024,11 @@ td {
 }
 
 .promobtn {
-  background-color: #8B4513;
+  background-color: #0e385f;
   width: 245px;
   border: none;
   color: #FFF8DC;
   border-radius: 12px;
-  border-color: #8B4513;
+  border-color: #0e385f;
   border-style: solid;
 }
