@@ -31,9 +31,6 @@
 
    	 <%@ include file="/resources/template/menu-top.jsp" %>
 
-     <div id="fly-in" class="body-cinema">
-         <div><span></span>проверено</div>
-     </div>
 
     <div class="container">
         <div class="row">

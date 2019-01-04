@@ -42,6 +42,11 @@
                                     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Кузов:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.body}</b></td></tr>
                                     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Привод:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.drive}</b></td></tr>
                                     </sec:authorize>
+                                    <tr>
+                                    <div id="fly-in" class="body-cinema">
+                                        <div><span></span>проверено</div>
+                                    </div>
+                                    </tr>
                                 </table>
                             </div>
                         </div>

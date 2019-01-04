@@ -7,6 +7,7 @@
     /*   background-repeat: no-repeat; */
     /*   background-attachment: fixed; */
     color: #3b5998;
+    color: red;
     text-align: center;
     /*width: 100vw;*/
     font-weight: 700;
@@ -15,7 +16,7 @@
 }
 
 #fly-in {
-       font-size: 24pt;
+       font-size: 16pt;
        /*margin: 40px auto;*/
        /*height: 20vh;*/
     text-transform: uppercase;
@@ -28,11 +29,11 @@
 }
 
 #fly-in div {
-    position: absolute;
-    margin: 2vh 0;
+    /*position: absolute;*/
+    /*margin: 2vh 0;*/
     opacity: 0;
-    left: 10vw;
-    width: 80vw;
+    /*left: 10vw;*/
+    /*width: 80vw;*/
     animation: switch 32s;
 }
 
