@@ -6,8 +6,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.yandex.ru" />
 		<property name="port" value="465" />
-		<property name="username" value="info@perekup64.ru" />
-		<property name="password" value="Admin1234" />
+		<property name="username" value="#{systemProperties['mail.username']}" />
+		<property name="password" value="#{systemProperties['mail.password']}" />
 
 		<property name="javaMailProperties">
 			<props>
