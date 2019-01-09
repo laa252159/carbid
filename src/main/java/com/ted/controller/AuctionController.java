@@ -1,11 +1,13 @@
 package com.ted.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.ted.model.*;
@@ -248,9 +250,9 @@ public class AuctionController extends AbstractController {
     }
 
 	@RequestMapping(value = "suggest-auction",  method = RequestMethod.POST)
-	public String suggestAuctionPost(@Valid @ModelAttribute("formSuggestAuction") SuggestAuctionDto suggestAuctionDto,
+	public void suggestAuctionPost(@Valid @ModelAttribute("formSuggestAuction") SuggestAuctionDto suggestAuctionDto,
                                      BindingResult result, HttpServletRequest request, Model model,
-                                     @RequestParam(value = "input1", required = false) MultipartFile image) {
+                                     @RequestParam(value = "input1", required = false) MultipartFile image, HttpServletResponse response) throws IOException {
 		suggestAuctionDto.setPhoto(image);
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(suggestAuctionDto.getEmail());
 		boolean emailIsInvalid =  !matcher.find();
@@ -264,13 +266,13 @@ public class AuctionController extends AbstractController {
 				image.getSize() == 0 ||
 				emailIsInvalid){
 			model.addAttribute("notAll",true);
-			return "suggest-auction-page";
+			response.sendRedirect("/suggest-auction-page");
 		}
         if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
-            return "suggest-auction-page";
+			response.sendRedirect("/suggest-auction-page");
         }
 		auctionService.suggestFormAuction(suggestAuctionDto);
-		return "index";
+		response.sendRedirect("/operation-success");
 	}
 	
 	@RequestMapping(value = "update-auction/{id}", method = RequestMethod.GET)
@@ -362,6 +364,10 @@ public class AuctionController extends AbstractController {
 		return response;
 	}
 
+	@RequestMapping(value = "operation-success", method = RequestMethod.GET)
+	public String successGet() {
+		return "success";
+	}
 
 	@RequestMapping(value = "promo-page", method = RequestMethod.GET)
 	public String promoGet(Model model) {

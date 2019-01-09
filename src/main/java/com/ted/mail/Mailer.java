@@ -120,7 +120,7 @@ public class Mailer implements MailService {
         MimeMessage message = mailSender.createMimeMessage();
 
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom(from);
+        simpleMailMessage.setFrom(SENDER);
         simpleMailMessage.setTo(to);
         simpleMailMessage.setSubject(subject);
         simpleMailMessage.setText(msg);
