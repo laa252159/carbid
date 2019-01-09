@@ -128,7 +128,7 @@ public class Mailer implements MailService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-            helper.setFrom(simpleMailMessage.getFrom());
+            helper.setFrom(SENDER);
             helper.setTo(simpleMailMessage.getTo());
             helper.setSubject(simpleMailMessage.getSubject());
             helper.setText(String.format(
@@ -160,9 +160,9 @@ public class Mailer implements MailService {
         sb.append(suggestAuctionDto.getModel());
         sb.append(" | Год выпуска - ");
         sb.append(suggestAuctionDto.getYear());
-        sendMimeMail(suggestAuctionDto.getEmail(), DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
-        sendMimeMail(suggestAuctionDto.getEmail(), GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
-        sendMimeMail(suggestAuctionDto.getEmail(), suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
+        sendMimeMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
+        sendMimeMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
+        sendMimeMail(SENDER, suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 
     @Override
