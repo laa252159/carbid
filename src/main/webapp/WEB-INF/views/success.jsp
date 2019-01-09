@@ -42,7 +42,8 @@
         <%--SUCCESS PAGE--%>
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel">
-                    <h2 class="text-center">Операция выполнена успешно</h2>
+                    <h3 class="text-center">Ваша заявка принята.</h3>
+                    <h3 class="text-center">В ближайшее время с Вами свяжется наш специалист.</h3>
                 </div>
                 <div class="clearfix"></div>
             </div>
