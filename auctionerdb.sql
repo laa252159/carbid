@@ -375,3 +375,16 @@ INSERT INTO `categories` VALUES (1,'cars',NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `suggestions`;
+
+CREATE TABLE `suggestions` (
+  `suggestionid` int(11) NOT NULL AUTO_INCREMENT,
+  `suggestion_date` datetime NOT NULL,
+  `brand_and_model` varchar(45) NOT NULL DEFAULT '-',
+  `release_date` varchar(45) NOT NULL DEFAULT '-',
+  `name` varchar(45) NOT NULL DEFAULT '-',
+  `phone_number` varchar(45) NOT NULL DEFAULT '-',
+  `description` mediumtext,
+  PRIMARY KEY (suggestionid)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
