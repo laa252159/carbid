@@ -1,9 +1,6 @@
 package com.ted.mail;
 
-import com.ted.model.Auction;
-import com.ted.model.PromoDto;
-import com.ted.model.SuggestAuctionDto;
-import com.ted.model.User;
+import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -163,6 +160,21 @@ public class Mailer implements MailService {
         sendMimeMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(SENDER, suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
+    }
+
+    @Override
+    public void suggestAuction(Suggestion suggestion) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(" | Имя - ");
+        sb.append(suggestion.getName());
+        sb.append(" | телефон - ");
+        sb.append(suggestion.getPhoneNumber());
+        sb.append(" | Марка и модель - ");
+        sb.append(suggestion.getBrandAndModel());
+        sb.append(" | Год выпуска - ");
+        sb.append(suggestion.getReleaseDate());
+        sendMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString());
+//        sendMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString());
     }
 
     @Override

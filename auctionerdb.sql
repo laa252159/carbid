@@ -383,8 +383,9 @@ CREATE TABLE `suggestions` (
   `brand_and_model` varchar(45) NOT NULL DEFAULT '-',
   `release_date` varchar(45) NOT NULL DEFAULT '-',
   `name` varchar(45) NOT NULL DEFAULT '-',
-  `phone_number` varchar(45) NOT NULL DEFAULT '-',
+  `phone_number` varchar(15) NOT NULL DEFAULT '-',
   `description` mediumtext,
+  `sent_to_admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (suggestionid)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

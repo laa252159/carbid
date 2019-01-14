@@ -1,9 +1,6 @@
 package com.ted.service;
 
-import com.ted.model.Auction;
-import com.ted.model.PromoDto;
-import com.ted.model.SuggestAuctionDto;
-import com.ted.model.User;
+import com.ted.model.*;
 
 import java.util.List;
 
@@ -24,6 +21,8 @@ public interface MailService {
     void notifyUsersAboutVictory(Auction auction);
 
     void suggestAuction(SuggestAuctionDto suggestAuctionDto);
+
+    void suggestAuction(Suggestion suggestion);
 
     void spamPromo(PromoDto promoDto);
 
