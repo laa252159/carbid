@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 @Entity
 @Table(name = "suggestions")
-@NamedQuery(name = "Suggestion.findAll", query = "SELECT s FROM Suggestion s")
+@NamedQuery(name = "Suggestion.findAll", query = "SELECT s FROM Suggestion s order by s.suggestionId DESC")
 @XmlRootElement
 public class Suggestion implements Serializable {
 	private static final long serialVersionUID = 1L;

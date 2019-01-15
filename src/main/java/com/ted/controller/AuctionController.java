@@ -60,6 +60,9 @@ public class AuctionController extends AbstractController {
 	@Autowired
 	private Filter filter;
 
+	@Autowired
+	private SuggestionService suggestionService;
+
 
 	@RequestMapping(value = "auction/{id}", method = RequestMethod.GET)
 	public String getAuction(Model model, @PathVariable Integer id) {
@@ -377,6 +380,13 @@ public class AuctionController extends AbstractController {
 		model.addAttribute("promoDto", promoDto);
 
 		return "promo-page";
+	}
+
+	@RequestMapping(value = "suggestions-page", method = RequestMethod.GET)
+	public String suggestionsGet(Model model) {
+		List<Suggestion> allSuggestions = suggestionService.getAllSuggestions();
+		model.addAttribute("suggestions", allSuggestions);
+		return "suggestions-page";
 	}
 
 
