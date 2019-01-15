@@ -12,4 +12,6 @@ public interface SuggestionService {
 
 	Suggestion sendToAdmin(Suggestion suggestion);
 
+	public void updateSuggestions();
+
 }

@@ -40,7 +40,7 @@ public class SuggestionServiceImpl implements SuggestionService {
 
     @Scheduled(fixedDelay = 60000)    // Every minute
     @Transactional
-    public void updateAuctions() {
+    public void updateSuggestions() {
 
         /* Send new suggestions */
         List<Suggestion> suggestions = suggestionRepository.findBySentToAdmin((byte)0);
