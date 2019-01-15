@@ -174,6 +174,11 @@ public class Mailer implements MailService {
         sb.append(" | Год выпуска - ");
         sb.append(suggestion.getReleaseDate());
         sendMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         sendMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString());
     }
 
