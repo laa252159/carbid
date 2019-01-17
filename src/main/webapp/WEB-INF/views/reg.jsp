@@ -120,8 +120,21 @@
                                             <label for="pwd" class="input-label col-md-3">Пароль:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
-                                                    <form:input type="password" name='password' path="password" class="form-control" id="pwd" />
-                          						    <form:errors path="password" cssClass="error" />
+                                                    <form:input field="*{password}" type="password" name='password' path="password" class="form-control" id="pwd" />
+                          						    <form:errors each="error : ${fields.errors('password')}" cssClass="error" text="Пароль не подтвержден"/>
+                                                </div>
+                                                <div class="err">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row top-buffer">
+                                        <div class="form-group">
+                                            <label for="pwd" class="input-label col-md-3">Повторить:</label>
+                                            <div class="col-lg-8">
+                                                <div class="in-group">
+                                                    <form:input field="*{matchingPassword}" type="password" path="password" class="form-control" id="pwd"/>
+                                                    <form:errors path="password" each="error" cssClass="error" text="Пароль не подтвержден" />
                                                 </div>
                                                 <div class="err">
                                                 </div>

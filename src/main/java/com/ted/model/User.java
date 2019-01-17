@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.ted.controller.PasswordMatches;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -29,6 +30,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "users")
 @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 @XmlRootElement
+@PasswordMatches
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -65,9 +67,13 @@ public class User implements Serializable {
 	@Column(name = "last_name", nullable = false, length = 45)
 	private String lastName;
 
-	@NotEmpty
-	@Column(nullable = false, length = 60)
-	private String password;
+    @NotEmpty
+    @Column(nullable = false, length = 60)
+    private String password;
+
+    @NotEmpty
+    @Column(nullable = false, length = 60)
+    private String matchingPassword;
 
 	@NotEmpty
 	@Column(nullable = false, length = 45)
@@ -204,6 +210,11 @@ public class User implements Serializable {
 		return this.password;
 	}
 
+    @XmlTransient
+    public String getMatchingPassword() {
+        return matchingPassword;
+    }
+
 	@XmlTransient
 	public String getPhone() {
 		return this.phone;
@@ -315,6 +326,10 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+    public void setMatchingPassword(String matchingPassword) {
+        this.matchingPassword = matchingPassword;
+    }
 
 	public void setPhone(String phone) {
 		this.phone = phone;
