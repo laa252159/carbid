@@ -120,8 +120,8 @@
                                             <label for="pwd" class="input-label col-md-3">Пароль:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
-                                                    <form:input field="*{password}" type="password" name='password' path="password" class="form-control" id="pwd" />
-                          						    <form:errors each="error : ${fields.errors('password')}" cssClass="error" text="Пароль не подтвержден"/>
+                                                    <form:input type="password" name='password' path="password" class="form-control" id="pwd" />
+                                                    <form:errors each="error : ${fields.errors('password')}" cssClass="error"/>
                                                 </div>
                                                 <div class="err">
                                                 </div>
@@ -133,8 +133,8 @@
                                             <label for="pwd" class="input-label col-md-3">Повторить:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
-                                                    <form:input field="*{matchingPassword}" type="password" path="password" class="form-control" id="pwd"/>
-                                                    <form:errors path="password" each="error" cssClass="error" text="Пароль не подтвержден" />
+                                                    <form:input type="password" name='matchingPassword' path="matchingPassword" class="form-control" id="matchingPassword"/>
+                                                    <form:errors each="error : ${fields.errors('matchingPassword')}" cssClass="error"/>
                                                 </div>
                                                 <div class="err">
                                                 </div>

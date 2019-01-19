@@ -72,7 +72,7 @@ public class User implements Serializable {
     private String password;
 
     @NotEmpty
-    @Column(nullable = false, length = 60)
+    @Transient
     private String matchingPassword;
 
 	@NotEmpty
