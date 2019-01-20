@@ -121,7 +121,20 @@
                                             <div class="col-lg-8">
                                                 <div class="in-group">
                                                     <form:input type="password" name='password' path="password" class="form-control" id="pwd" />
-                          						    <form:errors path="password" cssClass="error" />
+                                                    <form:errors each="error : ${fields.errors('password')}" cssClass="error"/>
+                                                </div>
+                                                <div class="err">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row top-buffer">
+                                        <div class="form-group">
+                                            <label for="pwd" class="input-label col-md-3">Повторить:</label>
+                                            <div class="col-lg-8">
+                                                <div class="in-group">
+                                                    <form:input type="password" name='matchingPassword' path="matchingPassword" class="form-control" id="matchingPassword"/>
+                                                    <form:errors each="error : ${fields.errors('matchingPassword')}" cssClass="error"/>
                                                 </div>
                                                 <div class="err">
                                                 </div>
