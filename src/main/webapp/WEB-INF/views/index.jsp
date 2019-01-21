@@ -166,9 +166,9 @@
             <div class="col-lg-12 text-center intro-div">
                     <%--<h1 style="font-size: 23px; font-family: 'Calibri Light'; color: #ff0400">Хотите знать больше или принять участие, - заходите!</h1>--%>
                     <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
-                <div class="col-md-offset-0 col-md-4">
-                    <a href="/suggest-auction" class="btn_main btn-lg btn-success btn-block suggestbuttoncolor">Продать машину</a>
-                </div>
+                <%--<div class="col-md-offset-0 col-md-4">--%>
+                    <%--<a href="/suggest-auction" class="btn_main btn-lg btn-success btn-block suggestbuttoncolor">Продать машину</a>--%>
+                <%--</div>--%>
                 <div class="col-md-offset-0 col-md-2">
                     <a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>
                 </div>
