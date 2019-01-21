@@ -95,7 +95,7 @@
                 </sec:authorize>
             </sec:authorize>
             <li><a class="bottom-color" href="/contract_page">Правила</a></li>
-            <li><a class="bottom-color" href="/suggest-auction">Продать авто</a></li>
+            <%--<li><a class="bottom-color" href="/suggest-auction">Продать авто</a></li>--%>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
                 <li><a class="bottom-color" href="/login">Вход</a></li>
                 <li><a class="bottom-color" href="/registration">Регистрация</a></li>
