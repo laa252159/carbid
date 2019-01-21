@@ -118,9 +118,6 @@ public class LoginServiceImpl implements LoginService {
 			String hashedPass = passEncoder.encode(user.getPassword());
 			perUser.setPassword(hashedPass);
 
-			if(passwordsAreEqualAndNotEmpty(user.getPassword(), user.getMatchingPassword())){
-				user.setMatchingPassword(hashedPass); //Костыль =)
-			}
 		}
 		
 		System.out.println("Password: " + user.getPassword());
