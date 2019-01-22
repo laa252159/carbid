@@ -299,7 +299,7 @@
                 </ul>
 
                 <div class="tab-content">
-                    <div class="well tab-pane active" id="detailsTab" style="font-size: 10pt">
+                    <div class="well tab-pane active" id="detailsTab" style="font-size: 10pt; line-height: 1">
                         <p>
                             Марка: <b>${auction.brand}</b>
                         </p>
