@@ -5,13 +5,11 @@ import com.ted.service.CategoryService;
 import com.ted.service.LoginService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.Map;
 
 @Controller
@@ -83,6 +80,15 @@ public class LoginController extends AbstractController {
 		if(msg != null)	// Check if email already exists
 		{
 			model.addAttribute("msg", msg);
+			return "reg";
+		}
+		boolean passwdsAreEqualErr = StringUtils.isEmpty(user.getPassword())
+				|| StringUtils.isEmpty(user.getMatchingPassword())
+				|| !user.getPassword().equals(user.getMatchingPassword());
+
+		if (passwdsAreEqualErr) { // matching passwords
+			model.addAttribute("matchPaswds", "Пароли не совпадают");
+			result.addError(new ObjectError("matchingPassword","Пароли не совпадают!" ));
 			return "reg";
 		}
 

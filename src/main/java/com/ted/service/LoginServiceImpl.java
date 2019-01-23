@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ted.model.Authority;
@@ -45,11 +44,7 @@ public class LoginServiceImpl implements LoginService {
 		// BCrypt password encryption
 		BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
 		String hashedPass = passEncoder.encode(user.getPassword());
-		boolean passwordsWereEqual = passwordsAreEqualAndNotEmpty(user.getPassword(), user.getMatchingPassword());
 		user.setPassword(hashedPass);
-		if(passwordsWereEqual){
-			user.setMatchingPassword(hashedPass); //Костыль =)
-		}
 		
 		// Approved = false until admin checks it
 		user.setApproved((byte)0);
@@ -89,13 +84,6 @@ public class LoginServiceImpl implements LoginService {
 		mailer.notifyAdminAboutNewUser(user);
 		return user;
 	}
-
-	private boolean passwordsAreEqualAndNotEmpty(String pass, String matchPass){
-		if(!StringUtils.isEmpty(pass) && !StringUtils.isEmpty(matchPass)){
-			return pass.equals(matchPass);
-		}
-		return false;
-	}
 	
 	@Modifying
 	@Transactional
@@ -117,7 +105,6 @@ public class LoginServiceImpl implements LoginService {
 			BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
 			String hashedPass = passEncoder.encode(user.getPassword());
 			perUser.setPassword(hashedPass);
-
 		}
 		
 		System.out.println("Password: " + user.getPassword());
