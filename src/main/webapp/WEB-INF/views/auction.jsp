@@ -257,8 +257,9 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Подтверждение</h4>
                 </div>
-                <div class="modal-body">
-                  <p>Вы уверены, что хотите продолжить? Это действие нельзя будет отменить потом.</p>
+                <div class="modal-body" style="line-height: 1">
+                  <p>Вы уверены, что хотите продолжить?</p>
+                  <p>Это действие нельзя будет отменить!</p>
                 </div>
                 <div class="modal-footer">
                   <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
@@ -278,8 +279,9 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Подтверждение</h4>
                   </div>
-                  <div class="modal-body">
-                    <p>Вы уверены, что хотите продолжить? Это действие нельзя будет отменить потом.</p>
+                  <div class="modal-body" style="line-height: 1">
+                      <p>Вы уверены, что хотите продолжить?</p>
+                      <p>Это действие нельзя будет отменить!</p>
                   </div>
                   <div class="modal-footer">
                     <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
