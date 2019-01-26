@@ -33,7 +33,7 @@
 	
 	<bean id="messageSource" 
 		class="org.springframework.context.support.ResourceBundleMessageSource" 
-		p:basename="messages">
+		p:basename="messages" p:defaultEncoding="UTF-8">
 	</bean>
 	
 	<bean name="auctionerProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
