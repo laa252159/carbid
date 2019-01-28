@@ -53,7 +53,6 @@
                            enctype="multipart/form-data">
                     <div class="row">
                         <h3 class="text-center">Регистрация пользователя</h3>
-                        <h3 class="text-center">${captchaInvalid}</h3>
                     </div>
                     <div class="row">
                         <div class="form-group">
@@ -176,7 +175,8 @@
                                     <div class="g-recaptcha"
                                          data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
                                 </div>
-                                <div class="err">
+                                <div class="err" style="line-height: 1; color: red;">
+                                        ${captchaInvalid}
                                 </div>
                             </div>
                         </div>
