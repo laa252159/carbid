@@ -96,6 +96,16 @@ public class Mailer implements MailService {
         }
     }
 
+    //Подпись в письмах
+    private String setFooter(String msg){
+        StringBuilder footer = new StringBuilder();
+        footer.append("\n\nСервис www.perekup64.ru");
+        footer.append("\nтел.: +7-967-80-44-111");
+        footer.append("\nАдрес: г. Саратов ул. Шелковичная д.11/15");
+        String message = msg + footer;
+        return message;
+    }
+
     private void sendMail(String from, String to, String subject, String msg) {
 
         SimpleMailMessage message = new SimpleMailMessage();
@@ -103,7 +113,7 @@ public class Mailer implements MailService {
         message.setFrom(from);
         message.setTo(to);
         message.setSubject(subject);
-        message.setText(msg);
+        message.setText(setFooter(msg));
         try {
             mailSender.send(message);
         } catch (MailSendException ex) {
@@ -120,7 +130,7 @@ public class Mailer implements MailService {
         simpleMailMessage.setFrom(SENDER);
         simpleMailMessage.setTo(to);
         simpleMailMessage.setSubject(subject);
-        simpleMailMessage.setText(msg);
+        simpleMailMessage.setText(setFooter(msg));
 
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
