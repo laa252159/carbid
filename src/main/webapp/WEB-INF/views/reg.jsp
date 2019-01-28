@@ -49,227 +49,149 @@
         </div>
         <section>
             <div class="wizard">
-                <div class="wizard-inner">
-                    <%--<div class="connecting-line"></div>--%>
-                    <ul class="nav nav-tabs" role="tablist">
-
-                        <li role="presentation" class="active">
-                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
-                               title="Данные пользователя">
-                                 <span class="round-tab">
-                                     <i class="glyphicon glyphicon-pencil"></i>
-                                 </span>
-                            </a>
-                        </li>
-
-                        <li role="presentation" class="disabled">
-                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Локация">
-                                 <span class="round-tab">
-                                     <i class="glyphicon glyphicon-globe"></i>
-                                 </span>
-                            </a>
-                        </li>
-                        <%--<li role="presentation" class="disabled">--%>
-                        <%--<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Фото">--%>
-                        <%--<span class="round-tab">--%>
-                        <%--<i class="glyphicon glyphicon-picture"></i>--%>
-                        <%--</span>--%>
-                        <%--</a>--%>
-                        <%--</li>--%>
-
-                        <li role="presentation" class="disabled">
-                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab"
-                               title="Завершение">
-                                 <span class="round-tab">
-                                     <i class="glyphicon glyphicon-ok"></i>
-                                 </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
                 <form:form id="form" name="regForm" role="form" modelAttribute="user" method="POST"
                            enctype="multipart/form-data">
-                    <div class="tab-content">
-                        <div class="tab-pane active" role="tabpanel" id="step1">
-                                <%--<h2 class="text-center">Данные пользователя</h2>--%>
-                            <h3 class="text-center">${captchaInvalid}</h3>
-                            <div class="row content-row">
-                                <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <label for="username" class="input-label col-md-3">Логин:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="text" name='username' path="username"
-                                                                class="form-control" id="username"/>
-                                                    </br><form:errors path="username" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="email" class="input-label col-md-3">Email:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="text" name='email' path="email"
-                                                                class="form-control" id="email"/>
-                                                    </br><form:errors path="email" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="password" class="input-label col-md-3">Пароль:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="password" name='password' path="password"
-                                                                class="form-control" id="password"/>
-                                                    </br><form:errors each="error : ${fields.errors('password')}"
-                                                                 cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="password" class="input-label col-md-3">Повторить:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="password" name='matchingPassword'
-                                                                path="matchingPassword" class="form-control"
-                                                                id="matchingPassword"/>
-                                                    <%--</br><form:errors each="error : ${fields.errors('matchingPassword')}"--%>
-                                                                 <%--cssClass="error" cssStyle="line-height: 1; color: blue"/>--%>
-                                                    <label id="divCheckPasswordMatch"></label>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="row">
+                        <h3 class="text-center">Регистрация пользователя</h3>
+                        <h3 class="text-center">${captchaInvalid}</h3>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="username" class="input-label col-md-1">Логин (видят все):</label>
+                            <div class="col-lg-4">
+                                <div class="in-group">
+                                    <form:input type="text" name='username' path="username"
+                                                class="form-control" id="username"/>
+                                    </br><form:errors path="username" cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <label for="firstName" class="input-label col-md-3">Имя:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="text" id="firstName" name='firstName'
-                                                                path="firstName" class="form-control"/>
-                                                    </br><form:errors path="firstName" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="lastName" class="input-label col-md-3">Фамилия:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="text" name='lastName' path="lastName"
-                                                                class="form-control" id="lastName"/>
-                                                    </br><form:errors path="lastName" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="phone" class="input-label col-md-3">Телефон:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in-group">
-                                                    <form:input type="text" name='phone' path="phone"
-                                                                class="form-control" id="phone"/>
-                                                    </br><form:errors path="phone" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="err">
                                 </div>
-                            </div>
-                            <div class="row top-buffer">
-                                <ul class="list-inline pull-right">
-                                    <li>
-                                        <button type="button" class="btn btn-lg btn-primary next-step">Продолжить
-                                        </button>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="step2">
-                                <%--<h2 class="text-center">Локация</h2>--%>
-                            <div class="row content-row">
-                                <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
-                                    <div class="row top-buffer">
-                                        <div class="form-group">
-                                            <label for="city" class="input-label col-md-3">Город:</label>
-                                            <div class="col-lg-8">
-                                                <div class="in_group">
-                                                    <form:input type="text" name='city' path="city" class="form-control"
-                                                                id="city"/>
-                                                    </br><form:errors path="city" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                                </div>
-                                                <div class="err">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="firstName" class="input-label col-md-1">Имя (скрыто):</label>
+                            <div class="col-lg-4">
+                                <div class="in-group">
+                                    <form:input type="text" id="firstName" name='firstName'
+                                                path="firstName" class="form-control"/>
+                                    </br><form:errors path="firstName" cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="err">
                                 </div>
-                            </div>
-                            <div class="row top-buffer">
-                                <ul class="list-inline pull-right">
-                                    <li>
-                                        <button type="button" class="btn btn-lg btn-default prev-step">Назад</button>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-lg btn-primary next-step">Продолжить
-                                        </button>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="complete">
-                            <h2 class="text-center">Регистрация пользователя окончена</h2>
-                            <div class="row content-row">
-                                <div class="text-center">
-                                    <jsp:include page="contract.jsp"/>
-                                    <p class="lead">Мы проверим Вашу информацию и в течение суток Ваш аккаунт сможет
-                                        принимать участие в торгах</p>
-                                    <p class="lead">Только подтвержденные аккаунты могут принимать участие в торгах</p>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="email" class="input-label col-md-1">Email:</label>
+                            <div class="col-lg-4">
+                                <div class="in-group">
+                                    <form:input type="text" name='email' path="email"
+                                                class="form-control" id="email"/>
+                                    </br><form:errors path="email" cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
+                                </div>
+                                <div class="err">
                                 </div>
                             </div>
-                            <div class="row top-buffer">
-                                <div class="g-recaptcha" data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
-                                <ul class="list-inline pull-right">
-                                    <li>
-                                        <button type="button" class="btn btn-lg btn-default prev-step">Назад</button>
-                                    </li>
-                                    <li>
-                                        <button name="submit" type="submit" value="submit"
-                                                class="btn btn-lg btn-success">Принимаю условия
-                                        </button>
-                                    </li>
-                                </ul>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="password" class="input-label col-md-1">Пароль:</label>
+                            <div class="col-lg-4">
+                                <div class="in-group">
+                                    <form:input type="password" name='password' path="password"
+                                                class="form-control" id="password"/>
+                                    </br><form:errors each="error : ${fields.errors('password')}"
+                                                      cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
+                                </div>
+                                <div class="err">
+                                </div>
                             </div>
                         </div>
-                        <div class="clearfix"></div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="password" class="input-label col-md-1">Повторить пароль:</label>
+                            <div class="col-lg-4">
+                                <div class="in-group">
+                                    <form:input type="password" name='matchingPassword'
+                                                path="matchingPassword" class="form-control"
+                                                id="matchingPassword"/>
+                                        <%--</br><form:errors each="error : ${fields.errors('matchingPassword')}"--%>
+                                        <%--cssClass="error" cssStyle="line-height: 1; color: blue"/>--%>
+                                    <label id="divCheckPasswordMatch"></label>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="phone" class="input-label col-md-1">Телефон:</label>
+                            <div class="col-lg-4">
+                                <div class="in-group">
+                                    <form:input type="text" name='phone' path="phone"
+                                                class="form-control" id="phone"/>
+                                    </br><form:errors path="phone" cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="city" class="input-label col-md-1">Город:</label>
+                            <div class="col-lg-4">
+                                <div class="in_group">
+                                    <form:select type="text" name='city' path="city" class="form-control"
+                                                id="city">
+                                        <form:option value="Саратов">Саратов</form:option>
+                                        <form:option value="Энгельс">Энгельс</form:option>
+                                        <form:option value="Саратовская область">Саратовская область</form:option>
+                                        <form:option value="За пределами Саратовской области">За пределами Саратовской области</form:option>
+                                    </form:select>
+                                    </br><form:errors path="city" cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label class="input-label col-md-1"></label>
+                            <div class="col-lg-4">
+                                <div class="in_group">
+                                    <div class="g-recaptcha"
+                                         data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label class="input-label col-md-1"></label>
+                            <div class="col-lg-4">
+                                <div class="in_group">
+                                    <button name="submit" type="submit" value="submit"
+                                            class="btn btn-lg btn-success">Принимаю условия
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form:form>
             </div>

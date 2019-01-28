@@ -49,7 +49,6 @@ public class User implements Serializable {
     @Column(name = "first_name", nullable = false, length = 45)
     private String firstName;
 
-    @NotEmpty
     @Column(name = "last_name", nullable = false, length = 45)
     private String lastName;
 
@@ -351,7 +350,6 @@ public class User implements Serializable {
                 "город ='" + city + '\n' +
                 "email ='" + email + '\n' +
                 "имя ='" + firstName + '\n' +
-                "фамилия ='" + lastName + '\n' +
                 "телефон ='" + phone + '\n' +
                 "логин ='" + username + '\n';
     }
