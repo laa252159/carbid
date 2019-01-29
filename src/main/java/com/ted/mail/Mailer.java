@@ -4,11 +4,9 @@ import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSendException;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -17,8 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @Component
@@ -40,8 +36,29 @@ public class Mailer implements MailService {
 
     @Override
     public void notifyAdminAboutNewUser(User user) {
-        sendMail(SENDER, GUMAEV_EMAIL, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
-        sendMail(SENDER, DEV_EMAIL, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
+        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
+    }
+
+    private void notifyAdmins(String from, String subject, String message) {
+        for (String email : admins_emails) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            sendMail(from, email, subject, message);
+        }
+    }
+
+    private void notifyAdminsMime(String from, String subject, String message, MultipartFile multipartFile) {
+        for (String email : admins_emails) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            sendMimeMail(from, email, subject, message, multipartFile);
+        }
     }
 
     @Override
@@ -118,8 +135,7 @@ public class Mailer implements MailService {
             mailSender.send(message);
         } catch (MailSendException ex) {
             System.out.println("mailsend error: " + "to: " + to);
-            sendMail(SENDER, GUMAEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
-            sendMail(SENDER, DEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
+            notifyAdmins(SENDER, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
         }
     }
 
@@ -167,8 +183,7 @@ public class Mailer implements MailService {
         sb.append(suggestAuctionDto.getModel());
         sb.append(" | Год выпуска - ");
         sb.append(suggestAuctionDto.getYear());
-        sendMimeMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
-        sendMimeMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
+        notifyAdminsMime(SENDER, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(SENDER, suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 
@@ -183,13 +198,7 @@ public class Mailer implements MailService {
         sb.append(suggestion.getBrandAndModel());
         sb.append(" | Год выпуска - ");
         sb.append(suggestion.getReleaseDate());
-        sendMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString());
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString());
+        notifyAdmins(SENDER,  "Предложение авто", sb.toString());
     }
 
     @Override
@@ -222,17 +231,6 @@ public class Mailer implements MailService {
         sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
         sb2.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb2.append("За " + auction.getCurrently() + " 000 рублей \n");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendMail(SENDER, GUMAEV_EMAIL, "Победа на аукционе", sb2.toString());
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendMail(SENDER, DEV_EMAIL, "Победа на аукционе", sb2.toString());
+        notifyAdmins(SENDER, "Победа на аукционе", sb2.toString());
     }
 }
