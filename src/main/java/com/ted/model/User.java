@@ -347,10 +347,10 @@ public class User implements Serializable {
     public String toString() {
         return "Пользователь: \n" +
                 "ID =" + userid + '\n' +
-                "город ='" + city + '\n' +
-                "email ='" + email + '\n' +
-                "имя ='" + firstName + '\n' +
-                "телефон ='" + phone + '\n' +
-                "логин ='" + username + '\n';
+                "город =" + city + '\n' +
+                "email =" + email + '\n' +
+                "имя =" + firstName + '\n' +
+                "телефон =" + phone + '\n' +
+                "логин =" + username + '\n';
     }
 }
