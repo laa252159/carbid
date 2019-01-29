@@ -318,7 +318,7 @@ CREATE TABLE `users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
+  `last_name` varchar(45),
   `email` varchar(55) NOT NULL,
   `password` varchar(60) NOT NULL,
   `phone` varchar(45) NOT NULL,

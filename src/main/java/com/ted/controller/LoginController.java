@@ -94,6 +94,7 @@ public class LoginController extends AbstractController {
 
 
         if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
+            model.addAttribute("captchaInvalid", "Введите капчу");
             return "reg";
         }
 

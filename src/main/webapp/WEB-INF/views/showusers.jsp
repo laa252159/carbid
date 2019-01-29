@@ -46,7 +46,7 @@
 	<div class="collapse navbar-collapse js-navbar-collapse">
 		<ul class="nav navbar-nav">
 
-            
+
             <li class="dropdown mega-dropdown">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Antiques & Art<span class="caret"></span></a>
    <ul class="dropdown-menu mega-dropdown-menu">
@@ -612,8 +612,8 @@
 
 
 	<div class="col-md-4 col-md-offset-4">
-		
-		
+
+
 	</div>
 	<br/>
 	<br/>
@@ -643,10 +643,11 @@
     </div>
 </div>
 
-<script src=/resources/js/jquery.min.js></script>
-<script src=/resources/js/bootstrap.min.js></script>
-<script src=/resources/js/jquery.mCustomScrollbar.concat.min.js></script>
-<script src=/resources/js/style.js></script>
+    <%--<script src=/resources/js/jquery-3.2.1.min.js></script>--%>
+    <script src=/resources/js/jquery.min.js></script>
+    <script src=/resources/js/bootstrap.min.js></script>
+    <script src=/resources/js/jquery.mCustomScrollbar.concat.min.js></script>
+    <script src=/resources/js/style.js></script>
 
 
 
