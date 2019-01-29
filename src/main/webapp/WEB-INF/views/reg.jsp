@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="username" class="input-label col-md-1">Логин:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="text" name='username' path="username"
                                                 class="form-control" id="username"/>
@@ -72,7 +72,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label for="firstName" class="input-label col-md-1">Имя:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="text" id="firstName" name='firstName'
                                                 path="firstName" class="form-control"/>
@@ -87,7 +87,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label for="email" class="input-label col-md-1">Email:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="text" name='email' path="email"
                                                 class="form-control" id="email"/>
@@ -102,7 +102,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label for="password" class="input-label col-md-1">Пароль:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="password" name='password' path="password"
                                                 class="form-control" id="password"/>
@@ -118,7 +118,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label for="password" class="input-label col-md-1">Повторить пароль:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="password" name='matchingPassword'
                                                 path="matchingPassword" class="form-control"
@@ -135,7 +135,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label for="phone" class="input-label col-md-1">Телефон:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="text" name='phone' path="phone"
                                                 class="form-control" id="phone"/>
@@ -150,7 +150,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label for="city" class="input-label col-md-1">Город:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in_group">
                                     <form:select type="text" name='city' path="city" class="form-control"
                                                 id="city">
@@ -170,7 +170,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label class="input-label col-md-1"></label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in_group">
                                     <div class="g-recaptcha"
                                          data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
@@ -184,7 +184,7 @@
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label class="input-label col-md-1"></label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="in_group">
                                     <button name="submit" type="submit" value="submit"
                                             class="btn btn-lg btn-success">Принимаю условия
