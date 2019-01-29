@@ -56,7 +56,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="username" class="input-label col-md-1">Логин (видят все):</label>
+                            <label for="username" class="input-label col-md-1">Логин:</label>
                             <div class="col-lg-4">
                                 <div class="in-group">
                                     <form:input type="text" name='username' path="username"
@@ -71,7 +71,7 @@
                     </div>
                     <div class="row top-buffer">
                         <div class="form-group">
-                            <label for="firstName" class="input-label col-md-1">Имя (скрыто):</label>
+                            <label for="firstName" class="input-label col-md-1">Имя:</label>
                             <div class="col-lg-4">
                                 <div class="in-group">
                                     <form:input type="text" id="firstName" name='firstName'
