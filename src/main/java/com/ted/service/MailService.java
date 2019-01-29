@@ -8,6 +8,13 @@ public interface MailService {
 
     String SENDER = "noreply@perekup64.ru";
 
+    String[] admins_emails = {
+            "alexey221284@mail.ru",
+            "laa252159@gmail.com",
+            "svda16@mail.ru",
+            "mga3556276@gmail.com"
+    };
+
     void notifyAdminAboutNewUser(User user);
 
     void notifyUsersAboutNewAuction(Auction auction);
