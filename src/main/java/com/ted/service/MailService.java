@@ -29,4 +29,6 @@ public interface MailService {
 
     void spamPromo(PromoDto promoDto);
 
+    void sendToUserMailConfirmationLink(User user);
+
 }

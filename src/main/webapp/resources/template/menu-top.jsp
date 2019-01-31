@@ -93,12 +93,18 @@
                         </ul>
                     </li>
                 </sec:authorize>
-            </sec:authorize>
-            <li><a class="bottom-color" href="/contract_page">Правила</a></li>
+            </sec:authorize>]
+            <c:if test="${!hideRulBtn}">
+                <li><a class="bottom-color" href="/contract_page">Правила</a></li>
+            </c:if>
             <%--<li><a class="bottom-color" href="/suggest-auction">Продать авто</a></li>--%>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <li><a class="bottom-color" href="/login">Вход</a></li>
-                <li><a class="bottom-color" href="/registration">Регистрация</a></li>
+                <c:if test="${!hideEntBtn}">
+                    <li><a class="bottom-color" href="/login">Вход</a></li>
+                </c:if>
+                <c:if test="${!hideRegBtn}">
+                    <li><a class="bottom-color" href="/registration">Регистрация</a></li>
+                </c:if>
             </sec:authorize>
         </div>
 	</div><!-- /.nav-collapse -->

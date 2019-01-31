@@ -36,7 +36,7 @@ public class Mailer implements MailService {
 
     @Override
     public void notifyAdminAboutNewUser(User user) {
-        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
+        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
     }
 
     private void notifyAdmins(String from, String subject, String message) {
@@ -215,6 +215,22 @@ public class Mailer implements MailService {
                 sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
 //            }
         }
+    }
+
+    @Override
+    public void sendToUserMailConfirmationLink(User user) {
+        StringBuilder subject = new StringBuilder();
+        StringBuilder message = new StringBuilder();
+        subject.append("Perekup64 Подтверждение электронной почты");
+        message.append("Perekup64.ru сообщает, что Вы успешно зарегистрированы в системе. Для активизации Вашего " +
+                "аккаунта необходимо пройти последний пункт регистрации!\n" +
+                "\n" +
+                "Чтобы стать зарегистрированным пользователем, Вам необходимо однократно проследовать по указанной " +
+                "ниже ссылке, и Ваш аккаунт будет включен в базу пользователей.\n");
+        message.append("\n Для завершения регистрации, проследуйте по ссылке: \n");
+        message.append("http://www.perekup64.ru/approve-email?email=" + user.getEmail() + " \n");
+        message.append("Если Вы не совершали действий по регистрации в нашей системе – игнорируйте данное письмо!!!");
+        sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
 
     @Override

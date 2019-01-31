@@ -31,6 +31,9 @@ public class User implements Serializable {
     @Column(nullable = false)
     private byte approved;
 
+    @Column(nullable = false, name = "email_approved")
+    private byte emailApproved;
+
     @Column(name = "bidder_rating")
     private float bidderRating;
 
@@ -132,6 +135,11 @@ public class User implements Serializable {
     @XmlTransient
     public byte getApproved() {
         return this.approved;
+    }
+
+    @XmlTransient
+    public byte getEmailApproved() {
+        return emailApproved;
     }
 
     @XmlTransient
@@ -261,6 +269,10 @@ public class User implements Serializable {
 
     public void setApproved(byte approved) {
         this.approved = approved;
+    }
+
+    public void setEmailApproved(byte emailApproved) {
+        this.emailApproved = emailApproved;
     }
 
     public void setAuctionBiddings(List<AuctionBidding> auctionBiddings) {

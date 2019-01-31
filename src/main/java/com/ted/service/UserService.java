@@ -21,7 +21,9 @@ public interface UserService {
 	User getUserByUsername(String username);
 	
 	User getUserById(int id);
-	
+
+	User getUserByEmail(String email);
+
 	boolean hasAuthority(String username, String role);
 	
 	void rateSeller(Integer id, float rating);

@@ -35,6 +35,22 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private MailService mailer;
 
+	@Override
+	public User approveEmail(String email) {
+
+		User user = userService.getUserByEmail(email);
+		if (user == null || (user.getEmailApproved() == (byte) 1)) {
+			return null;
+		}
+		user.setEmailApproved((byte) 1);
+		// Persist user
+		user = userRepository.saveAndFlush(user);
+
+		//notify admin about new user
+		mailer.notifyAdminAboutNewUser(user);
+		return user;
+	}
+
 	@Transactional
 	public User saveUser(User user, MultipartFile file) {
 		
@@ -76,12 +92,13 @@ public class LoginServiceImpl implements LoginService {
 		Authority authority = new Authority();
 		authority.setId(authorityPK);
 		authority.setUser(user);
-		
+
 		// Persist authority
 		authorityRepository.saveAndFlush(authority);
 
-		//sending email about registration new user
-		mailer.notifyAdminAboutNewUser(user);
+		//sending confirmation link to user
+		mailer.sendToUserMailConfirmationLink(user);
+
 		return user;
 	}
 	
@@ -131,9 +148,9 @@ public class LoginServiceImpl implements LoginService {
 	public String checkEmailUsername(User user) {
 		
 		if(userRepository.findByEmail(user.getEmail()) != null )
-			return "Email already in use";
+			return "Данный Email уже есть в системе";
 		if(userRepository.findByUsername(user.getUsername()) != null )
-			return "Username already in use";	
+			return "Такой логин уже занят";
 		return null;
 	}
 

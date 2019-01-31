@@ -63,7 +63,10 @@ public class LoginController extends AbstractController {
 		User user = new User();
 		
 		model.addAttribute("user", user);
-		
+		model.addAttribute(HIDE_ENT_BTN, true);
+		model.addAttribute(HIDE_REG_BTN, true);
+		model.addAttribute(HIDE_RUL_BTN, true);
+
 		return "reg";
 	}
 	
@@ -100,8 +103,22 @@ public class LoginController extends AbstractController {
 
         loginService.saveUser(user, null);
 //		autoLogin(user.getUsername(), user.getPassword());
-        return "redirect:login";
+		model.addAttribute("headerMsg", "Данные регистрации приняты");
+		model.addAttribute("contentMsg", "На адрес Вашей электронной почты отправлена информация для подтверждения  почтового адреса.");
+		model.addAttribute(HIDE_ENT_BTN, true);
+		model.addAttribute(HIDE_REG_BTN, true);
+		model.addAttribute(HIDE_RUL_BTN, true);
+        return "successMessagePage";
 	}
+
+
+	@RequestMapping(value = "/approve-email", method = RequestMethod.GET)
+	public String approveUsersEmail (Model model,@RequestParam(value="email", required=true) String email) {
+		User user = loginService.approveEmail(email);
+		return "contract_page";
+	}
+
+
 
 //	private void autoLogin(String username, String password) {
 //		User user = userService.getUserByUsername(username);

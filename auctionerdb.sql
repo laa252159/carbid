@@ -327,6 +327,7 @@ CREATE TABLE `users` (
   `postal_code` varchar(45) DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL,
   `approved` tinyint(4) NOT NULL,
+  `email_approved` tinyint(4) DEFAULT '0',
   `bidder_rating` float DEFAULT NULL,
   `seller_rating` float DEFAULT NULL,
   `number_of_bidder_ratings` int(11) DEFAULT NULL,

@@ -49,7 +49,7 @@
         </div>
         <section>
             <div class="wizard">
-                <form:form id="form" name="regForm" role="form" modelAttribute="user" method="POST"
+                <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST"
                            enctype="multipart/form-data">
                     <div class="row">
                         <h3 class="text-center">Регистрация пользователя</h3>
@@ -60,8 +60,8 @@
                             <div class="col-lg-3">
                                 <div class="in-group">
                                     <form:input type="text" name='username' path="username"
-                                                class="form-control" id="username"/>
-                                    </br><form:errors path="username" cssClass="error"
+                                                class="form-control" id="username" onfocus="$('usernameErr').css('display', 'none');"/>
+                                    </br><form:errors path="username" cssClass="error" id="usernameErr"
                                                       cssStyle="line-height: 1; color: blue"/>
                                 </div>
                                 <div class="err">
