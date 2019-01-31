@@ -115,6 +115,9 @@ public class LoginController extends AbstractController {
 	@RequestMapping(value = "/approve-email", method = RequestMethod.GET)
 	public String approveUsersEmail (Model model,@RequestParam(value="email", required=true) String email) {
 		User user = loginService.approveEmail(email);
+		if(user == null){
+			return "redirect:login";
+		}
 		return "contract_page";
 	}
 
