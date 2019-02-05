@@ -157,7 +157,7 @@
                                         <form:option value="Саратов">Саратов</form:option>
                                         <form:option value="Энгельс">Энгельс</form:option>
                                         <form:option value="Саратовская область">Саратовская область</form:option>
-                                        <form:option value="За пределами Саратовской области">За пределами Саратовской области</form:option>
+                                        <form:option value="Другой город РФ">За пределами Саратовской области</form:option>
                                     </form:select>
                                     </br><form:errors path="city" cssClass="error"
                                                       cssStyle="line-height: 1; color: blue"/>
