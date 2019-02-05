@@ -3,6 +3,7 @@ package com.ted.controller;
 import com.ted.model.User;
 import com.ted.service.CategoryService;
 import com.ted.service.LoginService;
+import com.ted.service.SecurityService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,20 +24,21 @@ import java.util.Map;
 @Controller
 public class LoginController extends AbstractController {
 
+	@Autowired
+	private SecurityService securityService;
 
-	
 	@Autowired
 	LoginService loginService;
-	
+
 	@Autowired
 	CategoryService categoryService;
-	
+
 	@Autowired
 	UserService userService;
 
 //	@Autowired
 //	AuthenticationManager authenticationManager;
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login (Model model) {
 		System.out.println("Inside login controller");
@@ -45,23 +47,23 @@ public class LoginController extends AbstractController {
 
 	@RequestMapping(value = "/loginFailed", method = RequestMethod.GET)
 	public String loginFailed(Model model) {
-		
+
 		System.out.println("Login failed");
-		
+
 		model.addAttribute("error","Login failed. Please provide correct credentials." );
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Model model) {
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registrationGet(Model model) {
-		
+
 		User user = new User();
-		
+
 		model.addAttribute("user", user);
 		model.addAttribute(HIDE_ENT_BTN, true);
 		model.addAttribute(HIDE_REG_BTN, true);
@@ -69,16 +71,16 @@ public class LoginController extends AbstractController {
 
 		return "reg";
 	}
-	
+
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registrationPost(@Valid @ModelAttribute("user") User user, BindingResult result,
                                    HttpServletRequest request, Model model) {
-		
-		
+		String password = user.getPassword();
+
 		if(result.hasErrors()) {
 			return "reg";
 		}
-		
+
 		String msg = loginService.checkEmailUsername(user);
 		if(msg != null)	// Check if email already exists
 		{
@@ -102,6 +104,7 @@ public class LoginController extends AbstractController {
         }
 
         loginService.saveUser(user, null);
+		securityService.autologin(user.getUsername(), password);
 //		autoLogin(user.getUsername(), user.getPassword());
 		model.addAttribute("headerMsg", "Данные регистрации приняты");
 		model.addAttribute("contentMsg", "На адрес Вашей электронной почты отправлена информация для подтверждения  почтового адреса.");
@@ -121,6 +124,13 @@ public class LoginController extends AbstractController {
 		return "contract_page";
 	}
 
+	@RequestMapping(value = "/login-link", method = RequestMethod.GET)
+	public String approveUsersEmail (Model model,@RequestParam(value="l", required=true) String login,
+									 @RequestParam(value="p", required=true) String password) {
+		securityService.autologin(login, password);
+		return "index";
+	}
+
 
 
 //	private void autoLogin(String username, String password) {
@@ -137,43 +147,43 @@ public class LoginController extends AbstractController {
 
 
 
-	
+
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
-		
+
 		User user = userService.getLoggedInUser();
 		model.addAttribute("user", user);
-		
+
 		return "upgrade";
 	}
-	
+
 	@RequestMapping(value = "/upgrade", method = RequestMethod.POST)
-	public String postUpgrade(@RequestParam Map<String,String> allRequestParams, Model model, 
+	public String postUpgrade(@RequestParam Map<String,String> allRequestParams, Model model,
 			HttpServletRequest request) {
-		
+
 		String error = loginService.upgradeUser(allRequestParams);
-		
+
 		if(error != null) {
 			model.addAttribute("error", error);
 			return "upgrade";
 		}
-		
+
 		/* Logout */
 		try {
 			request.logout();
 		} catch (ServletException e) {
 			e.printStackTrace();
 		}
-		
+
 		/* Prepare login page */
 		String msg = "Your account has just been upgraded. You can now create new Auctions and see them in your account."
 				+ " Please Login again to complete ther process.";
 		model.addAttribute("msg", msg);
 
-		
+
 		return "redirect:login";
 	}
-	
+
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String error403(Model model) {
 		return "403";
