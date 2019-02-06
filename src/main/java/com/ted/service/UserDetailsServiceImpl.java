@@ -1,5 +1,6 @@
 package com.ted.service;
 
+import com.ted.model.Authority;
 import com.ted.model.User;
 import com.ted.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         User user = userRepository.findByUsername(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-//        for (Authority role : user.getAuthorities()){
-            grantedAuthorities.add(new SimpleGrantedAuthority(user.getUsername()));
-//        }
+        for (Authority role : user.getAuthorities()){
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getId().getRole()));
+        }
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
