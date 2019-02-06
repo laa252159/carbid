@@ -1,10 +1,11 @@
 package com.ted.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ted.model.*;
+import com.ted.repository.BidderRatingRepository;
+import com.ted.repository.SellerRatingRepository;
+import com.ted.repository.UserPictureRepository;
+import com.ted.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,17 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ted.model.Authority;
-import com.ted.model.BidderRating;
-import com.ted.model.BidderRatingPK;
-import com.ted.model.SellerRating;
-import com.ted.model.SellerRatingPK;
-import com.ted.model.User;
-import com.ted.model.UserPicture;
-import com.ted.repository.BidderRatingRepository;
-import com.ted.repository.SellerRatingRepository;
-import com.ted.repository.UserPictureRepository;
-import com.ted.repository.UserRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -138,6 +130,11 @@ public class UserServiceImpl implements UserService {
 
 		return userRepository.findByUserid(id);
 		
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		return userRepository.findByEmail(email);
 	}
 
 	@Transactional

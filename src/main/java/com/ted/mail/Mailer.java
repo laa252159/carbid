@@ -4,11 +4,9 @@ import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSendException;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -17,8 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @Component
@@ -40,8 +36,29 @@ public class Mailer implements MailService {
 
     @Override
     public void notifyAdminAboutNewUser(User user) {
-        sendMail(SENDER, GUMAEV_EMAIL, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
-        sendMail(SENDER, DEV_EMAIL, "На Perekup64.ru зарегистрировался новый пользователь", "Зарегистрировался : \n\n" + user);
+        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
+    }
+
+    private void notifyAdmins(String from, String subject, String message) {
+        for (String email : admins_emails) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            sendMail(from, email, subject, message);
+        }
+    }
+
+    private void notifyAdminsMime(String from, String subject, String message, MultipartFile multipartFile) {
+        for (String email : admins_emails) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            sendMimeMail(from, email, subject, message, multipartFile);
+        }
     }
 
     @Override
@@ -96,6 +113,16 @@ public class Mailer implements MailService {
         }
     }
 
+    //Подпись в письмах
+    private String setFooter(String msg){
+        StringBuilder footer = new StringBuilder();
+        footer.append("\n\nСервис www.perekup64.ru");
+        footer.append("\nтел.: +7-967-80-44-111");
+        footer.append("\nАдрес: г. Саратов ул. Шелковичная д.11/15");
+        String message = msg + footer;
+        return message;
+    }
+
     private void sendMail(String from, String to, String subject, String msg) {
 
         SimpleMailMessage message = new SimpleMailMessage();
@@ -103,13 +130,12 @@ public class Mailer implements MailService {
         message.setFrom(from);
         message.setTo(to);
         message.setSubject(subject);
-        message.setText(msg);
+        message.setText(setFooter(msg));
         try {
             mailSender.send(message);
         } catch (MailSendException ex) {
             System.out.println("mailsend error: " + "to: " + to);
-            sendMail(SENDER, GUMAEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
-            sendMail(SENDER, DEV_EMAIL, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
+            notifyAdmins(SENDER, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
         }
     }
 
@@ -120,7 +146,7 @@ public class Mailer implements MailService {
         simpleMailMessage.setFrom(SENDER);
         simpleMailMessage.setTo(to);
         simpleMailMessage.setSubject(subject);
-        simpleMailMessage.setText(msg);
+        simpleMailMessage.setText(setFooter(msg));
 
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -157,8 +183,7 @@ public class Mailer implements MailService {
         sb.append(suggestAuctionDto.getModel());
         sb.append(" | Год выпуска - ");
         sb.append(suggestAuctionDto.getYear());
-        sendMimeMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
-        sendMimeMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
+        notifyAdminsMime(SENDER, "Предложение авто", sb.toString(), suggestAuctionDto.getPhoto());
         sendMimeMail(SENDER, suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 
@@ -173,13 +198,7 @@ public class Mailer implements MailService {
         sb.append(suggestion.getBrandAndModel());
         sb.append(" | Год выпуска - ");
         sb.append(suggestion.getReleaseDate());
-        sendMail(SENDER, DEV_EMAIL, "Предложение авто", sb.toString());
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendMail(SENDER, GUMAEV_EMAIL, "Предложение авто", sb.toString());
+        notifyAdmins(SENDER,  "Предложение авто", sb.toString());
     }
 
     @Override
@@ -199,6 +218,24 @@ public class Mailer implements MailService {
     }
 
     @Override
+    public void sendToUserMailConfirmationLink(User user) {
+        StringBuilder subject = new StringBuilder();
+        StringBuilder message = new StringBuilder();
+        subject.append("Perekup64 Подтверждение электронной почты");
+        message.append("Perekup64.ru сообщает, что Вы успешно зарегистрированы в системе. Для активизации Вашего " +
+                "аккаунта необходимо пройти последний пункт регистрации!\n" +
+                "\n" +
+                "Чтобы стать зарегистрированным пользователем, Вам необходимо однократно проследовать по указанной " +
+                "ниже ссылке, и Ваш аккаунт будет включен в базу пользователей.\n");
+
+        message.append("\n В последующем, в течение суток, Ваш аккаунт будет подтвержден администрацией сайта. \n");
+        message.append("\n Для завершения регистрации, проследуйте по ссылке: \n");
+        message.append("http://www.perekup64.ru/approve-email?email=" + user.getEmail() + " \n");
+        message.append("Если Вы не совершали действий по регистрации в нашей системе – игнорируйте данное письмо!!!");
+        sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
+    }
+
+    @Override
     public void notifyUsersAboutVictory(Auction auction) {
         StringBuilder sb = new StringBuilder();
         sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
@@ -212,17 +249,6 @@ public class Mailer implements MailService {
         sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
         sb2.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb2.append("За " + auction.getCurrently() + " 000 рублей \n");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendMail(SENDER, GUMAEV_EMAIL, "Победа на аукционе", sb2.toString());
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendMail(SENDER, DEV_EMAIL, "Победа на аукционе", sb2.toString());
+        notifyAdmins(SENDER, "Победа на аукционе", sb2.toString());
     }
 }

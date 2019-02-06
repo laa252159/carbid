@@ -8,9 +8,12 @@ public interface MailService {
 
     String SENDER = "noreply@perekup64.ru";
 
-    String GUMAEV_EMAIL = "alexey221284@mail.ru";
-
-    String DEV_EMAIL = "laa252159@gmail.com";
+    String[] admins_emails = {
+            "alexey221284@mail.ru",
+            "laa252159@gmail.com",
+            "svda16@mail.ru",
+            "mga3556276@gmail.com"
+    };
 
     void notifyAdminAboutNewUser(User user);
 
@@ -25,5 +28,7 @@ public interface MailService {
     void suggestAuction(Suggestion suggestion);
 
     void spamPromo(PromoDto promoDto);
+
+    void sendToUserMailConfirmationLink(User user);
 
 }

@@ -31,6 +31,9 @@ public class User implements Serializable {
     @Column(nullable = false)
     private byte approved;
 
+    @Column(nullable = false, name = "email_approved")
+    private byte emailApproved;
+
     @Column(name = "bidder_rating")
     private float bidderRating;
 
@@ -49,7 +52,6 @@ public class User implements Serializable {
     @Column(name = "first_name", nullable = false, length = 45)
     private String firstName;
 
-    @NotEmpty
     @Column(name = "last_name", nullable = false, length = 45)
     private String lastName;
 
@@ -133,6 +135,11 @@ public class User implements Serializable {
     @XmlTransient
     public byte getApproved() {
         return this.approved;
+    }
+
+    @XmlTransient
+    public byte getEmailApproved() {
+        return emailApproved;
     }
 
     @XmlTransient
@@ -264,6 +271,10 @@ public class User implements Serializable {
         this.approved = approved;
     }
 
+    public void setEmailApproved(byte emailApproved) {
+        this.emailApproved = emailApproved;
+    }
+
     public void setAuctionBiddings(List<AuctionBidding> auctionBiddings) {
         this.auctionBiddings = auctionBiddings;
     }
@@ -348,11 +359,10 @@ public class User implements Serializable {
     public String toString() {
         return "Пользователь: \n" +
                 "ID =" + userid + '\n' +
-                "город ='" + city + '\n' +
-                "email ='" + email + '\n' +
-                "имя ='" + firstName + '\n' +
-                "фамилия ='" + lastName + '\n' +
-                "телефон ='" + phone + '\n' +
-                "логин ='" + username + '\n';
+                "город =" + city + '\n' +
+                "email =" + email + '\n' +
+                "имя =" + firstName + '\n' +
+                "телефон =" + phone + '\n' +
+                "логин =" + username + '\n';
     }
 }
