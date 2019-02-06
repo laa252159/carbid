@@ -5,6 +5,7 @@ import com.ted.service.CategoryService;
 import com.ted.service.LoginService;
 import com.ted.service.SecurityService;
 import com.ted.service.UserService;
+import com.ted.utils.PasswordEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 @Controller
@@ -35,9 +41,6 @@ public class LoginController extends AbstractController {
 
 	@Autowired
 	UserService userService;
-
-//	@Autowired
-//	AuthenticationManager authenticationManager;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login (Model model) {
@@ -105,7 +108,6 @@ public class LoginController extends AbstractController {
 
         loginService.saveUser(user, null);
 		securityService.autologin(user.getUsername(), password);
-//		autoLogin(user.getUsername(), user.getPassword());
 		model.addAttribute("headerMsg", "Данные регистрации приняты");
 		model.addAttribute("contentMsg", "На адрес Вашей электронной почты отправлена информация для подтверждения  почтового адреса.");
 		model.addAttribute(HIDE_ENT_BTN, true);
@@ -126,27 +128,13 @@ public class LoginController extends AbstractController {
 
 	@RequestMapping(value = "/login-link", method = RequestMethod.GET)
 	public String approveUsersEmail (Model model,@RequestParam(value="l", required=true) String login,
-									 @RequestParam(value="p", required=true) String password) {
-		securityService.autologin(login, password);
+									 @RequestParam(value="p", required=true) byte[] password)
+			throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException,
+			NoSuchPaddingException {
+		PasswordEncryptorDescriptor.decrypt(password);
+		securityService.autologin(login, new String(password));
 		return "index";
 	}
-
-
-
-//	private void autoLogin(String username, String password) {
-//		User user = userService.getUserByUsername(username);
-//		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-//				new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
-//
-//		authenticationManager.authenticate(usernamePasswordAuthenticationToken);
-//
-//		if (usernamePasswordAuthenticationToken.isAuthenticated()) {
-//			SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-//		}
-//	}
-
-
-
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
