@@ -153,6 +153,14 @@ public class LoginController extends AbstractController {
 		return "index";
 	}
 
+    /**
+     * Переход на страницу с редактированием пароля
+     */
+    @RequestMapping(value = "/password_recovery", method = RequestMethod.GET)
+    public String transitionToPasswordEditing (Model model) {
+        return "password_recovery";
+    }
+
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
 
