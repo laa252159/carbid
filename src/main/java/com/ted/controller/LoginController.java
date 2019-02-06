@@ -5,7 +5,7 @@ import com.ted.service.CategoryService;
 import com.ted.service.LoginService;
 import com.ted.service.SecurityService;
 import com.ted.service.UserService;
-import com.ted.utils.PasswordEncryptorDescriptor;
+import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +23,12 @@ import javax.crypto.NoSuchPaddingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
 
 @Controller
@@ -107,7 +111,6 @@ public class LoginController extends AbstractController {
         }
 
         loginService.saveUser(user, null);
-		securityService.autologin(user.getUsername(), password);
 		model.addAttribute("headerMsg", "Данные регистрации приняты");
 		model.addAttribute("contentMsg", "На адрес Вашей электронной почты отправлена информация для подтверждения  почтового адреса.");
 		model.addAttribute(HIDE_ENT_BTN, true);
@@ -116,23 +119,37 @@ public class LoginController extends AbstractController {
         return "successMessagePage";
 	}
 
-
-	@RequestMapping(value = "/approve-email", method = RequestMethod.GET)
-	public String approveUsersEmail (Model model,@RequestParam(value="email", required=true) String email) {
-		User user = loginService.approveEmail(email);
+	/**
+	 *  Читаем условия контракта по ссылке с почты
+	 */
+	@RequestMapping(value = "/approve-and-contract", method = RequestMethod.GET)
+	public String approveUsersEmail (Model model,@RequestParam(value="email", required=true) String email)
+			throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException {
+		User user = userService.getUserByEmail(email);
 		if(user == null){
 			return "redirect:login";
 		}
+		String login = userService.getUserByEmail(email).getUsername();
+		String token = TokenEncryptorDescriptor.encrypt(login);
+		model.addAttribute(APPLY_CONTRACT_AND_LOG_IN, "agreement-token?t="+token);
+		model.addAttribute(REJECT_CONTRACT_AND_REMOVE_USER, "decline-registration/"+token);
+		model.addAttribute(SHOW_APPLY_CONTRACT_BUTTONS, true);
 		return "contract_page";
 	}
 
-	@RequestMapping(value = "/login-link", method = RequestMethod.GET)
-	public String approveUsersEmail (Model model,@RequestParam(value="l", required=true) String login,
-									 @RequestParam(value="p", required=true) byte[] password)
+	/**
+	 * Юзер соглашается с условиями сайта
+	 */
+	@RequestMapping(value = "/agreement-token", method = RequestMethod.GET)
+	public String loginBySingleLogin(Model model, @RequestParam(value = "t", required = true) String token)
 			throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException,
-			NoSuchPaddingException {
-		PasswordEncryptorDescriptor.decrypt(password);
-		securityService.autologin(login, new String(password));
+			NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException, IOException {
+		String login = TokenEncryptorDescriptor.decrypt(token);
+		User user = userService.getUserByUsername(login);
+		if (user != null) {
+			loginService.approveEmail(user.getEmail());
+			securityService.autologin(login);
+		}
 		return "index";
 	}
 
