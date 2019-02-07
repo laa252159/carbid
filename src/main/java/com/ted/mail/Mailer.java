@@ -3,7 +3,6 @@ package com.ted.mail;
 import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
-import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
@@ -122,6 +121,11 @@ public class Mailer implements MailService {
         footer.append("\nАдрес: г. Саратов ул. Шелковичная д.11/15");
         String message = msg + footer;
         return message;
+    }
+
+    @Override
+    public void sendingLink(String mail, String link) {
+        sendMail(SENDER, mail, link, "");
     }
 
     private void sendMail(String from, String to, String subject, String msg) {

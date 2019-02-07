@@ -1,10 +1,7 @@
 package com.ted.controller;
 
 import com.ted.model.User;
-import com.ted.service.CategoryService;
-import com.ted.service.LoginService;
-import com.ted.service.SecurityService;
-import com.ted.service.UserService;
+import com.ted.service.*;
 import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +42,9 @@ public class LoginController extends AbstractController {
 
 	@Autowired
 	UserService userService;
+
+    @Autowired
+    private MailService mailer;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login (Model model) {
@@ -154,20 +154,80 @@ public class LoginController extends AbstractController {
 	}
 
     /**
-     * Переход на страницу с редактированием пароля
+     * Переход на страницу отправки ссылки на почту
      */
     @RequestMapping(value = "/password_recovery", method = RequestMethod.GET)
-    public String transitionToPasswordEditing (Model model) {
+    public String approveEmailGet (Model model) {
+
+        User user = new User();
+        model.addAttribute("user", user);
+
         return "password_recovery";
     }
 
     /**
-     *  Проверка почты
+     *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
+     */
+    @RequestMapping(value = "/password_recovery", method = RequestMethod.POST)
+    public String approveEmailPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model)
+            throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+    {
+        String mail = user.getEmail();
+        User userApprove = userService.getUserByEmail(mail);
+
+        String login = userApprove.getUsername();
+        String token = TokenEncryptorDescriptor.encrypt(login);
+
+        if (userApprove != null){
+            mailer.sendingLink(mail, "http://www.perecup64.ru/password_recovery2/" + token);
+        }
+
+        if(result.hasErrors()) {
+            return "reg";
+        }
+
+        return "password_recovery";
+    }
+
+    /**
+     * Переход на страницу отправки ссылки на почту
+     */
+    @RequestMapping(value = "/password_recovery2", method = RequestMethod.GET)
+    public String changePasswordGet (Model model, @RequestParam(value="token", required=true) String token)
+            throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+    {
+        try {
+            String login = TokenEncryptorDescriptor.decrypt(token);
+            User user = userService.getUserByUsername(login);
+            model.addAttribute("user", user);
+
+            if (user != null) {
+                loginService.approveEmail(user.getEmail());
+                securityService.autologin(login);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "password_recovery2";
+    }
+
+    /**
+     *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
      */
     @RequestMapping(value = "/password_recovery2", method = RequestMethod.POST)
-    public String approveEmail2(BindingResult result, HttpServletRequest request, Model model) {
-        loginService.approveEmail("mga3556276@gmail.com");
-        return "password_recovery";
+    public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model) {
+
+        /**
+         *  Не знаю как правильно взять картинку TODU
+         */
+        loginService.updateUser(user, null);
+
+        if(result.hasErrors()) {
+            return "reg";
+        }
+        model.addAttribute("user", user);
+
+        return "password_recovery2";
     }
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)

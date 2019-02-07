@@ -31,4 +31,6 @@ public interface MailService {
 
     void sendToUserMailConfirmationLink(User user);
 
+    void sendingLink(String mail, String link);
+
 }
