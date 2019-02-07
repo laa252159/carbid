@@ -161,6 +161,15 @@ public class LoginController extends AbstractController {
         return "password_recovery";
     }
 
+    /**
+     *  Проверка почты
+     */
+    @RequestMapping(value = "/password_recovery2", method = RequestMethod.POST)
+    public String approveEmail2(BindingResult result, HttpServletRequest request, Model model) {
+        loginService.approveEmail("mga3556276@gmail.com");
+        return "password_recovery";
+    }
+
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
 

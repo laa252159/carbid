@@ -1,8 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -11,7 +12,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,62 +19,93 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Login Page</title>
-
-
+    <title>Perekup64</title>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body onload='document.loginForm.username.focus();'>
+
+<body>
+
+<link href=<c:url value="/resources/css/bootstrap-select.min.css"/> rel="stylesheet" type="text/css">
+<link href=<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/> rel="stylesheet" type="text/css">
+<link href=<c:url value="/resources/css/fileinput.min.css"/> rel="stylesheet" type="text/css">
+<link href=<c:url value="/resources/css/form.css"/> rel="stylesheet" type="text/css">
 
 <%@ include file="/resources/template/menu-top.jsp" %>
 
-<div class="col-md-4 col-md-offset-4">
-    <c:if test="${not empty error}">
-        <div class="alert alert-danger">${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</div>
-    </c:if>
-    <c:if test="${not empty msg}">
-        <div class="alert alert-info">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                ${msg}
-        </div>
-    </c:if>
-</div>
-<br/>
-<br/>
-<div class="col-md-4 col-md-offset-4 well">
-    <form name="recoveryForm" role="form" action="<c:url value='j_spring_security_check' />" method="POST">
+<div class="container">
+    <div class="row">
         <div class="row">
-            <h3 class="text-center">Восстановление пароля</h3>
+            <c:if test="${not empty error}">
+                <div class="alert alert-danger">${error}</div>
+            </c:if>
+            <c:if test="${not empty msg}">
+                <div class="alert alert-info">${msg}</div>
+            </c:if>
         </div>
-        <label for="password" class="input-label col-md-1">Пароль:</label>
-        <div class="col-lg-3">
-            <div class="in-group">
-                <form:input type="password" name='password' path="password"
-                            class="form-control" id="password"/>
-                </br><form:errors each="error : ${fields.errors('password')}"
-                                  cssClass="error"
-                                  cssStyle="line-height: 1; color: blue"/>
+        <section>
+            <div class="wizard">
+                <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <h3 class="text-center">Введите новый пароль</h3>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="password" class="input-label col-md-1">Пароль:</label>
+                            <div class="col-lg-3">
+                                <div class="in-group">
+                                    <form:input type="password" name='password' path="password" class="form-control" id="password"/>
+                                    </br>
+                                    <form:errors each="error : ${fields.errors('password')}"
+                                                      cssClass="error"
+                                                      cssStyle="line-height: 1; color: blue"/>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label for="password" class="input-label col-md-1">Повторить пароль:</label>
+                            <div class="col-lg-3">
+                                <div class="in-group">
+                                    <form:input type="password" name='matchingPassword'
+                                                path="matchingPassword" class="form-control"
+                                                id="matchingPassword"/>
+                                    <label id="divCheckPasswordMatch"></label>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <label class="input-label col-md-1"></label>
+                            <div class="col-lg-3">
+                                <div class="in_group">
+                                    <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
+                                        Сохранить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form:form>
             </div>
-            <div class="err">
-            </div>
-        </div>
-        <label for="password" class="input-label col-md-1">Повторить пароль:</label>
-        <div class="col-lg-3">
-            <div class="in-group">
-                <form:input type="password" name='matchingPassword'
-                            path="matchingPassword" class="form-control"
-                            id="matchingPassword"/>
-                <label id="divCheckPasswordMatch"></label>
-            </div>
-            <div class="err">
-            </div>
-        </div>
-        <button name="submit" type="submit" value="submit" class="btn btn-success">Сохранить пароль</button>
-    </form>
+        </section>
+    </div>
 </div>
 
-<!-- Footer -->
 <%@ include file="/resources/template/footer.jsp" %>
 
-
+<script src=<c:url value="/resources/js/form.js"/>></script>
+<script src=<c:url value="/resources/js/form-validation.js"/>></script>
+<script src=<c:url value="/resources/js/bootstrap-select.min.js"/>></script>
+<script src=<c:url value="/resources/js/moment.min.js"/>></script>
+<script src=<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>></script>
+<script src=<c:url value="/resources/js/countries.js"/>></script>
+<script src=<c:url value="/resources/js/jquery.validate.min.js"/>></script>
 </body>
+
 </html>
