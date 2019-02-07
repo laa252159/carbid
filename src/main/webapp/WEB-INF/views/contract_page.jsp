@@ -41,9 +41,21 @@
                         <div class="text-center">
                             <jsp:include page="contract.jsp"/>
                             <%--<p class="lead">Только подтвержденные аккаунты <b>с внесенным депозитом не менее 1000 рублей</b> могут принимать участие в торгах</p>--%>
-                            <h2 class="lead" style="color: red;">Только подтвержденные аккаунты могут принимать участие в торгах</h2>
-                            <p><a class="btn-success" href="/">Перейти на стартовую страницу</a></p>
+                            <h2 class="lead" style="color: red;">Только подтвержденные аккаунты могут принимать участие
+                                в торгах</h2>
+                            <%--<p><a class="btn-success" href="/">Перейти на стартовую страницу</a></p>--%>
+
+
+
                         </div>
+                        <c:if test="${showApplyContractButtons}">
+                            <div class="col-md-offset-0 col-md-2">
+                                <p><a class="btn-success" href="${applyContractAndLogIn}">ПРИНИМАЮ УСЛОВИЯ</a></p>
+                            </div>
+                            <div class="col-md-offset-0 col-md-2">
+                                <p><a class="btn-danger" href="${rejectContractAndRemoveUser}">не принимаю условия</a></p>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </section>

@@ -3,6 +3,7 @@ package com.ted.mail;
 import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
+import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
@@ -36,7 +37,7 @@ public class Mailer implements MailService {
 
     @Override
     public void notifyAdminAboutNewUser(User user) {
-        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
+        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался, принял условия и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
     }
 
     private void notifyAdmins(String from, String subject, String message) {
@@ -230,7 +231,7 @@ public class Mailer implements MailService {
 
         message.append("\n В последующем, в течение суток, Ваш аккаунт будет подтвержден администрацией сайта. \n");
         message.append("\n Для завершения регистрации, проследуйте по ссылке: \n");
-        message.append("http://www.perekup64.ru/approve-email?email=" + user.getEmail() + " \n");
+        message.append("http://www.perekup64.ru/approve-and-contract?email=" + user.getEmail() + " \n");
         message.append("Если Вы не совершали действий по регистрации в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }

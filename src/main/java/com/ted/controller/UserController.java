@@ -1,9 +1,18 @@
 package com.ted.controller;
 
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.validation.Valid;
 
+import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -218,6 +227,18 @@ public class UserController {
 	public String deleteUser(Model model, @PathVariable(value="id") Integer id) {
 		userService.deleteUserById(id);
 		return "redirect:/admin-users";
+	}
+
+	@RequestMapping(value = "/decline-registration/{token}", method = RequestMethod.GET)
+	public String deleteUserThroughToken(Model model, @PathVariable(value="token") String token)
+			throws NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException,
+			IllegalBlockSizeException, InvalidKeySpecException, BadPaddingException,
+			InvalidAlgorithmParameterException, IOException {
+
+		String login = TokenEncryptorDescriptor.decrypt(token);
+		User user = userService.getUserByUsername(login);
+		userService.deleteUserById(user.getUserid());
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/myprofile-new-message/{receiver}", method = RequestMethod.GET)
