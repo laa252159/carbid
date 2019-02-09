@@ -33,62 +33,6 @@
 <link href="resources/css/topnav.css" rel="stylesheet" type="text/css">
 
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html"><span class="icon-travel-car"></span></a>
-        </div>
-
-        <div class="collapse navbar-collapse js-navbar-collapse">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="nav navbar-nav navbar-right z-class">
-
-
-                <li><a class="bottom-color" href="contract_page.html">Правила</a></li>
-                <li><a class="bottom-color" href="login.html">Вход</a></li>
-                <li><a class="bottom-color" href="registration.html">Регистрация</a></li>
-
-            </div>
-        </div><!-- /.nav-collapse -->
-    </div>
-</nav>
-<div class="nav-wrapper">
-    <nav id="nav" class="navbar navbar-default navbar-lower" role="navigation">
-        <div class="container-fluid">
-
-
-
-
-
-
-
-
-
-        </div>
-    </nav>
-</div>
-
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
     (function (d, w, c) {
@@ -695,12 +639,6 @@ color:#333333'>в письменной форме, произведенного 
                 </div>
             </div>
         </section>
-    </div>
-</div>
-
-<div class="navbar navbar-default navbar-fixed-bottom" >
-    <div class="container text-center" style="color: #FFFFFF">
-        <p>&copy; <span></span>Сервис по выкупу автомобилей www.perekup64.ru 2019</p>
     </div>
 </div>
 
