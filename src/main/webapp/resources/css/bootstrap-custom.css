@@ -1079,9 +1079,9 @@ html {
 body {
   font-family: inherit;
   font-size: 20px;
-  line-height: 0;
+  line-height: 2;
   color: #0e385f;
-  /*background-color:#e9ebee;*/
+  background-color:#ebedf0;
   /*background-image: url("/resources/images/background.jpg");*/
   /*background: url(images/background.jpg) repeat-y #e9ebee;  */
   /*background-size: cover;*/
@@ -1095,12 +1095,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #FFF8DC;
+  color: #69a74e;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #FFF8DC;
+  color: #69a74e;
   text-decoration: underline;
 }
 a:focus {
@@ -2508,7 +2508,6 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
-  line-height: 1;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -4498,7 +4497,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #FFF8DC;
+  color: #87249e;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
