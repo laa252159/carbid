@@ -86,6 +86,7 @@
                   <li ><a class="left-color" href="#section6" id="auctions_tab" data-toggle="pill">Мои аукционы<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
                   </sec:authorize>
                   <li ><a class="left-color" href="#section7" id="bought_tab" data-toggle="pill">Выиграные аукционы<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-rub"></span></a></li>
+                    <li><a href="${removeMeUrl}" onclick="return confirm('Вы уверены, что хотите удалиться из системы?')"><b style="font-size:16px;color: red;">Удалить аккаунт</b><span></span></a></li>
                 </ul>
               </div>
             </div>
@@ -244,6 +245,15 @@
     });
 
 
+    </script>
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Вы уверены, что хотите удалиться из системы?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
     </script>
 
 </body>

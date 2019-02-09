@@ -131,9 +131,10 @@ public class LoginController extends AbstractController {
 		}
 		String login = userService.getUserByEmail(email).getUsername();
 		String token = TokenEncryptorDescriptor.encrypt(login);
+		boolean showApplyContractButtons = user.getEmailApproved() == (byte)0;
 		model.addAttribute(APPLY_CONTRACT_AND_LOG_IN, "agreement-token?t="+token);
 		model.addAttribute(REJECT_CONTRACT_AND_REMOVE_USER, "decline-registration/"+token);
-		model.addAttribute(SHOW_APPLY_CONTRACT_BUTTONS, true);
+		model.addAttribute(SHOW_APPLY_CONTRACT_BUTTONS, showApplyContractButtons);
 		return "contract_page";
 	}
 
@@ -146,12 +147,14 @@ public class LoginController extends AbstractController {
 			NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException, IOException {
 		String login = TokenEncryptorDescriptor.decrypt(token);
 		User user = userService.getUserByUsername(login);
-		if (user != null) {
+		if (user != null && user.getEmailApproved() == (byte)0) {
 			loginService.approveEmail(user.getEmail());
 			securityService.autologin(login);
 		}
-		return "index";
+		return "redirect:/";
 	}
+
+
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
