@@ -1,0 +1,251 @@
+.item-extended-phone {
+    height: 17px;
+    width: auto;
+    padding: 3px 0 4px
+}
+
+.item-extended-phone-error {
+    font-size: 16px;
+    line-height: 25px
+}
+
+.item-photo {
+    position: relative;
+    min-width: 208px;
+    max-height: 156px;
+    overflow: visible;
+    margin: 8px 3px 0 7px;
+    padding: 0;
+    text-align: center;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
+}
+
+.item-photo .photo-wrapper {
+    display: inline-block;
+    max-height: 105px;
+    border: 0;
+    position: relative
+}
+
+.item-missing-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 156px;
+    max-height: none;
+    border: 0;
+    background-image: url(https://www.avito.st/s/cc/resources/215d2a4128e5.svg);
+    background-size: cover
+}
+
+.item-photo .favorites-add {
+    right: 0;
+    top: 0;
+    float: none
+}
+
+.item-photo .favorites-add, .item-photo .favorites-add .i-favorites-big {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    z-index: 10
+}
+
+.item-photo .favorites-add .favorites-tooltip {
+    left: 9px
+}
+
+.item-photo .favorites-add__link {
+    margin-top: 0;
+    width: 36px;
+    height: 36px
+}
+
+.photo-wrapper .photo-count-show {
+    max-height: 105px;
+    width: auto
+}
+
+.photo-wrapper .photo-icons {
+    display: none;
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    font: 12px/1 arial, sans-serif;
+    text-align: center;
+    color: #fff
+}
+
+.photo-wrapper .photo-count-show ~ .photo-icons, .photo-wrapper > .photo-icons:first-child {
+    display: block
+}
+
+.photo-wrapper .photo-icons .i {
+    vertical-align: bottom
+}
+
+.photo-wrapper .i-photo {
+    margin-right: 6px;
+    padding-top: 4px;
+    height: 13px
+}
+
+.photo-wrapper.video-dummy {
+    width: 140px;
+    height: 105px;
+    background: #eee url(https://www.avito.st/s/cc/resources/6323cc2a2078.png) no-repeat 16px 24px
+}
+
+.large-picture {
+    display: block;
+    width: 208px !important;
+    height: 156px !important;
+    max-height: none !important;
+    border: 0
+}
+
+.large-picture-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-height: none !important
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (-o-min-device-pixel-ratio: 2/1), screen and (min-device-pixel-ratio: 2) {
+    .photo-wrapper.video-dummy {
+        background-image: url(https://www.avito.st/s/cc/resources/343d5512d1f1.png);
+        background-size: 108px 65px
+    }
+}
+
+.item-slider {
+    position: relative;
+    display: block;
+    width: 208px;
+    height: 156px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+    border: 0
+}
+
+.item-slider-image {
+    position: absolute;
+    /*top: 50%;*/
+    left: 50%;
+    z-index: -1;
+    /*width: 208px;*/
+    height: 156px;
+    background-size: cover;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.item-slider-list {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s
+}
+
+.item-slider-item {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end
+}
+
+.item:hover .item-slider-item::after {
+    display: block
+}
+
+.item-slider-item:hover .item-slider-image {
+    opacity: 1
+}
+
+.item-slider-item, .item-slider-item:hover .item-slider-more {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.item-slider-item:hover::after {
+    background-color: #0af !important
+}
+
+.item-slider-item::after {
+    content: '';
+    display: none;
+    width: 100%;
+    height: 2px;
+    margin: 0 1px 2px;
+    background-color: rgba(232, 232, 232, .8);
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s
+}
+
+.item-slider-item:last-child::after {
+    margin-right: 2px
+}
+
+.item-slider-item:first-child::after {
+    margin-left: 2px
+}
+
+.item-slider:not(:hover) .item-slider-item:first-child .item-slider-image {
+    opacity: 1
+}
+
+.item-slider:not(:hover) .item-slider-item:first-child::after {
+    background-color: #0af
+}
+
+.item-slider-more {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*right: 0;*/
+    /*bottom: 0;*/
+    z-index: -1;
+    display: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5)
+}
+
+.item-slider-video-icon {
+    position: absolute;
+    left: 5px;
+    bottom: 8px;
+    pointer-events: none;
+    z-index: 2;
+    font-size: 12px;
+    color: #fff
+}
+
+.item-slider-video-icon_hidden {
+    display: none
+}

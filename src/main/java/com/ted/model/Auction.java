@@ -218,7 +218,10 @@ public class Auction implements Serializable {
 	
 	@Transient
 	private String primaryImage;
-	
+
+	@Transient
+	private List<String> imagesForGallery;
+
 	public Auction() {
 	}
 	
@@ -615,4 +618,12 @@ public class Auction implements Serializable {
 		this.xmlStarted = xmlStarted;
 	}
 
+
+	public List<String> getImagesForGallery() {
+		return imagesForGallery;
+	}
+
+	public void setImagesForGallery(List<String> imagesForGallery) {
+		this.imagesForGallery = imagesForGallery;
+	}
 }
