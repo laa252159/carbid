@@ -38,7 +38,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {"name", "categories", "currentlyString", "buyPriceString", "firstBidString", "numberOfBids", 
 		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
 		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
-		"owners", "vin", "gibdd", "fssp", "engineState", "colloredElement", "driveState"})
+		"owners", "vin", "gibdd", "fssp", "engineState", "colloredElements","damagedElements","city","additionalInfo",
+		"driveState"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -133,7 +134,16 @@ public class Auction implements Serializable {
 
 	
 	@Column(name="collored_elements", nullable = true)
-	private String colloredElement;
+	private String colloredElements;
+
+	@Column(name="damaged_elements", nullable = true)
+	private String damagedElements;
+
+	@Column(name="city", nullable = true)
+	private String city;
+
+	@Column(name="additional_info", nullable = true)
+	private String additionalInfo;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -393,12 +403,36 @@ public class Auction implements Serializable {
 		this.engineState = engine_state;
 	}
 
-	public String getColloredElement() {
-		return colloredElement;
+	public String getColloredElements() {
+		return this.colloredElements;
 	}
 
-	public void setColloredElement(String collored_elements) {
-		this.colloredElement = collored_elements;
+	public String getDamagedElements() {
+		return this.damagedElements;
+	}
+
+	public String getCity() {
+		return this.city;
+	}
+
+	public String getAdditionalInfo() {
+		return this.additionalInfo;
+	}
+
+	public void setColloredElements(String collored_elements) {
+		this.colloredElements = collored_elements;
+	}
+
+	public void setDamagedElements(String damagedElements) {
+		this.damagedElements = damagedElements;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setAdditionalInfo(String additionalInfo) {
+		this.additionalInfo = additionalInfo;
 	}
 
 	@XmlTransient

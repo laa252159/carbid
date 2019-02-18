@@ -355,7 +355,7 @@
                             База судебных приставов: <b>${auction.fssp}</b>
                         </p>
                         <p>
-                            Количество крашенных элементов: <b>${auction.colloredElement}</b>
+                            Количество крашенных элементов: <b>${auction.colloredElements}</b>
                         </p>
                         <p>
                             Cостояние ходовой: <b>${auction.driveState}</b>

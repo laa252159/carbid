@@ -101,6 +101,9 @@ CREATE TABLE `auctions` (
   `gibdd` varchar(45),
   `fssp` varchar(45),
   `collored_elements` varchar(45),
+  `damaged_elements` varchar(45),
+  `city` varchar(45),
+  `additional_info` mediumtext,
   `drive_state` mediumtext,
   `engine_state` mediumtext,
 

@@ -342,8 +342,8 @@
                                             <label for="colloredElement" class="input-label col-md-3">Количество крашенных элементов:</label>
                                             <div class="col-lg-8">
                                                 <div class="in-group">
-                                                    <form:input type="text" name="auction.colloredElement" path="auction.colloredElement" id="colloredElement" class="form-control" placeholder="Количество крашенных элементов" value="${formAuction.auction.colloredElement}" />
-                                                    <form:errors path="auction.colloredElement" cssClass="error" />
+                                                    <form:input type="text" name="auction.colloredElements" path="auction.colloredElements" id="colloredElement" class="form-control" placeholder="Количество крашенных элементов" value="${formAuction.auction.colloredElements}" />
+                                                    <form:errors path="auction.colloredElements" cssClass="error" />
                                                 </div>
                                                 <div class="err">
                                                 </div>

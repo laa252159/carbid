@@ -505,7 +505,7 @@ public class AuctionServiceImpl implements AuctionService {
 		perAuction.setVin(formAuction.getAuction().getVin());
 		perAuction.setGibdd(formAuction.getAuction().getGibdd());
 		perAuction.setFssp(formAuction.getAuction().getFssp());
-		perAuction.setColloredElement(formAuction.getAuction().getColloredElement());
+		perAuction.setColloredElements(formAuction.getAuction().getColloredElements());
 		perAuction.setDriveState(formAuction.getAuction().getDriveState());
 		perAuction.setEngineState(formAuction.getAuction().getEngineState());
 
