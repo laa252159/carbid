@@ -129,7 +129,7 @@ public class LoginController extends AbstractController {
 		if(user == null){
 			return "redirect:login";
 		}
-		String login = userService.getUserByEmail(email).getUsername();
+		String login = user.getUsername();
 		String token = TokenEncryptorDescriptor.encrypt(login);
 		model.addAttribute(APPLY_CONTRACT_AND_LOG_IN, "agreement-token?t="+token);
 		model.addAttribute(REJECT_CONTRACT_AND_REMOVE_USER, "decline-registration/"+token);
@@ -179,18 +179,16 @@ public class LoginController extends AbstractController {
         String token = TokenEncryptorDescriptor.encrypt(login);
 
         if (userApprove != null){
-            mailer.sendingLink(mail, "http://www.perecup64.ru/password_recovery2/" + token);
+            mailer.sendToUserMailPasswordVerificationLink(userApprove, token);
+            return "password_recovery";
         }
-
-        if(result.hasErrors()) {
+        else {
             return "reg";
         }
-
-        return "password_recovery";
     }
 
     /**
-     * Переход на страницу отправки ссылки на почту
+     * Переход на страницу редактирования пароля
      */
     @RequestMapping(value = "/password_recovery2", method = RequestMethod.GET)
     public String changePasswordGet (Model model, @RequestParam(value="token", required=true) String token)
@@ -199,6 +197,7 @@ public class LoginController extends AbstractController {
         try {
             String login = TokenEncryptorDescriptor.decrypt(token);
             User user = userService.getUserByUsername(login);
+            user.getUsername();
             model.addAttribute("user", user);
 
             if (user != null) {
@@ -215,19 +214,15 @@ public class LoginController extends AbstractController {
      *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
      */
     @RequestMapping(value = "/password_recovery2", method = RequestMethod.POST)
-    public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model) {
-
-        /**
-         *  Не знаю как правильно взять картинку TODU
-         */
-        loginService.updateUser(user, null);
-
-        if(result.hasErrors()) {
-            return "reg";
+    public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model)
+            throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+    {
+        User userNew = userService.getUserByUsername(user.getUsername());
+        if (userNew != null){
+            loginService.changeUserPassword(userNew);
         }
-        model.addAttribute("user", user);
 
-        return "password_recovery2";
+        return "redirect:myprofile";
     }
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)

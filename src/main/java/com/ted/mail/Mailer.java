@@ -123,11 +123,6 @@ public class Mailer implements MailService {
         return message;
     }
 
-    @Override
-    public void sendingLink(String mail, String link) {
-        sendMail(SENDER, mail, link, "");
-    }
-
     private void sendMail(String from, String to, String subject, String msg) {
 
         SimpleMailMessage message = new SimpleMailMessage();
@@ -223,7 +218,7 @@ public class Mailer implements MailService {
     }
 
     @Override
-    public void sendToUserMailConfirmationLink(User user) {
+     public void sendToUserMailConfirmationLink(User user) {
         StringBuilder subject = new StringBuilder();
         StringBuilder message = new StringBuilder();
         subject.append("Perekup64 Подтверждение электронной почты");
@@ -237,6 +232,17 @@ public class Mailer implements MailService {
         message.append("\n Для завершения регистрации, проследуйте по ссылке: \n");
         message.append("http://www.perekup64.ru/approve-and-contract?email=" + user.getEmail() + " \n");
         message.append("Если Вы не совершали действий по регистрации в нашей системе – игнорируйте данное письмо!!!");
+        sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
+    }
+
+    @Override
+    public void sendToUserMailPasswordVerificationLink(User user, String token) {
+        StringBuilder subject = new StringBuilder();
+        StringBuilder message = new StringBuilder();
+        subject.append("Perekup64 Восстановление пароля");
+        message.append("\n Для завершения восстановления пароля, проследуйте по ссылке: \n");
+        message.append("http://www.perekup64.ru/password_recovery2?token=" + token + " \n");
+        message.append("Если Вы не совершали действий по восстановлению пароля в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
 

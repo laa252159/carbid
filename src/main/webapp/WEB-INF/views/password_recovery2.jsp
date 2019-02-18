@@ -56,8 +56,8 @@
                                     <form:input type="password" name='password' path="password" class="form-control" id="password"/>
                                     </br>
                                     <form:errors each="error : ${fields.errors('password')}"
-                                                      cssClass="error"
-                                                      cssStyle="line-height: 1; color: blue"/>
+                                                 cssClass="error"
+                                                 cssStyle="line-height: 1; color: blue"/>
                                 </div>
                                 <div class="err">
                                 </div>
@@ -73,6 +73,19 @@
                                                 path="matchingPassword" class="form-control"
                                                 id="matchingPassword"/>
                                     <label id="divCheckPasswordMatch"></label>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" hidden="true">
+                        <div class="form-group">
+                            <label for="username" class="input-label col-md-1">Логин:</label>
+                            <div class="col-lg-3">
+                                <div class="in-group">
+                                    <form:input type="hidden" name='username' path="username"
+                                                class="form-control" id="username" onfocus="$('usernameErr').css('display', 'none');"/>
                                 </div>
                                 <div class="err">
                                 </div>

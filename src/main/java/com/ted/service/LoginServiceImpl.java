@@ -1,16 +1,5 @@
 package com.ted.service;
 
-import java.io.IOException;
-import java.util.Map;
-
-import com.ted.mail.Mailer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.ted.model.Authority;
 import com.ted.model.AuthorityPK;
 import com.ted.model.User;
@@ -18,6 +7,15 @@ import com.ted.model.UserPicture;
 import com.ted.repository.AuthorityRepository;
 import com.ted.repository.UserPictureRepository;
 import com.ted.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.Map;
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
@@ -144,6 +142,27 @@ public class LoginServiceImpl implements LoginService {
 		
 		return user;
 	}
+
+    /**
+     * Изменение пароля у юзера
+     * @param user
+     */
+    @Modifying
+    @Transactional
+    public void changeUserPassword(User user){
+
+        //Copy new user info
+        User perUser = userRepository.findByUserid(user.getUserid());
+
+        if(!user.getPassword().equals("p4DS*4a$hLA*4#ataPv")) {
+            // BCrypt password encryption
+            BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
+            String hashedPass = passEncoder.encode(user.getPassword());
+            perUser.setPassword(hashedPass);
+        }
+
+        userRepository.saveAndFlush(perUser);
+    }
 
 	public String checkEmailUsername(User user) {
 		
