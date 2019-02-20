@@ -219,6 +219,8 @@ public class LoginController extends AbstractController {
     {
         User userNew = userService.getUserByUsername(user.getUsername());
         if (userNew != null){
+            String passwordNew = user.getPassword();
+            userNew.setPassword(passwordNew);
             loginService.changeUserPassword(userNew);
         }
 

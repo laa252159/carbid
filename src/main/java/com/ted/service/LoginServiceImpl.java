@@ -147,21 +147,20 @@ public class LoginServiceImpl implements LoginService {
      * Изменение пароля у юзера
      * @param user
      */
-    @Modifying
     @Transactional
     public void changeUserPassword(User user){
 
-        //Copy new user info
+        String passwordNew = user.getPassword();
         User perUser = userRepository.findByUserid(user.getUserid());
 
-        if(!user.getPassword().equals("p4DS*4a$hLA*4#ataPv")) {
+        if(!passwordNew.equals("p4DS*4a$hLA*4#ataPv")) {
             // BCrypt password encryption
             BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
-            String hashedPass = passEncoder.encode(user.getPassword());
+            String hashedPass = passEncoder.encode(passwordNew);
             perUser.setPassword(hashedPass);
-        }
 
-        userRepository.saveAndFlush(perUser);
+            userRepository.saveAndFlush(perUser);
+        }
     }
 
 	public String checkEmailUsername(User user) {
