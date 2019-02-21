@@ -199,11 +199,6 @@ public class LoginController extends AbstractController {
             User user = userService.getUserByUsername(login);
             user.getUsername();
             model.addAttribute("user", user);
-
-            if (user != null) {
-                loginService.approveEmail(user.getEmail());
-                securityService.autologin(login);
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -222,6 +217,7 @@ public class LoginController extends AbstractController {
             String passwordNew = user.getPassword();
             userNew.setPassword(passwordNew);
             loginService.changeUserPassword(userNew);
+            securityService.autologin(userNew.getUsername());
         }
 
         return "redirect:myprofile";

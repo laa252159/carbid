@@ -33,6 +33,8 @@
 <%@ include file="/resources/template/menu-top.jsp" %>
 
 <div class="container">
+    <h1>Восстановление пароля</h1>
+    <hr>
     <div class="row">
         <div class="row">
             <c:if test="${not empty error}">
@@ -46,32 +48,40 @@
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <h3 class="text-center">Восстановление пароля</h3>
-                    </div>
-                    <div class="row top-buffer">
-                        <div class="form-group">
-                            <label for="email" class="input-label col-md-1">Введите Ваш Email:</label>
-                            <div class="col-lg-3">
-                                <div class="in-group">
-                                    <form:input type="text" name='email' path="email" class="form-control" id="email"/>
-                                    </br>
-                                    <form:errors path="email" cssClass="error" cssStyle="line-height: 1; color: blue"/>
-                                </div>
-                                <div class="err">
-                                </div>
-                            </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-lg-6">
+                            <h3 class="text-center">Введите Ваш Email</h3>
+                        </div>
+                        <div class="col-md-4">
                         </div>
                     </div>
-                    <div class="row top-buffer">
-                        <div class="form-group">
-                            <label class="input-label col-md-1"></label>
-                            <div class="col-lg-3">
-                                <div class="in_group">
-                                    <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
-                                        Восстановить пароль
-                                    </button>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="in-group">
+                                <form:input type="text" name='email' path="email" class="form-control" id="email"/>
+                                </br>
+                                <form:errors path="email" cssClass="error" cssStyle="line-height: 1; color: blue"/>
                             </div>
+                            <div class="err">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="in_group">
+                                <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
+                                    Восстановить пароль
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                         </div>
                     </div>
                 </form:form>

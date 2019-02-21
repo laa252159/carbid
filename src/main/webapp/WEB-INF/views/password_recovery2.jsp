@@ -33,6 +33,8 @@
 <%@ include file="/resources/template/menu-top.jsp" %>
 
 <div class="container">
+    <h1>Восстановление пароля</h1>
+    <hr>
     <div class="row">
         <div class="row">
             <c:if test="${not empty error}">
@@ -46,36 +48,38 @@
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <h3 class="text-center">Введите новый пароль</h3>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="text-center">Введите новый пароль</h3>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
                     </div>
-                    <div class="row top-buffer">
-                        <div class="form-group">
-                            <label for="password" class="input-label col-md-1">Пароль:</label>
-                            <div class="col-lg-3">
-                                <div class="in-group">
-                                    <form:input type="password" name='password' path="password" class="form-control" id="password"/>
-                                    </br>
-                                    <form:errors each="error : ${fields.errors('password')}"
-                                                 cssClass="error"
-                                                 cssStyle="line-height: 1; color: blue"/>
-                                </div>
-                                <div class="err">
-                                </div>
+                    <div class="row">
+                        <label for="password" class="input-label col-md-1">Пароль:</label>
+                        <div class="col-md-6">
+                            <div class="in-group">
+                                <form:input type="password" name='password' path="password" class="form-control" id="password"/>
+                                </br>
+                                <form:errors each="error : ${fields.errors('password')}"
+                                             cssClass="error"
+                                             cssStyle="line-height: 1; color: blue"/>
+                            </div>
+                            <div class="err">
                             </div>
                         </div>
                     </div>
-                    <div class="row top-buffer">
-                        <div class="form-group">
-                            <label for="password" class="input-label col-md-1">Повторить пароль:</label>
-                            <div class="col-lg-3">
-                                <div class="in-group">
-                                    <form:input type="password" name='matchingPassword'
-                                                path="matchingPassword" class="form-control"
-                                                id="matchingPassword"/>
-                                    <label id="divCheckPasswordMatch"></label>
-                                </div>
-                                <div class="err">
-                                </div>
+                    <div class="row">
+                        <label for="password" class="input-label col-md-1">Повторить пароль:</label>
+                        <div class="col-md-6">
+                            <div class="in-group">
+                                <form:input type="password" name='matchingPassword'
+                                            path="matchingPassword" class="form-control"
+                                            id="matchingPassword"/>
+                                <label id="divCheckPasswordMatch"></label>
+                            </div>
+                            <div class="err">
                             </div>
                         </div>
                     </div>
@@ -94,7 +98,6 @@
                     </div>
                     <div class="row top-buffer">
                         <div class="form-group">
-                            <label class="input-label col-md-1"></label>
                             <div class="col-lg-3">
                                 <div class="in_group">
                                     <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
