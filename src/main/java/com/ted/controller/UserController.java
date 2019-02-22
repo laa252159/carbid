@@ -1,6 +1,7 @@
 package com.ted.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -12,6 +13,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.validation.Valid;
 
+import com.ted.service.SecurityService;
 import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,10 +44,16 @@ public class UserController {
 	
 	@Autowired
 	AuctionService auctionService;
+
+	@Autowired
+	private SecurityService securityService;
 	
 	
 	@RequestMapping(value = "/myprofile", method = RequestMethod.GET)
-	public String getMyProfile(Model model) {
+	public String getMyProfile(Model model) throws NoSuchPaddingException,
+			UnsupportedEncodingException, InvalidKeyException,
+			NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException,
+			InvalidAlgorithmParameterException, InvalidKeySpecException {
 		
 		User user = userService.getLoggedInUser();
 		
@@ -79,6 +87,8 @@ public class UserController {
 		model.addAttribute("msg", msg);
 		model.addAttribute("msg2", msg2);
 		model.addAttribute("user", user);
+
+		model.addAttribute("removeMeUrl", "remove-me?t=" + TokenEncryptorDescriptor.encrypt(user.getUsername()));
 		
 		return "myprofile";
 	}
@@ -180,6 +190,21 @@ public class UserController {
 		model.addAttribute("button", "inbox_tab");
 		
 		return "myprofile";
+	}
+
+	/**
+	 * Самоудаление пользователя
+	 */
+	@RequestMapping(value = "/remove-me", method = RequestMethod.GET)
+	public String removeMe(Model model, @RequestParam(value = "t", required = true) String token)
+			throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException,
+			NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException, IOException {
+		String login = TokenEncryptorDescriptor.decrypt(token);
+		User user = userService.getUserByUsername(login);
+		if (user != null) {
+			userService.pseudoRemoveUser(user);
+		}
+		return "redirect:/j_spring_security_logout";
 	}
 	
 	@RequestMapping(value = "/myprofile-new-message", method = RequestMethod.GET)

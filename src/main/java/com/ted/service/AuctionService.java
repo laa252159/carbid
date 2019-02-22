@@ -37,7 +37,9 @@ public interface AuctionService {
 	List<Auction> getUserAuctions(User user);
 	
 	List<Auction> putPrimaryImage(List<Auction> auctions);
-	
+
+	List<Auction> putImagesForGallery(List<Auction> auctions);
+
 	String updateFormAuction(FormAuction formAuction);
 	
 	List<Auction> getBuyerAuctions(User user);
