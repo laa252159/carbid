@@ -156,41 +156,49 @@ public class LoginController extends AbstractController {
     /**
      * Переход на страницу отправки ссылки на почту
      */
-    @RequestMapping(value = "/password_recovery", method = RequestMethod.GET)
+    @RequestMapping(value = "/mail_check", method = RequestMethod.GET)
     public String approveEmailGet (Model model) {
 
         User user = new User();
         model.addAttribute("user", user);
 
-        return "password_recovery";
+        return "mail_check";
     }
 
     /**
      *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
      */
-    @RequestMapping(value = "/password_recovery", method = RequestMethod.POST)
+    @RequestMapping(value = "/mail_check", method = RequestMethod.POST)
     public String approveEmailPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model)
             throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
     {
         String mail = user.getEmail();
         User userApprove = userService.getUserByEmail(mail);
 
-        String login = userApprove.getUsername();
-        String token = TokenEncryptorDescriptor.encrypt(login);
+        String headline = "Восстановление пароля";
+        model.addAttribute("headline", headline);
+        String message;
 
         if (userApprove != null){
+            String login = userApprove.getUsername();
+            String token = TokenEncryptorDescriptor.encrypt(login);
             mailer.sendToUserMailPasswordVerificationLink(userApprove, token);
-            return "password_recovery";
+
+            message = "На вашу почту отправлена информация для восстановления пароля.";
+            model.addAttribute("message", message);
+            return "report";
         }
         else {
-            return "reg";
+            message = "Такой адрес почты не зарегистрирован в нашей системе";
+            model.addAttribute("message", message);
+            return "report";
         }
     }
 
     /**
      * Переход на страницу редактирования пароля
      */
-    @RequestMapping(value = "/password_recovery2", method = RequestMethod.GET)
+    @RequestMapping(value = "/password_recovery", method = RequestMethod.GET)
     public String changePasswordGet (Model model, @RequestParam(value="token", required=true) String token)
             throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
     {
@@ -202,13 +210,13 @@ public class LoginController extends AbstractController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "password_recovery2";
+        return "password_recovery";
     }
 
     /**
      *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
      */
-    @RequestMapping(value = "/password_recovery2", method = RequestMethod.POST)
+    @RequestMapping(value = "/password_recovery", method = RequestMethod.POST)
     public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model)
             throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
     {

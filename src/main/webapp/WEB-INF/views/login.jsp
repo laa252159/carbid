@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <a href="password_recovery" class="btn btn-success">Забыли пароль ?</a>
+                    <a href="mail_check" class="btn btn-success">Забыли пароль ?</a>
                 </div>
             </div>
 		</form>

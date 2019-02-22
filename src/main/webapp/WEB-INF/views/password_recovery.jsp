@@ -48,40 +48,49 @@
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-lg-6">
-                            <h3 class="text-center">Введите Ваш Email</h3>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-7">
+                            <h3 class="text-center">Введите новый пароль</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-lg-6">
+                        <label for="password" class="input-label col-md-1">Пароль:</label>
+                        <div class="col-md-6">
                             <div class="in-group">
-                                <form:input type="text" name='email' path="email" class="form-control" id="email"/>
+                                <form:input type="password" name='password'
+                                            path="password" class="form-control"
+                                            id="password" value="${user.password}"/>
                                 </br>
-                                <form:errors path="email" cssClass="error" cssStyle="line-height: 1; color: blue"/>
+                                <form:errors each="error : ${fields.errors('password')}"
+                                             cssClass="error"
+                                             cssStyle="line-height: 1; color: blue"/>
                             </div>
                             <div class="err">
                             </div>
                         </div>
-                        <div class="col-md-4">
-                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="in_group">
-                                <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
-                                    Восстановить пароль
-                                </button>
+                        <label for="password" class="input-label col-md-1">Повторить пароль:</label>
+                        <div class="col-md-6">
+                            <div class="in-group">
+                                <form:input type="password" name='matchingPassword'
+                                            path="matchingPassword" class="form-control"
+                                            id="matchingPassword" value="${user.password}"/>
+                                <label id="divCheckPasswordMatch"></label>
+                            </div>
+                            <div class="err">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <form:input type="hidden" name='username' path="username" class="form-control" id="username" onfocus="$('usernameErr').css('display', 'none');"/>
+                    <div class="row top-buffer">
+                        <div class="form-group">
+                            <div class="col-lg-3">
+                                <div class="in_group">
+                                    <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
+                                        Сохранить
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form:form>

@@ -241,7 +241,7 @@ public class Mailer implements MailService {
         StringBuilder message = new StringBuilder();
         subject.append("Perekup64 Восстановление пароля");
         message.append("\n Для завершения восстановления пароля, проследуйте по ссылке: \n");
-        message.append("http://www.perekup64.ru/password_recovery2?token=" + token + " \n");
+        message.append("http://www.perekup64.ru/password_recovery?token=" + token + " \n");
         message.append("Если Вы не совершали действий по восстановлению пароля в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
