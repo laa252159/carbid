@@ -18,7 +18,9 @@ import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-	
+
+	private static final String REMOVED = "removed_";
+
 	@Autowired
 	UserRepository userRepository;
 	
@@ -226,6 +228,13 @@ public class UserServiceImpl implements UserService {
 	public void deleteUserById(Integer id) {
 		User user = userRepository.findByUserid(id);
 		userRepository.delete(user);
+	}
+
+	@Override
+	public void pseudoRemoveUser(User user) {
+		user.setUsername(REMOVED + user.getUsername());
+		user.setEmail(REMOVED + user.getEmail());
+		userRepository.saveAndFlush(user);
 	}
 
 	@Override

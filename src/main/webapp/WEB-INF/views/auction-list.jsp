@@ -21,11 +21,18 @@
                 <div class="thumbnail item-shadow">
                     <div class="auction-list-img-div">
                         <div style="float:left">
-                            <c:if test="${not empty auction.primaryImage}">
-                                <a href="/auction/${auction.auctionid}"><img src="data:image/jpeg;base64,${auction.primaryImage}" alt="auction-image" style="width: 350px"/></a>
-                            </c:if>
-                            <c:if test="${empty auction.primaryImage}">
-                                <a href="/auction/${auction.auctionid}"><img src="<c:url value="/resources/images/hammer1.png"/>" alt="hammer-image" style="width: 350px" /></a>
+                            <c:if test="${not empty auction.imagesForGallery}">
+                                    <a class="js-item-slider item-slider" href="/auction/${auction.auctionid}">
+                                        <ul class="item-slider-list js-item-slider-list">
+                                            <c:forEach items="${auction.imagesForGallery}" var="image" varStatus="loop">
+                                                <li class="item-slider-item js-item-slider-item ">
+                                                    <div class="item-slider-image" >
+                                                         <img src="data:image/jpeg;base64,${image}" class="large-picture-img"/>
+                                                    </div>
+                                                </li>
+                                            </c:forEach>
+                                        </ul>
+                                    </a>
                             </c:if>
                         </div>
 

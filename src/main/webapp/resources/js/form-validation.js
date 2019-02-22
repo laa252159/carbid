@@ -40,7 +40,7 @@ $(function () {
             password: "не менее 5 знаков",
             matchingPassword: "введите пароль повторно",
             phone: "только цифры",
-            firstName: "только кириллица"
+            firstName: "только на русском языке"
         },
         // Make sure the form is submitted to the destination defined
         // in the "action" attribute of the form when valid

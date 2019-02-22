@@ -34,6 +34,8 @@ public interface UserService {
 
 	void deleteUserById(Integer id);
 
+	void pseudoRemoveUser(User user);
+
 	List<User> getApprovedUsers();
 
 }

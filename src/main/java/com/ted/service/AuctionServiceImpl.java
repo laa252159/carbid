@@ -556,6 +556,21 @@ public class AuctionServiceImpl implements AuctionService {
 
 	}
 
+	@Override
+	public List<Auction> putImagesForGallery(List<Auction> auctions) {
+		List<Auction> rAuctions = new ArrayList<>();
+
+		for(Auction auction : auctions){
+			List<String> images = auctionPictureService.getAuctionPictures(auction);
+			if(images != null)
+				auction.setImagesForGallery(images);
+			rAuctions.add(auction);
+		}
+
+		return rAuctions;
+	}
+
+
 	public List<Auction> getBuyerAuctions(User user) {
 		
 		List<Auction> auctions = auctionRepository.findByBuyerOrderByStartedDesc(user);
