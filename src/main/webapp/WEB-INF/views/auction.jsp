@@ -192,7 +192,7 @@
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
                                     <b>
-                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" id="newxtBid" data-target="#bidModal" style="font-weight : bold">СДЕЛАТЬ СТАВКУ ${auction.currently + 1}  000 Руб</button>
+                                         <button type="button" class="btn btn-primary btn-block" id="newxtBid" style="font-weight : bold">СДЕЛАТЬ СТАВКУ ${auction.currently + 1}  000 Руб</button>
                                     </b>
                                     </c:if>
                                 </c:if>
@@ -258,11 +258,11 @@
                   <h4 class="modal-title">Подтверждение</h4>
                 </div>
                 <div class="modal-body" style="line-height: 1">
-                  <p>Вы уверены, что хотите продолжить?</p>
-                  <p>Это действие нельзя будет отменить!</p>
+                  <p>Вы уверены, что хотите повысить ставку?</p>
+                  <p>Ваша ставка лидирует!</p>
                 </div>
                 <div class="modal-footer">
-                  <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
+                  <button id="forceBid" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                 </div>
               </div>
@@ -502,6 +502,8 @@
     /* Asychronous check of Bids */
     numberofBids = 0;
 
+    numberOfMyLastBid = -1;
+
     stopFlag = 0;
 
     function pollforBids(){
@@ -608,6 +610,9 @@
             data: {bidAmount : amount},
             success: function( data ) {
                 console.log("bidPost: " + data);
+                numberOfMyLastBid = numberofBids;
+                console.log(numberofBids + "numberofBids2")
+                console.log(numberOfMyLastBid + "numberOfMyLastBid2")
             },
             error: function(data){
                 console.log("ERROR: " + data.responseText);
@@ -668,10 +673,25 @@
     /* Confirmation */
 
     /* On button click call bidPost() */
-    $('#bidButton').on('click', function(){
+
+    $('#newxtBid').on('click', function(){
+        if((numberofBids -1) == numberOfMyLastBid || numberofBids == numberOfMyLastBid){
+            $('#bidModal').modal();
+        } else {
+            console.log("bidButton clicked")
+            bidPost();
+            console.log(numberofBids + "numberofBids")
+            console.log(numberOfMyLastBid + "numberOfMyLastBid")
+        }
+    });
+
+    $('#forceBid').on('click', function () {
         console.log("bidButton clicked")
         bidPost();
+        console.log(numberofBids + "numberofBids")
+        console.log(numberOfMyLastBid + "numberOfMyLastBid")
     });
+
 
     /* Buy Auction */
     $('#buy-button').on('click', function() {
