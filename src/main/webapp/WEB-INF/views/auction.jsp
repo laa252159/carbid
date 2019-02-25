@@ -39,6 +39,7 @@
     <div class="container single-item-content">
 
         <link href=<c:url value="/resources/css/auction.css" /> rel="stylesheet" type="text/css">
+        <link href=<c:url value="/resources/css/cars_elements.css" /> rel="stylesheet" type="text/css">
         <link href=<c:url value="/resources/css/star-rating.min.css" /> rel="stylesheet" type="text/css">
 
         <c:if test="${modify == 1}">
@@ -297,6 +298,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#detailsTab" data-toggle="tab">ПОДРОБНЕЕ</a></li>
                     <li><a href="#locationTab" data-toggle="tab">МЕСТО НАХОЖДЕНИЯ</a></li>
+                    <li><a href="#additionalInfoTab" data-toggle="tab">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</a></li>
                     <li><a href="#auctioneerTab" data-toggle="tab">КОНТАКТНЫЕ ДАННЫЕ</a></li>
                 </ul>
 
@@ -405,6 +407,17 @@
                             <%--<div class="col-sm-11">--%>
                                 <%--<a href="/profile/${auction.user.userid}" class="btn btn-primary pull-right">View Profile</a>--%>
                             <%--</div>--%>
+                        </div>
+                    </div>
+                    <div class="well tab-pane" id="additionalInfoTab">
+
+                        <div class="container">
+                            <div class="img_inner_container">
+                                <img class="trafaret" src="<c:url value="/resources/images/cars_elements/0.png"/>"/>
+                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/1.png"/>"/>
+                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/2.png"/>"/>
+                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/3.png"/>"/>
+                            </div>
                         </div>
                     </div>
                 </div>
