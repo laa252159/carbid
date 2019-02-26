@@ -193,16 +193,20 @@
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
                                     <b>
-                                        <button type="button" class="btn btn-primary btn-block" id="nextBid" style="font-weight : bold">
                                             <c:choose>
                                                 <c:when test="${empty auction.buyer}">
-                                                    ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ ${auction.currently}
+                                                <button type="button" class="btn btn-primary btn-block" id="nextBid"
+                                                        style="font-weight : bold">
+                                                    ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ ${auction.currently} Руб
+                                                </button>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    СДЕЛАТЬ СТАВКУ ${auction.currently + 1}
+                                                <button type="button" class="btn btn-primary btn-block" id="nextBid"
+                                                        disabled="true" style="font-weight : bold">
+                                                    СДЕЛАТЬ СТАВКУ ${auction.currently + 1} Руб
+                                                </button>
                                                 </c:otherwise>
                                             </c:choose>
-                                        </button>
                                     </b>
                                     </c:if>
                                 </c:if>
