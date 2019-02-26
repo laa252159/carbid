@@ -633,11 +633,14 @@
         var bid = data.info.latestBid + 1;
         if(bid > 2){
             $('#nextBid').text("СДЕЛАТЬ СТАВКУ " + bid + " 000 Руб");
+            $('#nextBid').removeAttr("disabled");
         }
         var bids = data.bids;
         var bid;
         var i;
-        $('#liveFeed').empty();
+        if(bids.length > 0){
+            $('#liveFeed').empty();
+        }
         for(i = bids.length-1; i >= 00 ; i--) {
             bid = bids[i];
             console.log('Name: ' + bid.username);
@@ -752,6 +755,8 @@
         if(myBidIsLast){
             $('#bidModal').modal();
         } else {
+            $('#nextBid').attr("disabled", true);
+            $('#nextBid').text("ОБРАБОТКА ЗАПРОСА");
             console.log("nextBid clicked")
             bidPost();
             console.log(numberofBids + "numberofBids")
@@ -760,6 +765,8 @@
     });
 
     $('#bidButton').on('click', function(){
+        $('#nextBid').attr("disabled", true);
+        $('#nextBid').text("ОБРАБОТКА ЗАПРОСА");
         console.log("bidButton clicked")
         bidPost();
         console.log(numberofBids + "numberofBids")
