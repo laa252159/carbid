@@ -36,14 +36,6 @@
     <h1>Восстановление пароля</h1>
     <hr>
     <div class="row">
-        <div class="row">
-            <c:if test="${not empty error}">
-                <div class="alert alert-danger">${error}</div>
-            </c:if>
-            <c:if test="${not empty msg}">
-                <div class="alert alert-info">${msg}</div>
-            </c:if>
-        </div>
         <section>
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">

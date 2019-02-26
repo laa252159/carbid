@@ -36,24 +36,12 @@
     <h1>${headline}</h1>
     <hr>
     <div class="row">
-        <div class="row">
-            <c:if test="${not empty error}">
-                <div class="alert alert-danger">${error}</div>
-            </c:if>
-            <c:if test="${not empty msg}">
-                <div class="alert alert-info">${msg}</div>
-            </c:if>
-        </div>
         <section>
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="message" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-lg-6">
+                        <div class="col-md-10 col-md-offset-1">
                             <h3 class="text-center">${message}</h3>
-                        </div>
-                        <div class="col-md-4">
                         </div>
                     </div>
                 </form:form>

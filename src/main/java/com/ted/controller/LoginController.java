@@ -187,13 +187,13 @@ public class LoginController extends AbstractController {
 
             message = "На вашу почту отправлена информация для восстановления пароля.";
             model.addAttribute("message", message);
-            return "report";
         }
         else {
-            message = "Такой адрес почты не зарегистрирован в нашей системе";
+            message = "Аадрес почты '" + user.getEmail() + "' не зарегистрирован в нашей системе";
             model.addAttribute("message", message);
-            return "report";
         }
+
+        return "report";
     }
 
     /**
@@ -201,15 +201,14 @@ public class LoginController extends AbstractController {
      */
     @RequestMapping(value = "/password_recovery", method = RequestMethod.GET)
     public String changePasswordGet (Model model, @RequestParam(value="token", required=true) String token)
-            throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+            throws NoSuchPaddingException, IOException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
     {
         try {
             String login = TokenEncryptorDescriptor.decrypt(token);
             User user = userService.getUserByUsername(login);
-            user.getUsername();
-            model.addAttribute("user", user);
+            model.addAttribute("username", user.getUsername());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOException();
         }
         return "password_recovery";
     }
