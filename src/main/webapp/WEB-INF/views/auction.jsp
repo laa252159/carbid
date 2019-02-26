@@ -43,11 +43,11 @@
         <link href=<c:url value="/resources/css/cars_elements.css" /> rel="stylesheet" type="text/css">
         <link href=<c:url value="/resources/css/star-rating.min.css" /> rel="stylesheet" type="text/css">
 
-        <c:if test="${modify == 1}">
+        <sec:authorize ifAnyGranted="ROLE_ADMIN">
             <div class="col-md-offset-10 col-md-2">
                 <a href="/update-auction/${auction.auctionid}" class="btn btn-warning">Изменить лот</a>
             </div>
-        </c:if>
+        </sec:authorize>
 
         <div class="row">
             <div class="col-xs-12 single-content-left">
