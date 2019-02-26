@@ -565,7 +565,10 @@ public class AuctionServiceImpl implements AuctionService {
 		for(Auction auction : auctions){
 			List<String> images = auctionPictureService.getAuctionPictures(auction);
 			if(images != null)
-				auction.setImagesForGallery(images);
+				if(images.size() > 5){
+					images = images.subList(images.size()-5, images.size());
+					auction.setImagesForGallery(images);
+				}
 			rAuctions.add(auction);
 		}
 
