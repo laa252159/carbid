@@ -50,7 +50,7 @@
                             <div class="in-group">
                                 <form:input type="password" name='password'
                                             path="password" class="form-control"
-                                            id="password" value="${user.password}"/>
+                                            id="password" value=""/>
                                 </br>
                                 <form:errors each="error : ${fields.errors('password')}"
                                              cssClass="error"
@@ -66,14 +66,14 @@
                             <div class="in-group">
                                 <form:input type="password" name='matchingPassword'
                                             path="matchingPassword" class="form-control"
-                                            id="matchingPassword" value="${user.password}"/>
+                                            id="matchingPassword" value=""/>
                                 <label id="divCheckPasswordMatch"></label>
                             </div>
                             <div class="err">
                             </div>
                         </div>
                     </div>
-                    <form:input type="hidden" name='username' path="username" class="form-control" id="username" onfocus="$('usernameErr').css('display', 'none');"/>
+                    <form:input type="hidden" name='username' path="username" class="form-control" id="username" value="${user.username}"/>
                     <div class="row top-buffer">
                         <div class="form-group">
                             <div class="col-lg-3">

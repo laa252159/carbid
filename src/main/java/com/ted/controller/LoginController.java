@@ -205,8 +205,12 @@ public class LoginController extends AbstractController {
     {
         try {
             String login = TokenEncryptorDescriptor.decrypt(token);
-            User user = userService.getUserByUsername(login);
-            model.addAttribute("username", user.getUsername());
+            User userOld = userService.getUserByUsername(login);
+
+            User user = new User();
+            user.setUsername(userOld.getUsername());
+            model.addAttribute("user", user);
+
         } catch (IOException e) {
             throw new IOException();
         }
@@ -228,7 +232,7 @@ public class LoginController extends AbstractController {
             securityService.autologin(userNew.getUsername());
         }
 
-        return "redirect:myprofile";
+        return "redirect:/myprofile";
     }
 
 
