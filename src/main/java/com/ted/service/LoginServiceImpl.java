@@ -49,6 +49,15 @@ public class LoginServiceImpl implements LoginService {
 		return user;
 	}
 
+    /**
+     * Изменение юзера
+     * @param user
+     */
+    @Transactional
+    public void saveUser(User user){
+        userRepository.saveAndFlush(user);
+    }
+
 	@Transactional
 	public User saveUser(User user, MultipartFile file) {
 		

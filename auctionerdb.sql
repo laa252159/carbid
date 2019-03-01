@@ -79,8 +79,8 @@ DROP TABLE IF EXISTS `auctions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auctions` (
-  `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `seller_userid` int(11) NOT NULL,
+  `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45),
   `description` mediumtext,
 
@@ -328,6 +328,7 @@ CREATE TABLE `users` (
   `enabled` tinyint(1) NOT NULL,
   `approved` tinyint(4) NOT NULL,
   `email_approved` tinyint(4) DEFAULT '0',
+  `change_password` tinyint(4) DEFAULT '0',
   `bidder_rating` float DEFAULT NULL,
   `seller_rating` float DEFAULT NULL,
   `number_of_bidder_ratings` int(11) DEFAULT NULL,

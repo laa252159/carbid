@@ -183,8 +183,11 @@ public class LoginController extends AbstractController {
         if (userApprove != null){
             String login = userApprove.getUsername();
             String token = TokenEncryptorDescriptor.encrypt(login);
-            mailer.sendToUserMailPasswordVerificationLink(userApprove, token);
-            user.setChangePassword((byte) 1);
+
+            userApprove.setChangePassword((byte) 1);
+            loginService.saveUser(userApprove);
+
+            mailer.sendToUserChangePasswordLink(userApprove, token);
 
             message = "На вашу почту отправлена информация для восстановления пароля.";
             model.addAttribute("message", message);

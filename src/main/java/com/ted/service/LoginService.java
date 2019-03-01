@@ -9,6 +9,8 @@ public interface LoginService {
 
 	User approveEmail(String email);
 
+    void saveUser(User user);
+
 	User saveUser(User user, MultipartFile picture);
 
 	User updateUser(User user, MultipartFile picture);

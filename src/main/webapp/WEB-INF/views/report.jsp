@@ -38,13 +38,11 @@
     <div class="row">
         <section>
             <div class="wizard">
-                <form:form id="regForm" name="regForm" role="form" modelAttribute="message" method="POST" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <h3 class="text-center">${message}</h3>
-                        </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h3 class="text-center">${message}</h3>
                     </div>
-                </form:form>
+                </div>
             </div>
         </section>
     </div>

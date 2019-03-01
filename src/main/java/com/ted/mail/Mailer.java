@@ -236,7 +236,7 @@ public class Mailer implements MailService {
     }
 
     @Override
-    public void sendToUserMailPasswordVerificationLink(User user, String token) {
+    public void sendToUserChangePasswordLink(User user, String token) {
         StringBuilder subject = new StringBuilder();
         StringBuilder message = new StringBuilder();
         subject.append("Perekup64 Восстановление пароля");
