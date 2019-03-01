@@ -106,6 +106,9 @@ CREATE TABLE `auctions` (
   `additional_info` mediumtext,
   `drive_state` mediumtext,
   `engine_state` mediumtext,
+  `damagedElements`  varchar(45),
+  `colloredElements`  varchar(45),
+
 
   `first_bid` decimal(15,2) NOT NULL,
   `buy_price` decimal(15,2) DEFAULT NULL,
