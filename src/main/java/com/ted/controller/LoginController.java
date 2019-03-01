@@ -237,7 +237,7 @@ public class LoginController extends AbstractController {
             securityService.autologin(userNew.getUsername());
         }
 
-        return "redirect:/myprofile";
+        return "redirect:/";
     }
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)

@@ -1,4 +1,3 @@
 /target/
 /.idea/
-/src/main/webapp/WEB-INF/config/jpaContext.xml
 /Auctioner.iml
