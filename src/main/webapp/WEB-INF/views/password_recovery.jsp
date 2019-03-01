@@ -40,7 +40,7 @@
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-8">
                             <h3 class="text-center">Введите новый пароль</h3>
                         </div>
                     </div>

@@ -158,6 +158,7 @@ public class LoginServiceImpl implements LoginService {
             BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
             String hashedPass = passEncoder.encode(passwordNew);
             perUser.setPassword(hashedPass);
+            perUser.setChangePassword((byte) 0);
 
             userRepository.saveAndFlush(perUser);
         }

@@ -184,6 +184,7 @@ public class LoginController extends AbstractController {
             String login = userApprove.getUsername();
             String token = TokenEncryptorDescriptor.encrypt(login);
             mailer.sendToUserMailPasswordVerificationLink(userApprove, token);
+            user.setChangePassword((byte) 1);
 
             message = "На вашу почту отправлена информация для восстановления пароля.";
             model.addAttribute("message", message);
@@ -206,6 +207,10 @@ public class LoginController extends AbstractController {
         try {
             String login = TokenEncryptorDescriptor.decrypt(token);
             User userOld = userService.getUserByUsername(login);
+
+            if (userOld.getChangePassword() == (byte)0){
+                return "redirect:/";
+            }
 
             User user = new User();
             user.setUsername(userOld.getUsername());
@@ -234,8 +239,6 @@ public class LoginController extends AbstractController {
 
         return "redirect:/myprofile";
     }
-
-
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
