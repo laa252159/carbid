@@ -192,8 +192,15 @@ public class AuctionController extends AbstractController {
 //			return "Please provide a price.";
 		
 //		String msg = auctionService.bidSave(id, new Integer(bidAmount));
+
 		Auction auction = auctionService.getAuctionById(id);
-		int amount = new Integer(bidAmount) > 1 ? new Integer(bidAmount) : auction.getCurrently() + 1;
+
+		//hardcode + 1000 rubles
+		int amount = auction.getCurrently();
+		int bidValue = new Integer(bidAmount);
+		if (bidValue > 1 || !auction.getAuctionBiddings().isEmpty()) {
+			amount += 1;
+		}
 
 		String msg = auctionService.bidSave(id, amount);
 

@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="refresh" content="120">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,13 +40,14 @@
     <div class="container single-item-content">
 
         <link href=<c:url value="/resources/css/auction.css" /> rel="stylesheet" type="text/css">
+        <link href=<c:url value="/resources/css/cars_elements.css" /> rel="stylesheet" type="text/css">
         <link href=<c:url value="/resources/css/star-rating.min.css" /> rel="stylesheet" type="text/css">
 
-        <c:if test="${modify == 1}">
+        <sec:authorize ifAnyGranted="ROLE_ADMIN">
             <div class="col-md-offset-10 col-md-2">
                 <a href="/update-auction/${auction.auctionid}" class="btn btn-warning">Изменить лот</a>
             </div>
-        </c:if>
+        </sec:authorize>
 
         <div class="row">
             <div class="col-xs-12 single-content-left">
@@ -192,7 +194,20 @@
                                 <c:if test="${user.approved == 1}">
                                     <c:if test="${user.userid != auction.user.userid}">
                                     <b>
-                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" id="newxtBid" data-target="#bidModal" style="font-weight : bold">СДЕЛАТЬ СТАВКУ ${auction.currently + 1}  000 Руб</button>
+                                            <c:choose>
+                                                <c:when test="${empty auction.buyer}">
+                                                <button type="button" class="btn btn-primary btn-block" id="nextBid"
+                                                        style="font-weight : bold">
+                                                    ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ ${auction.currently} Руб
+                                                </button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                <button type="button" class="btn btn-primary btn-block" id="nextBid"
+                                                        disabled="true" style="font-weight : bold">
+                                                    СДЕЛАТЬ СТАВКУ ${auction.currently + 1} Руб
+                                                </button>
+                                                </c:otherwise>
+                                            </c:choose>
                                     </b>
                                     </c:if>
                                 </c:if>
@@ -237,7 +252,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Ставки</h4>
+                            <h4 class="panel-title">Последние ставки</h4>
                         </div>
                         <div class="panel-body">
                             <ul id="liveFeed" class="list-group"></ul>
@@ -258,8 +273,8 @@
                   <h4 class="modal-title">Подтверждение</h4>
                 </div>
                 <div class="modal-body" style="line-height: 1">
-                  <p>Вы уверены, что хотите продолжить?</p>
-                  <p>Это действие нельзя будет отменить!</p>
+                    <p>Вы уверены, что хотите повысить ставку?</p>
+                    <p>Ваша ставка лидирует!</p>
                 </div>
                 <div class="modal-footer">
                   <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
@@ -297,6 +312,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#detailsTab" data-toggle="tab">ПОДРОБНЕЕ</a></li>
                     <li><a href="#locationTab" data-toggle="tab">МЕСТО НАХОЖДЕНИЯ</a></li>
+                    <li><a href="#additionalInfoTab" data-toggle="tab">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</a></li>
                     <li><a href="#auctioneerTab" data-toggle="tab">КОНТАКТНЫЕ ДАННЫЕ</a></li>
                 </ul>
 
@@ -407,6 +423,17 @@
                             <%--</div>--%>
                         </div>
                     </div>
+                    <div class="well tab-pane" id="additionalInfoTab">
+
+                        <div class="container">
+                            <div class="img_inner_container">
+                                <img class="trafaret" src="<c:url value="/resources/images/cars_elements/0.png"/>"/>
+                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/1.png"/>"/>
+                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/2.png"/>"/>
+                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/3.png"/>"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -502,6 +529,8 @@
     /* Asychronous check of Bids */
     numberofBids = 0;
 
+    myBidIsLast = false;
+
     stopFlag = 0;
 
     function pollforBids(){
@@ -523,8 +552,8 @@
             data: {numofBids : numberofBids},
             timeout:45000,
             success: function( data ) {
-
-                if (data.info.numofBids == numberofBids) {
+                    myBidIsLast = data.info.lastBidIsMy;
+                    console.log("myBidIsLast: " + myBidIsLast);
                     console.log("No new bids: " + data.info.buyer);
                     if(data.info.bought){
                         if(data.info.buyer == null)
@@ -532,16 +561,17 @@
                         else
                             updateBought(data);
                     }
-                }
                 else {
+                    myBidIsLast = data.info.lastBidIsMy;
+                    console.log("myBidIsLast: " + myBidIsLast);
                     console.log('New bids: ' + (data.info.numofBids - numberofBids));
                     console.log(data.bids);
                     numberofBids = data.info.numofBids;
-                    updatePriceAndLiveFeed(data);
                     console.log(data.info.buyer);
                     if(data.info.bought)
                         updateBought(data);
                 }
+                updatePriceAndLiveFeed(data);
                 pollforBids();  // Recursion
             },
             error: function(data){
@@ -551,13 +581,71 @@
         });
     }
 
+
+    function pollforBidsSingle(){
+
+        console.log("myBisIsLast: " + myBidIsLast);
+
+        if(stopFlag == 1)   // Recursive returns
+            return;
+
+        var url = "/checkBids/" + auctionId
+
+        if (request) {
+            request.abort();  // abort any pending request
+        }
+
+        console.log("Polling for bids");
+
+        var request = $.ajax({
+            url: url,
+            type: "GET",
+            data: {numofBids : numberofBids},
+            timeout:45000,
+            success: function( data ) {
+                myBidIsLast = data.info.lastBidIsMy;
+                console.log("myBidIsLast: " + myBidIsLast);
+                console.log("No new bids: " + data.info.buyer);
+                if(data.info.bought){
+                    if(data.info.buyer == null)
+                        updateOver();
+                    else
+                        updateBought(data);
+                }
+                else {
+                    myBidIsLast = data.info.lastBidIsMy;
+                    console.log('New bids: ' + (data.info.numofBids - numberofBids));
+                    console.log(data.bids);
+                    numberofBids = data.info.numofBids;
+                    console.log(data.info.buyer);
+                    if(data.info.bought)
+                        updateBought(data);
+                }
+                updatePriceAndLiveFeed(data);
+            },
+            error: function(data){
+                console.log("pollforBids: ERROR: " + data.responseText);
+                stopFlag = 1;
+            }
+        });
+    }
+
     function updatePriceAndLiveFeed(data) {
-        $('#currentPrice').text(data.info.latestBid + " 000 Руб");
+        var latestBid = data.info.latestBid;
+        if(latestBid > 2){
+            $('#currentPrice').text(data.info.latestBid + " 000 Руб");
+        }
         var bid = data.info.latestBid + 1;
-        $('#newxtBid').text("СДЕЛАТЬ СТАВКУ " + bid + " 000 Руб");
+        if(bid > 2){
+            $('#nextBid').text("СДЕЛАТЬ СТАВКУ " + bid + " 000 Руб");
+            $('#nextBid').removeAttr("disabled");
+        }
         var bids = data.bids;
         var bid;
         var i;
+        if(bids.length > 0){
+            $('#liveFeed').empty();
+        }
         for(i = bids.length-1; i >= 00 ; i--) {
             bid = bids[i];
             console.log('Name: ' + bid.username);
@@ -595,7 +683,6 @@
 
     /* Function to ajax post the bid */
     function bidPost() {
-
         var bidUrl = "/auction/bid/" + auctionId;
 
         // var amount = $('#bidInput').val();
@@ -613,6 +700,7 @@
                 console.log("ERROR: " + data.responseText);
             }
         });
+        pollforBidsSingle();
     }
 
     <c:if test="${auction.buyPrice != null}">
@@ -668,9 +756,26 @@
     /* Confirmation */
 
     /* On button click call bidPost() */
+    $('#nextBid').on('click', function(){
+        if(myBidIsLast){
+            $('#bidModal').modal();
+        } else {
+            $('#nextBid').attr("disabled", true);
+            $('#nextBid').text("ОБРАБОТКА ЗАПРОСА");
+            console.log("nextBid clicked")
+            bidPost();
+            console.log(numberofBids + "numberofBids")
+        }
+        pollforBids();
+    });
+
     $('#bidButton').on('click', function(){
+        $('#nextBid').attr("disabled", true);
+        $('#nextBid').text("ОБРАБОТКА ЗАПРОСА");
         console.log("bidButton clicked")
         bidPost();
+        console.log(numberofBids + "numberofBids")
+        pollforBids();
     });
 
     /* Buy Auction */

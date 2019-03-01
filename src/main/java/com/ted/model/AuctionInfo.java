@@ -7,7 +7,9 @@ public class AuctionInfo {
 	Integer numofBids;
 	
 	boolean bought;
-	
+
+	boolean lastBidIsMy;
+
 	Integer latestBid;
 	
 	Integer buyPrice;
@@ -63,7 +65,12 @@ public class AuctionInfo {
 	public void setNumofBids(Integer numofBids) {
 		this.numofBids = numofBids;
 	}
-	
-	
 
+	public boolean isLastBidIsMy() {
+		return lastBidIsMy;
+	}
+
+	public void setLastBidIsMy(boolean lastBidIsMy) {
+		this.lastBidIsMy = lastBidIsMy;
+	}
 }
