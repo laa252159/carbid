@@ -27,8 +27,12 @@ public interface AuctionService {
 	String bidSave(Integer auctionId, Integer bidAmount);
 	
 	void initializeMapper(Integer auctionId);
-	
-	String saveFormAuction(FormAuction formAuction);
+
+	String validateFormAuction(FormAuction formAuction);
+
+	FormAuction allocateElements(FormAuction form, String damagedElements);
+
+	void saveFormAuction(FormAuction formAuction);
 
 	void suggestFormAuction(SuggestAuctionDto suggestAuctionDto);
 

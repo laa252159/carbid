@@ -38,7 +38,7 @@ public class SuggestionServiceImpl implements SuggestionService {
         return suggestion;
     }
 
-    @Scheduled(fixedDelay = 60000)    // Every minute
+    @Scheduled(fixedDelay = 180000)    // Every 3 minutes
     @Transactional
     public void updateSuggestions() {
 

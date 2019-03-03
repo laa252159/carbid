@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,8 @@ import java.util.List;
 
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService {
+
+	private static final String DELIMETER = ":";
 
 	@Autowired
 	AuctionRepository auctionRepository;
@@ -375,10 +378,8 @@ public class AuctionServiceImpl implements AuctionService {
 		}
 	}
 
-	public String saveFormAuction(FormAuction formAuction) {
-
+	public String validateFormAuction(FormAuction formAuction) {
 		Auction auction = formAuction.getAuction();
-
 		/* Check */
 		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
 			return "You must select a category for the Auction.";
@@ -389,6 +390,16 @@ public class AuctionServiceImpl implements AuctionService {
 		User user = userService.getLoggedInUser();
 		if(user == null)
 			return "You must be logged in to create an auction.";
+		return null;
+	}
+
+
+	public void saveFormAuction(FormAuction formAuction) {
+
+		Auction auction = formAuction.getAuction();
+
+		/* Seller */
+		User user = userService.getLoggedInUser();
 
 		auction.setUser(user);
 
@@ -414,6 +425,9 @@ public class AuctionServiceImpl implements AuctionService {
 		auction.setFirstBidString(auction.getFirstBid().toString());
 		auction.setCurrentlyString(auction.getCurrently().toString());
 
+
+		auction.setDamagedElements(collectElements(formAuction));
+
 		/* Persist Auction */
 		auction = auctionRepository.saveAndFlush(auction);
 
@@ -424,7 +438,6 @@ public class AuctionServiceImpl implements AuctionService {
 
 		//notify approved users about auction
 		mailer.notifyUsersAboutNewAuction(auction);
-		return null;
 	}
 
     @Override
@@ -448,6 +461,7 @@ public class AuctionServiceImpl implements AuctionService {
 		perAuction.setName(auction.getName());
 		perAuction.setFirstBid(auction.getFirstBid());
 
+		formAuction.setCategoryName("cars");
 		/* Check */
 		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
 			return "You must select a category for the Auction.";
@@ -507,14 +521,96 @@ public class AuctionServiceImpl implements AuctionService {
 		perAuction.setVin(formAuction.getAuction().getVin());
 		perAuction.setGibdd(formAuction.getAuction().getGibdd());
 		perAuction.setFssp(formAuction.getAuction().getFssp());
-		perAuction.setColloredElements(formAuction.getAuction().getColloredElements());
 		perAuction.setDriveState(formAuction.getAuction().getDriveState());
 		perAuction.setEngineState(formAuction.getAuction().getEngineState());
 
 
+		perAuction.setDamagedElements(collectElements(formAuction));
+
 		/* Persist Auction */
 		perAuction = auctionRepository.saveAndFlush(perAuction);
 		return null;
+	}
+
+
+    public FormAuction allocateElements(FormAuction form, String damagedElements) {
+        if (damagedElements != null && !damagedElements.trim().isEmpty()) {
+            String[] vals = damagedElements.split(DELIMETER);
+            for (String str : vals) {
+                String[] arr = str.split("_");
+                int number = new Integer(arr[0]);
+                switch (number) {
+                    case 1:
+                        form.setEl1(arr[1]);
+                        break;
+                    case 2:
+                        form.setEl2(arr[1]);
+                        break;
+                    case 3:
+                        form.setEl3(arr[1]);
+                        break;
+                    case 4:
+                        form.setEl4(arr[1]);
+                        break;
+                    case 5:
+                        form.setEl5(arr[1]);
+                        break;
+                    case 6:
+                        form.setEl6(arr[1]);
+                        break;
+                    case 7:
+                        form.setEl7(arr[1]);
+                        break;
+                    case 8:
+                        form.setEl8(arr[1]);
+                        break;
+                    case 9:
+                        form.setEl9(arr[1]);
+                        break;
+                    case 10:
+                        form.setEl10(arr[1]);
+                        break;
+                    case 11:
+                        form.setEl11(arr[1]);
+                        break;
+                    case 12:
+                        form.setEl12(arr[1]);
+                        break;
+                    case 13:
+                        form.setEl13(arr[1]);
+                        break;
+                }
+            }
+        }
+        return form;
+    }
+
+	private String collectElements(FormAuction form){
+		StringBuilder elements = new StringBuilder();
+
+		addElementData(form.getEl1(), elements);
+		addElementData(form.getEl2(), elements);
+		addElementData(form.getEl3(), elements);
+		addElementData(form.getEl4(), elements);
+		addElementData(form.getEl5(), elements);
+		addElementData(form.getEl6(), elements);
+		addElementData(form.getEl7(), elements);
+		addElementData(form.getEl8(), elements);
+		addElementData(form.getEl9(), elements);
+		addElementData(form.getEl10(), elements);
+		addElementData(form.getEl11(), elements);
+		addElementData(form.getEl12(), elements);
+		addElementData(form.getEl13(), elements);
+
+		return elements.toString();
+	}
+
+	private StringBuilder addElementData(String string, StringBuilder sb) {
+		if (string != null && !(string.trim()).isEmpty()) {
+			sb.append(string.trim());
+			sb.append(DELIMETER);
+		}
+		return sb;
 	}
 
 	@Transactional

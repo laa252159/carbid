@@ -35,7 +35,7 @@ public class AuctionController extends AbstractController {
 
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
 			Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-	
+
 	@Autowired
 	private AuctionService auctionService;
 	
@@ -220,29 +220,33 @@ public class AuctionController extends AbstractController {
 		
 		auction.setLocation(location);
 		formAuction.setAuction(auction);
-		formAuction.setCategoryName(null);
-		
+		formAuction.setCategoryName("cars");
+
+
 		model.addAttribute("formAuction", formAuction);
 		model.addAttribute("categories", categories);
 		
-		return "new-auction";
+		return "edit-auction";
 	}
 	
 	@RequestMapping(value = "new-auction",  method = RequestMethod.POST)
 	public String newAuctionPost(@Valid @ModelAttribute("formAuction") FormAuction formAuction, BindingResult result, Model model,
 			@RequestParam(value = "input1", required = false) MultipartFile[] images) {
 		
-		
+		formAuction.setCategoryName("cars");
 		formAuction.setFiles(images);
-		
-		String error = auctionService.saveFormAuction(formAuction);
-		
+
+		String error = auctionService.validateFormAuction(formAuction);
+
+
 		if(error != null) {
 			List<Category> categories = categoryService.getAllCategories();
 			model.addAttribute("categories", categories);
 			model.addAttribute("error", error);
-			return "new-auction";
+			return "edit-auction";
 		}
+		auctionService.saveFormAuction(formAuction);
+		model.addAttribute("formAuction",formAuction);
 		
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
@@ -300,8 +304,10 @@ public class AuctionController extends AbstractController {
 			return "403";
 		
 		/* Check if there are bids */
-		if(!auction.getAuctionBiddings().isEmpty())
-			return "403";
+		if (!auction.getAuctionBiddings().isEmpty()) {
+			model.addAttribute("errorMsg", "Данный аукцион имеет ставки. Редактировать уже нельзя!");
+			return "errorPage";
+		}
 		
 		/* Check if bought */
 		if(auction.isBought())
@@ -320,11 +326,14 @@ public class AuctionController extends AbstractController {
 		/* Initialize images */
 		List<ImageInfo> imageInfos = auctionPictureService.getAuctionImageInfo(auction);
 		model.addAttribute("imageInfos", imageInfos);
-		
+
+		formAuction = auctionService.allocateElements(formAuction, auction.getDamagedElements());
+        formAuction.setCategoryName("cars");
+
 		model.addAttribute("formAuction", formAuction);
 		model.addAttribute("categories", categories);
 		
-		return "update-auction";
+		return "edit-auction";
 	}
 	
 	@RequestMapping(value = "update-auction/{id}",  method = RequestMethod.POST)
@@ -358,9 +367,9 @@ public class AuctionController extends AbstractController {
 			List<Category> categories = categoryService.getAllCategories();
 			model.addAttribute("categories", categories);
 			model.addAttribute("error", error);
-			return "update-auction";
+			return "edit-auction";
 		}
-		
+
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
 		return "redirect:/auctions";

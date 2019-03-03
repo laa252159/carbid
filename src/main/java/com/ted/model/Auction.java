@@ -1,6 +1,7 @@
 package com.ted.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {"name", "categories", "currentlyString", "buyPriceString", "firstBidString", "numberOfBids", 
 		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
 		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
-		"owners", "vin", "gibdd", "fssp", "engineState", "colloredElements","damagedElements","city","additionalInfo",
+		"owners", "vin", "gibdd", "fssp", "engineState", "damagedElements","city","additionalInfo",
 		"driveState"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
@@ -118,9 +119,6 @@ public class Auction implements Serializable {
 	private String engineState;
 
 	
-	@Column(name="collored_elements", nullable = true)
-	private String colloredElements;
-
 	@Column(name="damaged_elements", nullable = true)
 	private String damagedElements;
 
@@ -388,12 +386,12 @@ public class Auction implements Serializable {
 		this.engineState = engine_state;
 	}
 
-	public String getColloredElements() {
-		return this.colloredElements;
-	}
-
 	public String getDamagedElements() {
 		return this.damagedElements;
+	}
+
+	public List<String> getListOfDamagedElements() {
+		return Arrays.asList(this.damagedElements.split(":"));
 	}
 
 	public String getCity() {
@@ -402,10 +400,6 @@ public class Auction implements Serializable {
 
 	public String getAdditionalInfo() {
 		return this.additionalInfo;
-	}
-
-	public void setColloredElements(String collored_elements) {
-		this.colloredElements = collored_elements;
 	}
 
 	public void setDamagedElements(String damagedElements) {

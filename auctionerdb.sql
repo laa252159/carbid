@@ -100,14 +100,12 @@ CREATE TABLE `auctions` (
   `vin` varchar(45),
   `gibdd` varchar(45),
   `fssp` varchar(45),
-  `collored_elements` varchar(45),
   `damaged_elements` varchar(45),
   `city` varchar(45),
   `additional_info` mediumtext,
   `drive_state` mediumtext,
   `engine_state` mediumtext,
   `damagedElements`  varchar(45),
-  `colloredElements`  varchar(45),
 
 
   `first_bid` decimal(15,2) NOT NULL,

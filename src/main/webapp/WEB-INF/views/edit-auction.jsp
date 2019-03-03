@@ -339,20 +339,6 @@
 
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="colloredElement" class="input-label col-md-3">Количество крашенных элементов:</label>
-                                                <div class="col-lg-8">
-                                                    <div class="in-group">
-                                                        <form:input type="text" name="auction.colloredElement" path="auction.colloredElements" id="colloredElement" class="form-control" placeholder="Количество крашенных элементов" value="${formAuction.auction.colloredElements}" />
-                                                        <form:errors path="auction.colloredElements" cssClass="error" />
-                                                    </div>
-                                                    <div class="err">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group">
                                                 <label for="driveState" class="input-label col-md-3">Cостояние ходовой:</label>
                                                 <div class="col-lg-8">
                                                     <div class="in-group">
@@ -380,16 +366,369 @@
                                         </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <%--<div class="form-group">--%>
+                                        <%--<label for="name" class="input-label col-md-3">Категория:</label>--%>
+                                        <%--<div class="col-lg-8">--%>
+                                            <%--<form:select path="categoryName" name="categoryName" class="selectpicker"--%>
+                                                         <%--data-live-search="true" data-container="body"--%>
+                                                         <%--data-max-options="1" title="Choose one of the following...">--%>
+                                                <%--<form:options items="${categories}" itemValue="name"--%>
+                                                              <%--itemLabel="name"></form:options>--%>
+                                            <%--</form:select>--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
                                     <div class="form-group">
-                                        <label for="name" class="input-label col-md-3">Категория:</label>
+                                        <c:set var="collored" value="Вторичный окрас" scope="page" />
+                                        <c:set var="destructed" value="Требует восстановления" scope="page" />
+                                        <label for="name" class="input-label col-md-3">Крашеные и битые элементы:</label>
                                         <div class="col-lg-8">
-                                            <form:select path="categoryName" name="categoryName" class="selectpicker" data-live-search="true" data-container="body" data-max-options="1" title="Choose one of the following...">
-                                                <form:options items="${categories}" itemValue="name" itemLabel="name"></form:options>
-                                            </form:select>
+                                            <div class="col-lg-8">
+                                                <table class="input-label col-md-3">
+                                                    <tr>
+                                                        <td>п.л. дверь</td>
+                                                        <td>
+                                                            <form:select path="el1" name="el1" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el1}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="1_c">${collored}</option>
+                                                                        <option value="1_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el1 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="1_c" selected>${collored}</option>
+                                                                        <option value="1_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el1 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="1_c">${collored}</option>
+                                                                        <option value="1_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>з.л. дверь</td>
+                                                        <td>
+                                                            <form:select path="el2" name="el2" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el2}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="2_c">${collored}</option>
+                                                                        <option value="2_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el2 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="2_c" selected>${collored}</option>
+                                                                        <option value="2_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el2 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="2_c">${collored}</option>
+                                                                        <option value="2_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>з.л. крыло</td>
+                                                        <td>
+                                                            <form:select path="el3" name="el3" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el3}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="3_c">${collored}</option>
+                                                                        <option value="3_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el3 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="3_c" selected>${collored}</option>
+                                                                        <option value="3_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el3 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="3_c">${collored}</option>
+                                                                        <option value="3_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>кр. багажника</td>
+                                                        <td>
+                                                            <form:select path="el4" name="el4" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el4}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="4_c">${collored}</option>
+                                                                        <option value="4_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el4 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="4_c" selected>${collored}</option>
+                                                                        <option value="4_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el4 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="4_c">${collored}</option>
+                                                                        <option value="4_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>з.п. крыло</td>
+                                                        <td>
+                                                            <form:select path="el5" name="el5" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el5}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="5_c">${collored}</option>
+                                                                        <option value="5_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el5 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="5_c" selected>${collored}</option>
+                                                                        <option value="5_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el5 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="5_c">${collored}</option>
+                                                                        <option value="5_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>з.п. дверь</td>
+                                                        <td>
+                                                            <form:select path="el6" name="el6" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el6}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="6_c">${collored}</option>
+                                                                        <option value="6_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el6 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="6_c" selected>${collored}</option>
+                                                                        <option value="6_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el6 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="6_c">${collored}</option>
+                                                                        <option value="6_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>п.п. дверь</td>
+                                                        <td>
+                                                            <form:select path="el7" name="el7" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el7}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="7_c">${collored}</option>
+                                                                        <option value="7_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el7 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="7_c" selected>${collored}</option>
+                                                                        <option value="7_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el7 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="7_c">${collored}</option>
+                                                                        <option value="7_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>п.п. крыло</td>
+                                                        <td>
+                                                            <form:select path="el8" name="el1" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el1}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="8_c">${collored}</option>
+                                                                        <option value="8_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el1 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="8_c" selected>${collored}</option>
+                                                                        <option value="8_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el1 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="8_c">${collored}</option>
+                                                                        <option value="8_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>капот</td>
+                                                        <td>
+                                                            <form:select path="el9" name="el1" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el1}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="9_c">${collored}</option>
+                                                                        <option value="9_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el1 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="9_c" selected>${collored}</option>
+                                                                        <option value="9_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el1 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="9_c">${collored}</option>
+                                                                        <option value="9_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>крыша</td>
+                                                        <td>
+                                                            <form:select path="el10" name="el10" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el10}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="10_c">${collored}</option>
+                                                                        <option value="10_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el10 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="10_c" selected>${collored}</option>
+                                                                        <option value="10_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el10 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="10_c">${collored}</option>
+                                                                        <option value="10_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>п.л. крыло </td>
+                                                        <td>
+                                                            <form:select path="el11" name="el11" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el11}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="11_c">${collored}</option>
+                                                                        <option value="11_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el11 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="11_c" selected>${collored}</option>
+                                                                        <option value="11_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el11 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="11_c">${collored}</option>
+                                                                        <option value="11_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>п. бампер</td>
+                                                        <td>
+                                                            <form:select path="el12" name="el12" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el12}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="12_c">${collored}</option>
+                                                                        <option value="12_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el12 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="12_c" selected>${collored}</option>
+                                                                        <option value="12_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el12 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="12_c">${collored}</option>
+                                                                        <option value="12_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>з. бампер</td>
+                                                        <td>
+                                                            <form:select path="el13" name="el13" class="selectpicker"
+                                                                         data-live-search="true" data-container="body"
+                                                                         data-max-options="1" title="">
+                                                                <c:choose>
+                                                                    <c:when test="${empty formAuction.el13}">
+                                                                        <option value="" selected>-</option>
+                                                                        <option value="13_c">${collored}</option>
+                                                                        <option value="13_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el13 eq 'c'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="13_c" selected>${collored}</option>
+                                                                        <option value="13_d">${destructed}</option>
+                                                                    </c:when>
+                                                                    <c:when test="${formAuction.el13 eq 'd'}">
+                                                                        <option value="">-</option>
+                                                                        <option value="13_c">${collored}</option>
+                                                                        <option value="13_d" selected>${destructed}</option>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                            </form:select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                 </div>
-                             </div>
+                                </div>
+                            </div>
+
                              <div class="row top-buffer">
                                  <ul class="list-inline pull-right">
                                      <li><button type="button" class="btn btn-lg btn-primary next-step">Продолжить</button></li>

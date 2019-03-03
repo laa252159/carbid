@@ -371,9 +371,6 @@
                             База судебных приставов: <b>${auction.fssp}</b>
                         </p>
                         <p>
-                            Количество крашенных элементов: <b>${auction.colloredElements}</b>
-                        </p>
-                        <p>
                             Cостояние ходовой: <b>${auction.driveState}</b>
                         </p>
                         </sec:authorize>
@@ -427,10 +424,10 @@
 
                         <div class="container">
                             <div class="img_inner_container">
-                                <img class="trafaret" src="<c:url value="/resources/images/cars_elements/0.png"/>"/>
-                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/1.png"/>"/>
-                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/2.png"/>"/>
-                                <img class="zakraska" src="<c:url value="/resources/images/cars_elements/3.png"/>"/>
+                                <img class="trafaret" src="<c:url value="/resources/images/cars_elements/background.png"/>"/>
+                                <c:forEach var="code" items="${auction.listOfDamagedElements}" varStatus="loop">
+                                    <img class="zakraska" src="<c:url value="/resources/images/cars_elements/${code}.png"/>"/>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
