@@ -172,7 +172,7 @@ public class Mailer implements MailService {
      * Уведомление вызванное через submit формы (старый функциоал с perekup64)
      */
     @Override
-    public void suggestAuction(SuggestAuctionDto suggestAuctionDto) {
+    public synchronized void suggestAuction(SuggestAuctionDto suggestAuctionDto) {
         StringBuilder sb = new StringBuilder();
         sb.append(" | Имя - ");
         sb.append(suggestAuctionDto.getName());
@@ -194,7 +194,7 @@ public class Mailer implements MailService {
      * Уведомление вызванное по таймеру
      */
     @Override
-    public void suggestAuction(Suggestion suggestion) {
+    public synchronized void suggestAuction(Suggestion suggestion) {
         StringBuilder sb = new StringBuilder();
         sb.append(" | Имя - ");
         sb.append(suggestion.getName());
