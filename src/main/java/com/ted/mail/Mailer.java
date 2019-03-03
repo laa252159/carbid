@@ -3,7 +3,6 @@ package com.ted.mail;
 import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
-import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
@@ -169,6 +168,9 @@ public class Mailer implements MailService {
         mailSender.send(message);
     }
 
+    /**
+     * Уведомление вызванное через submit формы (старый функциоал с perekup64)
+     */
     @Override
     public void suggestAuction(SuggestAuctionDto suggestAuctionDto) {
         StringBuilder sb = new StringBuilder();
@@ -188,6 +190,9 @@ public class Mailer implements MailService {
         sendMimeMail(SENDER, suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 
+    /**
+     * Уведомление вызванное по таймеру
+     */
     @Override
     public void suggestAuction(Suggestion suggestion) {
         StringBuilder sb = new StringBuilder();
