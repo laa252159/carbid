@@ -105,7 +105,7 @@ CREATE TABLE `auctions` (
   `additional_info` mediumtext,
   `drive_state` mediumtext,
   `engine_state` mediumtext,
-  `damagedElements`  varchar(45),
+  `damagedElements`  varchar(250),
 
 
   `first_bid` decimal(15,2) NOT NULL,

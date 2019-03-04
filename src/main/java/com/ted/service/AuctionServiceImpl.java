@@ -405,7 +405,7 @@ public class AuctionServiceImpl implements AuctionService {
 
 		/* Location */
 		auction.setLocation(saveLocation(auction.getLocation()));
-
+		formAuction.setCategoryName("cars");
 		/* Categories */
 		Category category = categoryRepository.findByName(formAuction.getCategoryName());
 		auction.setCategories(categoryService.getParentCategories(category));
@@ -453,13 +453,13 @@ public class AuctionServiceImpl implements AuctionService {
 	public String updateFormAuction(FormAuction formAuction) {
 
 		/* Copy new Auction Info */
-		Auction auction = formAuction.getAuction();
-		Auction perAuction = auctionRepository.findByAuctionid(auction.getAuctionid());
-		perAuction.setBuyPrice(auction.getBuyPrice());
-		perAuction.setDescription(auction.getDescription());
-		perAuction.setEnds(auction.getEnds());
-		perAuction.setName(auction.getName());
-		perAuction.setFirstBid(auction.getFirstBid());
+		Auction dtoAuction = formAuction.getAuction();
+		Auction perAuction = auctionRepository.findByAuctionid(dtoAuction.getAuctionid());
+		perAuction.setBuyPrice(dtoAuction.getBuyPrice());
+		perAuction.setDescription(dtoAuction.getDescription());
+		perAuction.setEnds(dtoAuction.getEnds());
+		perAuction.setName(dtoAuction.getName());
+		perAuction.setFirstBid(dtoAuction.getFirstBid());
 
 		formAuction.setCategoryName("cars");
 		/* Check */
@@ -476,7 +476,7 @@ public class AuctionServiceImpl implements AuctionService {
 		perAuction.setUser(user);
 
 		/* Location */
-		perAuction.setLocation(saveLocation(auction.getLocation()));
+		perAuction.setLocation(saveLocation(dtoAuction.getLocation()));
 
 		/* Categories */
 		Category category = categoryRepository.findByName(formAuction.getCategoryName());
@@ -493,7 +493,7 @@ public class AuctionServiceImpl implements AuctionService {
 
 		/* Price Strings for XML */
 		if(perAuction.getBuyPrice() != null)
-			perAuction.setBuyPriceString(auction.getBuyPrice().toString());
+			perAuction.setBuyPriceString(dtoAuction.getBuyPrice().toString());
 		perAuction.setFirstBidString(perAuction.getFirstBid().toString());
 		perAuction.setCurrentlyString(perAuction.getCurrently().toString());
 
@@ -502,7 +502,7 @@ public class AuctionServiceImpl implements AuctionService {
 		/* Pictures */
 		MultipartFile[] files = formAuction.getFiles();
 		if(!files[0].isEmpty())
-			perAuction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
+			perAuction.setAuctionPictures(auctionPictureService.saveMultipartList(files, perAuction));
 
 
 		perAuction.setBrand(formAuction.getAuction().getBrand());
