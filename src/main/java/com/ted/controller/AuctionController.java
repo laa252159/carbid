@@ -234,10 +234,8 @@ public class AuctionController extends AbstractController {
 			@RequestParam(value = "input1", required = false) MultipartFile[] images) {
 		
 		formAuction.setCategoryName("cars");
-		formAuction.setFiles(images);
 
 		String error = auctionService.validateFormAuction(formAuction);
-
 
 		if(error != null) {
 			List<Category> categories = categoryService.getAllCategories();
@@ -245,9 +243,12 @@ public class AuctionController extends AbstractController {
 			model.addAttribute("error", error);
 			return "edit-auction";
 		}
-		auctionService.saveFormAuction(formAuction);
+
+		formAuction.setFiles(images);
+		auctionService.saveAndUpdateFormAuction(formAuction);
+
 		model.addAttribute("formAuction",formAuction);
-		
+
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
 		return "redirect:/auctions";
@@ -346,9 +347,7 @@ public class AuctionController extends AbstractController {
 		if(!perAuction.getAuctionBiddings().isEmpty())
 			return "403";
 		
-		formAuction.setFiles(images);
-		
-		String error = auctionService.updateFormAuction(formAuction);
+		String error = auctionService.validateFormAuction(formAuction);
 		
 		if(error != null) {
 			
@@ -369,6 +368,9 @@ public class AuctionController extends AbstractController {
 			model.addAttribute("error", error);
 			return "edit-auction";
 		}
+
+		formAuction.setFiles(images);
+		auctionService.saveAndUpdateFormAuction(formAuction);
 
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		

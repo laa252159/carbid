@@ -381,8 +381,8 @@ public class AuctionServiceImpl implements AuctionService {
 	public String validateFormAuction(FormAuction formAuction) {
 		Auction auction = formAuction.getAuction();
 		/* Check */
-		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
-			return "You must select a category for the Auction.";
+//		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
+//			return "You must select a category for the Auction.";
 		if(auction.getEnds() == null || auction.getEnds().getTime() < new Date().getTime())
 			return "Please provide a future date as Ending date.";
 
@@ -391,52 +391,6 @@ public class AuctionServiceImpl implements AuctionService {
 		if(user == null)
 			return "You must be logged in to create an auction.";
 		return null;
-	}
-
-
-	public void saveFormAuction(FormAuction formAuction) {
-
-		Auction auction = formAuction.getAuction();
-
-		/* Seller */
-		User user = userService.getLoggedInUser();
-
-		auction.setUser(user);
-
-		/* Location */
-		auction.setLocation(saveLocation(auction.getLocation()));
-		formAuction.setCategoryName("cars");
-		/* Categories */
-		Category category = categoryRepository.findByName(formAuction.getCategoryName());
-		auction.setCategories(categoryService.getParentCategories(category));
-
-		/* Currently Price */
-		auction.setCurrently(auction.getFirstBid());
-
-		/* Starting Date */
-		auction.setStarted(new Date());
-
-		/* IsBought */
-		auction.setBought(false);
-
-		/* Price Strings for XML */
-		if(auction.getBuyPrice() != null)
-			auction.setBuyPriceString(auction.getBuyPrice().toString());
-		auction.setFirstBidString(auction.getFirstBid().toString());
-		auction.setCurrentlyString(auction.getCurrently().toString());
-
-		auction.setDamagedElements(collectElements(formAuction));
-
-		/* Pictures */
-		MultipartFile[] files = formAuction.getFiles();
-		if(files != null && !files[0].isEmpty())
-			auction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
-
-		/* Persist Auction */
-		auction = auctionRepository.saveAndFlush(auction);
-
-		//notify approved users about auction
-		mailer.notifyUsersAboutNewAuction(auction);
 	}
 
     @Override
@@ -449,86 +403,94 @@ public class AuctionServiceImpl implements AuctionService {
 		mailer.spamPromo(promoDto);
 	}
 
-	public String updateFormAuction(FormAuction formAuction) {
-
+	//использовать после validateFormAuction(FormAuction formAuction)
+	public void saveAndUpdateFormAuction(FormAuction formAuction) {
+		boolean isNew = false;
 		/* Copy new Auction Info */
 		Auction dtoAuction = formAuction.getAuction();
-		Auction perAuction = auctionRepository.findByAuctionid(dtoAuction.getAuctionid());
-		perAuction.setBuyPrice(dtoAuction.getBuyPrice());
-		perAuction.setDescription(dtoAuction.getDescription());
-		perAuction.setEnds(dtoAuction.getEnds());
-		perAuction.setName(dtoAuction.getName());
-		perAuction.setFirstBid(dtoAuction.getFirstBid());
+		Auction auction = auctionRepository.findByAuctionid(dtoAuction.getAuctionid());
+		if(auction == null) {
+			isNew = true;
 
-		formAuction.setCategoryName("cars");
-		/* Check */
-		if(formAuction.getCategoryName() == null || formAuction.getCategoryName().isEmpty())
-			return "You must select a category for the Auction.";
-		if(perAuction.getEnds() == null ||perAuction.getEnds().getTime() < new Date().getTime())
-			return "Please provide a future date as Ending date.";
+			auction = dtoAuction;
 
-		/* Seller */
-		User user = userService.getLoggedInUser();
-		if(user == null)
-			return "You must be logged in to create an auction.";
+			/* Starting Date */
+			auction.setStarted(new Date());
 
-		perAuction.setUser(user);
+			/* Seller */
+			User user = userService.getLoggedInUser();
+			auction.setUser(user);
+
+
+			/* IsBought */
+			auction.setBought(false);
+		} else {
+			auction.setBuyPrice(dtoAuction.getBuyPrice());
+			auction.setDescription(dtoAuction.getDescription());
+			auction.setEnds(dtoAuction.getEnds());
+			auction.setName(dtoAuction.getName());
+			auction.setFirstBid(dtoAuction.getFirstBid());
+
+
+			auction.setBrand(formAuction.getAuction().getBrand());
+			auction.setModel(formAuction.getAuction().getModel());
+			auction.setReleased(formAuction.getAuction().getReleased());
+			auction.setRun(formAuction.getAuction().getRun());
+			auction.setEngineType(formAuction.getAuction().getEngineType());
+			auction.setPower(formAuction.getAuction().getPower());
+			auction.setTransmission(formAuction.getAuction().getTransmission());
+			auction.setBody(formAuction.getAuction().getBody());
+			auction.setDrive(formAuction.getAuction().getDrive());
+			auction.setColor(formAuction.getAuction().getColor());
+			auction.setDoors(formAuction.getAuction().getDoors());
+			auction.setBodyState(formAuction.getAuction().getBodyState());
+			auction.setOwners(formAuction.getAuction().getOwners());
+			auction.setVin(formAuction.getAuction().getVin());
+			auction.setGibdd(formAuction.getAuction().getGibdd());
+			auction.setFssp(formAuction.getAuction().getFssp());
+			auction.setDriveState(formAuction.getAuction().getDriveState());
+			auction.setEngineState(formAuction.getAuction().getEngineState());
+		}
 
 		/* Location */
-		perAuction.setLocation(saveLocation(dtoAuction.getLocation()));
+		auction.setLocation(saveLocation(dtoAuction.getLocation()));
+
+		formAuction.setCategoryName("cars");
 
 		/* Categories */
 		Category category = categoryRepository.findByName(formAuction.getCategoryName());
-		perAuction.setCategories(categoryService.getParentCategories(category));
+		auction.setCategories(categoryService.getParentCategories(category));
 
 		/* Currently Price */
-		perAuction.setCurrently(perAuction.getFirstBid());
-
-		/* Starting Date */
-		perAuction.setStarted(new Date());
-
-		/* IsBought */
-		perAuction.setBought(false);
+		auction.setCurrently(auction.getFirstBid());
 
 		/* Price Strings for XML */
-		if(perAuction.getBuyPrice() != null)
-			perAuction.setBuyPriceString(dtoAuction.getBuyPrice().toString());
-		perAuction.setFirstBidString(perAuction.getFirstBid().toString());
-		perAuction.setCurrentlyString(perAuction.getCurrently().toString());
+		if(auction.getBuyPrice() != null)
+			auction.setBuyPriceString(dtoAuction.getBuyPrice().toString());
+		auction.setFirstBidString(auction.getFirstBid().toString());
+		auction.setCurrentlyString(auction.getCurrently().toString());
 
 
+
+
+
+		auction.setDamagedElements(collectElements(formAuction));
+
+		//получаем айди для нового, сохраняя в БД
+		if(isNew){
+			auction = auctionRepository.saveAndFlush(auction);
+		}
 
 		/* Pictures */
 		MultipartFile[] files = formAuction.getFiles();
 		if (files != null && !files[0].isEmpty())
-			perAuction.setAuctionPictures(auctionPictureService.saveMultipartList(files, perAuction));
-
-
-		perAuction.setBrand(formAuction.getAuction().getBrand());
-		perAuction.setModel(formAuction.getAuction().getModel());
-		perAuction.setReleased(formAuction.getAuction().getReleased());
-		perAuction.setRun(formAuction.getAuction().getRun());
-		perAuction.setEngineType(formAuction.getAuction().getEngineType());
-		perAuction.setPower(formAuction.getAuction().getPower());
-		perAuction.setTransmission(formAuction.getAuction().getTransmission());
-		perAuction.setBody(formAuction.getAuction().getBody());
-		perAuction.setDrive(formAuction.getAuction().getDrive());
-		perAuction.setColor(formAuction.getAuction().getColor());
-		perAuction.setDoors(formAuction.getAuction().getDoors());
-		perAuction.setBodyState(formAuction.getAuction().getBodyState());
-		perAuction.setOwners(formAuction.getAuction().getOwners());
-		perAuction.setVin(formAuction.getAuction().getVin());
-		perAuction.setGibdd(formAuction.getAuction().getGibdd());
-		perAuction.setFssp(formAuction.getAuction().getFssp());
-		perAuction.setDriveState(formAuction.getAuction().getDriveState());
-		perAuction.setEngineState(formAuction.getAuction().getEngineState());
-
-
-		perAuction.setDamagedElements(collectElements(formAuction));
+			auction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
 
 		/* Persist Auction */
-		perAuction = auctionRepository.saveAndFlush(perAuction);
-		return null;
+		auctionRepository.saveAndFlush(auction);
+
+		//notify approved users about auction
+		mailer.notifyUsersAboutNewAuction(auction);
 	}
 
 
@@ -662,6 +624,8 @@ public class AuctionServiceImpl implements AuctionService {
 			if(images != null)
 				if(images.size() > 5){
 					images = images.subList(images.size()-5, images.size());
+					auction.setImagesForGallery(images);
+				} else {
 					auction.setImagesForGallery(images);
 				}
 			rAuctions.add(auction);

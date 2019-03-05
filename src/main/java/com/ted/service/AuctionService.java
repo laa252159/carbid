@@ -32,8 +32,6 @@ public interface AuctionService {
 
 	FormAuction allocateElements(FormAuction form, String damagedElements);
 
-	void saveFormAuction(FormAuction formAuction);
-
 	void suggestFormAuction(SuggestAuctionDto suggestAuctionDto);
 
 	void spamPromo(PromoDto promoDto);
@@ -44,7 +42,7 @@ public interface AuctionService {
 
 	List<Auction> putImagesForGallery(List<Auction> auctions);
 
-	String updateFormAuction(FormAuction formAuction);
+	void saveAndUpdateFormAuction(FormAuction formAuction);
 	
 	List<Auction> getBuyerAuctions(User user);
 	
