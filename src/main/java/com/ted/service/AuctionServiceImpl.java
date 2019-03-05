@@ -489,8 +489,10 @@ public class AuctionServiceImpl implements AuctionService {
 		/* Persist Auction */
 		auctionRepository.saveAndFlush(auction);
 
-		//notify approved users about auction
-		mailer.notifyUsersAboutNewAuction(auction);
+		if(isNew){
+			//notify approved users about auction
+			mailer.notifyUsersAboutNewAuction(auction);
+		}
 	}
 
 
