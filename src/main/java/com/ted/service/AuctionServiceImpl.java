@@ -425,16 +425,15 @@ public class AuctionServiceImpl implements AuctionService {
 		auction.setFirstBidString(auction.getFirstBid().toString());
 		auction.setCurrentlyString(auction.getCurrently().toString());
 
-
 		auction.setDamagedElements(collectElements(formAuction));
-
-		/* Persist Auction */
-		auction = auctionRepository.saveAndFlush(auction);
 
 		/* Pictures */
 		MultipartFile[] files = formAuction.getFiles();
-		if(!files[0].isEmpty())
+		if(files != null && !files[0].isEmpty())
 			auction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
+
+		/* Persist Auction */
+		auction = auctionRepository.saveAndFlush(auction);
 
 		//notify approved users about auction
 		mailer.notifyUsersAboutNewAuction(auction);
@@ -501,7 +500,7 @@ public class AuctionServiceImpl implements AuctionService {
 
 		/* Pictures */
 		MultipartFile[] files = formAuction.getFiles();
-		if(!files[0].isEmpty())
+		if (files != null && !files[0].isEmpty())
 			perAuction.setAuctionPictures(auctionPictureService.saveMultipartList(files, perAuction));
 
 
