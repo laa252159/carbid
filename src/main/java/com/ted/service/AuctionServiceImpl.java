@@ -104,7 +104,7 @@ public class AuctionServiceImpl implements AuctionService {
 
 		if(pageString != null) {
 			pageNumber = Integer.parseInt(pageString);
-			page = new PageRequest(pageNumber - 1, 15, sort);
+			page = new PageRequest(pageNumber - 1, 100, sort);
 		}
 		else {
 			page = new PageRequest(0, 15, sort);
