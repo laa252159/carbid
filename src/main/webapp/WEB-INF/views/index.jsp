@@ -180,8 +180,6 @@
 
         <div class="col-md-9 col-xs-12" >
 
-            <%@ include file="auction-list.jsp" %>
-
             <div class="center-block">
                 <nav aria-label="Page navigation">
                     <ul class="pagination pagination-lg">
