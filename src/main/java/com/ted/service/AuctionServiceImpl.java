@@ -30,7 +30,7 @@ public class AuctionServiceImpl implements AuctionService {
 
 	private static final String DELIMETER = ":";
 
-	public static int AUCTIONS_ON_PAGE = 100;
+	public static int AUCTIONS_ON_PAGE = 5;
 
 	@Autowired
 	AuctionRepository auctionRepository;

@@ -131,7 +131,7 @@ public class AdminController {
 		/* Auctions */
 		model.addAttribute("auctions", auctionService.getAllAuctions());
 
-		return "auctions";
+		return "redirect:/";
 	}
 
 

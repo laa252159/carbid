@@ -112,7 +112,7 @@ public class AuctionController extends AbstractController {
 		
 		Page<Auction> auctions = auctionService.pageAuctions(request);
 		List<Auction> auctionList = auctions.getContent();
-		auctionList = auctionService.putPrimaryImage(auctionList);
+		auctionList = auctionService.putImagesForGallery(auctionList);
 		model.addAttribute("auctions", auctionList);
 		
 		System.out.println(filter.getSortBy());
@@ -348,7 +348,7 @@ public class AuctionController extends AbstractController {
 			return "403";
 		
 		String error = auctionService.validateFormAuction(formAuction);
-		
+
 		if(error != null) {
 			
 			/* Eager Fetch */
