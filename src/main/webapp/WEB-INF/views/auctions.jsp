@@ -79,7 +79,7 @@
 
                              <%@ include file="auction-list.jsp" %>
 
-                             <div class="center-block">
+                             <div class="center-block mypagination">
                                  <nav aria-label="Page navigation">
                                      <ul class="pagination pagination-lg">
                                          <c:if test="${filter.pageNum > 1 }">
