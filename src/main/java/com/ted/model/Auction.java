@@ -152,6 +152,9 @@ public class Auction implements Serializable {
 	// bi-directional many-to-one association to AuctionBidding
 	@OneToMany( mappedBy = "auction")
 	private List<AuctionBidding> auctionBiddings;
+
+	@OneToOne( mappedBy = "auction", cascade = {CascadeType.PERSIST})
+	private AuctionMoreInfo auctionMoreInfo;
 	
 	// bi-directional many-to-one association to Recommendation
 	@OneToMany(mappedBy = "auction")
@@ -248,6 +251,14 @@ public class Auction implements Serializable {
 
 	public void setBrand(String brand) {
 		this.brand = brand;
+	}
+
+	public AuctionMoreInfo getAuctionMoreInfo() {
+		return auctionMoreInfo;
+	}
+
+	public void setAuctionMoreInfo(AuctionMoreInfo auctionMoreInfo) {
+		this.auctionMoreInfo = auctionMoreInfo;
 	}
 
 	public String getModel() {
