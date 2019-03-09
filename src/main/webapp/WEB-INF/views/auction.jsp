@@ -69,11 +69,11 @@
                         <c:forEach items="${images}" var="image" varStatus="loop">
                             <img src="data:image/jpeg;base64,${image}">
                         </c:forEach>
-                        <img alt="Примерчик как на перекупе будут выглядеть видосы"
-                             data-type="youtube"
-                             data-videoid="UUvrY4-dPFk"
-                             data-description="Офигительный видос про секвою с ютуба для примерчика">
                     </c:if>
+                    <img alt="Примерчик как на перекупе будут выглядеть видосы"
+                         data-type="youtube"
+                         data-videoid="UUvrY4-dPFk"
+                         data-description="Офигительный видос про секвою с ютуба для примерчика">
                 </div>
             </div>
             <%--UNITE GALLERY--%>
