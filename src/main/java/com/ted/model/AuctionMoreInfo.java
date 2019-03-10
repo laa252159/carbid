@@ -52,7 +52,7 @@ public class AuctionMoreInfo implements Serializable {
     boolean heatedWheel;
 
     @Column(name = "power_windows")
-    boolean powerWindows;
+    String powerWindows;
 
     @Column(name = "power_seats_front")
     boolean powerSeatsFront;
@@ -97,13 +97,13 @@ public class AuctionMoreInfo implements Serializable {
     boolean gps;
 
     @Column(name = "car_stereo")
-    boolean carStereo;
+    String carStereo;
 
     @Column(name = "subwoofer")
     boolean subwoofer;
 
     @Column(name = "headlights")
-    boolean headlights;
+    String headlights;
 
     @Column(name = "wheels")
     boolean wheels;
@@ -116,6 +116,9 @@ public class AuctionMoreInfo implements Serializable {
 
     @Column(name = "warranty_on")
     boolean warrantyOn;
+
+    @Column(name = "on_board_computer")
+    boolean onBoardComputer;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -217,11 +220,11 @@ public class AuctionMoreInfo implements Serializable {
         this.heatedWheel = heatedWheel;
     }
 
-    public boolean isPowerWindows() {
+    public String getPowerWindows() {
         return powerWindows;
     }
 
-    public void setPowerWindows(boolean powerWindows) {
+    public void setPowerWindows(String powerWindows) {
         this.powerWindows = powerWindows;
     }
 
@@ -337,11 +340,11 @@ public class AuctionMoreInfo implements Serializable {
         this.gps = gps;
     }
 
-    public boolean isCarStereo() {
+    public String getCarStereo() {
         return carStereo;
     }
 
-    public void setCarStereo(boolean carStereo) {
+    public void setCarStereo(String carStereo) {
         this.carStereo = carStereo;
     }
 
@@ -353,11 +356,11 @@ public class AuctionMoreInfo implements Serializable {
         this.subwoofer = subwoofer;
     }
 
-    public boolean isHeadlights() {
+    public String getHeadlights() {
         return headlights;
     }
 
-    public void setHeadlights(boolean headlights) {
+    public void setHeadlights(String headlights) {
         this.headlights = headlights;
     }
 
@@ -391,5 +394,13 @@ public class AuctionMoreInfo implements Serializable {
 
     public void setWarrantyOn(boolean warrantyOn) {
         this.warrantyOn = warrantyOn;
+    }
+
+    public boolean isOnBoardComputer() {
+        return onBoardComputer;
+    }
+
+    public void setOnBoardComputer(boolean onBoardComputer) {
+        this.onBoardComputer = onBoardComputer;
     }
 }

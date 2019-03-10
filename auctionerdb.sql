@@ -95,6 +95,7 @@ CREATE TABLE `auction_more_info` (
   `front_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',  -- парктроник передний
   `rear_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',   -- парктроник задний
   `cruise_control` tinyint(4) NOT NULL DEFAULT '0',         -- круиз-контроль
+  `on_board_computer` tinyint(4) NOT NULL DEFAULT '0',         -- круиз-контроль
   `alarm` tinyint(4) NOT NULL DEFAULT '0',                  -- сигнализация
   `autostart` tinyint(4) NOT NULL DEFAULT '0',              -- автозапуск
   `airbags` tinyint(4) NOT NULL DEFAULT '0',                -- подушки безопасности

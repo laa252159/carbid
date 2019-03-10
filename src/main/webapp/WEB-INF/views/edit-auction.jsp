@@ -49,7 +49,7 @@
         <section>
             <form:form id="form" name="auctionForm" role="form" modelAttribute="formAuction" method="POST"
                        enctype="multipart/form-data">
-                <h2 class="text-center">Данные аукциона</h2>
+                <h2 class="text-center">Подробнее</h2>
                 <div class="row content-row">
                     <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                         <div class="row">
@@ -694,6 +694,46 @@
                         </div>
                     </div>
                 </div>
+                <h2 class="text-center">Дополнительная информация</h2>
+                <%--Усилитель руля--%>
+                <div class="row content-row">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="fssp" class="input-label col-md-3">Усилитель руля:</label>
+                            <div class="col-lg-8">
+                                <div class="in-group">
+                                    <form:select path="powerSteering" name="powerSteering" class="selectpicker"
+                                                 data-live-search="true" data-container="body"
+                                                 data-max-options="1" title="">
+                                        <c:choose>
+                                            <c:when test="${empty formAuction.powerSteering}">
+                                                <option value="" selected>-</option>
+                                                <option value="гидро">гидро</option>
+                                                <option value="электро">электро</option>
+                                            </c:when>
+                                            <c:when test="${formAuction.powerSteering eq 'гидро'}">
+                                                <option value="">-</option>
+                                                <option value="гидро" selected>гидро</option>
+                                                <option value="электро">электро</option>
+                                            </c:when>
+                                            <c:when test="${formAuction.powerSteering eq 'электро'}">
+                                                <option value="">-</option>
+                                                <option value="гидро">гидро</option>
+                                                <option value="электро" selected>электро</option>
+                                            </c:when>
+                                        </c:choose>
+                                    </form:select>
+                                    <form:errors path="auction.fssp" cssClass="error"/>
+                                </div>
+                                <div class="err">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%--Усилитель руля--%>
+
+
                 <div class="row content-row">
                     <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                         <div class="row">

@@ -2,11 +2,7 @@ package com.ted.service;
 
 
 import com.ted.model.*;
-import com.ted.repository.AuctionBiddingRepository;
-import com.ted.repository.AuctionRepository;
-import com.ted.repository.CategoryRepository;
-import com.ted.repository.LocationRepository;
-import com.ted.repository.MessageRepository;
+import com.ted.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,6 +30,9 @@ public class AuctionServiceImpl implements AuctionService {
 
 	@Autowired
 	AuctionRepository auctionRepository;
+
+	@Autowired
+	AuctionMoreInfoRepository auctionMoreInfoRepository;
 
 	@Autowired
 	CategoryRepository categoryRepository;
@@ -411,7 +410,8 @@ public class AuctionServiceImpl implements AuctionService {
 		/* Copy new Auction Info */
 		Auction dtoAuction = formAuction.getAuction();
 		Auction auction = auctionRepository.findByAuctionid(dtoAuction.getAuctionid());
-		if(auction == null) {
+		AuctionMoreInfo auctionMoreInfo;
+		if(auction == null) {							//в случае создания аукциона
 			isNew = true;
 
 			auction = dtoAuction;
@@ -426,7 +426,14 @@ public class AuctionServiceImpl implements AuctionService {
 
 			/* IsBought */
 			auction.setBought(false);
-		} else {
+			auctionMoreInfo = new AuctionMoreInfo();
+			auction.setAuctionMoreInfo(auctionMoreInfo);
+		} else {									//в случае редактирования существующего аукциона
+			auctionMoreInfo = auction.getAuctionMoreInfo();
+			if(auctionMoreInfo == null){
+				auctionMoreInfo = new AuctionMoreInfo();
+				auction.setAuctionMoreInfo(auctionMoreInfo);
+			}
 			auction.setBuyPrice(dtoAuction.getBuyPrice());
 			auction.setDescription(dtoAuction.getDescription());
 			auction.setEnds(dtoAuction.getEnds());
@@ -478,6 +485,10 @@ public class AuctionServiceImpl implements AuctionService {
 
 		auction.setDamagedElements(collectElements(formAuction));
 
+		fillAuctionMoreInfoFromForm(formAuction, auctionMoreInfo);
+		auctionMoreInfo.setAuctionid(auction.getAuctionid());
+		auctionMoreInfoRepository.saveAndFlush(auctionMoreInfo);
+
 		//получаем айди для нового, сохраняя в БД
 		if(isNew){
 			auction = auctionRepository.saveAndFlush(auction);
@@ -496,6 +507,45 @@ public class AuctionServiceImpl implements AuctionService {
 			mailer.notifyUsersAboutNewAuction(auction);
 		}
 	}
+
+	// с UI
+	private void fillAuctionMoreInfoFromForm(FormAuction formAuction, AuctionMoreInfo auctionMoreInfo){
+		auctionMoreInfo.setPowerSteering(formAuction.getPowerSteering());
+		auctionMoreInfo.setConditioner(formAuction.isConditioner());
+		auctionMoreInfo.setClimateControl(formAuction.isClimateControl());
+		auctionMoreInfo.setControlOnWheel(formAuction.isControlOnWheel());
+		auctionMoreInfo.setLeatherWheel(formAuction.isLeatherWheel());
+		auctionMoreInfo.setSunRoof(formAuction.isSunRoof());
+		auctionMoreInfo.setHeatedSeatsFront(formAuction.isHeatedSeatsFront());
+		auctionMoreInfo.setHeatedSeatsBack(formAuction.isHeatedSeatsBack());
+		auctionMoreInfo.setHeatedMirrors(formAuction.isHeatedMirrors());
+		auctionMoreInfo.setHeatedWheel(formAuction.isHeatedWheel());
+		auctionMoreInfo.setHeatedWheel(formAuction.isHeatedWheel());
+		auctionMoreInfo.setPowerWindows(formAuction.getPowerWindows());
+		auctionMoreInfo.setPowerSeatsFront(formAuction.isPowerSeatsFront());
+		auctionMoreInfo.setPowerMirrors(formAuction.isPowerMirrors());
+		auctionMoreInfo.setLightSensor(formAuction.isLightSensor());
+		auctionMoreInfo.setFrontParkingSensors(formAuction.isFrontParkingSensors());
+		auctionMoreInfo.setRearParkingSensors(formAuction.isRearParkingSensors());
+		auctionMoreInfo.setCruiseControl(formAuction.isCruiseControl());
+		auctionMoreInfo.setOnBoardComputer(formAuction.isOnBoardComputer());
+		auctionMoreInfo.setAlarm(formAuction.isAlarm());
+		auctionMoreInfo.setAutostart(formAuction.isAutostart());
+		auctionMoreInfo.setAirbags(formAuction.isAirbags());
+		auctionMoreInfo.setAbs(formAuction.isAbs());
+		auctionMoreInfo.setAntiSlip(formAuction.isAntiSlip());
+		auctionMoreInfo.setDirectionalStability(formAuction.isDirectionalStability());
+		auctionMoreInfo.setGps(formAuction.isGps());
+		auctionMoreInfo.setCarStereo(formAuction.getCarStereo());
+		auctionMoreInfo.setCarStereo(formAuction.getCarStereo());
+		auctionMoreInfo.setSubwoofer(formAuction.isSubwoofer());
+		auctionMoreInfo.setHeadlights(formAuction.getHeadlights());
+		auctionMoreInfo.setWinterTires(formAuction.isWinterTires());
+		auctionMoreInfo.setVehicleLogBook(formAuction.isVehicleLogBook());
+		auctionMoreInfo.setWarrantyOn(formAuction.isWarrantyOn());
+	}
+
+
 
 
     public FormAuction allocateElements(FormAuction form, String damagedElements) {
