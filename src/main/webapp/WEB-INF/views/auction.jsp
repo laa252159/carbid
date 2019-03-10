@@ -244,23 +244,23 @@
     <div class="row">
         <div class="col-sm-12">
             <button class="accordion">ПОДРОБНЕЕ</button>
-            <div class="panel_accordion" style="font-size: 10pt; line-height: 1">
-                <p>
-                    Марка: <b>${auction.brand}</b>
-                </p>
-                <p>
-                    Модель: <b>${auction.model}</b>
-                </p>
-                <p>
-                    Год выпуска: <b>${auction.released}</b>
-                </p>
-                <p>
-                    Пробег: <b>${auction.run}</b>
-                </p>
-                <p>
-                    Двигатель: <b>${auction.engineType}</b>
-                </p>
-                <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
+            <div class="panel_accordion">
+                <div class="col-sm-4">
+                    <p>
+                        Марка: <b>${auction.brand}</b>
+                    </p>
+                    <p>
+                        Модель: <b>${auction.model}</b>
+                    </p>
+                    <p>
+                        Год выпуска: <b>${auction.released}</b>
+                    </p>
+                    <p>
+                        Пробег: <b>${auction.run}</b>
+                    </p>
+                    <p>
+                        Двигатель: <b>${auction.engineType}</b>
+                    </p>
                     <p>
                         Состояние двигателя: <b>${auction.engineState}</b>
                     </p>
@@ -300,28 +300,30 @@
                     <p>
                         Cостояние ходовой: <b>${auction.driveState}</b>
                     </p>
-                </sec:authorize>
-                <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                    <p>
-                        <b style="color: red">Остальная информация доступна только зарегистрированным
-                            пользователям!</b>
-                    </p>
-                </sec:authorize>
+                </div>
+                <div class="col-sm-8">
+                    <div>
+                        <div class="img_outer_container">
+                            <div class="img_inner_container">
+                                <img class="trafaret"
+                                     src="<c:url value="/resources/images/cars_elements/background.png"/>"/>
+                                <c:forEach var="code" items="${auction.listOfDamagedElements}" varStatus="loop">
+                                    <img class="zakraska"
+                                         src="<c:url value="/resources/images/cars_elements/${code}.png"/>"/>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        <%--</div>--%>
 
             <button class="accordion">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</button>
             <div class="panel_accordion">
-                <div>
-                    <div class="container">
-                        <div class="img_inner_container">
-                            <img class="trafaret"
-                                 src="<c:url value="/resources/images/cars_elements/background.png"/>"/>
-                            <c:forEach var="code" items="${auction.listOfDamagedElements}" varStatus="loop">
-                                <img class="zakraska"
-                                     src="<c:url value="/resources/images/cars_elements/${code}.png"/>"/>
-                            </c:forEach>
-                        </div>
-                    </div>
+                <div class="col-sm-6">
+                    <p>
+                        Усилитель руля: <b>${auction.auctionMoreInfo.powerSteering}</b>
+                    </p>
                 </div>
             </div>
             <button class="accordion">ПРОВЕРКА ПО БАЗАМ</button>

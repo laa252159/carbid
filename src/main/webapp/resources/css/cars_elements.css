@@ -2,6 +2,9 @@
     position: absolute; /* Относительное позиционирование */
     height: 200px;
 }
+div.img_inner_container:hover img{
+    height: 400px;
+}
 
 .zakraska {
     z-index: 2;
