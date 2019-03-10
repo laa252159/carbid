@@ -1086,12 +1086,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #69a74e;
+  color: #283741;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #69a74e;
+  color: #0f3241;
   text-decoration: underline;
 }
 a:focus {
@@ -3098,24 +3098,24 @@ fieldset[disabled] .btn-default.focus {
   border-color: transparent;
 }
 .btn-default .badge {
-  color: #4B81A3;
+  color: #283741;
   background-color: darkgrey;
 }
 .btn-primary {
   color: #FFF8DC;
-  background-color: #69a74e;
+  background-color: #283741;
   border-color: transparent;
   border-radius: 0px;
 }
 .btn-primary:focus,
 .btn-primary.focus {
   color: #ffffff;
-  background-color: #80000;
+  background-color: #283741;
   border-color: rgba(0, 0, 0, 0);
 }
 .btn-primary:hover {
   color: #ffffff;
-  background-color: #80000;
+  background-color: #283741;
   border-color: rgba(0, 0, 0, 0);
 }
 
@@ -3162,7 +3162,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #ffffff;
-  background-color: #69a74e;
+  background-color: #283741;
   border-color: transparent;
   box-shadow: 1px 2px 6px rgba(0,0,0, 0.3)
 }
