@@ -351,7 +351,7 @@
                                 <div class="col-lg-8">
                                     <table class="input-label col-md-3">
                                         <tr>
-                                            <td>п.л. дверь</td>
+                                            <td>пер.лев. дверь</td>
                                             <td>
                                                 <form:select path="el1" name="el1" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -377,7 +377,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>з.л. дверь</td>
+                                            <td>зад.лев. дверь</td>
                                             <td>
                                                 <form:select path="el2" name="el2" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -403,7 +403,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>з.л. крыло</td>
+                                            <td>зад.лев. крыло</td>
                                             <td>
                                                 <form:select path="el3" name="el3" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -455,7 +455,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>з.п. крыло</td>
+                                            <td>зад.прав. крыло</td>
                                             <td>
                                                 <form:select path="el5" name="el5" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -481,7 +481,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>з.п. дверь</td>
+                                            <td>зад.пер. дверь</td>
                                             <td>
                                                 <form:select path="el6" name="el6" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -507,7 +507,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>п.п. дверь</td>
+                                            <td>пер.прав. дверь</td>
                                             <td>
                                                 <form:select path="el7" name="el7" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -533,7 +533,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>п.п. крыло</td>
+                                            <td>пер.прав. крыло</td>
                                             <td>
                                                 <form:select path="el8" name="el1" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -611,7 +611,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>п.л. крыло</td>
+                                            <td>пер.лев. крыло</td>
                                             <td>
                                                 <form:select path="el11" name="el11" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -637,7 +637,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>п. бампер</td>
+                                            <td>пер. бампер</td>
                                             <td>
                                                 <form:select path="el12" name="el12" class="selectpicker"
                                                              data-live-search="true" data-container="body"
@@ -663,7 +663,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>з. бампер</td>
+                                            <td>зад. бампер</td>
                                             <td>
                                                 <form:select path="el13" name="el13" class="selectpicker"
                                                              data-live-search="true" data-container="body"
