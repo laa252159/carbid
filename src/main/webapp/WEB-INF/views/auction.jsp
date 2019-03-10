@@ -336,13 +336,9 @@
             <div class="panel_accordion">
                 <p><b>Отдел продаж</b></p>
                 <div class="col-sm-6">
-                    <p class="lead">
-                        <%--${auction.user.firstName} <br />--%>
-                        <%--${auction.user.lastName} <br />--%>
-                        менеджер <br/>
-                        <span class="icon-phone"></span> ${auction.user.phone} <br/><br/>
-                        ${auction.user.city}
-                    </p>
+                    менеджер <br/>
+                    <span class="icon-phone"></span> ${auction.user.phone} <br/><br/>
+                    ${auction.user.city}
                 </div>
                 <div class="col-sm-6">
                     <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
