@@ -36,6 +36,11 @@
                                     </ul>
                                 </a>
                             </c:if>
+                            <c:if test="${empty auction.imagesForGallery}">
+                                <a href="/auction/${auction.auctionid}">
+                                    <img src="<c:url value="/resources/images/empty_car.jpg"/>" alt="hammer-image"/>
+                                </a>
+                            </c:if>
                         </div>
 
                         <div style="float:left">
