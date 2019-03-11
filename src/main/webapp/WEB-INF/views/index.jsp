@@ -107,7 +107,7 @@
                  <div class="container">
                      <%--<h1 class="page-header"><strong>${filter.category.name}</strong></h1>--%>
                      <div class="row">
-                         <div class="col-md-9 col-xs-12" >
+                         <div class="col-md-12 col-xs-12" >
 
                              <%@ include file="auction-list.jsp" %>
 
@@ -178,7 +178,7 @@
             </div>
         </sec:authorize>
 
-        <div class="col-md-9 col-xs-12" >
+        <div class="col-md-12 col-xs-12" >
 
             <div class="center-block">
                 <nav aria-label="Page navigation">

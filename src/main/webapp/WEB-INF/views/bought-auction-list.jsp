@@ -18,6 +18,7 @@
                         </c:if>
                     </div>
                     <div class="caption">
+                        <div class="col">
                         <table class="text-in-galery-pannels">
                             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Марка:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.brand}</b></td></tr>
                             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Модель:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.model}</b></td></tr>
@@ -28,10 +29,11 @@
                             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Кузов:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.body}</b></td></tr>
                             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Привод:</td><td><b>&nbsp;&nbsp;&nbsp;${auction.drive}</b></td></tr>
                         </table>
+                        </div>
                         <%--<div class="text-limit">--%>
                             <%--<h4 class="group inner list-group-item-heading">${auction.name}</h4>--%>
                         <%--</div>--%>
-                        <div class="row">
+                        <div class="col">
                             <div class="col-xs-12 col-md-6">
                                 <p class="lead">&#36;${auction.currently}</p>
                             </div>
