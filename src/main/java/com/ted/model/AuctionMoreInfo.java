@@ -17,8 +17,7 @@ public class AuctionMoreInfo implements Serializable {
     @Column(unique = true, nullable = false)
     private int auctionid;
 
-    @OneToOne
-    @JoinColumn(name = "auctionid")
+    @OneToOne(mappedBy = "auctionMoreInfo", cascade = CascadeType.ALL)
     private Auction auction;
 
     @Column(name = "power_steering", nullable = true)

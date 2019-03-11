@@ -427,12 +427,10 @@ public class AuctionServiceImpl implements AuctionService {
 			/* IsBought */
 			auction.setBought(false);
 			auctionMoreInfo = new AuctionMoreInfo();
-			auction.setAuctionMoreInfo(auctionMoreInfo);
 		} else {									//в случае редактирования существующего аукциона
 			auctionMoreInfo = auction.getAuctionMoreInfo();
 			if(auctionMoreInfo == null){
 				auctionMoreInfo = new AuctionMoreInfo();
-				auction.setAuctionMoreInfo(auctionMoreInfo);
 			}
 			auction.setBuyPrice(dtoAuction.getBuyPrice());
 			auction.setDescription(dtoAuction.getDescription());
@@ -479,27 +477,28 @@ public class AuctionServiceImpl implements AuctionService {
 		auction.setFirstBidString(auction.getFirstBid().toString());
 		auction.setCurrentlyString(auction.getCurrently().toString());
 
-
-
-
-
 		auction.setDamagedElements(collectElements(formAuction));
 
+		/* Создаем запись для аукциона в базе без доп инфы и картинок и получаем ID */
+		auction = auctionRepository.saveAndFlush(auction);
+
+		/* Наполняем  auctionMoreInfo данными с формы*/
 		fillAuctionMoreInfoFromForm(formAuction, auctionMoreInfo);
+
+
+		//этот костыль нужен из-за кривоватой архитектуры БД
+		/* задаем айдишник для auctionMoreInfo согласно auction*/
 		auctionMoreInfo.setAuctionid(auction.getAuctionid());
-		auctionMoreInfoRepository.saveAndFlush(auctionMoreInfo);
+		/* вяжем auction с auctionMoreInfo и обратно*/
+		auction.setAuctionMoreInfo(auctionMoreInfo);
+		auctionMoreInfo.setAuction(auction);
 
-		//получаем айди для нового, сохраняя в БД
-		if(isNew){
-			auction = auctionRepository.saveAndFlush(auction);
-		}
-
-		/* Pictures */
+		/* наполняем аукцион картинками */
 		MultipartFile[] files = formAuction.getFiles();
 		if (files != null && !files[0].isEmpty())
 			auction.setAuctionPictures(auctionPictureService.saveMultipartList(files, auction));
 
-		/* Persist Auction */
+		/* Сохраняем аукцион со всеми вложенными сущностями */
 		auctionRepository.saveAndFlush(auction);
 
 		if(isNew){

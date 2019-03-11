@@ -153,7 +153,8 @@ public class Auction implements Serializable {
 	@OneToMany( mappedBy = "auction")
 	private List<AuctionBidding> auctionBiddings;
 
-	@OneToOne( mappedBy = "auction", cascade = {CascadeType.PERSIST})
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "auctionid", referencedColumnName = "auctionid")
 	private AuctionMoreInfo auctionMoreInfo;
 	
 	// bi-directional many-to-one association to Recommendation
