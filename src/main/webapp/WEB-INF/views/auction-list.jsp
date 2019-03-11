@@ -9,7 +9,7 @@
     <div id="products" class="row list-group">
         <c:forEach items="${auctions}" var="auction">
 
-            <div class="item  col-xs-10 list-group-item list-group-item">
+            <div class="item  col-xs-12 list-group-item list-group-item">
                 <div class="thumbnail item-shadow">
                     <div class="auction-list-img-div">
                         <div style="float:left">
@@ -35,7 +35,7 @@
                         </div>
 
                         <div>
-                            <div class="col-xs-10 col-md-7">
+                            <div class="col-xs-12 col-md-7">
                                 <table class="text-in-galery-pannels">
                                     <tr>
                                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -86,7 +86,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-xs-10 col-md-3">
+                            <div class="col-xs-12 col-md-5">
                                 <p class="price-tag pull-right"><strong>${auction.currently} 000 Руб</strong></p>
                             </div>
                         </div>
