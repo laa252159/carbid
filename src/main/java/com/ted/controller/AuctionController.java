@@ -322,9 +322,9 @@ public class AuctionController extends AbstractController {
 		
 		auction.setLocation(location);
 		formAuction.setAuction(auction);
-		fillFormFromAuctionMoreInfo(formAuction, auction.getAuctionMoreInfo());
 		formAuction.setCategoryName(categories.get(auctionCategories.size()-1).getName());
-		
+		fillFormFromAuctionMoreInfo(formAuction, auction.getAuctionMoreInfo());
+
 		/* Initialize images */
 		List<ImageInfo> imageInfos = auctionPictureService.getAuctionImageInfo(auction);
 		model.addAttribute("imageInfos", imageInfos);
@@ -340,6 +340,9 @@ public class AuctionController extends AbstractController {
 
 	// на UI
 	private void fillFormFromAuctionMoreInfo(FormAuction formAuction, AuctionMoreInfo auctionMoreInfo){
+		if(auctionMoreInfo == null){
+			return;
+		}
 		formAuction.setPowerSteering(auctionMoreInfo.getPowerSteering());
 		formAuction.setConditioner(auctionMoreInfo.isConditioner());
 		formAuction.setClimateControl(auctionMoreInfo.isClimateControl());
