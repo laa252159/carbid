@@ -353,7 +353,7 @@
                                         <tr>
                                             <td>пер.лев. дверь</td>
                                             <td>
-                                                <form:select path="el1" name="el1" class="selectpicker"
+                                                <form:select path="el1" name="el1"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -379,7 +379,7 @@
                                         <tr>
                                             <td>зад.лев. дверь</td>
                                             <td>
-                                                <form:select path="el2" name="el2" class="selectpicker"
+                                                <form:select path="el2" name="el2" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -405,7 +405,7 @@
                                         <tr>
                                             <td>зад.лев. крыло</td>
                                             <td>
-                                                <form:select path="el3" name="el3" class="selectpicker"
+                                                <form:select path="el3" name="el3" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -431,7 +431,7 @@
                                         <tr>
                                             <td>кр. багажника</td>
                                             <td>
-                                                <form:select path="el4" name="el4" class="selectpicker"
+                                                <form:select path="el4" name="el4" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -457,7 +457,7 @@
                                         <tr>
                                             <td>зад.прав. крыло</td>
                                             <td>
-                                                <form:select path="el5" name="el5" class="selectpicker"
+                                                <form:select path="el5" name="el5" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -483,7 +483,7 @@
                                         <tr>
                                             <td>зад.пер. дверь</td>
                                             <td>
-                                                <form:select path="el6" name="el6" class="selectpicker"
+                                                <form:select path="el6" name="el6" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -509,7 +509,7 @@
                                         <tr>
                                             <td>пер.прав. дверь</td>
                                             <td>
-                                                <form:select path="el7" name="el7" class="selectpicker"
+                                                <form:select path="el7" name="el7" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -535,7 +535,7 @@
                                         <tr>
                                             <td>пер.прав. крыло</td>
                                             <td>
-                                                <form:select path="el8" name="el1" class="selectpicker"
+                                                <form:select path="el8" name="el1" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -561,7 +561,7 @@
                                         <tr>
                                             <td>капот</td>
                                             <td>
-                                                <form:select path="el9" name="el1" class="selectpicker"
+                                                <form:select path="el9" name="el1" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -587,7 +587,7 @@
                                         <tr>
                                             <td>крыша</td>
                                             <td>
-                                                <form:select path="el10" name="el10" class="selectpicker"
+                                                <form:select path="el10" name="el10" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -613,7 +613,7 @@
                                         <tr>
                                             <td>пер.лев. крыло</td>
                                             <td>
-                                                <form:select path="el11" name="el11" class="selectpicker"
+                                                <form:select path="el11" name="el11" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -639,7 +639,7 @@
                                         <tr>
                                             <td>пер. бампер</td>
                                             <td>
-                                                <form:select path="el12" name="el12" class="selectpicker"
+                                                <form:select path="el12" name="el12" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -665,7 +665,7 @@
                                         <tr>
                                             <td>зад. бампер</td>
                                             <td>
-                                                <form:select path="el13" name="el13" class="selectpicker"
+                                                <form:select path="el13" name="el13" 
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -702,7 +702,7 @@
                             <label for="fssp" class="input-label col-md-3">Усилитель руля:</label>
                             <div class="col-lg-8">
                                 <div class="in-group">
-                                    <form:select path="powerSteering" name="powerSteering" class="selectpicker"
+                                    <form:select path="powerSteering" name="powerSteering" 
                                                  data-live-search="true" data-container="body"
                                                  data-max-options="1" title="">
                                         <c:choose>
