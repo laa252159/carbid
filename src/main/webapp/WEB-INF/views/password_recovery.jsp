@@ -40,8 +40,15 @@
             <div class="wizard">
                 <form:form id="regForm" name="regForm" role="form" modelAttribute="user" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-1" style="align-content: center">
+                        </div>
+                        <div class="col-lg-6" style="align-content: center">
                             <h3 class="text-center">Введите новый пароль</h3>
+                            <div class="text-center">
+                                <form:errors each="error : ${fields.errors('password')}"
+                                             cssClass="error"
+                                             cssStyle="line-height: 1; color: blue"/>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -51,10 +58,6 @@
                                 <form:input type="password" name='password'
                                             path="password" class="form-control"
                                             id="password" value=""/>
-                                </br>
-                                <form:errors each="error : ${fields.errors('password')}"
-                                             cssClass="error"
-                                             cssStyle="line-height: 1; color: blue"/>
                             </div>
                             <div class="err">
                             </div>
@@ -76,7 +79,7 @@
                     <form:input type="hidden" name='username' path="username" class="form-control" id="username" value="${user.username}"/>
                     <div class="row top-buffer">
                         <div class="form-group">
-                            <div class="col-lg-3">
+                            <div class="col-lg-6">
                                 <div class="in_group">
                                     <button name="submit" type="submit" value="submit" class="btn btn-lg btn-success">
                                         Сохранить

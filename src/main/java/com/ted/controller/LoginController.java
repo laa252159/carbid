@@ -229,9 +229,16 @@ public class LoginController extends AbstractController {
      *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
      */
     @RequestMapping(value = "/password_recovery", method = RequestMethod.POST)
-    public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model)
+    public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result)
             throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
     {
+        String pas1 = user.getPassword();
+        String pas2 = user.getMatchingPassword();
+        if (StringUtils.isEmpty(pas1) || StringUtils.isEmpty(pas2) || !pas1.equals(pas2)) {
+            result.addError(new ObjectError("matchingPassword","Пароль сохранить не удалось. Пароли не совпадают!" ));
+            return "password_recovery";
+        }
+
         User userNew = userService.getUserByUsername(user.getUsername());
         if (userNew != null){
             String passwordNew = user.getPassword();
