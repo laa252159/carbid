@@ -31,4 +31,6 @@ public interface MailService {
 
     void sendToUserMailConfirmationLink(User user);
 
+    void sendToUserChangePasswordLink(User user, String token);
+
 }
