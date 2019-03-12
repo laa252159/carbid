@@ -4971,6 +4971,12 @@ a.badge:focus {
   color: inherit;
   /*background-color: #4B81A3;*/
 }
+
+.easylook {
+  border-style: solid;
+  border-color: whitesmoke;
+}
+
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
