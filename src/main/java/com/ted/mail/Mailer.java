@@ -3,7 +3,6 @@ package com.ted.mail;
 import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
-import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
@@ -132,11 +131,49 @@ public class Mailer implements MailService {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(setFooter(msg));
+
         try {
-            mailSender.send(message);
+//            mailSender.send(message); В один поток
+            Sender sender = new Sender(message);
+            Thread thread = new Thread(sender);
+            thread.start();
         } catch (MailSendException ex) {
             System.out.println("mailsend error: " + "to: " + to);
-            notifyAdmins(SENDER, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
+//            notifyAdmins(SENDER, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg); В один поток
+            AdminNotifier adminNotifier = new AdminNotifier(SENDER, "ошибка при автоматической отправке письма для: " + to + " с текстом: ", msg);
+            Thread thread = new Thread(adminNotifier);
+            thread.start();
+        }
+    }
+
+
+    class Sender implements Runnable {
+
+        private SimpleMailMessage message;
+
+        public Sender(SimpleMailMessage message) {
+            this.message = message;
+        }
+
+        public void run() {
+            mailSender.send(message);
+        }
+    }
+
+    class AdminNotifier implements Runnable {
+
+        private String from;
+        private String subject;
+        private String string;
+
+        public AdminNotifier(String from, String subject, String string) {
+            this.from = from;
+            this.subject = subject;
+            this.string = string;
+        }
+
+        public void run() {
+            notifyAdmins(from, subject, string);
         }
     }
 
@@ -169,8 +206,11 @@ public class Mailer implements MailService {
         mailSender.send(message);
     }
 
+    /**
+     * Уведомление вызванное через submit формы (старый функциоал с perekup64)
+     */
     @Override
-    public void suggestAuction(SuggestAuctionDto suggestAuctionDto) {
+    public synchronized void suggestAuction(SuggestAuctionDto suggestAuctionDto) {
         StringBuilder sb = new StringBuilder();
         sb.append(" | Имя - ");
         sb.append(suggestAuctionDto.getName());
@@ -188,8 +228,11 @@ public class Mailer implements MailService {
         sendMimeMail(SENDER, suggestAuctionDto.getEmail(), "Предложение авто", "Ваша заявка принята. С Вами свяжется наш сотрудник.", suggestAuctionDto.getPhoto());
     }
 
+    /**
+     * Уведомление вызванное по таймеру
+     */
     @Override
-    public void suggestAuction(Suggestion suggestion) {
+    public synchronized void suggestAuction(Suggestion suggestion) {
         StringBuilder sb = new StringBuilder();
         sb.append(" | Имя - ");
         sb.append(suggestion.getName());

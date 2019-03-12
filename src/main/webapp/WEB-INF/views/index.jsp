@@ -107,7 +107,7 @@
                  <div class="container">
                      <%--<h1 class="page-header"><strong>${filter.category.name}</strong></h1>--%>
                      <div class="row">
-                         <div class="col-md-9 col-xs-12" >
+                         <div class="col-md-12 col-xs-12" >
 
                              <%@ include file="auction-list.jsp" %>
 
@@ -177,6 +177,53 @@
                 </div>
             </div>
         </sec:authorize>
+
+        <div class="col-md-12 col-xs-12" >
+
+            <div class="center-block">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-lg">
+                        <c:if test="${filter.pageNum > 1 }">
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=1" aria-label="First">
+                                    <span aria-hidden="true">&lt;&lt;</span>
+                                    <span class="sr-only">First</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=${filter.pageNum - 1}" aria-label="Previous">
+                                    <span aria-hidden="true">&lt;</span>
+                                    <span class="sr-only">Предыдущий</span>
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:forEach items="${filter.pages}" var="page">
+                            <c:if test="${page == filter.pageNum}">
+                                <li class="page-item active"><a class="page-link" href="/auctions?page=${page}">${page}</a></li>
+                            </c:if>
+                            <c:if test="${page != filter.pageNum}">
+                                <li class="page-item"><a class="page-link" href="/auctions?page=${page}">${page}</a></li>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${filter.pageNum < filter.numberofPages}">
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=${filter.pageNum + 1}" aria-label="Next">
+                                    <span aria-hidden="true">&gt;</span>
+                                    <span class="sr-only">Следующий</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=${filter.numberofPages}" aria-label="Last">
+                                    <span aria-hidden="true">&gt;&gt;</span>
+                                    <span class="sr-only">Last</span>
+                                </a>
+                            </li>
+                        </c:if>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
 
      </div>
 

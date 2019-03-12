@@ -34,6 +34,7 @@
         <intercept-url pattern="/upgrade" access="hasRole('ROLE_BIDDER')" requires-channel="http"/>
         <intercept-url pattern="/myauctions/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
         <intercept-url pattern="/new-auction" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/update-auction/*" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
         <intercept-url pattern="/suggest-auction" access="permitAll" requires-channel="http"/>
         <intercept-url pattern="/promo-page" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
         <intercept-url pattern="/suggestions-page" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>

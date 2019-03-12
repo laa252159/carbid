@@ -1,0 +1,32 @@
+.trafaret, .zakraska {
+    position: absolute; /* Относительное позиционирование */
+    height: 200px;
+}
+div.img_inner_container:hover img{
+    height: 400px;
+}
+
+.zakraska {
+    z-index: 2;
+}
+
+.trafaret {
+    z-index: 1;
+}
+
+.img_inner_container {
+
+    position: relative;
+    height: 200px;
+    width: 300px;
+    /*border: 1;*/
+    /*border-style: dotted;*/
+    /*border-color: black;*/
+}
+
+.img_outer_container {
+    /*border: 1;*/
+    /*border-style: solid;*/
+    /*border-color: red;*/
+}
+

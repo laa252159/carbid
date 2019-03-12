@@ -35,7 +35,7 @@ public class AuctionController extends AbstractController {
 
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
 			Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-	
+
 	@Autowired
 	private AuctionService auctionService;
 	
@@ -112,7 +112,7 @@ public class AuctionController extends AbstractController {
 		
 		Page<Auction> auctions = auctionService.pageAuctions(request);
 		List<Auction> auctionList = auctions.getContent();
-		auctionList = auctionService.putPrimaryImage(auctionList);
+		auctionList = auctionService.putImagesForGallery(auctionList);
 		model.addAttribute("auctions", auctionList);
 		
 		System.out.println(filter.getSortBy());
@@ -192,8 +192,15 @@ public class AuctionController extends AbstractController {
 //			return "Please provide a price.";
 		
 //		String msg = auctionService.bidSave(id, new Integer(bidAmount));
+
 		Auction auction = auctionService.getAuctionById(id);
-		int amount = new Integer(bidAmount) > 1 ? new Integer(bidAmount) : auction.getCurrently() + 1;
+
+		//hardcode + 1000 rubles
+		int amount = auction.getCurrently();
+		int bidValue = new Integer(bidAmount);
+		if (bidValue > 1 || !auction.getAuctionBiddings().isEmpty()) {
+			amount += 1;
+		}
 
 		String msg = auctionService.bidSave(id, amount);
 
@@ -213,30 +220,35 @@ public class AuctionController extends AbstractController {
 		
 		auction.setLocation(location);
 		formAuction.setAuction(auction);
-		formAuction.setCategoryName(null);
-		
+		formAuction.setCategoryName("cars");
+
+
 		model.addAttribute("formAuction", formAuction);
 		model.addAttribute("categories", categories);
 		
-		return "new-auction";
+		return "edit-auction";
 	}
 	
 	@RequestMapping(value = "new-auction",  method = RequestMethod.POST)
 	public String newAuctionPost(@Valid @ModelAttribute("formAuction") FormAuction formAuction, BindingResult result, Model model,
 			@RequestParam(value = "input1", required = false) MultipartFile[] images) {
 		
-		
-		formAuction.setFiles(images);
-		
-		String error = auctionService.saveFormAuction(formAuction);
-		
+		formAuction.setCategoryName("cars");
+
+		String error = auctionService.validateFormAuction(formAuction);
+
 		if(error != null) {
 			List<Category> categories = categoryService.getAllCategories();
 			model.addAttribute("categories", categories);
 			model.addAttribute("error", error);
-			return "new-auction";
+			return "edit-auction";
 		}
-		
+
+		formAuction.setFiles(images);
+		auctionService.saveAndUpdateFormAuction(formAuction);
+
+		model.addAttribute("formAuction",formAuction);
+
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
 		return "redirect:/auctions";
@@ -293,8 +305,10 @@ public class AuctionController extends AbstractController {
 			return "403";
 		
 		/* Check if there are bids */
-		if(!auction.getAuctionBiddings().isEmpty())
-			return "403";
+		if (!auction.getAuctionBiddings().isEmpty()) {
+			model.addAttribute("errorMsg", "Данный аукцион имеет ставки. Редактировать уже нельзя!");
+			return "errorPage";
+		}
 		
 		/* Check if bought */
 		if(auction.isBought())
@@ -309,15 +323,59 @@ public class AuctionController extends AbstractController {
 		auction.setLocation(location);
 		formAuction.setAuction(auction);
 		formAuction.setCategoryName(categories.get(auctionCategories.size()-1).getName());
-		
+		fillFormFromAuctionMoreInfo(formAuction, auction.getAuctionMoreInfo());
+
 		/* Initialize images */
 		List<ImageInfo> imageInfos = auctionPictureService.getAuctionImageInfo(auction);
 		model.addAttribute("imageInfos", imageInfos);
-		
+
+		formAuction = auctionService.allocateElements(formAuction, auction.getDamagedElements());
+        formAuction.setCategoryName("cars");
+
 		model.addAttribute("formAuction", formAuction);
 		model.addAttribute("categories", categories);
 		
-		return "update-auction";
+		return "edit-auction";
+	}
+
+	// на UI
+	private void fillFormFromAuctionMoreInfo(FormAuction formAuction, AuctionMoreInfo auctionMoreInfo){
+		if(auctionMoreInfo == null){
+			return;
+		}
+		formAuction.setPowerSteering(auctionMoreInfo.getPowerSteering());
+		formAuction.setConditioner(auctionMoreInfo.isConditioner());
+		formAuction.setClimateControl(auctionMoreInfo.isClimateControl());
+		formAuction.setControlOnWheel(auctionMoreInfo.isControlOnWheel());
+		formAuction.setLeatherWheel(auctionMoreInfo.isLeatherWheel());
+		formAuction.setSunRoof(auctionMoreInfo.isSunRoof());
+		formAuction.setHeatedSeatsFront(auctionMoreInfo.isHeatedSeatsFront());
+		formAuction.setHeatedSeatsBack(auctionMoreInfo.isHeatedSeatsBack());
+		formAuction.setHeatedMirrors(auctionMoreInfo.isHeatedMirrors());
+		formAuction.setHeatedWheel(auctionMoreInfo.isHeatedWheel());
+		formAuction.setHeatedWheel(auctionMoreInfo.isHeatedWheel());
+		formAuction.setPowerWindows(auctionMoreInfo.getPowerWindows());
+		formAuction.setPowerSeatsFront(auctionMoreInfo.isPowerSeatsFront());
+		formAuction.setPowerMirrors(auctionMoreInfo.isPowerMirrors());
+		formAuction.setLightSensor(auctionMoreInfo.isLightSensor());
+		formAuction.setFrontParkingSensors(auctionMoreInfo.isFrontParkingSensors());
+		formAuction.setRearParkingSensors(auctionMoreInfo.isRearParkingSensors());
+		formAuction.setCruiseControl(auctionMoreInfo.isCruiseControl());
+		formAuction.setOnBoardComputer(auctionMoreInfo.isOnBoardComputer());
+		formAuction.setAlarm(auctionMoreInfo.isAlarm());
+		formAuction.setAutostart(auctionMoreInfo.isAutostart());
+		formAuction.setAirbags(auctionMoreInfo.isAirbags());
+		formAuction.setAbs(auctionMoreInfo.isAbs());
+		formAuction.setAntiSlip(auctionMoreInfo.isAntiSlip());
+		formAuction.setDirectionalStability(auctionMoreInfo.isDirectionalStability());
+		formAuction.setGps(auctionMoreInfo.isGps());
+		formAuction.setCarStereo(auctionMoreInfo.getCarStereo());
+		formAuction.setCarStereo(auctionMoreInfo.getCarStereo());
+		formAuction.setSubwoofer(auctionMoreInfo.isSubwoofer());
+		formAuction.setHeadlights(auctionMoreInfo.getHeadlights());
+		formAuction.setWinterTires(auctionMoreInfo.isWinterTires());
+		formAuction.setVehicleLogBook(auctionMoreInfo.isVehicleLogBook());
+		formAuction.setWarrantyOn(auctionMoreInfo.isWarrantyOn());
 	}
 	
 	@RequestMapping(value = "update-auction/{id}",  method = RequestMethod.POST)
@@ -330,10 +388,8 @@ public class AuctionController extends AbstractController {
 		if(!perAuction.getAuctionBiddings().isEmpty())
 			return "403";
 		
-		formAuction.setFiles(images);
-		
-		String error = auctionService.updateFormAuction(formAuction);
-		
+		String error = auctionService.validateFormAuction(formAuction);
+
 		if(error != null) {
 			
 			/* Eager Fetch */
@@ -351,9 +407,12 @@ public class AuctionController extends AbstractController {
 			List<Category> categories = categoryService.getAllCategories();
 			model.addAttribute("categories", categories);
 			model.addAttribute("error", error);
-			return "update-auction";
+			return "edit-auction";
 		}
-		
+
+		formAuction.setFiles(images);
+		auctionService.saveAndUpdateFormAuction(formAuction);
+
 		System.out.println("Auction Saved! " + formAuction.getAuction().getName());
 		
 		return "redirect:/auctions";

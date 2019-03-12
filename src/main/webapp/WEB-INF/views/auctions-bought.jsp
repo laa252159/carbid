@@ -75,7 +75,7 @@
                              <%--</div>--%>
                          <%--</div>--%>
                          <%-- Right Column --%>
-                         <div class="col-md-9 col-xs-12" >
+                         <div class="col-md-12 col-xs-12" >
 
                              <%@ include file="auction-list-bought.jsp" %>
 

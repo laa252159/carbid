@@ -27,8 +27,10 @@ public interface AuctionService {
 	String bidSave(Integer auctionId, Integer bidAmount);
 	
 	void initializeMapper(Integer auctionId);
-	
-	String saveFormAuction(FormAuction formAuction);
+
+	String validateFormAuction(FormAuction formAuction);
+
+	FormAuction allocateElements(FormAuction form, String damagedElements);
 
 	void suggestFormAuction(SuggestAuctionDto suggestAuctionDto);
 
@@ -40,7 +42,7 @@ public interface AuctionService {
 
 	List<Auction> putImagesForGallery(List<Auction> auctions);
 
-	String updateFormAuction(FormAuction formAuction);
+	void saveAndUpdateFormAuction(FormAuction formAuction);
 	
 	List<Auction> getBuyerAuctions(User user);
 	
