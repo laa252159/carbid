@@ -1,10 +1,7 @@
 package com.ted.controller;
 
 import com.ted.model.User;
-import com.ted.service.CategoryService;
-import com.ted.service.LoginService;
-import com.ted.service.SecurityService;
-import com.ted.service.UserService;
+import com.ted.service.*;
 import com.ted.utils.TokenEncryptorDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +42,9 @@ public class LoginController extends AbstractController {
 
 	@Autowired
 	UserService userService;
+
+    @Autowired
+    private MailService mailer;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login (Model model) {
@@ -129,7 +129,7 @@ public class LoginController extends AbstractController {
 		if(user == null){
 			return "redirect:login";
 		}
-		String login = userService.getUserByEmail(email).getUsername();
+		String login = user.getUsername();
 		String token = TokenEncryptorDescriptor.encrypt(login);
 		boolean showApplyContractButtons = user.getEmailApproved() == (byte)0;
 		model.addAttribute(APPLY_CONTRACT_AND_LOG_IN, "agreement-token?t="+token);
@@ -154,7 +154,101 @@ public class LoginController extends AbstractController {
 		return "redirect:/";
 	}
 
+    /**
+     * Переход на страницу отправки ссылки на почту
+     */
+    @RequestMapping(value = "/mail_check", method = RequestMethod.GET)
+    public String approveEmailGet (Model model) {
 
+        User user = new User();
+        model.addAttribute("user", user);
+
+        return "mail_check";
+    }
+
+    /**
+     *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
+     */
+    @RequestMapping(value = "/mail_check", method = RequestMethod.POST)
+    public String approveEmailPost(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, Model model)
+            throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+    {
+        String mail = user.getEmail();
+        User userApprove = userService.getUserByEmail(mail);
+
+        String headline = "Восстановление пароля";
+        model.addAttribute("headline", headline);
+        String message;
+
+        if (userApprove != null){
+            String login = userApprove.getUsername();
+            String token = TokenEncryptorDescriptor.encrypt(login);
+
+            userApprove.setChangePassword((byte) 1);
+            loginService.saveUser(userApprove);
+
+            mailer.sendToUserChangePasswordLink(userApprove, token);
+
+            message = "На вашу почту отправлена информация для восстановления пароля.";
+            model.addAttribute("message", message);
+        }
+        else {
+            message = "Аадрес почты '" + user.getEmail() + "' не зарегистрирован в нашей системе";
+            model.addAttribute("message", message);
+        }
+
+        return "report";
+    }
+
+    /**
+     * Переход на страницу редактирования пароля
+     */
+    @RequestMapping(value = "/password_recovery", method = RequestMethod.GET)
+    public String changePasswordGet (Model model, @RequestParam(value="token", required=true) String token)
+            throws NoSuchPaddingException, IOException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+    {
+        try {
+            String login = TokenEncryptorDescriptor.decrypt(token);
+            User userOld = userService.getUserByUsername(login);
+
+            if (userOld.getChangePassword() == (byte)0){
+                return "redirect:/";
+            }
+
+            User user = new User();
+            user.setUsername(userOld.getUsername());
+            model.addAttribute("user", user);
+
+        } catch (IOException e) {
+            throw new IOException();
+        }
+        return "password_recovery";
+    }
+
+    /**
+     *  Проверка почты и отправка на неё ссылки для входа в систему и перехода на страницу смены пароля
+     */
+    @RequestMapping(value = "/password_recovery", method = RequestMethod.POST)
+    public String changePasswordPost(@Valid @ModelAttribute("user") User user, BindingResult result)
+            throws NoSuchPaddingException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException
+    {
+        String pas1 = user.getPassword();
+        String pas2 = user.getMatchingPassword();
+        if (StringUtils.isEmpty(pas1) || StringUtils.isEmpty(pas2) || !pas1.equals(pas2)) {
+            result.addError(new ObjectError("matchingPassword","Пароль сохранить не удалось. Пароли не совпадают!" ));
+            return "password_recovery";
+        }
+
+        User userNew = userService.getUserByUsername(user.getUsername());
+        if (userNew != null){
+            String passwordNew = user.getPassword();
+            userNew.setPassword(passwordNew);
+            loginService.changeUserPassword(userNew);
+            securityService.autologin(userNew.getUsername());
+        }
+
+        return "redirect:/";
+    }
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.GET)
 	public String getUpgrade(Model model) {
