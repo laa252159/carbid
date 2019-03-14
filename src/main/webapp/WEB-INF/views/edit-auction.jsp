@@ -857,7 +857,8 @@
                             <%--Отделка руля и рукоятки кпп кожей--%>
                         <div class="row easylook">
                             <div class="form-group">
-                                <label for="leatherWheel" class="input-label col-md-4">Отделка руля и рукоятки кпп кожей:</label>
+                                <label for="leatherWheel" class="input-label col-md-4">Отделка руля и рукоятки кпп
+                                    кожей:</label>
                                 <div class="col-lg-4">
                                     <div class="in-group">
                                         <form:checkbox path="leatherWheel" name="leatherWheel"
@@ -868,57 +869,58 @@
                                 </div>
                             </div>
                         </div>
-                                    <%--Отделка руля и рукоятки кпп кожей--%>
-                                    <%--Подогрев руля--%>
-                                <div class="row easylook">
-                                    <div class="form-group">
-                                        <label for="heatedWheel" class="input-label col-md-4">Подогрев руля:</label>
-                                        <div class="col-lg-4">
-                                            <div class="in-group">
-                                                <form:checkbox path="heatedWheel" name="heatedWheel"
-                                                               itemValue="value"/>
-                                            </div>
-                                            <div class="err">
-                                            </div>
-                                        </div>
+                            <%--Отделка руля и рукоятки кпп кожей--%>
+                            <%--Подогрев руля--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Подогрев руля:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="heatedWheel" name="heatedWheel"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
                                     </div>
                                 </div>
-                                    <%--Подогрев руля--%>
-                                    <%--обогрев сидений--%>
-                                <div class="row easylook">
-                                    <div class="form-group">
-                                        <label for="climateControl" class="input-label col-md-4">Обогрев сидений:</label>
-                                        <div class="col-lg-4">
-                                            <div class="in-group">
-                                                <form:select path="heatedSeats" name="heatedSeats"
-                                                             data-live-search="true" data-container="body"
-                                                             data-max-options="1" title="">
-                                                    <c:choose>
-                                                        <c:when test="${empty formAuction.heatedSeats}">
-                                                            <option value="" selected>-</option>
-                                                            <option value="передние">передние</option>
-                                                            <option value="передние и задние">передние и задние</option>
-                                                        </c:when>
-                                                        <c:when test="${formAuction.heatedSeats eq 'передние'}">
-                                                            <option value="">-</option>
-                                                            <option value="передние" selected>передние</option>
-                                                            <option value="передние и задние">передние и задние</option>
-                                                        </c:when>
-                                                        <c:when test="${formAuction.heatedSeats eq 'передние и задние'}">
-                                                            <option value="">-</option>
-                                                            <option value="передние">передние</option>
-                                                            <option value="передние и задние" selected>передние и задние</option>
-                                                        </c:when>
-                                                    </c:choose>
-                                                </form:select>
-                                                <form:errors path="auction.fssp" cssClass="error"/>
-                                            </div>
-                                            <div class="err">
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                            <%--Подогрев руля--%>
+                            <%--обогрев сидений--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl" class="input-label col-md-4">Обогрев сидений:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="heatedSeats" name="heatedSeats"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.heatedSeats}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.heatedSeats eq 'передние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние" selected>передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.heatedSeats eq 'передние и задние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние" selected>передние и задние
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
                                     </div>
                                 </div>
-                                    <%--обогрев сидений--%>
+                            </div>
+                        </div>
+                            <%--обогрев сидений--%>
 
 
                             <%--<div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">--%>
