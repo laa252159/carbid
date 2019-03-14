@@ -23,11 +23,8 @@ public class AuctionMoreInfo implements Serializable {
     @Column(name = "power_steering", nullable = true)
     private String powerSteering;
 
-    @Column(name = "conditioner")
-    boolean conditioner;
-
     @Column(name = "climate_control")
-    boolean climateControl;
+    private String climateControl;
 
     @Column(name = "control_on_wheel")
     boolean controlOnWheel;
@@ -35,14 +32,11 @@ public class AuctionMoreInfo implements Serializable {
     @Column(name = "leather_wheel")
     boolean leatherWheel;
 
-    @Column(name = "sun_roof")
-    boolean sunRoof;
+    @Column(name = "back_camera")
+    boolean backCamera;
 
-    @Column(name = "heated_seats_front")
-    boolean heatedSeatsFront;
-
-    @Column(name = "heated_seats_back")
-    boolean heatedSeatsBack;
+    @Column(name = "heated_seats")
+    String heatedSeats;
 
     @Column(name = "heated_mirrors")
     boolean heatedMirrors;
@@ -55,9 +49,6 @@ public class AuctionMoreInfo implements Serializable {
 
     @Column(name = "power_seats_front")
     boolean powerSeatsFront;
-
-    @Column(name = "power_mirrors")
-    boolean powerMirrors;
 
     @Column(name = "light_sensor")
     boolean lightSensor;
@@ -72,13 +63,13 @@ public class AuctionMoreInfo implements Serializable {
     boolean rearParkingSensors;
 
     @Column(name = "cruise_control")
-    boolean cruiseControl;
+    String cruiseControl;
 
     @Column(name = "alarm")
-    boolean alarm;
+    String alarm;
 
-    @Column(name = "autostart")
-    boolean autostart;
+    @Column(name = "audioSystem")
+    String audioSystem;
 
     @Column(name = "airbags")
     boolean airbags;
@@ -92,14 +83,8 @@ public class AuctionMoreInfo implements Serializable {
     @Column(name = "directional_stability")
     boolean directionalStability;
 
-    @Column(name = "gps")
-    boolean gps;
-
     @Column(name = "car_stereo")
     String carStereo;
-
-    @Column(name = "subwoofer")
-    boolean subwoofer;
 
     @Column(name = "headlights")
     String headlights;
@@ -147,19 +132,11 @@ public class AuctionMoreInfo implements Serializable {
         this.powerSteering = powerSteering;
     }
 
-    public boolean isConditioner() {
-        return conditioner;
-    }
-
-    public void setConditioner(boolean conditioner) {
-        this.conditioner = conditioner;
-    }
-
-    public boolean isClimateControl() {
+    public String getClimateControl() {
         return climateControl;
     }
 
-    public void setClimateControl(boolean climateControl) {
+    public void setClimateControl(String climateControl) {
         this.climateControl = climateControl;
     }
 
@@ -179,28 +156,20 @@ public class AuctionMoreInfo implements Serializable {
         this.leatherWheel = leatherWheel;
     }
 
-    public boolean isSunRoof() {
-        return sunRoof;
+    public boolean isBackCamera() {
+        return backCamera;
     }
 
-    public void setSunRoof(boolean sunRoof) {
-        this.sunRoof = sunRoof;
+    public void setBackCamera(boolean backCamera) {
+        this.backCamera = backCamera;
     }
 
-    public boolean isHeatedSeatsFront() {
-        return heatedSeatsFront;
+    public String getHeatedSeats() {
+        return heatedSeats;
     }
 
-    public void setHeatedSeatsFront(boolean heatedSeatsFront) {
-        this.heatedSeatsFront = heatedSeatsFront;
-    }
-
-    public boolean isHeatedSeatsBack() {
-        return heatedSeatsBack;
-    }
-
-    public void setHeatedSeatsBack(boolean heatedSeatsBack) {
-        this.heatedSeatsBack = heatedSeatsBack;
+    public void setHeatedSeats(String heatedSeats) {
+        this.heatedSeats = heatedSeats;
     }
 
     public boolean isHeatedMirrors() {
@@ -235,14 +204,6 @@ public class AuctionMoreInfo implements Serializable {
         this.powerSeatsFront = powerSeatsFront;
     }
 
-    public boolean isPowerMirrors() {
-        return powerMirrors;
-    }
-
-    public void setPowerMirrors(boolean powerMirrors) {
-        this.powerMirrors = powerMirrors;
-    }
-
     public boolean isLightSensor() {
         return lightSensor;
     }
@@ -275,28 +236,28 @@ public class AuctionMoreInfo implements Serializable {
         this.rearParkingSensors = rearParkingSensors;
     }
 
-    public boolean isCruiseControl() {
+    public String getCruiseControl() {
         return cruiseControl;
     }
 
-    public void setCruiseControl(boolean cruiseControl) {
+    public void setCruiseControl(String cruiseControl) {
         this.cruiseControl = cruiseControl;
     }
 
-    public boolean isAlarm() {
+    public String getAlarm() {
         return alarm;
     }
 
-    public void setAlarm(boolean alarm) {
+    public void setAlarm(String alarm) {
         this.alarm = alarm;
     }
 
-    public boolean isAutostart() {
-        return autostart;
+    public String getAudioSystem() {
+        return audioSystem;
     }
 
-    public void setAutostart(boolean autostart) {
-        this.autostart = autostart;
+    public void setAudioSystem(String audioSystem) {
+        this.audioSystem = audioSystem;
     }
 
     public boolean isAirbags() {
@@ -331,28 +292,12 @@ public class AuctionMoreInfo implements Serializable {
         this.directionalStability = directionalStability;
     }
 
-    public boolean isGps() {
-        return gps;
-    }
-
-    public void setGps(boolean gps) {
-        this.gps = gps;
-    }
-
     public String getCarStereo() {
         return carStereo;
     }
 
     public void setCarStereo(String carStereo) {
         this.carStereo = carStereo;
-    }
-
-    public boolean isSubwoofer() {
-        return subwoofer;
-    }
-
-    public void setSubwoofer(boolean subwoofer) {
-        this.subwoofer = subwoofer;
     }
 
     public String getHeadlights() {
