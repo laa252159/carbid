@@ -868,200 +868,59 @@
                                 </div>
                             </div>
                         </div>
-                            <%--Отделка руля и рукоятки кпп кожей--%>
-                            <%--&lt;%&ndash;люк&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="sunRoof" class="input-label col-md-4">Люк:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="sunRoof" name="sunRoof" itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;люк&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;обогрев передних сидений&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="heatedSeatsFront" class="input-label col-md-4">Обогрев передних--%>
-                            <%--сидений:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="heatedSeatsFront" name="heatedSeatsFront"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;обогрев передних сидений&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;обогрев задних сидений&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="heatedSeatsBack" class="input-label col-md-4">Обогрев задних--%>
-                            <%--сидений:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="heatedSeatsBack" name="heatedSeatsBack"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;обогрев задних сидений&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;обогрев зеркал&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="heatedMirrors" class="input-label col-md-4">Обогрев зеркал:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="heatedMirrors" name="heatedMirrors"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;обогрев зеркал&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;обогрев руля&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="heatedWheel" class="input-label col-md-4">Обогрев руля:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="heatedWheel" name="heatedWheel" itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;обогрев руля&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<div class="row content-row">&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;обогрев руля&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="heatedWheel" class="input-label col-md-4">Обогрев руля:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="heatedWheel" name="heatedWheel" itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;обогрев руля&ndash;%&gt;--%>
-
-                            <%--&lt;%&ndash;электростеклоподъемники&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="powerWindows" class="input-label col-md-4">Электрические--%>
-                            <%--cтеклоподъемники:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:select path="powerWindows" name="powerWindows"--%>
-                            <%--data-live-search="true" data-container="body"--%>
-                            <%--data-max-options="1" title="">--%>
-                            <%--<c:choose>--%>
-                            <%--<c:when test="${empty formAuction.powerWindows}">--%>
-                            <%--<option value="" selected>-</option>--%>
-                            <%--<option value="передние">передние</option>--%>
-                            <%--<option value="все">все</option>--%>
-                            <%--</c:when>--%>
-                            <%--<c:when test="${formAuction.powerWindows eq 'передние'}">--%>
-                            <%--<option value="">-</option>--%>
-                            <%--<option value="передние" selected>передние</option>--%>
-                            <%--<option value="все">все</option>--%>
-                            <%--</c:when>--%>
-                            <%--<c:when test="${formAuction.powerWindows eq 'все'}">--%>
-                            <%--<option value="">-</option>--%>
-                            <%--<option value="передние">передние</option>--%>
-                            <%--<option value="все" selected>все</option>--%>
-                            <%--</c:when>--%>
-                            <%--</c:choose>--%>
-                            <%--</form:select>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;электростеклоподъемники&ndash;%&gt;--%>
-
-                            <%--&lt;%&ndash;электропривод передних сидений&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="powerSeatsFront" class="input-label col-md-4">Электропривод--%>
-                            <%--передних:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="powerSeatsFront" name="powerSeatsFront"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;электропривод передних сидений&ndash;%&gt;--%>
+                                    <%--Отделка руля и рукоятки кпп кожей--%>
+                                    <%--Подогрев руля--%>
+                                <div class="row easylook">
+                                    <div class="form-group">
+                                        <label for="heatedWheel" class="input-label col-md-4">Подогрев руля:</label>
+                                        <div class="col-lg-4">
+                                            <div class="in-group">
+                                                <form:checkbox path="heatedWheel" name="heatedWheel"
+                                                               itemValue="value"/>
+                                            </div>
+                                            <div class="err">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <%--Подогрев руля--%>
+                                    <%--обогрев сидений--%>
+                                <div class="row easylook">
+                                    <div class="form-group">
+                                        <label for="climateControl" class="input-label col-md-4">Обогрев сидений:</label>
+                                        <div class="col-lg-4">
+                                            <div class="in-group">
+                                                <form:select path="heatedSeats" name="heatedSeats"
+                                                             data-live-search="true" data-container="body"
+                                                             data-max-options="1" title="">
+                                                    <c:choose>
+                                                        <c:when test="${empty formAuction.heatedSeats}">
+                                                            <option value="" selected>-</option>
+                                                            <option value="передние">передние</option>
+                                                            <option value="передние и задние">передние и задние</option>
+                                                        </c:when>
+                                                        <c:when test="${formAuction.heatedSeats eq 'передние'}">
+                                                            <option value="">-</option>
+                                                            <option value="передние" selected>передние</option>
+                                                            <option value="передние и задние">передние и задние</option>
+                                                        </c:when>
+                                                        <c:when test="${formAuction.heatedSeats eq 'передние и задние'}">
+                                                            <option value="">-</option>
+                                                            <option value="передние">передние</option>
+                                                            <option value="передние и задние" selected>передние и задние</option>
+                                                        </c:when>
+                                                    </c:choose>
+                                                </form:select>
+                                                <form:errors path="auction.fssp" cssClass="error"/>
+                                            </div>
+                                            <div class="err">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <%--обогрев сидений--%>
 
 
-                            <%--&lt;%&ndash;электропривод зеркал&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="powerMirrors" class="input-label col-md-4">Электропривод зеркал:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="powerMirrors" name="powerMirrors"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;электропривод зеркал&ndash;%&gt;--%>
-
-                            <%--&lt;%&ndash;Датчик света&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="lightSensor" class="input-label col-md-4">Датчик света:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="lightSensor" name="lightSensor"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;Датчик света&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;Датчик дождя&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="rainSensor" class="input-label col-md-4">Датчик дождя:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="rainSensor" name="rainSensor" itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;Датчик дождя&ndash;%&gt;--%>
-
-                            <%--</div>--%>
                             <%--<div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">--%>
                             <%--&lt;%&ndash;парктроник передний&ndash;%&gt;--%>
                             <%--<div class="row easylook">--%>
