@@ -1,14 +1,15 @@
 package com.ted.service;
 
-import java.util.Map;
-
+import com.ted.model.User;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ted.model.User;
+import java.util.Map;
 
 public interface LoginService {
 
 	User approveEmail(String email);
+
+    void saveUser(User user);
 
 	User saveUser(User user, MultipartFile picture);
 
@@ -17,5 +18,7 @@ public interface LoginService {
 	String checkEmailUsername(User user);
 	
 	String upgradeUser(Map<String, String> params);
+
+    void changeUserPassword(User user);
 
 }

@@ -521,6 +521,7 @@ public class AuctionServiceImpl implements AuctionService {
 		auctionMoreInfo.setPowerWindows(formAuction.getPowerWindows());
 		auctionMoreInfo.setPowerSeatsFront(formAuction.isPowerSeatsFront());
 		auctionMoreInfo.setLightSensor(formAuction.isLightSensor());
+		auctionMoreInfo.setRainSensor(formAuction.isRainSensor());
 		auctionMoreInfo.setFrontParkingSensors(formAuction.isFrontParkingSensors());
 		auctionMoreInfo.setRearParkingSensors(formAuction.isRearParkingSensors());
 		auctionMoreInfo.setCruiseControl(formAuction.getCruiseControl());

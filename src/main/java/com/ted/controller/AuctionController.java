@@ -355,6 +355,7 @@ public class AuctionController extends AbstractController {
 		formAuction.setPowerWindows(auctionMoreInfo.getPowerWindows());
 		formAuction.setPowerSeatsFront(auctionMoreInfo.isPowerSeatsFront());
 		formAuction.setLightSensor(auctionMoreInfo.isLightSensor());
+		formAuction.setRainSensor(auctionMoreInfo.isRainSensor());
 		formAuction.setFrontParkingSensors(auctionMoreInfo.isFrontParkingSensors());
 		formAuction.setRearParkingSensors(auctionMoreInfo.isRearParkingSensors());
 		formAuction.setCruiseControl(auctionMoreInfo.getCruiseControl());
