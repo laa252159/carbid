@@ -72,7 +72,7 @@
                     </c:if>
                     <img alt="Примерчик как на перекупе будут выглядеть видосы"
                          data-type="youtube"
-                         data-videoid="UUvrY4-dPFk"
+                         data-videoid="hrxbnlxn6FU"
                          data-description="Офигительный видос про секвою с ютуба для примерчика">
                 </div>
             </div>
