@@ -838,22 +838,22 @@
                             </div>
                         </div>
                             <%--Управление климатом--%>
-                            <%--&lt;%&ndash;климат-контроль&ndash;%&gt;--%>
-                        <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                                <%--<label for="climateControl"--%>
-                                       <%--class="input-label col-md-4">Климат-контроль:</label>--%>
-                                <%--<div class="col-lg-4">--%>
-                                    <%--<div class="in-group">--%>
-                                        <%--<form:checkbox path="climateControl" name="climateControl"--%>
-                                                       <%--itemValue="value"/>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="err">--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                            <%--&lt;%&ndash;климат-контроль&ndash;%&gt;--%>
+                            <%--мультируль--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl"
+                                       class="input-label col-md-4">Мультируль:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="controlOnWheel" name="controlOnWheel"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--мультируль--%>
                             <%--&lt;%&ndash;управление на руле&ndash;%&gt;--%>
                         <%--<div class="row easylook">--%>
                             <%--<div class="form-group">--%>
