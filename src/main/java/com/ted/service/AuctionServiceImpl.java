@@ -538,6 +538,7 @@ public class AuctionServiceImpl implements AuctionService {
 		auctionMoreInfo.setWinterTires(formAuction.isWinterTires());
 		auctionMoreInfo.setVehicleLogBook(formAuction.isVehicleLogBook());
 		auctionMoreInfo.setWarrantyOn(formAuction.isWarrantyOn());
+		auctionMoreInfo.setWheels(formAuction.getWheels());
 	}
 
 

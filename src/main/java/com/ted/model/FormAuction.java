@@ -88,7 +88,7 @@ public class FormAuction {
 
 	String headlights;
 
-	boolean wheels;
+	String wheels;
 
 	boolean winterTires;
 
@@ -434,11 +434,11 @@ public class FormAuction {
 		this.headlights = headlights;
 	}
 
-	public boolean isWheels() {
+	public String getWheels() {
 		return wheels;
 	}
 
-	public void setWheels(boolean wheels) {
+	public void setWheels(String wheels) {
 		this.wheels = wheels;
 	}
 

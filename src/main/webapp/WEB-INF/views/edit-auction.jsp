@@ -1235,6 +1235,252 @@
                             </div>
                         </div>
                             <%--Магнитола--%>
+                            <%--Аудиоколонки--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="audioSystem" class="input-label col-md-4">Аудиоколонки:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="audioSystem" name="audioSystem"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.audioSystem}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="6">6</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.audioSystem eq '2'}">
+                                                    <option value="">-</option>
+                                                    <option value="2" selected>2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="6">6</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.audioSystem eq '4'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4" selected>4</option>
+                                                    <option value="6">6</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.audioSystem eq '6'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="6" selected>6</option>
+                                                </c:when>
+
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Аудиоколонки--%>
+                            <%--Камера заднего вида--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="backCamera" class="input-label col-md-4">Камера заднего вида:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="backCamera" name="backCamera"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Камера заднего вида--%>
+                            <%--Головная оптика--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="headlights" class="input-label col-md-4">Головная оптика:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="headlights" name="headlights"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.headlights}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="галоген">галоген</option>
+                                                    <option value="ксенон">ксенон</option>
+                                                    <option value="диодные">диодные</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.headlights eq 'галоген'}">
+                                                    <option value="">-</option>
+                                                    <option value="галоген" selected>галоген</option>
+                                                    <option value="ксенон">ксенон</option>
+                                                    <option value="диодные">диодные</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.headlights eq 'ксенон'}">
+                                                    <option value="">-</option>
+                                                    <option value="галоген">галоген</option>
+                                                    <option value="ксенон" selected>ксенон</option>
+                                                    <option value="диодные">диодные</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.headlights eq 'диодные'}">
+                                                    <option value="">-</option>
+                                                    <option value="галоген">галоген</option>
+                                                    <option value="ксенон">ксенон</option>
+                                                    <option value="диодные" selected>диодные</option>
+                                                </c:when>
+
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Головная оптика--%>
+                            <%--Размер колес--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="wheels" class="input-label col-md-4">Размер колес:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="wheels" name="wheels"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.wheels}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R12'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12" selected>R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R13'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13" selected>R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R14'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14" selected>R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R15'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15" selected>R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R16'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16" selected>R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R17'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17" selected>R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R18'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18" selected>R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R19'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19" selected>R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R20'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20" selected>R20</option>
+                                                </c:when>
+
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Размер колес--%>
 
 
                             <%--<div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">--%>

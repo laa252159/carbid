@@ -372,6 +372,7 @@ public class AuctionController extends AbstractController {
 		formAuction.setWinterTires(auctionMoreInfo.isWinterTires());
 		formAuction.setVehicleLogBook(auctionMoreInfo.isVehicleLogBook());
 		formAuction.setWarrantyOn(auctionMoreInfo.isWarrantyOn());
+		formAuction.setWheels(auctionMoreInfo.getWheels());
 	}
 	
 	@RequestMapping(value = "update-auction/{id}",  method = RequestMethod.POST)

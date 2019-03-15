@@ -90,7 +90,7 @@ public class AuctionMoreInfo implements Serializable {
     String headlights;
 
     @Column(name = "wheels")
-    boolean wheels;
+    String wheels;
 
     @Column(name = "winter_tires")
     boolean winterTires;
@@ -308,11 +308,11 @@ public class AuctionMoreInfo implements Serializable {
         this.headlights = headlights;
     }
 
-    public boolean isWheels() {
+    public String getWheels() {
         return wheels;
     }
 
-    public void setWheels(boolean wheels) {
+    public void setWheels(String wheels) {
         this.wheels = wheels;
     }
 
