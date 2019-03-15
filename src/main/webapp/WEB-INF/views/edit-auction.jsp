@@ -921,6 +921,169 @@
                             </div>
                         </div>
                             <%--обогрев сидений--%>
+                            <%--Электро обогрев и электро настройка зеркал--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Электро обогрев и электро
+                                    настройка зеркал:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="heatedMirrors" name="heatedMirrors"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Электро обогрев и электро настройка зеркал--%>
+                            <%--Электростеклоподъемники--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl" class="input-label col-md-4">Эл/стеклоподъемники:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="powerWindows" name="powerWindows"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.powerWindows}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.powerWindows eq 'передние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние" selected>передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.powerWindows eq 'передние и задние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние" selected>передние и задние
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Электростеклоподъемники--%>
+                            <%--электропривод передних сидений--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Электропривод передних
+                                    сидений:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="powerSeatsFront" name="powerSeatsFront"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--электропривод передних сидений--%>
+                            <%--Датчик света--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Датчик света:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="lightSensor" name="lightSensor"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчик света--%>
+                            <%--Датчик дождя--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Датчик дождя:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="rainSensor" name="rainSensor"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчик дождя--%>
+                            <%--Датчики парковки передний--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Датчики парковки передний:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="frontParkingSensors" name="frontParkingSensors"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчики парковки передний--%>
+                            <%--Датчики парковки задний--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Датчики парковки задний:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="rearParkingSensors" name="rearParkingSensors"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчики парковки задний--%>
+                            <%--Круиз-контроль--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl" class="input-label col-md-4">Круиз-контроль:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="cruiseControl" name="cruiseControl"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.cruiseControl}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="есть">есть</option>
+                                                    <option value="адаптивный">адаптивный</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.cruiseControl eq 'есть'}">
+                                                    <option value="">-</option>
+                                                    <option value="есть" selected>есть</option>
+                                                    <option value="адаптивный">адаптивный</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.cruiseControl eq 'адаптивный'}">
+                                                    <option value="">-</option>
+                                                    <option value="есть">есть</option>
+                                                    <option value="адаптивный" selected>адаптивный</option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Круиз-контроль--%>
 
 
                             <%--<div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">--%>
