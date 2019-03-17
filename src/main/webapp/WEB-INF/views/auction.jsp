@@ -245,8 +245,8 @@
         <div class="col-sm-12">
             <button class="accordion">ПОДРОБНЕЕ</button>
             <div class="panel_accordion">
-                <div class="col-sm-4">
-                    <table>
+                <div class="col-sm-6">
+                    <table style="width: 100%;">
                         <c:if test="${not empty auction.brand}">
                             <tr class="border_bottom">
                                 <td>Марка: ${auction.brand}</td>
@@ -340,22 +340,18 @@
                         </c:if>
                     </table>
                 </div>
-                <div class="col-sm-8">
-                    <div>
-                        <div class="img_outer_container">
-                            <div class="img_inner_container">
-                                <img class="trafaret"
-                                     src="<c:url value="/resources/images/cars_elements/background.png"/>"/>
-                                <c:forEach var="code" items="${auction.listOfDamagedElements}" varStatus="loop">
-                                    <img class="zakraska"
-                                         src="<c:url value="/resources/images/cars_elements/${code}.png"/>"/>
-                                </c:forEach>
-                            </div>
-                        </div>
+                <div>
+                    <div class="img_inner_container">
+                        <img class="trafaret col-md-5 col-sm-6  col-sx-12"
+                             src="<c:url value="/resources/images/cars_elements/background.png"/>"/>
+                        <c:forEach var="code" items="${auction.listOfDamagedElements}" varStatus="loop">
+                            <img class="zakraska col-md-5 col-sm-6 col-sx-12"
+                                 src="<c:url value="/resources/images/cars_elements/${code}.png"/>"/>
+                        </c:forEach>
                     </div>
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 </div>
             </div>
-            <%--</div>--%>
 
             <button class="accordion">ОПЦИИ</button>
             <div class="panel_accordion">
