@@ -3120,8 +3120,10 @@ fieldset[disabled] .btn-default.focus {
 }
 
 .border_bottom  {
-  border-bottom:0.5pt dotted grey;
+  /*border-bottom:0.5pt dotted grey;*/
 }
+
+tr.border_bottom:nth-child(even) {background-color: #f2f2f2;}
 
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
