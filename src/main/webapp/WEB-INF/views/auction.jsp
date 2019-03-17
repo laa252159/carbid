@@ -357,7 +357,7 @@
             </div>
             <%--</div>--%>
 
-            <button class="accordion">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</button>
+            <button class="accordion">ОПЦИИ</button>
             <div class="panel_accordion">
                 <div class="col-sm-6">
                     <table style="width: 100%;">
