@@ -249,110 +249,93 @@
                     <table>
                         <c:if test="${not empty auction.brand}">
                             <tr class="border_bottom">
-                                <td>Марка</td>
-                                    ${auction.brand}
+                                <td>Марка: ${auction.brand}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.model}">
                             <tr class="border_bottom">
-                                <td>Модель</td>
-                                    ${auction.model}
+                                <td>Модель: ${auction.model}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.released}">
                             <tr class="border_bottom">
-                                <td>Год выпуска</td>
-                                    ${auction.released}
+                                <td>Год выпуска: ${auction.released}</td>
+
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.run}">
                             <tr class="border_bottom">
-                                <td>Пробег</td>
-                                    ${auction.run}
+                                <td>Пробег: ${auction.run}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.engineType}">
                             <tr class="border_bottom">
-                                <td>Двигатель</td>
-                                    ${auction.engineType}
+                                <td>Двигатель: ${auction.engineType}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.engineState}">
                             <tr class="border_bottom">
-                                <td>Состояние двигателя</td>
-                                    ${auction.engineState}
+                                <td>Состояние двигателя: ${auction.engineState}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.transmission}">
                             <tr class="border_bottom">
-                                <td>Коробка</td>
-                                    ${auction.transmission}
+                                <td>Коробка: ${auction.transmission}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.body}">
                             <tr class="border_bottom">
-                                <td>Кузов</td>
-                                    ${auction.body}
+                                <td>Кузов: ${auction.body}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.bodyState}">
                             <tr class="border_bottom">
-                                <td>Состояние кузова</td>
-                                    ${auction.bodyState}
+                                <td>Состояние кузова: ${auction.bodyState}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.drive}">
                             <tr class="border_bottom">
-                                <td>Привод</td>
-                                    ${auction.drive}
+                                <td>Привод: ${auction.drive}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.power}">
                             <tr class="border_bottom">
-                                <td>Мощность</td>
-                                    ${auction.power}
+                                <td>Мощность: ${auction.power}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.color}">
                             <tr class="border_bottom">
-                                <td>Цвет</td>
-                                    ${auction.color}
+                                <td>Цвет: ${auction.color}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.doors}">
                             <tr class="border_bottom">
-                                <td>Дверей</td>
-                                    ${auction.doors}
+                                <td>Дверей: ${auction.doors}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.owners}">
                             <tr class="border_bottom">
-                                <td>Владельцев по птс</td>
-                                    ${auction.owners}
+                                <td>Владельцев по птс: ${auction.owners}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.vin}">
                             <tr class="border_bottom">
-                                <td>VIN</td>
-                                    ${auction.vin}
+                                <td>VIN: ${auction.vin}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.gibdd}">
                             <tr class="border_bottom">
-                                <td>База ГИБДД РФ</td>
-                                    ${auction.gibdd}
+                                <td>База ГИБДД РФ: ${auction.gibdd}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.fssp}">
                             <tr class="border_bottom">
-                                <td>База судебных приставов</td>
-                                    ${auction.fssp}
+                                <td>База судебных приставов: ${auction.fssp}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.driveState}">
                             <tr class="border_bottom">
-                                <td>Cостояние ходовой</td>
-                                    ${auction.driveState}
+                                <td>Cостояние ходовой: ${auction.driveState}</td>
                             </tr>
                         </c:if>
                     </table>
