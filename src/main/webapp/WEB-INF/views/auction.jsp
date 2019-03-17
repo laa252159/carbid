@@ -348,8 +348,10 @@
                             <img class="zakraska col-md-5 col-sm-6 col-sx-12"
                                  src="<c:url value="/resources/images/cars_elements/${code}.png"/>"/>
                         </c:forEach>
+                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     </div>
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
                 </div>
             </div>
 
