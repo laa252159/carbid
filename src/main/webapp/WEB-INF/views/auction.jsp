@@ -246,60 +246,116 @@
             <button class="accordion">ПОДРОБНЕЕ</button>
             <div class="panel_accordion">
                 <div class="col-sm-4">
-                    <p>
-                        Марка: ${auction.brand}
-                    </p>
-                    <p>
-                        Модель: ${auction.model}
-                    </p>
-                    <p>
-                        Год выпуска: ${auction.released}
-                    </p>
-                    <p>
-                        Пробег: ${auction.run}
-                    </p>
-                    <p>
-                        Двигатель: ${auction.engineType}
-                    </p>
-                    <p>
-                        Состояние двигателя: ${auction.engineState}
-                    </p>
-                    <p>
-                        Коробка: ${auction.transmission}
-                    </p>
-                    <p>
-                        Кузов: ${auction.body}
-                    </p>
-                    <p>
-                        Состояние кузова: ${auction.bodyState}
-                    </p>
-                    <p>
-                        Привод: ${auction.drive}
-                    </p>
-                    <p>
-                        Мощность: ${auction.power}
-                    </p>
-                    <p>
-                        Цвет: ${auction.color}
-                    </p>
-                    <p>
-                        Дверей: ${auction.doors}
-                    </p>
-                    <p>
-                        Владельцев по птс: ${auction.owners}
-                    </p>
-                    <p>
-                        VIN: ${auction.vin}
-                    </p>
-                    <p>
-                        База ГИБДД РФ: ${auction.gibdd}
-                    </p>
-                    <p>
-                        База судебных приставов: ${auction.fssp}
-                    </p>
-                    <p>
-                        Cостояние ходовой: ${auction.driveState}
-                    </p>
+                    <table>
+                        <c:if test="${not empty auction.brand}">
+                            <tr class="border_bottom">
+                                <td>Марка:</td>
+                                <td>${auction.brand}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.model}">
+                            <tr class="border_bottom">
+                                <td>Модель:</td>
+                                <td>${auction.model}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.released}">
+                            <tr class="border_bottom">
+                                <td>Год выпуска:</td>
+                                <td>${auction.released}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.run}">
+                            <tr class="border_bottom">
+                                <td>Пробег:</td>
+                                <td>${auction.run}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.engineType}">
+                            <tr class="border_bottom">
+                                <td>Двигатель:</td>
+                                <td>${auction.engineType}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.engineState}">
+                            <tr class="border_bottom">
+                                <td>Состояние двигателя:</td>
+                                <td>${auction.engineState}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.transmission}">
+                            <tr class="border_bottom">
+                                <td>Коробка:</td>
+                                <td>${auction.transmission}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.body}">
+                            <tr class="border_bottom">
+                                <td>Кузов:</td>
+                                <td>${auction.body}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.bodyState}">
+                            <tr class="border_bottom">
+                                <td>Состояние кузова:</td>
+                                <td>${auction.bodyState}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.drive}">
+                            <tr class="border_bottom">
+                                <td>Привод:</td>
+                                <td>${auction.drive}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.power}">
+                            <tr class="border_bottom">
+                                <td>Мощность:</td>
+                                <td>${auction.power}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.color}">
+                            <tr class="border_bottom">
+                                <td>Цвет:</td>
+                                <td>${auction.color}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.doors}">
+                            <tr class="border_bottom">
+                                <td>Дверей:</td>
+                                <td>${auction.doors}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.owners}">
+                            <tr class="border_bottom">
+                                <td>Владельцев по птс:</td>
+                                <td>${auction.owners}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.vin}">
+                            <tr class="border_bottom">
+                                <td>VIN:</td>
+                                <td>${auction.vin}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.gibdd}">
+                            <tr class="border_bottom">
+                                <td>База ГИБДД РФ:</td>
+                                <td>${auction.gibdd}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.fssp}">
+                            <tr class="border_bottom">
+                                <td>База судебных приставов:</td>
+                                <td>${auction.fssp}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.driveState}">
+                            <tr class="border_bottom">
+                                <td>Cостояние ходовой:</td>
+                                <td>${auction.driveState}</td>
+                            </tr>
+                        </c:if>
+                    </table>
                 </div>
                 <div class="col-sm-8">
                     <div>
