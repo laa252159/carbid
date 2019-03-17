@@ -1086,6 +1086,8 @@
                             </div>
                         </div>
                             <%--Круиз-контроль--%>
+                    </div>
+                    <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                             <%--Бортовой компьютер--%>
                         <div class="row easylook">
                             <div class="form-group">
@@ -1481,25 +1483,51 @@
                             </div>
                         </div>
                             <%--Размер колес--%>
-
-
-                            <%--<div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">--%>
-                            <%--&lt;%&ndash;парктроник передний&ndash;%&gt;--%>
-                            <%--<div class="row easylook">--%>
-                            <%--<div class="form-group">--%>
-                            <%--<label for="frontParkingSensors" class="input-label col-md-4">Парктроник--%>
-                            <%--передний:</label>--%>
-                            <%--<div class="col-lg-4">--%>
-                            <%--<div class="in-group">--%>
-                            <%--<form:checkbox path="frontParkingSensors" name="frontParkingSensors"--%>
-                            <%--itemValue="value"/>--%>
-                            <%--</div>--%>
-                            <%--<div class="err">--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;парктроник передний&ndash;%&gt;--%>
+                            <%--Зимние шины--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="winterTires" class="input-label col-md-4">Зимние шины:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="winterTires" name="winterTires"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Зимние шины--%>
+                            <%--Сервисная книжка--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="vehicleLogBook" class="input-label col-md-4">Сервисная книжка:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="vehicleLogBook" name="vehicleLogBook"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Сервисная книжка--%>
+                            <%--Заводская гарантия--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="warrantyOn" class="input-label col-md-4">Заводская гарантия:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="warrantyOn" name="warrantyOn"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Заводская гарантия--%>
 
                     </div>
                 </div>
