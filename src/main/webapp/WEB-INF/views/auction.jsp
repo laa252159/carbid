@@ -371,20 +371,17 @@
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.controlOnWheel}">
                             <tr class="border_bottom">
-                                <td>Мультируль</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Мультируль: ${auction.auctionMoreInfo.controlOnWheel}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.leatherWheel}">
                             <tr class="border_bottom">
-                                <td>Отделка руля и рукоятки кпп кожей</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Отделка руля и рукоятки кпп кожей: ${auction.auctionMoreInfo.leatherWheel}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.heatedWheel}">
                             <tr class="border_bottom">
-                                <td>Подогрев руля</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Подогрев руля: ${auction.auctionMoreInfo.heatedWheel}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.heatedSeats}">
@@ -394,8 +391,7 @@
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.heatedMirrors}">
                             <tr class="border_bottom">
-                                <td>Электро обогрев и электро настройка зеркал</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Электро обогрев и электро настройка зеркал: ${auction.auctionMoreInfo.heatedMirrors}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.powerWindows}">
@@ -406,26 +402,22 @@
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.powerSeatsFront}">
                             <tr class="border_bottom">
-                                <td>Электропривод передних сидений</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Электропривод передних сидений: ${auction.auctionMoreInfo.powerSeatsFront}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.rainSensor}">
                             <tr class="border_bottom">
-                                <td>Датчик дождя</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Датчик дождя: ${auction.auctionMoreInfo.rainSensor}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.frontParkingSensors}">
                             <tr class="border_bottom">
-                                <td>Датчики парковки передний</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Датчики парковки передний: ${auction.auctionMoreInfo.frontParkingSensors}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.rearParkingSensors}">
                             <tr class="border_bottom">
-                                <td>Датчики парковки задний</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Датчики парковки задний: ${auction.auctionMoreInfo.rearParkingSensors}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.cruiseControl}">
@@ -439,8 +431,7 @@
                     <table style="width: 100%;">
                         <c:if test="${auction.auctionMoreInfo.onBoardComputer}">
                             <tr class="border_bottom">
-                                <td>Бортовой компьютер</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Бортовой компьютер: ${auction.auctionMoreInfo.onBoardComputer}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.alarm}">
@@ -451,26 +442,22 @@
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.airbags}">
                             <tr class="border_bottom">
-                                <td>Подушки безопасности</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Подушки безопасности: ${auction.auctionMoreInfo.airbags}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.abs}">
                             <tr class="border_bottom">
-                                <td>Антиблокировочная система тормозов ABS</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Антиблокировочная система тормозов ABS: ${auction.auctionMoreInfo.abs}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.directionalStability}">
                             <tr class="border_bottom">
-                                <td>Система курсовой устойчивости ESP</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Система курсовой устойчивости ESP: ${auction.auctionMoreInfo.directionalStability}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.antiSlip}">
                             <tr class="border_bottom">
-                                <td>Противобуксовочная система TCS</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Противобуксовочная система TCS: ${auction.auctionMoreInfo.antiSlip}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.carStereo}">
@@ -485,8 +472,7 @@
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.backCamera}">
                             <tr class="border_bottom">
-                                <td>Камера заднего вида</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Камера заднего вида: ${auction.auctionMoreInfo.backCamera}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.headlights}">
@@ -501,20 +487,17 @@
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.winterTires}">
                             <tr class="border_bottom">
-                                <td>Зимние шины</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Зимние шины: ${auction.auctionMoreInfo.winterTires}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.vehicleLogBook}">
                             <tr class="border_bottom">
-                                <td>Сервисная книжка</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Сервисная книжка: ${auction.auctionMoreInfo.vehicleLogBook}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.warrantyOn}">
                             <tr class="border_bottom">
-                                <td>Заводская гарантия</td>
-                                    <%--<td>есть</td>--%>
+                                <td>Заводская гарантия: ${auction.auctionMoreInfo.warrantyOn}</td>
                             </tr>
                         </c:if>
                     </table>
