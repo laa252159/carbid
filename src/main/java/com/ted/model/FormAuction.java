@@ -38,19 +38,15 @@ public class FormAuction {
 
 	private String powerSteering;
 
-	boolean conditioner;
-
-	boolean climateControl;
+	String climateControl;
 
 	boolean controlOnWheel;
 
 	boolean leatherWheel;
 
-	boolean sunRoof;
+	boolean backCamera;
 
-	boolean heatedSeatsFront;
-
-	boolean heatedSeatsBack;
+	String heatedSeats;
 
 	boolean heatedMirrors;
 
@@ -70,11 +66,11 @@ public class FormAuction {
 
 	boolean rearParkingSensors;
 
-	boolean cruiseControl;
+	String cruiseControl;
 
-	boolean alarm;
+	String alarm;
 
-	boolean autostart;
+	String audioSystem;
 
 	boolean airbags;
 
@@ -92,7 +88,7 @@ public class FormAuction {
 
 	String headlights;
 
-	boolean wheels;
+	String wheels;
 
 	boolean winterTires;
 
@@ -238,20 +234,20 @@ public class FormAuction {
 		this.powerSteering = powerSteering;
 	}
 
-	public boolean isConditioner() {
-		return conditioner;
-	}
-
-	public void setConditioner(boolean conditioner) {
-		this.conditioner = conditioner;
-	}
-
-	public boolean isClimateControl() {
+	public String getClimateControl() {
 		return climateControl;
 	}
 
-	public void setClimateControl(boolean climateControl) {
+	public void setClimateControl(String climateControl) {
 		this.climateControl = climateControl;
+	}
+
+	public String getHeatedSeats() {
+		return heatedSeats;
+	}
+
+	public void setHeatedSeats(String heatedSeats) {
+		this.heatedSeats = heatedSeats;
 	}
 
 	public boolean isControlOnWheel() {
@@ -270,28 +266,12 @@ public class FormAuction {
 		this.leatherWheel = leatherWheel;
 	}
 
-	public boolean isSunRoof() {
-		return sunRoof;
+	public boolean isBackCamera() {
+		return backCamera;
 	}
 
-	public void setSunRoof(boolean sunRoof) {
-		this.sunRoof = sunRoof;
-	}
-
-	public boolean isHeatedSeatsFront() {
-		return heatedSeatsFront;
-	}
-
-	public void setHeatedSeatsFront(boolean heatedSeatsFront) {
-		this.heatedSeatsFront = heatedSeatsFront;
-	}
-
-	public boolean isHeatedSeatsBack() {
-		return heatedSeatsBack;
-	}
-
-	public void setHeatedSeatsBack(boolean heatedSeatsBack) {
-		this.heatedSeatsBack = heatedSeatsBack;
+	public void setBackCamera(boolean backCamera) {
+		this.backCamera = backCamera;
 	}
 
 	public boolean isHeatedMirrors() {
@@ -366,28 +346,28 @@ public class FormAuction {
 		this.rearParkingSensors = rearParkingSensors;
 	}
 
-	public boolean isCruiseControl() {
+	public String getCruiseControl() {
 		return cruiseControl;
 	}
 
-	public void setCruiseControl(boolean cruiseControl) {
+	public void setCruiseControl(String cruiseControl) {
 		this.cruiseControl = cruiseControl;
 	}
 
-	public boolean isAlarm() {
+	public String getAlarm() {
 		return alarm;
 	}
 
-	public void setAlarm(boolean alarm) {
+	public void setAlarm(String alarm) {
 		this.alarm = alarm;
 	}
 
-	public boolean isAutostart() {
-		return autostart;
+	public String getAudioSystem() {
+		return audioSystem;
 	}
 
-	public void setAutostart(boolean autostart) {
-		this.autostart = autostart;
+	public void setAudioSystem(String audioSystem) {
+		this.audioSystem = audioSystem;
 	}
 
 	public boolean isAirbags() {
@@ -454,11 +434,11 @@ public class FormAuction {
 		this.headlights = headlights;
 	}
 
-	public boolean isWheels() {
+	public String getWheels() {
 		return wheels;
 	}
 
-	public void setWheels(boolean wheels) {
+	public void setWheels(String wheels) {
 		this.wheels = wheels;
 	}
 

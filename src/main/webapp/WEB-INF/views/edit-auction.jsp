@@ -353,7 +353,7 @@
                                         <tr>
                                             <td>пер.лев. дверь</td>
                                             <td>
-                                                <form:select path="el1" name="el1" class="selectpicker"
+                                                <form:select path="el1" name="el1"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -379,7 +379,7 @@
                                         <tr>
                                             <td>зад.лев. дверь</td>
                                             <td>
-                                                <form:select path="el2" name="el2" class="selectpicker"
+                                                <form:select path="el2" name="el2"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -405,7 +405,7 @@
                                         <tr>
                                             <td>зад.лев. крыло</td>
                                             <td>
-                                                <form:select path="el3" name="el3" class="selectpicker"
+                                                <form:select path="el3" name="el3"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -431,7 +431,7 @@
                                         <tr>
                                             <td>кр. багажника</td>
                                             <td>
-                                                <form:select path="el4" name="el4" class="selectpicker"
+                                                <form:select path="el4" name="el4"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -457,7 +457,7 @@
                                         <tr>
                                             <td>зад.прав. крыло</td>
                                             <td>
-                                                <form:select path="el5" name="el5" class="selectpicker"
+                                                <form:select path="el5" name="el5"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -483,7 +483,7 @@
                                         <tr>
                                             <td>зад.пер. дверь</td>
                                             <td>
-                                                <form:select path="el6" name="el6" class="selectpicker"
+                                                <form:select path="el6" name="el6"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -509,7 +509,7 @@
                                         <tr>
                                             <td>пер.прав. дверь</td>
                                             <td>
-                                                <form:select path="el7" name="el7" class="selectpicker"
+                                                <form:select path="el7" name="el7"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -535,7 +535,7 @@
                                         <tr>
                                             <td>пер.прав. крыло</td>
                                             <td>
-                                                <form:select path="el8" name="el1" class="selectpicker"
+                                                <form:select path="el8" name="el1"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -561,7 +561,7 @@
                                         <tr>
                                             <td>капот</td>
                                             <td>
-                                                <form:select path="el9" name="el1" class="selectpicker"
+                                                <form:select path="el9" name="el1"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -587,7 +587,7 @@
                                         <tr>
                                             <td>крыша</td>
                                             <td>
-                                                <form:select path="el10" name="el10" class="selectpicker"
+                                                <form:select path="el10" name="el10"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -613,7 +613,7 @@
                                         <tr>
                                             <td>пер.лев. крыло</td>
                                             <td>
-                                                <form:select path="el11" name="el11" class="selectpicker"
+                                                <form:select path="el11" name="el11"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -639,7 +639,7 @@
                                         <tr>
                                             <td>пер. бампер</td>
                                             <td>
-                                                <form:select path="el12" name="el12" class="selectpicker"
+                                                <form:select path="el12" name="el12"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -665,7 +665,7 @@
                                         <tr>
                                             <td>зад. бампер</td>
                                             <td>
-                                                <form:select path="el13" name="el13" class="selectpicker"
+                                                <form:select path="el13" name="el13"
                                                              data-live-search="true" data-container="body"
                                                              data-max-options="1" title="">
                                                     <c:choose>
@@ -694,45 +694,6 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="text-center">Дополнительная информация</h2>
-                <%--Усилитель руля--%>
-                <div class="row content-row">
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="fssp" class="input-label col-md-3">Усилитель руля:</label>
-                            <div class="col-lg-8">
-                                <div class="in-group">
-                                    <form:select path="powerSteering" name="powerSteering" class="selectpicker"
-                                                 data-live-search="true" data-container="body"
-                                                 data-max-options="1" title="">
-                                        <c:choose>
-                                            <c:when test="${empty formAuction.powerSteering}">
-                                                <option value="" selected>-</option>
-                                                <option value="гидро">гидро</option>
-                                                <option value="электро">электро</option>
-                                            </c:when>
-                                            <c:when test="${formAuction.powerSteering eq 'гидро'}">
-                                                <option value="">-</option>
-                                                <option value="гидро" selected>гидро</option>
-                                                <option value="электро">электро</option>
-                                            </c:when>
-                                            <c:when test="${formAuction.powerSteering eq 'электро'}">
-                                                <option value="">-</option>
-                                                <option value="гидро">гидро</option>
-                                                <option value="электро" selected>электро</option>
-                                            </c:when>
-                                        </c:choose>
-                                    </form:select>
-                                    <form:errors path="auction.fssp" cssClass="error"/>
-                                </div>
-                                <div class="err">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <%--Усилитель руля--%>
-
 
                 <div class="row content-row">
                     <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
@@ -801,6 +762,777 @@
                         </div>
                     </div>
                 </div>
+
+                <h2 class="text-center">Дополнительная информация</h2>
+
+                <div class="row content-row">
+                    <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
+                            <%--Усилитель руля--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="powerSteering" class="input-label col-md-4">Усилитель руля:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="powerSteering" name="powerSteering"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.powerSteering}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="гидро">гидро</option>
+                                                    <option value="электро">электро</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.powerSteering eq 'гидро'}">
+                                                    <option value="">-</option>
+                                                    <option value="гидро" selected>гидро</option>
+                                                    <option value="электро">электро</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.powerSteering eq 'электро'}">
+                                                    <option value="">-</option>
+                                                    <option value="гидро">гидро</option>
+                                                    <option value="электро" selected>электро</option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                            <%--Усилитель руля--%>
+                            <%--Управление климатом--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl" class="input-label col-md-4">Управление климатом:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="climateControl" name="climateControl"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.climateControl}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="кондиционер">кондиционер</option>
+                                                    <option value="климат контроль">климат контроль</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.climateControl eq 'кондиционер'}">
+                                                    <option value="">-</option>
+                                                    <option value="кондиционер" selected>кондиционер</option>
+                                                    <option value="климат контроль">климат контроль</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.climateControl eq 'климат контроль'}">
+                                                    <option value="">-</option>
+                                                    <option value="кондиционер">кондиционер</option>
+                                                    <option value="климат контроль" selected>климат контроль</option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Управление климатом--%>
+                            <%--мультируль--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl"
+                                       class="input-label col-md-4">Мультируль:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="controlOnWheel" name="controlOnWheel"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--мультируль--%>
+                            <%--Отделка руля и рукоятки кпп кожей--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="leatherWheel" class="input-label col-md-4">Отделка руля и рукоятки кпп
+                                    кожей:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="leatherWheel" name="leatherWheel"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Отделка руля и рукоятки кпп кожей--%>
+                            <%--Подогрев руля--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedWheel" class="input-label col-md-4">Подогрев руля:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="heatedWheel" name="heatedWheel"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Подогрев руля--%>
+                            <%--обогрев сидений--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedSeats" class="input-label col-md-4">Обогрев сидений:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="heatedSeats" name="heatedSeats"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.heatedSeats}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.heatedSeats eq 'передние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние" selected>передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.heatedSeats eq 'передние и задние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние" selected>передние и задние
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--обогрев сидений--%>
+                            <%--Электро обогрев и электро настройка зеркал--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="heatedMirrors" class="input-label col-md-4">Электро обогрев и электро
+                                    настройка зеркал:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="heatedMirrors" name="heatedMirrors"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Электро обогрев и электро настройка зеркал--%>
+                            <%--Электростеклоподъемники--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="powerWindows" class="input-label col-md-4">Эл/стеклоподъемники:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="powerWindows" name="powerWindows"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.powerWindows}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.powerWindows eq 'передние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние" selected>передние</option>
+                                                    <option value="передние и задние">передние и задние</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.powerWindows eq 'передние и задние'}">
+                                                    <option value="">-</option>
+                                                    <option value="передние">передние</option>
+                                                    <option value="передние и задние" selected>передние и задние
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Электростеклоподъемники--%>
+                            <%--электропривод передних сидений--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="powerSeatsFront" class="input-label col-md-4">Электропривод передних
+                                    сидений:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="powerSeatsFront" name="powerSeatsFront"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--электропривод передних сидений--%>
+                            <%--Датчик света--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="lightSensor" class="input-label col-md-4">Датчик света:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="lightSensor" name="lightSensor"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчик света--%>
+                            <%--Датчик дождя--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="rainSensor" class="input-label col-md-4">Датчик дождя:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="rainSensor" name="rainSensor"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчик дождя--%>
+                            <%--Датчики парковки передний--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="frontParkingSensors" class="input-label col-md-4">Датчики парковки
+                                    передний:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="frontParkingSensors" name="frontParkingSensors"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчики парковки передний--%>
+                            <%--Датчики парковки задний--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="rearParkingSensors" class="input-label col-md-4">Датчики парковки
+                                    задний:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="rearParkingSensors" name="rearParkingSensors"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Датчики парковки задний--%>
+                            <%--Круиз-контроль--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl" class="input-label col-md-4">Круиз-контроль:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="cruiseControl" name="cruiseControl"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.cruiseControl}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="есть">есть</option>
+                                                    <option value="адаптивный">адаптивный</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.cruiseControl eq 'есть'}">
+                                                    <option value="">-</option>
+                                                    <option value="есть" selected>есть</option>
+                                                    <option value="адаптивный">адаптивный</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.cruiseControl eq 'адаптивный'}">
+                                                    <option value="">-</option>
+                                                    <option value="есть">есть</option>
+                                                    <option value="адаптивный" selected>адаптивный</option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Круиз-контроль--%>
+                    </div>
+                    <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
+                            <%--Бортовой компьютер--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="onBoardComputer" class="input-label col-md-4">Бортовой компьютер:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="onBoardComputer" name="onBoardComputer"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Бортовой компьютер--%>
+                            <%--Сигнализация--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="climateControl" class="input-label col-md-4">Сигнализация:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="alarm" name="alarm"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.alarm}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="с обратной связью">с обратной связью</option>
+                                                    <option value="с автозапуском">с автозапуском</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.alarm eq 'с обратной связью'}">
+                                                    <option value="">-</option>
+                                                    <option value="с обратной связью" selected>с обратной связью
+                                                    </option>
+                                                    <option value="с автозапуском">с автозапуском</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.alarm eq 'с автозапуском'}">
+                                                    <option value="">-</option>
+                                                    <option value="с обратной связью">с обратной связью</option>
+                                                    <option value="с автозапуском" selected>с автозапуском</option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Сигнализация--%>
+                            <%--Подушки безопасности--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="airbags" class="input-label col-md-4">Подушки безопасности:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="airbags" name="airbags"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Подушки безопасности--%>
+                            <%--Антиблокировочная система тормозов ABS--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="abs" class="input-label col-md-4">Антиблокировочная система тормозов
+                                    ABS:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="abs" name="abs"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Антиблокировочная система тормозов ABS--%>
+                            <%--Система курсовой устойчивости ESP--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="directionalStability" class="input-label col-md-4">Система курсовой
+                                    устойчивости ESP:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="directionalStability" name="directionalStability"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Система курсовой устойчивости ESP--%>
+                            <%--Противобуксовочная система TCS--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="antiSlip" class="input-label col-md-4">Противобуксовочная
+                                    система TCS:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="antiSlip" name="antiSlip"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Противобуксовочная система TCS--%>
+                            <%--Магнитола--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="carStereo" class="input-label col-md-4">Магнитола:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="carStereo" name="carStereo"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.carStereo}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="аудиосистема">аудиосистема</option>
+                                                    <option value="мультимедиа">мультимедиа</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.carStereo eq 'аудиосистема'}">
+                                                    <option value="">-</option>
+                                                    <option value="аудиосистема" selected>аудиосистема</option>
+                                                    <option value="мультимедиа">мультимедиа</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.carStereo eq 'мультимедиа'}">
+                                                    <option value="">-</option>
+                                                    <option value="аудиосистема">аудиосистема</option>
+                                                    <option value="мультимедиа" selected>мультимедиа</option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Магнитола--%>
+                            <%--Аудиоколонки--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="audioSystem" class="input-label col-md-4">Аудиоколонки:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="audioSystem" name="audioSystem"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.audioSystem}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="6">6</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.audioSystem eq '2'}">
+                                                    <option value="">-</option>
+                                                    <option value="2" selected>2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="6">6</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.audioSystem eq '4'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4" selected>4</option>
+                                                    <option value="6">6</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.audioSystem eq '6'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="6" selected>6</option>
+                                                </c:when>
+
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Аудиоколонки--%>
+                            <%--Камера заднего вида--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="backCamera" class="input-label col-md-4">Камера заднего вида:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="backCamera" name="backCamera"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Камера заднего вида--%>
+                            <%--Головная оптика--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="headlights" class="input-label col-md-4">Головная оптика:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="headlights" name="headlights"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.headlights}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="галоген">галоген</option>
+                                                    <option value="ксенон">ксенон</option>
+                                                    <option value="диодные">диодные</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.headlights eq 'галоген'}">
+                                                    <option value="">-</option>
+                                                    <option value="галоген" selected>галоген</option>
+                                                    <option value="ксенон">ксенон</option>
+                                                    <option value="диодные">диодные</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.headlights eq 'ксенон'}">
+                                                    <option value="">-</option>
+                                                    <option value="галоген">галоген</option>
+                                                    <option value="ксенон" selected>ксенон</option>
+                                                    <option value="диодные">диодные</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.headlights eq 'диодные'}">
+                                                    <option value="">-</option>
+                                                    <option value="галоген">галоген</option>
+                                                    <option value="ксенон">ксенон</option>
+                                                    <option value="диодные" selected>диодные</option>
+                                                </c:when>
+
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Головная оптика--%>
+                            <%--Размер колес--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="wheels" class="input-label col-md-4">Размер колес:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:select path="wheels" name="wheels"
+                                                     data-live-search="true" data-container="body"
+                                                     data-max-options="1" title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.wheels}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R12'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12" selected>R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R13'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13" selected>R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R14'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14" selected>R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R15'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15" selected>R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R16'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16" selected>R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R17'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17" selected>R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R18'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18" selected>R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R19'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19" selected>R19</option>
+                                                    <option value="R20">R20</option>
+                                                </c:when>
+                                                <c:when test="${formAuction.wheels eq 'R20'}">
+                                                    <option value="">-</option>
+                                                    <option value="R12">R12</option>
+                                                    <option value="R13">R13</option>
+                                                    <option value="R14">R14</option>
+                                                    <option value="R15">R15</option>
+                                                    <option value="R16">R16</option>
+                                                    <option value="R17">R17</option>
+                                                    <option value="R18">R18</option>
+                                                    <option value="R19">R19</option>
+                                                    <option value="R20" selected>R20</option>
+                                                </c:when>
+
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.fssp" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Размер колес--%>
+                            <%--Зимние шины--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="winterTires" class="input-label col-md-4">Зимние шины:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="winterTires" name="winterTires"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Зимние шины--%>
+                            <%--Сервисная книжка--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="vehicleLogBook" class="input-label col-md-4">Сервисная книжка:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="vehicleLogBook" name="vehicleLogBook"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Сервисная книжка--%>
+                            <%--Заводская гарантия--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label for="warrantyOn" class="input-label col-md-4">Заводская гарантия:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="warrantyOn" name="warrantyOn"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Заводская гарантия--%>
+
+                    </div>
+                </div>
+
+
                 <h2 class="text-center">Загрузить фото</h2>
                 <div class="row content-row">
                     <input id="input-1" name="input1" type="file" class="file-loading" multiple

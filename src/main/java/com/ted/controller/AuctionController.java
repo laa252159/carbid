@@ -344,38 +344,35 @@ public class AuctionController extends AbstractController {
 			return;
 		}
 		formAuction.setPowerSteering(auctionMoreInfo.getPowerSteering());
-		formAuction.setConditioner(auctionMoreInfo.isConditioner());
-		formAuction.setClimateControl(auctionMoreInfo.isClimateControl());
+		formAuction.setClimateControl(auctionMoreInfo.getClimateControl());
 		formAuction.setControlOnWheel(auctionMoreInfo.isControlOnWheel());
 		formAuction.setLeatherWheel(auctionMoreInfo.isLeatherWheel());
-		formAuction.setSunRoof(auctionMoreInfo.isSunRoof());
-		formAuction.setHeatedSeatsFront(auctionMoreInfo.isHeatedSeatsFront());
-		formAuction.setHeatedSeatsBack(auctionMoreInfo.isHeatedSeatsBack());
+		formAuction.setBackCamera(auctionMoreInfo.isBackCamera());
+		formAuction.setHeatedSeats(auctionMoreInfo.getHeatedSeats());
 		formAuction.setHeatedMirrors(auctionMoreInfo.isHeatedMirrors());
 		formAuction.setHeatedWheel(auctionMoreInfo.isHeatedWheel());
 		formAuction.setHeatedWheel(auctionMoreInfo.isHeatedWheel());
 		formAuction.setPowerWindows(auctionMoreInfo.getPowerWindows());
 		formAuction.setPowerSeatsFront(auctionMoreInfo.isPowerSeatsFront());
-		formAuction.setPowerMirrors(auctionMoreInfo.isPowerMirrors());
 		formAuction.setLightSensor(auctionMoreInfo.isLightSensor());
+		formAuction.setRainSensor(auctionMoreInfo.isRainSensor());
 		formAuction.setFrontParkingSensors(auctionMoreInfo.isFrontParkingSensors());
 		formAuction.setRearParkingSensors(auctionMoreInfo.isRearParkingSensors());
-		formAuction.setCruiseControl(auctionMoreInfo.isCruiseControl());
+		formAuction.setCruiseControl(auctionMoreInfo.getCruiseControl());
 		formAuction.setOnBoardComputer(auctionMoreInfo.isOnBoardComputer());
-		formAuction.setAlarm(auctionMoreInfo.isAlarm());
-		formAuction.setAutostart(auctionMoreInfo.isAutostart());
+		formAuction.setAlarm(auctionMoreInfo.getAlarm());
+		formAuction.setAudioSystem(auctionMoreInfo.getAudioSystem());
 		formAuction.setAirbags(auctionMoreInfo.isAirbags());
 		formAuction.setAbs(auctionMoreInfo.isAbs());
 		formAuction.setAntiSlip(auctionMoreInfo.isAntiSlip());
 		formAuction.setDirectionalStability(auctionMoreInfo.isDirectionalStability());
-		formAuction.setGps(auctionMoreInfo.isGps());
 		formAuction.setCarStereo(auctionMoreInfo.getCarStereo());
 		formAuction.setCarStereo(auctionMoreInfo.getCarStereo());
-		formAuction.setSubwoofer(auctionMoreInfo.isSubwoofer());
 		formAuction.setHeadlights(auctionMoreInfo.getHeadlights());
 		formAuction.setWinterTires(auctionMoreInfo.isWinterTires());
 		formAuction.setVehicleLogBook(auctionMoreInfo.isVehicleLogBook());
 		formAuction.setWarrantyOn(auctionMoreInfo.isWarrantyOn());
+		formAuction.setWheels(auctionMoreInfo.getWheels());
 	}
 	
 	@RequestMapping(value = "update-auction/{id}",  method = RequestMethod.POST)

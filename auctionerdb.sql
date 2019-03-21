@@ -77,39 +77,34 @@ DROP TABLE IF EXISTS `auction_more_info`;
 CREATE TABLE `auction_more_info` (
 
   `auctionid` int(11) NOT NULL,
-  `power_steering` varchar(45),                       -- гидроуселитель руля
-  `conditioner`tinyint(4) NOT NULL DEFAULT '0',       -- кондиционер
-  `climate_control` tinyint(4) NOT NULL DEFAULT '0',  -- климат-контроль
-  `control_on_wheel` tinyint(4) NOT NULL DEFAULT '0', -- управление на руле
-  `leather_wheel` tinyint(4) NOT NULL DEFAULT '0',    -- кожанный руль
-  `sun_roof` tinyint(4) NOT NULL DEFAULT '0',         -- люк
-  `heated_seats_front` tinyint(4) NOT NULL DEFAULT '0',  -- обогрев передних сидений
-  `heated_seats_back` tinyint(4) NOT NULL DEFAULT '0',   -- обогрев задних сидений
-  `heated_mirrors` tinyint(4) NOT NULL DEFAULT '0',      -- обогрев зеркал
-  `heated_wheel` tinyint(4) NOT NULL DEFAULT '0',        -- обогрев руля
-  `power_windows` varchar(45),                           -- электростеклоподъемники
-  `power_seats_front` tinyint(4) NOT NULL DEFAULT '0',   -- электропривод передних сидений
-  `power_mirrors` tinyint(4) NOT NULL DEFAULT '0',       -- электропривод зеркал
-  `light_sensor` tinyint(4) NOT NULL DEFAULT '0',        -- Датчик света
-  `rain_sensor` tinyint(4) NOT NULL DEFAULT '0',         -- датчик дождя
-  `front_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',  -- парктроник передний
-  `rear_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',   -- парктроник задний
-  `cruise_control` tinyint(4) NOT NULL DEFAULT '0',         -- круиз-контроль
-  `on_board_computer` tinyint(4) NOT NULL DEFAULT '0',         -- круиз-контроль
-  `alarm` tinyint(4) NOT NULL DEFAULT '0',                  -- сигнализация
-  `autostart` tinyint(4) NOT NULL DEFAULT '0',              -- автозапуск
-  `airbags` tinyint(4) NOT NULL DEFAULT '0',                -- подушки безопасности
-  `abs` tinyint(4) NOT NULL DEFAULT '0',                    -- ABS
-  `anti_slip` tinyint(4) NOT NULL DEFAULT '0',              -- Антипробуксовка
-  `directional_stability` tinyint(4) NOT NULL DEFAULT '0',  -- курсовая устойчивость
-  `gps` tinyint(4) NOT NULL DEFAULT '0',                    -- GPS
-  `car_stereo`  varchar(45),                                -- магнитола
-  `subwoofer` tinyint(4) NOT NULL DEFAULT '0',              -- Сабвуфер
-  `headlights` varchar(45),                                 -- фары
-  `wheels` varchar(45),                                     -- колеса
-  `winter_tires` tinyint(4) NOT NULL DEFAULT '0',           -- зимние шины
-  `vehicle_log_book` tinyint(4) NOT NULL DEFAULT '0',       -- сервисная книга
-  `warranty_on` tinyint(4) NOT NULL DEFAULT '0',            -- на гарантии
+  `power_steering` varchar(45),                       -- Усилитель руля
+  `climate_control` varchar(45),                      -- Управление климатом
+  `control_on_wheel` tinyint(4) NOT NULL DEFAULT '0', -- Мультируль
+  `leather_wheel` tinyint(4) NOT NULL DEFAULT '0',    -- Отделка руля и рукоятки кпп кожей
+  `heated_wheel` tinyint(4) NOT NULL DEFAULT '0',     -- Подогрев руля
+  `heated_seats` varchar(45),                         -- Обогрев сидений
+  `heated_mirrors` tinyint(4) NOT NULL DEFAULT '0',   -- Электро обогрев и электро настройка зеркал
+  `power_windows` varchar(45),                           -- Электростеклоподъемники
+  `power_seats_front` tinyint(4) NOT NULL DEFAULT '0',   -- Электропривод передних сидений
+  `light_sensor` tinyint(4) NOT NULL DEFAULT '0',        -- Датчики света
+  `rain_sensor` tinyint(4) NOT NULL DEFAULT '0',         -- Датчики дождя
+  `front_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',  -- Датчики парковки передний
+  `rear_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',   -- Датчики парковки задний
+  `cruise_control` varchar(45),                             -- Круиз-контроль
+  `on_board_computer` tinyint(4) NOT NULL DEFAULT '0',      -- Бортовой компьютер
+  `alarm` varchar(45),                                      -- Сигнализация
+  `airbags` tinyint(4) NOT NULL DEFAULT '0',                -- Подушки безопасности
+  `abs` tinyint(4) NOT NULL DEFAULT '0',                    -- Антиблокировочная система тормозов ABS
+  `directional_stability` tinyint(4) NOT NULL DEFAULT '0',  -- Система курсовой устойчивости ESP
+  `anti_slip` tinyint(4) NOT NULL DEFAULT '0',              -- Противобуксовочная система TCS
+  `car_stereo`  varchar(45),                                -- Магнитола
+  `audioSystem`  varchar(45),                               -- Аудиоколонки
+  `back_camera` tinyint(4) NOT NULL DEFAULT '0',            -- Камера заднего вида
+  `headlights` varchar(45),                                 -- Головная оптика
+  `wheels` varchar(45),                                     -- Размер колес
+  `winter_tires` tinyint(4) NOT NULL DEFAULT '0',           -- Зимние шины
+  `vehicle_log_book` tinyint(4) NOT NULL DEFAULT '0',       -- Сервисная книжка
+  `warranty_on` tinyint(4) NOT NULL DEFAULT '0',            -- Заводская гарантия
 
   CONSTRAINT `fk_auctions` FOREIGN KEY (`auctionid`) REFERENCES `auctions` (`auctionid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -122,8 +117,8 @@ DROP TABLE IF EXISTS `auctions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auctions` (
-  `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `seller_userid` int(11) NOT NULL,
+  `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45),
   `description` mediumtext,
 
@@ -375,6 +370,7 @@ CREATE TABLE `users` (
   `enabled` tinyint(1) NOT NULL,
   `approved` tinyint(4) NOT NULL,
   `email_approved` tinyint(4) DEFAULT '0',
+  `change_password` tinyint(4) DEFAULT '0',
   `bidder_rating` float DEFAULT NULL,
   `seller_rating` float DEFAULT NULL,
   `number_of_bidder_ratings` int(11) DEFAULT NULL,

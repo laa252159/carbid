@@ -510,38 +510,35 @@ public class AuctionServiceImpl implements AuctionService {
 	// с UI
 	private void fillAuctionMoreInfoFromForm(FormAuction formAuction, AuctionMoreInfo auctionMoreInfo){
 		auctionMoreInfo.setPowerSteering(formAuction.getPowerSteering());
-		auctionMoreInfo.setConditioner(formAuction.isConditioner());
-		auctionMoreInfo.setClimateControl(formAuction.isClimateControl());
+		auctionMoreInfo.setClimateControl(formAuction.getClimateControl());
 		auctionMoreInfo.setControlOnWheel(formAuction.isControlOnWheel());
 		auctionMoreInfo.setLeatherWheel(formAuction.isLeatherWheel());
-		auctionMoreInfo.setSunRoof(formAuction.isSunRoof());
-		auctionMoreInfo.setHeatedSeatsFront(formAuction.isHeatedSeatsFront());
-		auctionMoreInfo.setHeatedSeatsBack(formAuction.isHeatedSeatsBack());
+		auctionMoreInfo.setBackCamera(formAuction.isBackCamera());
+		auctionMoreInfo.setHeatedSeats(formAuction.getHeatedSeats());
 		auctionMoreInfo.setHeatedMirrors(formAuction.isHeatedMirrors());
 		auctionMoreInfo.setHeatedWheel(formAuction.isHeatedWheel());
 		auctionMoreInfo.setHeatedWheel(formAuction.isHeatedWheel());
 		auctionMoreInfo.setPowerWindows(formAuction.getPowerWindows());
 		auctionMoreInfo.setPowerSeatsFront(formAuction.isPowerSeatsFront());
-		auctionMoreInfo.setPowerMirrors(formAuction.isPowerMirrors());
 		auctionMoreInfo.setLightSensor(formAuction.isLightSensor());
+		auctionMoreInfo.setRainSensor(formAuction.isRainSensor());
 		auctionMoreInfo.setFrontParkingSensors(formAuction.isFrontParkingSensors());
 		auctionMoreInfo.setRearParkingSensors(formAuction.isRearParkingSensors());
-		auctionMoreInfo.setCruiseControl(formAuction.isCruiseControl());
+		auctionMoreInfo.setCruiseControl(formAuction.getCruiseControl());
 		auctionMoreInfo.setOnBoardComputer(formAuction.isOnBoardComputer());
-		auctionMoreInfo.setAlarm(formAuction.isAlarm());
-		auctionMoreInfo.setAutostart(formAuction.isAutostart());
+		auctionMoreInfo.setAlarm(formAuction.getAlarm());
+		auctionMoreInfo.setAudioSystem(formAuction.getAudioSystem());
 		auctionMoreInfo.setAirbags(formAuction.isAirbags());
 		auctionMoreInfo.setAbs(formAuction.isAbs());
 		auctionMoreInfo.setAntiSlip(formAuction.isAntiSlip());
 		auctionMoreInfo.setDirectionalStability(formAuction.isDirectionalStability());
-		auctionMoreInfo.setGps(formAuction.isGps());
 		auctionMoreInfo.setCarStereo(formAuction.getCarStereo());
 		auctionMoreInfo.setCarStereo(formAuction.getCarStereo());
-		auctionMoreInfo.setSubwoofer(formAuction.isSubwoofer());
 		auctionMoreInfo.setHeadlights(formAuction.getHeadlights());
 		auctionMoreInfo.setWinterTires(formAuction.isWinterTires());
 		auctionMoreInfo.setVehicleLogBook(formAuction.isVehicleLogBook());
 		auctionMoreInfo.setWarrantyOn(formAuction.isWarrantyOn());
+		auctionMoreInfo.setWheels(formAuction.getWheels());
 	}
 
 

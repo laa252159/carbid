@@ -30,19 +30,20 @@
 
    	 <%@ include file="/resources/template/menu-top.jsp" %>
 
+     <div class="jumbotron d-flex align-items-center">
+         <div class="container">
 
-    <div class="container">
+             <div class="row">
+                 <div class="col-lg-12 text-center">
+                     <h4 class="text-center">${errorMsg}</h4>
+                     <div class="row text-center">
+                         <a href="/" class="btn btn-primary">Вернуться на главную</a>
+                     </div>
+                 </div>
+             </div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h4 class="text-center">${errorMsg}</h4>
-                <div class="row text-center">
-                    <a href="/" class="btn btn-primary">Вернуться на главную</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
+         </div>
+     </div>
 
     <%@ include file="/resources/template/footer.jsp" %>
 

@@ -1,16 +1,5 @@
 package com.ted.service;
 
-import java.io.IOException;
-import java.util.Map;
-
-import com.ted.mail.Mailer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.ted.model.Authority;
 import com.ted.model.AuthorityPK;
 import com.ted.model.User;
@@ -18,6 +7,15 @@ import com.ted.model.UserPicture;
 import com.ted.repository.AuthorityRepository;
 import com.ted.repository.UserPictureRepository;
 import com.ted.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.Map;
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
@@ -50,6 +48,15 @@ public class LoginServiceImpl implements LoginService {
 		mailer.notifyAdminAboutNewUser(user);
 		return user;
 	}
+
+    /**
+     * Изменение юзера
+     * @param user
+     */
+    @Transactional
+    public void saveUser(User user){
+        userRepository.saveAndFlush(user);
+    }
 
 	@Transactional
 	public User saveUser(User user, MultipartFile file) {
@@ -144,6 +151,27 @@ public class LoginServiceImpl implements LoginService {
 		
 		return user;
 	}
+
+    /**
+     * Изменение пароля у юзера
+     * @param user
+     */
+    @Transactional
+    public void changeUserPassword(User user){
+
+        String passwordNew = user.getPassword();
+        User perUser = userRepository.findByUserid(user.getUserid());
+
+        if(!passwordNew.equals("p4DS*4a$hLA*4#ataPv")) {
+            // BCrypt password encryption
+            BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
+            String hashedPass = passEncoder.encode(passwordNew);
+            perUser.setPassword(hashedPass);
+            perUser.setChangePassword((byte) 0);
+
+            userRepository.saveAndFlush(perUser);
+        }
+    }
 
 	public String checkEmailUsername(User user) {
 		
