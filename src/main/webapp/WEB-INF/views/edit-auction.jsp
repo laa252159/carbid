@@ -150,12 +150,93 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="transmission" class="input-label col-md-3">Коробка:</label>
+                                <label class="input-label col-md-3">Трансмиссия:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
-                                        <form:input type="text" name="auction.transmission" path="auction.transmission"
-                                                    id="transmission" class="form-control" placeholder="Коробка"
-                                                    value="${formAuction.auction.transmission}"/>
+                                        <form:select path="auction.transmission"
+                                                     name="auction.transmission"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.transmission}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="МКПП">
+                                                        МКПП
+                                                    </option>
+                                                    <option value="АКПП">
+                                                        АКПП
+                                                    </option>
+                                                    <option value="Вариатор">
+                                                        Вариатор
+                                                    </option>
+                                                    <option value="Робот">
+                                                        Робот
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.transmission eq 'МКПП'}">
+                                                    <option value="">-</option>
+                                                    <option value="МКПП" selected>
+                                                        МКПП
+                                                    </option>
+                                                    <option value="АКПП">
+                                                        АКПП
+                                                    </option>
+                                                    <option value="Вариатор">
+                                                        Вариатор
+                                                    </option>
+                                                    <option value="Робот">
+                                                        Робот
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.transmission eq 'АКПП'}">
+                                                    <option value="">-</option>
+                                                    <option value="МКПП">
+                                                        МКПП
+                                                    </option>
+                                                    <option value="АКПП" selected>
+                                                        АКПП
+                                                    </option>
+                                                    <option value="Вариатор">
+                                                        Вариатор
+                                                    </option>
+                                                    <option value="Робот">
+                                                        Робот
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.transmission eq 'Вариатор'}">
+                                                    <option value="">-</option>
+                                                    <option value="МКПП">
+                                                        МКПП
+                                                    </option>
+                                                    <option value="АКПП">
+                                                        АКПП
+                                                    </option>
+                                                    <option value="Вариатор" selected>
+                                                        Вариатор
+                                                    </option>
+                                                    <option value="Робот">
+                                                        Робот
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.transmission eq 'Робот'}">
+                                                    <option value="">-</option>
+                                                    <option value="МКПП">
+                                                        МКПП
+                                                    </option>
+                                                    <option value="АКПП">
+                                                        АКПП
+                                                    </option>
+                                                    <option value="Вариатор">
+                                                        Вариатор
+                                                    </option>
+                                                    <option value="Робот" selected>
+                                                        Робот
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
                                         <form:errors path="auction.transmission" cssClass="error"/>
                                     </div>
                                     <div class="err">
@@ -166,12 +247,261 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="body" class="input-label col-md-3">Кузов:</label>
+                                <label class="input-label col-md-3">Кузов:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
-                                        <form:input type="text" name="auction.body" path="auction.body" id="body"
-                                                    class="form-control" placeholder="Кузов"
-                                                    value="${formAuction.auction.body}"/>
+                                        <form:select path="auction.body"
+                                                     name="auction.body"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.body}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'седан'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан" selected>
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'хетчбэк'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк" selected>
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'универсал'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал" selected>
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'внедорожник'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник" selected>
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'кабриолет'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет" selected>
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'купе'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе" selected>
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'минивэн'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн" selected>
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон">
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.body eq 'фургон'}">
+                                                    <option value="">-</option>
+                                                    <option value="седан">
+                                                        седан
+                                                    </option>
+                                                    <option value="хетчбэк">
+                                                        хетчбэк
+                                                    </option>
+                                                    <option value="универсал">
+                                                        универсал
+                                                    </option>
+                                                    <option value="внедорожник">
+                                                        внедорожник
+                                                    </option>
+                                                    <option value="кабриолет">
+                                                        кабриолет
+                                                    </option>
+                                                    <option value="купе">
+                                                        купе
+                                                    </option>
+                                                    <option value="минивэн">
+                                                        минивэн
+                                                    </option>
+                                                    <option value="фургон" selected>
+                                                        фургон
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
                                         <form:errors path="auction.body" cssClass="error"/>
                                     </div>
                                     <div class="err">
@@ -182,12 +512,66 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="drive" class="input-label col-md-3">Привод:</label>
+                                <label class="input-label col-md-3">Привод:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
-                                        <form:input type="text" name="auction.drive" path="auction.drive" id="drive"
-                                                    class="form-control" placeholder="Привод"
-                                                    value="${formAuction.auction.drive}"/>
+                                        <form:select path="auction.drive"
+                                                     name="auction.drive"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.drive}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="передний">
+                                                        передний
+                                                    </option>
+                                                    <option value="задний">
+                                                        задний
+                                                    </option>
+                                                    <option value="полный">
+                                                        полный
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.drive eq 'передний'}">
+                                                    <option value="">-</option>
+                                                    <option value="передний" selected>
+                                                        передний
+                                                    </option>
+                                                    <option value="задний">
+                                                        задний
+                                                    </option>
+                                                    <option value="полный">
+                                                        полный
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.drive eq 'задний'}">
+                                                    <option value="">-</option>
+                                                    <option value="передний">
+                                                        передний
+                                                    </option>
+                                                    <option value="задний" selected>
+                                                        задний
+                                                    </option>
+                                                    <option value="полный">
+                                                        полный
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.drive eq 'полный'}">
+                                                    <option value="">-</option>
+                                                    <option value="передний">
+                                                        передний
+                                                    </option>
+                                                    <option value="задний">
+                                                        задний
+                                                    </option>
+                                                    <option value="полный" selected>
+                                                        полный
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
                                         <form:errors path="auction.drive" cssClass="error"/>
                                     </div>
                                     <div class="err">
@@ -214,12 +598,93 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="doors" class="input-label col-md-3">Количество дверей:</label>
+                                <label class="input-label col-md-3">Количество дверей:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
-                                        <form:input type="text" name="auction.doors" path="auction.doors" id="doors"
-                                                    class="form-control" placeholder="Количество дверей"
-                                                    value="${formAuction.auction.doors}"/>
+                                        <form:select path="auction.doors"
+                                                     name="auction.doors"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.doors}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.doors eq '2'}">
+                                                    <option value="">-</option>
+                                                    <option value="2" selected>
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.doors eq '3'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3" selected>
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.doors eq '4'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4" selected>
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.doors eq '5'}">
+                                                    <option value="">-</option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5" selected>
+                                                        5
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
                                         <form:errors path="auction.doors" cssClass="error"/>
                                     </div>
                                     <div class="err">
@@ -246,12 +711,318 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="owners" class="input-label col-md-3">Владельцев по ПТС:</label>
+                                <label class="input-label col-md-3">Владельцев по ПТС:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
-                                        <form:input type="text" name="auction.owners" path="auction.owners" id="owners"
-                                                    class="form-control" placeholder="Владельцев по ПТС"
-                                                    value="${formAuction.auction.owners}"/>
+                                        <form:select path="auction.owners"
+                                                     name="auction.owners"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.owners}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '1'}">
+                                                    <option value="">-</option>
+                                                    <option value="1" selected>
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '2'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2" selected>
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '3'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3" selected>
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '4'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4" selected>
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '5'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5" selected>
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '6'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6" selected>
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '7'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7" selected>
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '8'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8" selected>
+                                                        8
+                                                    </option>
+                                                    <option value="9">
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.owners eq '9'}">
+                                                    <option value="">-</option>
+                                                    <option value="1">
+                                                        1
+                                                    </option>
+                                                    <option value="2">
+                                                        2
+                                                    </option>
+                                                    <option value="3">
+                                                        3
+                                                    </option>
+                                                    <option value="4">
+                                                        4
+                                                    </option>
+                                                    <option value="5">
+                                                        5
+                                                    </option>
+                                                    <option value="6">
+                                                        6
+                                                    </option>
+                                                    <option value="7">
+                                                        7
+                                                    </option>
+                                                    <option value="8">
+                                                        8
+                                                    </option>
+                                                    <option value="9" selected>
+                                                        9
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
                                         <form:errors path="auction.owners" cssClass="error"/>
                                     </div>
                                     <div class="err">
@@ -346,7 +1117,7 @@
                         <div class="form-group">
                             <c:set var="collored" value="Вторичный окрас" scope="page"/>
                             <c:set var="destructed" value="Требует восстановления" scope="page"/>
-                            <label for="name" class="input-label col-md-3">Крашеные и битые элементы:</label>
+                            <label class="input-label col-md-3">Крашеные и битые элементы:</label>
                             <div class="col-lg-8">
                                 <div class="col-lg-8">
                                     <table class="input-label col-md-3">
@@ -751,9 +1522,65 @@
                             <div class="form-group">
                                 <label for="location" class="input-label col-md-3">Город:</label>
                                 <div class="col-lg-8">
-                                    <div class="in_group">
-                                        <form:input path="auction.location.name" id="location" name="location"
-                                                    class="form-control"></form:input>
+                                    <div class="in-group">
+                                        <form:select path="auction.location.name"
+                                                     name="auction.location.name"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.location.name}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="Саратов">
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс">
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область">
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.location.name eq 'Саратов'}">
+                                                    <option value="">-</option>
+                                                    <option value="Саратов" selected>
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс">
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область">
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.location.name eq 'Энгельс'}">
+                                                    <option value="">-</option>
+                                                    <option value="Саратов">
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс" selected>
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область">
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.location.name eq 'Саратовская область'}">
+                                                    <option value="">-</option>
+                                                    <option value="Саратов">
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс">
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область" selected>
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.location.name" cssClass="error"/>
                                     </div>
                                     <div class="err">
                                     </div>
