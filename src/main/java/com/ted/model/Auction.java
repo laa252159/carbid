@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
 		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
 		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
 		"owners", "vin", "gibdd", "fssp", "engineState", "damagedElements","city","additionalInfo",
-		"driveState"})
+		"driveState", "engineCapacity"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -70,7 +70,11 @@ public class Auction implements Serializable {
 	@Column(name="power", nullable = true)
 	private String power;
 
-	
+
+    @Column(name="engine_capacity", nullable = true)
+	private String engineCapacity;
+
+
 	@Column(name="transmission", nullable = true)
 	private String transmission;
 
@@ -651,4 +655,12 @@ public class Auction implements Serializable {
 	public void setImagesForGallery(List<String> imagesForGallery) {
 		this.imagesForGallery = imagesForGallery;
 	}
+
+    public String getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(String engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
 }

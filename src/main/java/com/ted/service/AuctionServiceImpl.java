@@ -11,15 +11,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService {
@@ -444,6 +439,7 @@ public class AuctionServiceImpl implements AuctionService {
 			auction.setReleased(formAuction.getAuction().getReleased());
 			auction.setRun(formAuction.getAuction().getRun());
 			auction.setEngineType(formAuction.getAuction().getEngineType());
+			auction.setEngineCapacity(formAuction.getAuction().getEngineCapacity());
 			auction.setPower(formAuction.getAuction().getPower());
 			auction.setTransmission(formAuction.getAuction().getTransmission());
 			auction.setBody(formAuction.getAuction().getBody());

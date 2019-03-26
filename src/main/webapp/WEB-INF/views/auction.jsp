@@ -273,6 +273,11 @@
                                 <td>Двигатель: ${auction.engineType}</td>
                             </tr>
                         </c:if>
+                        <c:if test="${not empty auction.engineCapacity}">
+                            <tr class="border_bottom">
+                                <td>Рабочий объём двигателя: ${auction.engineCapacity} л</td>
+                            </tr>
+                        </c:if>
                         <c:if test="${not empty auction.engineState}">
                             <tr class="border_bottom">
                                 <td>Состояние двигателя: ${auction.engineState}</td>

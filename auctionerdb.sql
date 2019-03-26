@@ -128,6 +128,7 @@ CREATE TABLE `auctions` (
   `run` varchar(45),
   `engine_type` varchar(45),
   `power` varchar(45),
+  `engine_capacity` varchar(45),
   `transmission` varchar(45),
   `body` varchar(45),
   `drive` varchar(45),

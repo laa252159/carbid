@@ -150,6 +150,22 @@
 
                         <div class="row">
                             <div class="form-group">
+                                <label for="engineCapacity" class="input-label col-md-3">Объём двигателя:</label>
+                                <div class="col-lg-8">
+                                    <div class="in-group">
+                                        <form:input type="text" name="auction.engineCapacity" path="auction.engineCapacity"
+                                                    id="engineCapacity" class="form-control" placeholder="Объём двигателя"
+                                                    value="${formAuction.auction.engineCapacity}"/>
+                                        <form:errors path="auction.engineCapacity" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
                                 <label class="input-label col-md-3">Трансмиссия:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
@@ -1049,6 +1065,76 @@
 
                         <div class="row">
                             <div class="form-group">
+                                <label class="input-label col-md-3">Город:</label>
+                                <div class="col-lg-8">
+                                    <div class="in-group">
+                                        <form:select path="auction.location.name"
+                                                     name="auction.location.name"
+                                                     data-live-search="true"
+                                                     data-container="body"
+                                                     data-max-options="1"
+                                                     title="">
+                                            <c:choose>
+                                                <c:when test="${empty formAuction.auction.location.name}">
+                                                    <option value="" selected>-</option>
+                                                    <option value="Саратов">
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс">
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область">
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.location.name eq 'Саратов'}">
+                                                    <option value="">-</option>
+                                                    <option value="Саратов" selected>
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс">
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область">
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.location.name eq 'Энгельс'}">
+                                                    <option value="">-</option>
+                                                    <option value="Саратов">
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс" selected>
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область">
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                                <c:when test="${formAuction.auction.location.name eq 'Саратовская область'}">
+                                                    <option value="">-</option>
+                                                    <option value="Саратов">
+                                                        Саратов
+                                                    </option>
+                                                    <option value="Энгельс">
+                                                        Энгельс
+                                                    </option>
+                                                    <option value="Саратовская область" selected>
+                                                        Саратовская область
+                                                    </option>
+                                                </c:when>
+                                            </c:choose>
+                                        </form:select>
+                                        <form:errors path="auction.location.name" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
                                 <label for="gibdd" class="input-label col-md-3">База ГИБДД:</label>
                                 <div class="col-lg-8">
                                     <div class="in-group">
@@ -1510,77 +1596,6 @@
                                         <span class="input-group-addon">
                                                          <span class="glyphicon glyphicon-calendar"></span>
                                                     </span>
-                                    </div>
-                                    <div class="err">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row top-buffer">
-                            <div class="form-group">
-                                <label for="location" class="input-label col-md-3">Город:</label>
-                                <div class="col-lg-8">
-                                    <div class="in-group">
-                                        <form:select path="auction.location.name"
-                                                     name="auction.location.name"
-                                                     data-live-search="true"
-                                                     data-container="body"
-                                                     data-max-options="1"
-                                                     title="">
-                                            <c:choose>
-                                                <c:when test="${empty formAuction.auction.location.name}">
-                                                    <option value="" selected>-</option>
-                                                    <option value="Саратов">
-                                                        Саратов
-                                                    </option>
-                                                    <option value="Энгельс">
-                                                        Энгельс
-                                                    </option>
-                                                    <option value="Саратовская область">
-                                                        Саратовская область
-                                                    </option>
-                                                </c:when>
-                                                <c:when test="${formAuction.auction.location.name eq 'Саратов'}">
-                                                    <option value="">-</option>
-                                                    <option value="Саратов" selected>
-                                                        Саратов
-                                                    </option>
-                                                    <option value="Энгельс">
-                                                        Энгельс
-                                                    </option>
-                                                    <option value="Саратовская область">
-                                                        Саратовская область
-                                                    </option>
-                                                </c:when>
-                                                <c:when test="${formAuction.auction.location.name eq 'Энгельс'}">
-                                                    <option value="">-</option>
-                                                    <option value="Саратов">
-                                                        Саратов
-                                                    </option>
-                                                    <option value="Энгельс" selected>
-                                                        Энгельс
-                                                    </option>
-                                                    <option value="Саратовская область">
-                                                        Саратовская область
-                                                    </option>
-                                                </c:when>
-                                                <c:when test="${formAuction.auction.location.name eq 'Саратовская область'}">
-                                                    <option value="">-</option>
-                                                    <option value="Саратов">
-                                                        Саратов
-                                                    </option>
-                                                    <option value="Энгельс">
-                                                        Энгельс
-                                                    </option>
-                                                    <option value="Саратовская область" selected>
-                                                        Саратовская область
-                                                    </option>
-                                                </c:when>
-                                            </c:choose>
-                                        </form:select>
-                                        <form:errors path="auction.location.name" cssClass="error"/>
                                     </div>
                                     <div class="err">
                                     </div>
@@ -2425,8 +2440,16 @@
                 },
                 'auction.location.name': {
                     required: true
+                },
+                'auction.vin': {
+                    required: true,
+                    validatorVin : true
                 }
             },
+            // Specify validation error messages
+            messages: {
+                'auction.vin': "Допустимо только 17 - символов (буквы, цифры)"
+        },
             highlight: function (element, errorClass) {
                 $(element).closest('.form-group').addClass('has-error');
             },
@@ -2438,6 +2461,11 @@
             }
         });
     });
+
+    //проверка VIN кода
+    jQuery.validator.addMethod("validatorVin", function(value, element) {
+        return /^\w{17}$/.test(value);
+    }, "*");
 
     $(function () {
         $('#datetimepicker1').datetimepicker();
