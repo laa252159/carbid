@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
@@ -83,6 +84,14 @@ public class AuctionServiceImpl implements AuctionService {
 
 		return auctionRepository.findByAuctionid(id);
 
+	}
+
+	@PostConstruct
+	public void initCache(){
+		List<Auction> allAliveAuctions = auctionRepository.findByIsBought(false);
+		for(Auction auction : allAliveAuctions){
+			initializeMapper(auction.getAuctionid());
+		}
 	}
 
 	/* Paging and filtering results */
@@ -177,7 +186,7 @@ public class AuctionServiceImpl implements AuctionService {
 	/* Response preparation for ajax request checkBids */
 	public BidResponse checkBids(Integer numofBids, Integer auctionId) {
 
-		Auction auction = getAuctionById(auctionId);
+		Auction auction = null;
 		BidResponse bidResponse = new BidResponse();
 		List<Bid> bids = new ArrayList<Bid>();
 
@@ -191,26 +200,28 @@ public class AuctionServiceImpl implements AuctionService {
 			initializeMapper(auctionId);	// Initializes if mapping doesn't exist
 
 			AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);	// Gets the current number of bids for the auction
-			info.setNumofBids(auction.getAuctionBiddings().size());
+
 			/* If there are new bids the response is prepared */
 			if(info.getNumofBids() > numofBids) {
 
 				System.out.println("Preparing response with " + (info.getNumofBids() - numofBids) + "bids");
 
+				auction = getAuctionById(auctionId);
 				/* Eager Fetch */
 				auction.setAuctionBiddings(auctionBiddingRepository.findByAuction(auction));
 				List<AuctionBidding> biddings = auction.getAuctionBiddings();
 
 				/* Sort bids */
 				Collections.sort(biddings, new BidTimeComparator());
-				if(biddings.size()>4){
-					biddings = biddings.subList(biddings.size()-3, biddings.size());
-				}
-				for (AuctionBidding bidding : biddings) {
+
+				for(int j = info.getNumofBids() - 1; j > numofBids - 1; j--) {
+
+					AuctionBidding abid = biddings.get(j);
+
 					Bid bid = new Bid();
-					bid.setAmount(bidding.getId().getAmount());
-					bid.setTime(bidding.getTime().getTime());
-					bid.setUsername(bidding.getUser().getUsername());
+					bid.setAmount(abid.getId().getAmount());
+					bid.setTime(abid.getTime().getTime());
+					bid.setUsername(abid.getUser().getUsername());
 
 					bids.add(bid);
 				}
@@ -222,6 +233,15 @@ public class AuctionServiceImpl implements AuctionService {
 					auctionRepository.saveAndFlush(auction);
 				}
 
+				User user = userService.getLoggedInUser();
+				AuctionInfo auctionInfo = auctionMapper.getAuctionInfo(auctionId);
+
+				boolean isLastBidMy = false;
+				if (auctionInfo.getBuyer() != null && user != null && user.getUsername() != null) {
+					isLastBidMy = user.getUsername().equals(auctionInfo.getBuyer());
+				}
+
+				bidResponse.setLastBidMy(isLastBidMy);
 				bidResponse.setBids(bids);
 				bidResponse.setInfo(info);
 
@@ -270,18 +290,19 @@ public class AuctionServiceImpl implements AuctionService {
 		/* Check if auction id bought or bidAmount > latest bid amount */
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 
+
+
 		if(info.isBought()) {
 			String msg = "The auction is already bought.";
 			return msg;
 		}
-//        if (info.getLatestBid() != null) {
-//            if (info.getLatestBid().compareTo(bidAmount) != -1) {
-//                String msg = "Your bid must be bigger than the current price.";
-//                return msg;
-//            }
-//        } else {
-//
-//        }
+		if(info.getLatestBid() != null) {
+			bidAmount = info.getLatestBid() + 1; //hardcode меняем шаг аукциона тут!!!
+			if (info.getLatestBid().compareTo(bidAmount) != -1) {
+				String msg = "Your bid must be bigger than the current price.";
+				return msg;
+			}
+		}
 		if(info.getEnds() < new Date().getTime()) {
 			String msg = "The time has ended.";
 			return msg;
@@ -289,6 +310,9 @@ public class AuctionServiceImpl implements AuctionService {
 
 		/* Check and Update Currently */
 		Auction auction = auctionRepository.findByAuctionid(auctionId);
+		if(info.getLatestBid() == null){
+			bidAmount = auction.getCurrently();
+		}
 //		if(auction.getCurrently().compareTo(bidAmount) != -1) {
 //			String msg = "Your bid must be bigger than the current price.";
 //			return msg;
@@ -330,7 +354,6 @@ public class AuctionServiceImpl implements AuctionService {
 		/* Set Buyer */
 		info.setBuyer(user.getUsername());
 		auction.setBuyer(user);
-		info.setLastBidIsMy(user.getUserid() == auction.getBuyer().getUserid());
 
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
@@ -365,6 +388,9 @@ public class AuctionServiceImpl implements AuctionService {
 			info.setBuyPrice(auction.getBuyPrice());
 			info.setBought(auction.isBought());
 			info.setNumofBids(numofBids);
+			if (auction.getBuyer() != null) {
+				info.setBuyer(auction.getBuyer().getUsername());
+			}
 			if(numofBids > 0)
 				info.setLatestBid(biddings.get(numofBids-1).getId().getAmount());
 			if(auction.isBought() && !biddings.isEmpty())
