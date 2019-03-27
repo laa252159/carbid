@@ -8,6 +8,16 @@ public class BidResponse {
 	
 	AuctionInfo info;
 
+	boolean lastBidMy;
+
+	public boolean isLastBidMy() {
+		return lastBidMy;
+	}
+
+	public void setLastBidMy(boolean lastBidMy) {
+		this.lastBidMy = lastBidMy;
+	}
+
 	public List<Bid> getBids() {
 		return bids;
 	}

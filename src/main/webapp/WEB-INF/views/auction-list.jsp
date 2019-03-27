@@ -87,7 +87,7 @@
                                 </table>
                             </div>
                             <div class="col-xs-12 col-md-5">
-                                <p class="price-tag pull-right"><strong>${auction.currently} 000 Руб</strong></p>
+                                <p class="price-tag pull-right"><strong>${auction.currently} Руб</strong></p>
                             </div>
                         </div>
                     </div>
