@@ -1,6 +1,7 @@
 package com.ted.model;
 
 
+import java.util.List;
 
 public class AuctionInfo {
 	
@@ -17,6 +18,16 @@ public class AuctionInfo {
 	Long ends; 
 	
 	String buyer;
+
+	List<Bid> bids;
+
+	public List<Bid> getBids() {
+		return bids;
+	}
+
+	public void setBids(List<Bid> bids) {
+		this.bids = bids;
+	}
 
 	public String getBuyer() {
 		return buyer;

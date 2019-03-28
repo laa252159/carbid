@@ -186,9 +186,12 @@ public class AuctionServiceImpl implements AuctionService {
 	/* Response preparation for ajax request checkBids */
 	public BidResponse checkBids(Integer numofBids, Integer auctionId) {
 
-		Auction auction = null;
+		User user = userService.getLoggedInUser();
+		boolean isLastBidMy = false;
+
+		Auction auction = getAuctionById(auctionId);;
 		BidResponse bidResponse = new BidResponse();
-		List<Bid> bids = new ArrayList<Bid>();
+		LinkedList<Bid> bids;
 
 		/* Loop for 30 seconds */
 		for(int i = 0; i < 300; i++) {
@@ -206,25 +209,10 @@ public class AuctionServiceImpl implements AuctionService {
 
 				System.out.println("Preparing response with " + (info.getNumofBids() - numofBids) + "bids");
 
-				auction = getAuctionById(auctionId);
-				/* Eager Fetch */
-				auction.setAuctionBiddings(auctionBiddingRepository.findByAuction(auction));
-				List<AuctionBidding> biddings = auction.getAuctionBiddings();
-
+				//берем ставки с кеша
+				bids = (LinkedList<Bid>) auctionMapper.getAuctionInfo(auctionId).getBids();
 				/* Sort bids */
-				Collections.sort(biddings, new BidTimeComparator());
-
-				for(int j = info.getNumofBids() - 1; j > numofBids - 1; j--) {
-
-					AuctionBidding abid = biddings.get(j);
-
-					Bid bid = new Bid();
-					bid.setAmount(abid.getId().getAmount());
-					bid.setTime(abid.getTime().getTime());
-					bid.setUsername(abid.getUser().getUsername());
-
-					bids.add(bid);
-				}
+				Collections.sort(bids, new BidDtoTimeComparator());
 
 				/* Check if Auction ended */
 				if(auction.getEnds().getTime() < new Date().getTime()) {
@@ -233,16 +221,15 @@ public class AuctionServiceImpl implements AuctionService {
 					auctionRepository.saveAndFlush(auction);
 				}
 
-				User user = userService.getLoggedInUser();
+
 				AuctionInfo auctionInfo = auctionMapper.getAuctionInfo(auctionId);
 
-				boolean isLastBidMy = false;
-				if (auctionInfo.getBuyer() != null && user != null && user.getUsername() != null) {
-					isLastBidMy = user.getUsername().equals(auctionInfo.getBuyer());
+				if (!bids.isEmpty() && user != null && user.getUsername() != null) {
+					isLastBidMy = user.getUsername().equals(bids.getFirst().getUsername());
 				}
 
 				bidResponse.setLastBidMy(isLastBidMy);
-				bidResponse.setBids(bids);
+				info.setBids(bids);
 				bidResponse.setInfo(info);
 
 				return bidResponse;
@@ -268,11 +255,22 @@ public class AuctionServiceImpl implements AuctionService {
 
 		}
 
+		//берем ставки с кеша
+		bids = (LinkedList<Bid>) auctionMapper.getAuctionInfo(auctionId).getBids();
+		/* Sort bids */
+		Collections.sort(bids, new BidDtoTimeComparator());
+
 		System.out.println("Loop end");
 
-		AuctionInfo info = new AuctionInfo();
+		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 		info.setNumofBids(numofBids);
 
+		if (!bids.isEmpty() && user != null && user.getUsername() != null) {
+			isLastBidMy = user.getUsername().equals(bids.getFirst().getUsername());
+		}
+
+		bidResponse.setLastBidMy(isLastBidMy);
+		info.setBids(bids);
 		bidResponse.setInfo(info);
 
 		return bidResponse;
@@ -332,7 +330,105 @@ public class AuctionServiceImpl implements AuctionService {
 
 		auctionBidding.setId(auctionBiddingPK);
 
-		auctionBiddingRepository.saveAndFlush(auctionBidding);
+		AuctionBidding auctionBid = auctionBiddingRepository.saveAndFlush(auctionBidding);
+
+
+		System.out.println("Updating auctionMapper: " + bidAmount);
+
+		/* Update auctionMapper */
+//		if(info.getBuyPrice() != null) {
+//			if(info.getBuyPrice().compareTo(bidAmount) != 1)
+//				/* Check if bidAmount >= buyPrice */
+//				if(auction.getBuyPrice().compareTo(bidAmount) != 1) {
+//					auction.setBought(true);
+//					info.setBought(true);
+//				}
+//			else
+//				info.setBought(false);
+//		}
+//		else
+//			info.setBought(false);
+
+		/* Set Buyer */
+		info.setBuyer(user.getUsername());
+		auction.setBuyer(user);
+
+		info.setLatestBid(bidAmount);
+		info.setNumofBids(info.getNumofBids()+1);
+//		info.setEnds(auctionBidding.getTime().getTime());
+
+		Bid bid = new Bid();
+		bid.setAmount(auctionBid.getId().getAmount());
+		bid.setTime(auctionBid.getTime().getTime());
+		bid.setUsername(user.getUsername());
+
+		info.getBids().add(bid);
+		auctionMapper.setAuctionInfo(auctionId, info);
+
+		/* Update Auction */
+		auctionRepository.saveAndFlush(auction);
+
+		System.out.println("Persisted amount: " + bidAmount);
+
+		return null;
+
+	}
+
+	/* Synchronized method to avoid race condition on persisting bid and updating AuctionMapper singleton bean */
+	public synchronized String buySave(Integer auctionId, Integer bidAmount) {
+
+		System.out.println("Persisting amount: " + bidAmount);
+
+		User user = userService.getLoggedInUser();
+		if(user == null)
+			return "Not logged in";
+
+		/* Check if auction id bought or bidAmount > latest bid amount */
+		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
+
+
+
+		if(info.isBought()) {
+			String msg = "The auction is already bought.";
+			return msg;
+		}
+		if(info.getLatestBid() != null) {
+			bidAmount = info.getBuyPrice(); //hardcode сетаем цену продажи
+			if (info.getLatestBid().compareTo(bidAmount) != -1) {
+				String msg = "Your bid must be bigger than the current price.";
+				return msg;
+			}
+		}
+		if(info.getEnds() < new Date().getTime()) {
+			String msg = "The time has ended.";
+			return msg;
+		}
+
+		/* Check and Update Currently */
+		Auction auction = auctionRepository.findByAuctionid(auctionId);
+		if(info.getLatestBid() == null){
+			bidAmount = auction.getCurrently();
+		}
+//		if(auction.getCurrently().compareTo(bidAmount) != -1) {
+//			String msg = "Your bid must be bigger than the current price.";
+//			return msg;
+//		}
+		auction.setCurrently(bidAmount);
+		auction.setNumberOfBids(auction.getNumberOfBids()+1);
+
+		/* Persist Bid */
+		AuctionBidding auctionBidding = new AuctionBidding();
+//		auctionBidding.setAmount(bidAmount);
+		auctionBidding.setTime(new Date());
+
+		AuctionBiddingPK auctionBiddingPK = new AuctionBiddingPK();
+		auctionBiddingPK.setAuctionid(auctionId);
+		auctionBiddingPK.setBidderUserid(user.getUserid());
+		auctionBiddingPK.setAmount(bidAmount);
+
+		auctionBidding.setId(auctionBiddingPK);
+
+		AuctionBidding auctionBid = auctionBiddingRepository.saveAndFlush(auctionBidding);
 
 
 		System.out.println("Updating auctionMapper: " + bidAmount);
@@ -345,8 +441,8 @@ public class AuctionServiceImpl implements AuctionService {
 					auction.setBought(true);
 					info.setBought(true);
 				}
-			else
-				info.setBought(false);
+				else
+					info.setBought(false);
 		}
 		else
 			info.setBought(false);
@@ -358,6 +454,13 @@ public class AuctionServiceImpl implements AuctionService {
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
 //		info.setEnds(auctionBidding.getTime().getTime());
+
+		Bid bid = new Bid();
+		bid.setAmount(auctionBid.getId().getAmount());
+		bid.setTime(auctionBid.getTime().getTime());
+		bid.setUsername(user.getUsername());
+
+		info.getBids().add(bid);
 		auctionMapper.setAuctionInfo(auctionId, info);
 
 		/* Update Auction */
@@ -377,7 +480,7 @@ public class AuctionServiceImpl implements AuctionService {
 			Auction auction = getAuctionById(auctionId);
 			/* Eager Fetch */
 			auction.setAuctionBiddings(auctionBiddingRepository.findByAuction(auction));
-			List<AuctionBidding> biddings = auction.getAuctionBiddings();
+			LinkedList<AuctionBidding> biddings = new LinkedList<>(auction.getAuctionBiddings());
 
 			Integer numofBids = biddings.size();
 			Collections.sort(biddings, new BidTimeComparator()); 	// Sort bids
@@ -392,9 +495,22 @@ public class AuctionServiceImpl implements AuctionService {
 				info.setBuyer(auction.getBuyer().getUsername());
 			}
 			if(numofBids > 0)
-				info.setLatestBid(biddings.get(numofBids-1).getId().getAmount());
+				info.setLatestBid(biddings.getLast().getId().getAmount());
+
+			List<Bid> bids = new LinkedList<>();
+
+			for(AuctionBidding abid : biddings) {
+				Bid bid = new Bid();
+				bid.setAmount(abid.getId().getAmount());
+				bid.setTime(abid.getTime().getTime());
+				bid.setUsername(abid.getUser().getUsername());
+				bids.add(bid);
+			}
+			info.setBids(bids);
+
 			if(auction.isBought() && !biddings.isEmpty())
 				info.setBuyer(biddings.get(numofBids-1).getUser().getUsername());
+
 
 			auctionMapper.setAuctionInfo(auctionId, info);
 		}
@@ -769,5 +885,13 @@ class BidTimeComparator implements Comparator<AuctionBidding> {
     public int compare(AuctionBidding a, AuctionBidding b) {
         return a.getTime().getTime() < b.getTime().getTime() ? -1 : a.getTime().getTime() == b.getTime().getTime() ? 0 : 1;
     }
+
+}
+
+class BidDtoTimeComparator implements Comparator<Bid> {
+
+	public int compare(Bid a, Bid b) {
+		return a.getTime() > b.getTime() ? -1 : a.getTime() == b.getTime() ? 0 : 1;
+	}
 
 }

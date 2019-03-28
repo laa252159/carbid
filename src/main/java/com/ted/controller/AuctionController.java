@@ -192,6 +192,19 @@ public class AuctionController extends AbstractController {
 		
 		return "OK";
 	}
+
+	@RequestMapping(value = "auction/buy/{id}", method = RequestMethod.POST)
+	public @ResponseBody String auctionBuyPost(Model model, @PathVariable Integer id, @RequestParam(value="bidAmount") String bidAmount) {
+
+		System.out.println("BidPost controller");
+
+		String msg = auctionService.buySave(id, 0); //hardcode
+
+		if(msg != null)
+			return msg;
+
+		return "OK";
+	}
 	
 	@RequestMapping(value = "new-auction", method = RequestMethod.GET)
 	public String newAuctionGet(Model model) {

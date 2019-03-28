@@ -4,8 +4,6 @@ import java.util.List;
 
 public class BidResponse {
 	
-	List<Bid> bids;
-	
 	AuctionInfo info;
 
 	boolean lastBidMy;
@@ -16,14 +14,6 @@ public class BidResponse {
 
 	public void setLastBidMy(boolean lastBidMy) {
 		this.lastBidMy = lastBidMy;
-	}
-
-	public List<Bid> getBids() {
-		return bids;
-	}
-
-	public void setBids(List<Bid> bids) {
-		this.bids = bids;
 	}
 
 	public AuctionInfo getInfo() {
