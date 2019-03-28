@@ -193,8 +193,8 @@ public class AuctionServiceImpl implements AuctionService {
 		BidResponse bidResponse = new BidResponse();
 		LinkedList<Bid> bids;
 
-		/* Loop for 30 seconds */
-		for(int i = 0; i < 300; i++) {
+		/* Loop for 3 seconds */
+		for(int i = 0; i < 30; i++) {
 
 //			auction = getAuctionById(id);
 //
