@@ -90,7 +90,7 @@ public class AuctionServiceImpl implements AuctionService {
 	public void initCache(){
 		List<Auction> allAliveAuctions = auctionRepository.findByIsBought(false);
 		for(Auction auction : allAliveAuctions){
-			initializeMapper(auction.getAuctionid());
+			initializeMapper(auction.getAuctionid(), true);
 		}
 	}
 
@@ -200,7 +200,7 @@ public class AuctionServiceImpl implements AuctionService {
 //
 //			List<AuctionBidding> biddings = auction.getAuctionBiddings();
 
-			initializeMapper(auctionId);	// Initializes if mapping doesn't exist
+			initializeMapper(auctionId, false);	// Initializes if mapping doesn't exist
 
 			AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);	// Gets the current number of bids for the auction
 
@@ -228,7 +228,6 @@ public class AuctionServiceImpl implements AuctionService {
 				}
 
 				bidResponse.setLastBidMy(isLastBidMy);
-				info.setBids(bids);
 				bidResponse.setInfo(info);
 
 				return bidResponse;
@@ -259,8 +258,6 @@ public class AuctionServiceImpl implements AuctionService {
 		/* Sort bids */
 		Collections.sort(bids, new BidDtoTimeComparator());
 
-		bids = bids.subList(0, 1);
-
 		System.out.println("Loop end");
 
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
@@ -271,7 +268,6 @@ public class AuctionServiceImpl implements AuctionService {
 		}
 
 		bidResponse.setLastBidMy(isLastBidMy);
-		info.setBids(bids);
 		bidResponse.setInfo(info);
 
 		return bidResponse;
@@ -287,9 +283,8 @@ public class AuctionServiceImpl implements AuctionService {
 			return "Not logged in";
 
 		/* Check if auction id bought or bidAmount > latest bid amount */
+		initializeMapper(auctionId, true);
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
-
-
 
 		if(info.isBought()) {
 			String msg = "The auction is already bought.";
@@ -309,6 +304,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		/* Check and Update Currently */
 		Auction auction = auctionRepository.findByAuctionid(auctionId);
+
+		//Принятие начальной цены
 		if(info.getLatestBid() == null){
 			bidAmount = auction.getCurrently();
 		}
@@ -336,23 +333,24 @@ public class AuctionServiceImpl implements AuctionService {
 
 		System.out.println("Updating auctionMapper: " + bidAmount);
 
-		/* Update auctionMapper */
-//		if(info.getBuyPrice() != null) {
-//			if(info.getBuyPrice().compareTo(bidAmount) != 1)
-//				/* Check if bidAmount >= buyPrice */
-//				if(auction.getBuyPrice().compareTo(bidAmount) != 1) {
-//					auction.setBought(true);
-//					info.setBought(true);
-//				}
-//			else
-//				info.setBought(false);
-//		}
-//		else
-//			info.setBought(false);
+		/* Ставки до максимальной цены */
+		if(info.getBuyPrice() != null) {
+			if(info.getBuyPrice().compareTo(bidAmount) != 1)
+				/* Check if bidAmount >= buyPrice */
+				if(auction.getBuyPrice().compareTo(bidAmount) != 1) {
+					auction.setBought(true);
+					info.setBought(true);
+				}
+			else
+				info.setBought(false);
+		}
+		else
+			info.setBought(false);
 
 		/* Set Buyer */
 		info.setBuyer(user.getUsername());
 		auction.setBuyer(user);
+		auction.setCurrently(bidAmount);
 
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
@@ -364,10 +362,11 @@ public class AuctionServiceImpl implements AuctionService {
 		bid.setUsername(user.getUsername());
 
 		info.getBids().add(bid);
-		auctionMapper.setAuctionInfo(auctionId, info);
+//		auctionMapper.setAuctionInfo(auctionId, info);
 
 		/* Update Auction */
 		auctionRepository.saveAndFlush(auction);
+		initializeMapper(auctionId, true);
 
 		System.out.println("Persisted amount: " + bidAmount);
 
@@ -462,10 +461,11 @@ public class AuctionServiceImpl implements AuctionService {
 		bid.setUsername(user.getUsername());
 
 		info.getBids().add(bid);
-		auctionMapper.setAuctionInfo(auctionId, info);
 
 		/* Update Auction */
 		auctionRepository.saveAndFlush(auction);
+
+		initializeMapper(auctionId, true);
 
 		System.out.println("Persisted amount: " + bidAmount);
 
@@ -473,10 +473,10 @@ public class AuctionServiceImpl implements AuctionService {
 
 	}
 
-	public void initializeMapper(Integer auctionId) {
+	public synchronized void initializeMapper(Integer auctionId, boolean force) {
 
 		/* Initialize Auction Mapping if it doesn't exist */
-		if(!auctionMapper.getMapper().containsKey(auctionId)) {
+		if(force || !auctionMapper.getMapper().containsKey(auctionId)) {
 
 			Auction auction = getAuctionById(auctionId);
 			/* Eager Fetch */

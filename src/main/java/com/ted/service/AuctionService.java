@@ -28,7 +28,7 @@ public interface AuctionService {
 
 	String buySave(Integer auctionId, Integer bidAmount);
 
-	void initializeMapper(Integer auctionId);
+	void initializeMapper(Integer auctionId, boolean force);
 
 	String validateFormAuction(FormAuction formAuction);
 
