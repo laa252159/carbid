@@ -189,9 +189,9 @@ public class AuctionServiceImpl implements AuctionService {
 		User user = userService.getLoggedInUser();
 		boolean isLastBidMy = false;
 
-		Auction auction = getAuctionById(auctionId);;
+		Auction auction = getAuctionById(auctionId);
 		BidResponse bidResponse = new BidResponse();
-		LinkedList<Bid> bids;
+
 
 		/* Loop for 3 seconds */
 		for(int i = 0; i < 30; i++) {
@@ -210,7 +210,7 @@ public class AuctionServiceImpl implements AuctionService {
 				System.out.println("Preparing response with " + (info.getNumofBids() - numofBids) + "bids");
 
 				//берем ставки с кеша
-				bids = (LinkedList<Bid>) auctionMapper.getAuctionInfo(auctionId).getBids();
+				List<Bid> bids = info.getBids();
 				/* Sort bids */
 				Collections.sort(bids, new BidDtoTimeComparator());
 
@@ -222,10 +222,9 @@ public class AuctionServiceImpl implements AuctionService {
 				}
 
 
-				AuctionInfo auctionInfo = auctionMapper.getAuctionInfo(auctionId);
 
-				if (!bids.isEmpty() && user != null && user.getUsername() != null) {
-					isLastBidMy = user.getUsername().equals(bids.getFirst().getUsername());
+				if (user != null && user.getUsername() != null) {
+					isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 				}
 
 				bidResponse.setLastBidMy(isLastBidMy);
@@ -256,17 +255,19 @@ public class AuctionServiceImpl implements AuctionService {
 		}
 
 		//берем ставки с кеша
-		bids = (LinkedList<Bid>) auctionMapper.getAuctionInfo(auctionId).getBids();
+		List<Bid> bids = auctionMapper.getAuctionInfo(auctionId).getBids();
 		/* Sort bids */
 		Collections.sort(bids, new BidDtoTimeComparator());
+
+		bids = bids.subList(0, 1);
 
 		System.out.println("Loop end");
 
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 		info.setNumofBids(numofBids);
 
-		if (!bids.isEmpty() && user != null && user.getUsername() != null) {
-			isLastBidMy = user.getUsername().equals(bids.getFirst().getUsername());
+		if (user != null && user.getUsername() != null) {
+			isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 		}
 
 		bidResponse.setLastBidMy(isLastBidMy);

@@ -4,22 +4,22 @@ package com.ted.model;
 import java.util.List;
 
 public class AuctionInfo {
-	
-	Integer numofBids;
-	
-	boolean bought;
 
-	boolean lastBidIsMy;
+    private Integer numofBids;
 
-	Integer latestBid;
-	
-	Integer buyPrice;
-	
-	Long ends; 
-	
-	String buyer;
+    private boolean bought;
 
-	List<Bid> bids;
+    private boolean lastBidIsMy;
+
+    private Integer latestBid;
+
+    private Integer buyPrice;
+
+    private Long ends;
+
+    private String buyer;
+
+	private List<Bid> bids;
 
 	public List<Bid> getBids() {
 		return bids;
