@@ -831,7 +831,7 @@
                 if(data.lastBidMy == true){
                     $("#bidBtn").html('ПРОШЛАЯ СТАВКА ВАША');
                     $("#bidBtn").attr('disabled','disabled');
-                } else if(numberofBids == 0 || numberofBids == null){
+                } else if(data.info.buyer == null && (numberofBids == 0 || numberofBids == null)){
                     $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ ЦЕНУ');
                     $("#bidBtn").removeAttr('disabled');
                 } else {
@@ -849,7 +849,7 @@
                 }
                 else {
                     console.log('New bids: ' + (data.info.numofBids - numberofBids));
-                    console.log(data.bids);
+                    console.log(data.info.bids);
                     numberofBids = data.info.numofBids;
                     updatePriceAndLiveFeed(data);
                     console.log(data.info.buyer);
@@ -868,7 +868,7 @@
     function updatePriceAndLiveFeed(data) {
         $('#currentPrice').text(data.info.latestBid + " Руб");
 
-        var bids = data.bids;
+        var bids = data.info.bids;
         var bid;
         var i;
         for(i = bids.length-1; i >= 00 ; i--) {
@@ -883,7 +883,7 @@
 
     function updateBought(data) {
         $('.clock-div').addClass('hidden');
-        $('#soldto').text("Auction was sold to " + data.info.buyer + " for $" + data.info.latestBid);
+        $('#soldto').text("Лот был продан  " + data.info.buyer + " за " + data.info.latestBid + " Руб");
         $('#soldto-div').removeClass('hidden');
         $('#bid-pricing').addClass('hidden');
         $('#buy-pricing').addClass('hidden');
@@ -931,7 +931,7 @@
     /* Function to ajax post the purchase */
     function buyPost() {
 
-        var bidUrl = "/auction/bid/" + auctionId;
+        var bidUrl = "/auction/buy/" + auctionId;
 
         var amount = ${auction.buyPrice};
         console.log("Amount: " + amount);
