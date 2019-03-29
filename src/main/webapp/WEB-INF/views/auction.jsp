@@ -834,7 +834,7 @@
             timeout:45000,
             success: function( data ) {
                 if(data.lastBidMy == true){
-                    $("#bidBtn").html('ПРОШЛАЯ СТАВКА ВАША');
+                    $("#bidBtn").html('ВАША СТАВКА ЛИДИРУЕТ');
                     $("#bidBtn").attr('disabled','disabled');
                 } else if(data.info.buyer == null && (numberofBids == 0 || numberofBids == null)){
                     $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ ЦЕНУ');
