@@ -203,7 +203,7 @@ public class AuctionServiceImpl implements AuctionService {
 			initializeMapper(auctionId, false);	// Initializes if mapping doesn't exist
 
 			AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);	// Gets the current number of bids for the auction
-
+			numofBids = info.getBids().size(); //НЕ УБИРАТЬ!!!
 			/* If there are new bids the response is prepared */
 			if(info.getNumofBids() > numofBids) {
 

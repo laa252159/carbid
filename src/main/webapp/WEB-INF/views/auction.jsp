@@ -191,7 +191,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">Cтавки</h4>
+                        <h4 id="bidsSum" class="panel-title">Cтавки</h4>
                     </div>
                     <div class="panel-body" style="height: 200px; overflow-y:scroll">
                         <ul id="liveFeed" class="list-group"></ul>
@@ -847,10 +847,11 @@
                     $("#bidBtn").html('ПРОШЛАЯ СТАВКА ВАША');
                     $("#bidBtn").attr('disabled','disabled');
                 } else if(data.info.buyer == null && (numberofBids == 0 || numberofBids == null)){
-                    $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ ЦЕНУ');
+                    $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ');
                     $("#bidBtn").removeAttr('disabled');
                 } else {
-                    $("#bidBtn").html('СДЕЛАТЬ СТАВКУ НА 1000 рублей больше');
+                    var newBidAmount = data.info.latestBid + 1000;
+                    $("#bidBtn").html('СДЕЛАТЬ СТАВКУ ' + newBidAmount + ' Руб');
                     $("#bidBtn").removeAttr('disabled');
                 }
                 if (data.info.numofBids == numberofBids) {
@@ -882,6 +883,7 @@
 
     function updatePriceAndLiveFeed(data) {
         $('#currentPrice').text(data.info.latestBid + " Руб");
+        $('#bidsSum').text('Всего ставок: ' + data.info.numofBids);
 
         var bids = data.info.bids;
         var bid;
