@@ -876,6 +876,7 @@
         var bids = data.info.bids;
         var bid;
         var i;
+        $('#liveFeed').html("");
         for(i = bids.length-1; i >= 00 ; i--) {
             bid = bids[i];
             console.log('Name: ' + bid.username);
@@ -987,6 +988,8 @@
     /* On button click call bidPost() */
     $('#bidButton').on('click', function(){
         console.log("bidButton clicked")
+        $("#bidBtn").html('обработка запроса...');
+        $("#bidBtn").attr('disabled','disabled');
         bidPost();
     });
 

@@ -226,7 +226,7 @@ public class AuctionServiceImpl implements AuctionService {
 				if (user != null && user.getUsername() != null) {
 					isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 				}
-
+				info.setNumofBids(numofBids);
 				bidResponse.setLastBidMy(isLastBidMy);
 				bidResponse.setInfo(info);
 
