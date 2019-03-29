@@ -3,6 +3,8 @@ package com.ted.model;
 
 import java.util.List;
 
+import static com.ted.service.AuctionServiceImpl.AUCTION_STEP;
+
 public class AuctionInfo {
 
     private Integer numofBids;
@@ -15,11 +17,17 @@ public class AuctionInfo {
 
     private Integer buyPrice;
 
+    private Integer step;
+
     private Long ends;
 
     private String buyer;
 
 	private List<Bid> bids;
+
+	public Integer getStep() {
+		return AUCTION_STEP;
+	}
 
 	public List<Bid> getBids() {
 		return bids;

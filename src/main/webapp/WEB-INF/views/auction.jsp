@@ -168,7 +168,7 @@
                 </div>
             </div>
             <c:if test="${auction.buyPrice != null}">
-                <div id="buy-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
+                <div id="buy-pricing" class="col-md-6 <c:if test='${empty user || (auction.currently > auction.buyPrice)}'>hidden</c:if>">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">Купить без торга можно за</h4>
@@ -850,7 +850,7 @@
                     $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ');
                     $("#bidBtn").removeAttr('disabled');
                 } else {
-                    var newBidAmount = data.info.latestBid + 1000;
+                    var newBidAmount = data.info.latestBid + data.info.step;
                     $("#bidBtn").html('СДЕЛАТЬ СТАВКУ ' + newBidAmount + ' Руб');
                     $("#bidBtn").removeAttr('disabled');
                 }
@@ -884,6 +884,10 @@
     function updatePriceAndLiveFeed(data) {
         $('#currentPrice').text(data.info.latestBid + " Руб");
         $('#bidsSum').text('Всего ставок: ' + data.info.numofBids);
+        var buyPrice = '${auction.buyPrice}';
+        if (data.info.latestBid >= buyPrice) {
+            $('#buy-pricing').addClass('hidden');
+        }
 
         var bids = data.info.bids;
         var bid;
