@@ -3,6 +3,7 @@ package com.ted.service;
 
 import com.ted.model.*;
 import com.ted.repository.*;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +22,7 @@ import java.util.*;
 public class AuctionServiceImpl implements AuctionService {
 
 	private static final String DELIMETER = ":";
+	public static final int AUCTION_STEP = 1000; //рублей за шаг аукциона
 
 	public static int AUCTIONS_ON_PAGE = 5;
 
@@ -203,7 +205,7 @@ public class AuctionServiceImpl implements AuctionService {
 			initializeMapper(auctionId, false);	// Initializes if mapping doesn't exist
 
 			AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);	// Gets the current number of bids for the auction
-
+			numofBids = info.getBids().size(); //НЕ УБИРАТЬ!!!
 			/* If there are new bids the response is prepared */
 			if(info.getNumofBids() > numofBids) {
 
@@ -291,7 +293,7 @@ public class AuctionServiceImpl implements AuctionService {
 			return msg;
 		}
 		if(info.getLatestBid() != null) {
-			bidAmount = info.getLatestBid() + 1; //hardcode меняем шаг аукциона тут!!!
+			bidAmount = info.getLatestBid() + AUCTION_STEP; //hardcode меняем шаг аукциона тут!!!
 			if (info.getLatestBid().compareTo(bidAmount) != -1) {
 				String msg = "Your bid must be bigger than the current price.";
 				return msg;
@@ -334,18 +336,23 @@ public class AuctionServiceImpl implements AuctionService {
 		System.out.println("Updating auctionMapper: " + bidAmount);
 
 		/* Ставки до максимальной цены */
-		if(info.getBuyPrice() != null) {
-			if(info.getBuyPrice().compareTo(bidAmount) != 1)
-				/* Check if bidAmount >= buyPrice */
-				if(auction.getBuyPrice().compareTo(bidAmount) != 1) {
-					auction.setBought(true);
-					info.setBought(true);
-				}
-			else
-				info.setBought(false);
+//		if(info.getBuyPrice() != null) {
+//			if(info.getBuyPrice().compareTo(bidAmount) != 1)
+//				/* Check if bidAmount >= buyPrice */
+//				if(auction.getBuyPrice().compareTo(bidAmount) != 1) {
+//					auction.setBought(true);
+//					info.setBought(true);
+//				}
+//			else
+//				info.setBought(false);
+//		}
+//		else
+//			info.setBought(false);
+
+		//Если ставка за меньше чем 10 минут до конца - добавляем время 10 минут
+		if(auction.getEnds().getTime() - new Date().getTime() < 10*60*1000){
+			auction.setEnds(DateUtils.addMinutes(auction.getEnds(), 10));
 		}
-		else
-			info.setBought(false);
 
 		/* Set Buyer */
 		info.setBuyer(user.getUsername());
