@@ -1563,7 +1563,7 @@
                                                 class="glyphicon glyphicon-rub"></span></span>
                                         <form:input type="text" name="firstBid" path="auction.firstBid" id="firstBid"
                                                     class="form-control" placeholder="Required"/>
-                                        <span class="input-group-addon"> 000</span>
+                                        <span class="input-group-addon"></span>
                                             <%-- <form:errors path="auction.name" cssClass="error" /> --%>
                                     </div>
                                     <div class="err">
@@ -1580,7 +1580,7 @@
                                                 class="glyphicon glyphicon-rub"></span></span>
                                         <form:input type="text" name="buyPrice" path="auction.buyPrice" id="buyPrice"
                                                     class="form-control" placeholder="Optional"/>
-                                        <span class="input-group-addon"> 000</span>
+                                        <span class="input-group-addon"></span>
                                             <%-- <form:errors path="auction.name" cssClass="error" /> --%>
                                     </div>
                                 </div>

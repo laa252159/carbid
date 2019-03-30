@@ -399,7 +399,7 @@ CREATE TABLE `users` (
 --
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$.e5ao7BXP/eZ2E2ybw7lNuwysIMHJgis4XL1Scupg2FhR7KecQPgO','+7-967-80-44-111','Саратов',NULL,NULL,1,1,0,0,0,0);
+INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$.e5ao7BXP/eZ2E2ybw7lNuwysIMHJgis4XL1Scupg2FhR7KecQPgO','+7-967-80-44-111','Саратов',NULL,NULL,1,1,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

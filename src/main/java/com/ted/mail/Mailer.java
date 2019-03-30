@@ -87,9 +87,9 @@ public class Mailer implements MailService {
             message.append("\nПробег - ");
             message.append(auction.getRun());
             message.append("\nСтартовая цена - ");
-            message.append(auction.getFirstBid() + " 000 Руб");
+            message.append(auction.getFirstBid() + " р.");
             message.append("\nКупить до завершения аукциона можно за - ");
-            message.append(auction.getBuyPrice() + " 000 Руб");
+            message.append(auction.getBuyPrice() + " р.");
             message.append("\nДля получения более подробной информации зайдите на сайт под своей учетной записью");
             message.append("\nСсылка для незарегистрированных пользователей: http://www.perekup64.ru/auction/" + auction.getAuctionid());
 
@@ -295,7 +295,7 @@ public class Mailer implements MailService {
         StringBuilder sb = new StringBuilder();
         sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
         sb.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
-        sb.append("За " + auction.getCurrently() + " 000 рублей \n");
+        sb.append("За " + auction.getCurrently() + " р. \n");
         sendMail(SENDER, auction.getBuyer().getEmail(), "Победа на аукционе", sb.toString());
 
 
@@ -303,7 +303,7 @@ public class Mailer implements MailService {
         StringBuilder sb2 = new StringBuilder();
         sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
         sb2.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
-        sb2.append("За " + auction.getCurrently() + " 000 рублей \n");
+        sb2.append("За " + auction.getCurrently() + " р. \n");
         notifyAdmins(SENDER, "Победа на аукционе", sb2.toString());
     }
 }
