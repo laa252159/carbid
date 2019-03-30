@@ -70,12 +70,12 @@
                             <img src="data:image/jpeg;base64,${image}">
                         </c:forEach>
                     </c:if>
-                    <img
-                            <%--alt="Примерчик как на перекупе будут выглядеть видосы"--%>
+                    <c:if test="${not empty auction.youtube}">
+                    <img alt=""
                          data-type="youtube"
                          data-videoid="${auction.youtube}"
-                         <%--data-description="Офигительный видос про секвою с ютуба для примерчика"--%>
-                    >
+                         data-description="">
+                    </c:if>
                 </div>
             </div>
             <%--UNITE GALLERY--%>

@@ -265,7 +265,7 @@ public class AuctionServiceImpl implements AuctionService {
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 		info.setNumofBids(numofBids);
 
-		if (user != null && user.getUsername() != null) {
+		if (auction.getBuyer()!= null && user != null && user.getUsername() != null) {
 			isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 		}
 
