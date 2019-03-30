@@ -15,7 +15,7 @@ import java.util.Base64;
 
 public class TokenEncryptorDescriptor {
 
-    public static String KEY = "Gthtreg64";
+    public static String KEY = "Gthtregth64";
 
     static Cipher ecipher;
     static Cipher dcipher;
