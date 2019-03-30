@@ -1,4 +1,4 @@
-cd /home/builder/build/carbid/; 
+cd /home/builder/build/perekup_prod/;
 git reset --hard;
 git pull;
 mvn install;
