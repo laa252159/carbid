@@ -25,6 +25,7 @@ public class Mailer implements MailService {
     private UserService userService;
 
     @Qualifier("testMailSender")
+    @Autowired
     private JavaMailSender mailSender;
 
     public void setMailSender(JavaMailSender mailSender) {
