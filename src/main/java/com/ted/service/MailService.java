@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MailService {
 
-    String SENDER = "noreply@perekup64.ru";
+    String SENDER = "test@perekup64.ru";
 
     String[] admins_emails = {
             "laa252159@gmail.com",

@@ -4,6 +4,7 @@ import com.ted.model.*;
 import com.ted.service.MailService;
 import com.ted.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSendException;
@@ -23,6 +24,7 @@ public class Mailer implements MailService {
     @Autowired
     private UserService userService;
 
+    @Qualifier("testMailSender")
     @Autowired
     private JavaMailSender mailSender;
 
