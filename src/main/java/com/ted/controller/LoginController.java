@@ -148,7 +148,7 @@ public class LoginController extends AbstractController {
 	public String loginBySingleLogin(Model model, @RequestParam(value = "t", required = true) String token)
 			throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException, IOException {
-		String uRLDecodedToken = URLDecoder.decode(token, "UTF-8");
+			String uRLDecodedToken = URLDecoder.decode(token, "UTF-8");
 		String login = TokenEncryptorDescriptor.decrypt(uRLDecodedToken);
 		User user = userService.getUserByUsername(login);
 		if (user != null && user.getEmailApproved() == (byte)0) {
