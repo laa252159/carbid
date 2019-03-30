@@ -600,6 +600,7 @@ public class AuctionServiceImpl implements AuctionService {
 			auction.setOwners(formAuction.getAuction().getOwners());
 			auction.setVin(formAuction.getAuction().getVin());
 			auction.setGibdd(formAuction.getAuction().getGibdd());
+			auction.setYoutube(formAuction.getAuction().getYoutube());
 			auction.setFssp(formAuction.getAuction().getFssp());
 			auction.setDriveState(formAuction.getAuction().getDriveState());
 			auction.setEngineState(formAuction.getAuction().getEngineState());

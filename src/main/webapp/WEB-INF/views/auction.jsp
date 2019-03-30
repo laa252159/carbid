@@ -70,10 +70,12 @@
                             <img src="data:image/jpeg;base64,${image}">
                         </c:forEach>
                     </c:if>
-                    <img alt="Примерчик как на перекупе будут выглядеть видосы"
+                    <img
+                            <%--alt="Примерчик как на перекупе будут выглядеть видосы"--%>
                          data-type="youtube"
-                         data-videoid="hrxbnlxn6FU"
-                         data-description="Офигительный видос про секвою с ютуба для примерчика">
+                         data-videoid="${auction.youtube}"
+                         <%--data-description="Офигительный видос про секвою с ютуба для примерчика"--%>
+                    >
                 </div>
             </div>
             <%--UNITE GALLERY--%>
@@ -508,7 +510,6 @@
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.headlights}">
                             <tr class="border_bottom">
-                                <td>Головная оптика: ${auction.auctionMoreInfo.headlights}</td>
                                 <td>Головная оптика: ${auction.auctionMoreInfo.headlights}</td>
                             </tr>
                         </c:if>

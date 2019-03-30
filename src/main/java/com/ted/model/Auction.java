@@ -110,6 +110,9 @@ public class Auction implements Serializable {
 	@Column(name="gibdd", nullable = true)
 	private String gibdd;
 
+	@Column(name="youtube", nullable = true)
+	private String youtube;
+
 	
 	@Column(name="fssp", nullable = true)
 	private String fssp;
@@ -376,6 +379,14 @@ public class Auction implements Serializable {
 
 	public void setGibdd(String gibdd) {
 		this.gibdd = gibdd;
+	}
+
+	public String getYoutube() {
+		return youtube;
+	}
+
+	public void setYoutube(String youtube) {
+		this.youtube = youtube;
 	}
 
 	public String getFssp() {

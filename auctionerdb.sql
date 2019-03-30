@@ -138,6 +138,7 @@ CREATE TABLE `auctions` (
   `owners` varchar(45),
   `vin` varchar(45),
   `gibdd` varchar(45),
+  `youtube` varchar(200),
   `fssp` varchar(45),
   `damaged_elements` varchar(45),
   `city` varchar(45),
