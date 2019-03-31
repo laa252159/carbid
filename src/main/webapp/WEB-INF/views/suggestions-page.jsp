@@ -57,6 +57,7 @@
                                 <td>${suggestion.brandAndModel}</td>
                                 <td>${suggestion.releaseDate}</td>
                                 <td>${suggestion.phoneNumber}</td>
+                                <td>${suggestion.suggestionDate}</td>
                             </tr>
                         </c:forEach>
                     </table>
