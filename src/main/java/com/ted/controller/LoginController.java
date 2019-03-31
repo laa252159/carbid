@@ -107,10 +107,10 @@ public class LoginController extends AbstractController {
 		}
 
 
-        if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
-            model.addAttribute("captchaInvalid", "Введите капчу");
-            return "reg";
-        }
+//        if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
+//            model.addAttribute("captchaInvalid", "Введите капчу");
+//            return "reg";
+//        }
 
         loginService.saveUser(user, null);
 		model.addAttribute("headerMsg", "Данные регистрации приняты");
