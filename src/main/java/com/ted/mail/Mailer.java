@@ -38,7 +38,7 @@ public class Mailer implements MailService {
 
     @Override
     public void notifyAdminAboutNewUser(User user) {
-        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался, принял условия и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
+        notifyAdmins(SENDER, "На sanix.site зарегистрировался, принял условия и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
     }
 
     private void notifyAdmins(String from, String subject, String message) {
@@ -93,7 +93,7 @@ public class Mailer implements MailService {
             message.append("\nКупить до завершения аукциона можно за - ");
             message.append(auction.getBuyPrice() + " р.");
             message.append("\nДля получения более подробной информации зайдите на сайт под своей учетной записью");
-            message.append("\nСсылка для незарегистрированных пользователей: http://www.perekup64.ru/auction/" + auction.getAuctionid());
+            message.append("\nСсылка для незарегистрированных пользователей: http://www.sanix.site/auction/" + auction.getAuctionid());
 
             sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
         }
@@ -118,7 +118,7 @@ public class Mailer implements MailService {
     //Подпись в письмах
     private String setFooter(String msg){
         StringBuilder footer = new StringBuilder();
-        footer.append("\n\nСервис www.perekup64.ru");
+        footer.append("\n\nСервис www.sanix.site");
         footer.append("\nтел.: +7-967-80-44-111");
         footer.append("\nАдрес: г. Саратов ул. Шелковичная д.11/15");
         String message = msg + footer;
@@ -268,7 +268,7 @@ public class Mailer implements MailService {
         StringBuilder subject = new StringBuilder();
         StringBuilder message = new StringBuilder();
         subject.append("Perekup64 Подтверждение электронной почты");
-        message.append("Perekup64.ru сообщает, что Вы успешно зарегистрированы в системе. Для активизации Вашего " +
+        message.append("sanix.site сообщает, что Вы успешно зарегистрированы в системе. Для активизации Вашего " +
                 "аккаунта необходимо пройти последний пункт регистрации!\n" +
                 "\n" +
                 "Чтобы стать зарегистрированным пользователем, Вам необходимо однократно проследовать по указанной " +
@@ -276,7 +276,7 @@ public class Mailer implements MailService {
 
         message.append("\n В последующем, в течение суток, Ваш аккаунт будет подтвержден администрацией сайта. \n");
         message.append("\n Для завершения регистрации, проследуйте по ссылке: \n");
-        message.append("http://www.perekup64.ru/approve-and-contract?email=" + user.getEmail() + " \n");
+        message.append("http://www.sanix.site/approve-and-contract?email=" + user.getEmail() + " \n");
         message.append("Если Вы не совершали действий по регистрации в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
@@ -287,7 +287,7 @@ public class Mailer implements MailService {
         StringBuilder message = new StringBuilder();
         subject.append("Perekup64 Восстановление пароля");
         message.append("\n Для завершения восстановления пароля, проследуйте по ссылке: \n");
-        message.append("http://www.perekup64.ru/password_recovery?token=" + token + " \n");
+        message.append("http://www.sanix.site/password_recovery?token=" + token + " \n");
         message.append("Если Вы не совершали действий по восстановлению пароля в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
@@ -295,7 +295,7 @@ public class Mailer implements MailService {
     @Override
     public void notifyUsersAboutVictory(Auction auction) {
         StringBuilder sb = new StringBuilder();
-        sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
+        sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.sanix.site/auction/" + auction.getAuctionid() + "\n");
         sb.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb.append("За " + auction.getCurrently() + " р. \n");
         sendMail(SENDER, auction.getBuyer().getEmail(), "Победа на аукционе", sb.toString());
@@ -303,7 +303,7 @@ public class Mailer implements MailService {
 
 
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.perekup64.ru/auction/" + auction.getAuctionid() + "\n");
+        sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.sanix.site/auction/" + auction.getAuctionid() + "\n");
         sb2.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb2.append("За " + auction.getCurrently() + " р. \n");
         notifyAdmins(SENDER, "Победа на аукционе", sb2.toString());
