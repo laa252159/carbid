@@ -22,7 +22,7 @@ import java.util.*;
 public class AuctionServiceImpl implements AuctionService {
 
 	private static final String DELIMETER = ":";
-	public static final int AUCTION_STEP = 1000; //рублей за шаг аукциона
+	public static final int AUCTION_STEP = 5000; //рублей за шаг аукциона
 
 	public static int AUCTIONS_ON_PAGE = 5;
 
