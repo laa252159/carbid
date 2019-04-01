@@ -21,7 +21,7 @@
     <![endif]-->
 
     <title>Perekup64</title>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <%--<script src='https://www.google.com/recaptcha/api.js'></script>--%>
 </head>
 
 <body>
@@ -167,20 +167,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row top-buffer">
-                        <div class="form-group">
-                            <label class="input-label col-md-1"></label>
-                            <div class="col-lg-3">
-                                <div class="in_group">
-                                    <div class="g-recaptcha"
-                                         data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>
-                                </div>
-                                <div class="err" style="line-height: 1; color: red;">
-                                        ${captchaInvalid}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <%--<div class="row top-buffer">--%>
+                        <%--<div class="form-group">--%>
+                            <%--<label class="input-label col-md-1"></label>--%>
+                            <%--<div class="col-lg-3">--%>
+                                <%--<div class="in_group">--%>
+                                    <%--<div class="g-recaptcha"--%>
+                                         <%--data-sitekey="6LeBTm8UAAAAAOTAyuvd6Q8nQ2Q0zbqERrCNlNKk"></div>--%>
+                                <%--</div>--%>
+                                <%--<div class="err" style="line-height: 1; color: red;">--%>
+                                        <%--${captchaInvalid}--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                     <div class="row top-buffer">
                         <div class="form-group">
                             <label class="input-label col-md-1"></label>

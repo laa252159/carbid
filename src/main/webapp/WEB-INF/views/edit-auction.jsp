@@ -1563,7 +1563,7 @@
                                                 class="glyphicon glyphicon-rub"></span></span>
                                         <form:input type="text" name="firstBid" path="auction.firstBid" id="firstBid"
                                                     class="form-control" placeholder="Required"/>
-                                        <span class="input-group-addon"> 000</span>
+                                        <span class="input-group-addon"></span>
                                             <%-- <form:errors path="auction.name" cssClass="error" /> --%>
                                     </div>
                                     <div class="err">
@@ -1580,7 +1580,7 @@
                                                 class="glyphicon glyphicon-rub"></span></span>
                                         <form:input type="text" name="buyPrice" path="auction.buyPrice" id="buyPrice"
                                                     class="form-control" placeholder="Optional"/>
-                                        <span class="input-group-addon"> 000</span>
+                                        <span class="input-group-addon"></span>
                                             <%-- <form:errors path="auction.name" cssClass="error" /> --%>
                                     </div>
                                 </div>
@@ -2374,6 +2374,26 @@
                     </div>
                 </div>
 
+                <h2 class="text-center">Ролик на YouTube</h2>
+                <div class="row content-row">
+                    <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="brand" class="input-label col-md-3">ID на YouTube:</label>
+                                <div class="col-lg-8">
+                                    <div class="in-group">
+                                        <form:input type="text" name="auction.youtube" path="auction.youtube" id="youtube"
+                                                    class="form-control" placeholder="ID на YouTube"
+                                                    value="${formAuction.auction.youtube}"/>
+                                        <form:errors path="auction.youtube" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <h2 class="text-center">Загрузить фото</h2>
                 <div class="row content-row">

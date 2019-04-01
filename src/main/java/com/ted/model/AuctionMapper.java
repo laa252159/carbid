@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 @Scope("singleton")
 public class AuctionMapper {
 	
-	private Map<Integer, AuctionInfo> mapper;
+	private ConcurrentHashMap<Integer, AuctionInfo> mapper;
 
-	public Map<Integer, AuctionInfo> getMapper() {
+	public synchronized Map<Integer, AuctionInfo> getMapper() {
 		return mapper;
 	}
 	
@@ -20,7 +20,7 @@ public class AuctionMapper {
 		this.mapper = new ConcurrentHashMap<Integer, AuctionInfo>();
 	}
 
-	public void setMapper(Map<Integer, AuctionInfo> mapper) {
+	public void setMapper(ConcurrentHashMap<Integer, AuctionInfo> mapper) {
 		this.mapper = mapper;
 	}
 	

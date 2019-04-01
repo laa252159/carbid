@@ -2,6 +2,7 @@
          pageEncoding="utf-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 
 <html lang="en">
 
@@ -57,6 +58,7 @@
                                 <td>${suggestion.brandAndModel}</td>
                                 <td>${suggestion.releaseDate}</td>
                                 <td>${suggestion.phoneNumber}</td>
+                                <td><fmt:formatDate value="${suggestion.suggestionDate}" pattern="dd-MM-yyyy HH:mm:ss z" timeZone="UTC+4"/></td>
                             </tr>
                         </c:forEach>
                     </table>

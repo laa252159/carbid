@@ -70,10 +70,12 @@
                             <img src="data:image/jpeg;base64,${image}">
                         </c:forEach>
                     </c:if>
-                    <img alt="Примерчик как на перекупе будут выглядеть видосы"
+                    <c:if test="${not empty auction.youtube}">
+                    <img alt=""
                          data-type="youtube"
-                         data-videoid="hrxbnlxn6FU"
-                         data-description="Офигительный видос про секвою с ютуба для примерчика">
+                         data-videoid="${auction.youtube}"
+                         data-description="">
+                    </c:if>
                 </div>
             </div>
             <%--UNITE GALLERY--%>
@@ -86,13 +88,14 @@
                     </div>
                 </div>
             </div>
+                <%--МЕХАНИЗМ ТОРГОВ--%>
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">Стартовая цена</h4>
                     </div>
                     <div class="panel-body">
-                        <div class="price-number text-center">${auction.firstBid} 000 Руб</div>
+                        <div class="price-number text-center">${auction.firstBid} Руб</div>
                     </div>
                 </div>
             </div>
@@ -133,42 +136,47 @@
                     </div>
                     <div class="panel-body">
                         <div class="price-number text-center"><span
-                                id="currentPrice">${auction.firstBid} 000 Руб</span>
+                                id="currentPrice">${auction.firstBid} Руб</span>
                         </div>
                     </div>
                     <div class="panel-footer">
                         <c:if test="${user.approved == 1}">
-                            <c:if test="${user.userid != auction.user.userid}">
-                                <b>
-                                    <c:choose>
-                                        <c:when test="${empty auction.buyer}">
-                                            <button type="button" class="btn btn-primary btn-block" id="nextBid"
-                                                    style="font-weight : bold">
-                                                ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ ${auction.currently} Руб
-                                            </button>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <button type="button" class="btn btn-primary btn-block" id="nextBid"
-                                                    disabled="true" style="font-weight : bold">
-                                                СДЕЛАТЬ СТАВКУ ${auction.currently + 1} Руб
-                                            </button>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </b>
-                            </c:if>
+                            <div class="col-md-9" style="padding-left: 0px;" hidden>
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control" id="bidInput" placeholder="Place Bid">
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 bid-button" style="padding-right: 0px;">
+                                <c:if test="${user.approved == 1}">
+                                    <c:if test="${user.userid == auction.user.userid}">
+                                        <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You cannot bid your own Auction" disabled="disabled">Bid</button>
+                                    </c:if>
+                                    <c:if test="${user.userid != auction.user.userid}">
+                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#bidModal" id="bidBtn" disabled>идет загрузка данных...</button>
+                                    </c:if>
+                                </c:if>
+                                <c:if test="${user.approved == 0}">
+                                    <button class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="You need an approved account for this action." disabled="disabled">Bid</button>
+                                </c:if>
+                            </div>
+                            <div class="clearfix"></div>
                         </c:if>
                         <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
             <c:if test="${auction.buyPrice != null}">
-                <div id="buy-pricing" class="col-md-6 <c:if test='${empty user}'>hidden</c:if>">
+                <div id="buy-pricing" class="col-md-6 <c:if test='${empty user || (auction.currently > auction.buyPrice)}'>hidden</c:if>">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">Купить без торга можно за</h4>
                         </div>
                         <div class="panel-body">
-                            <div class="price-number text-center">${auction.buyPrice} 000 Руб</div>
+                            <div class="price-number text-center">${auction.buyPrice} Руб</div>
                         </div>
                         <div class="panel-footer">
                             <c:if test="${user.approved == 1}">
@@ -185,9 +193,9 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">Последние ставки</h4>
+                        <h4 id="bidsSum" class="panel-title">Cтавки</h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="height: 200px; overflow-y:scroll">
                         <ul id="liveFeed" class="list-group"></ul>
                     </div>
                 </div>
@@ -195,52 +203,50 @@
         </div>
     </div>
 
-    <!-- Bid Modal -->
-    <div class="modal fade" id="bidModal" role="dialog">
-        <div class="modal-dialog">
+        <!-- Bid Modal -->
+          <div class="modal fade" id="bidModal" role="dialog">
+            <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
+              <!-- Modal content-->
+              <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Подтверждение</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">ПОДТВЕРЖДЕНИЕ</h4>
                 </div>
-                <div class="modal-body" style="line-height: 1">
-                    <p>Вы уверены, что хотите повысить ставку?</p>
-                    <p>Ваша ставка лидирует!</p>
+                <div class="modal-body">
+                  <p>Вы уверены, что продолжаете данную операцию? Это действие нельзя будет отменить.</p>
                 </div>
                 <div class="modal-footer">
-                    <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить
-                    </button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                  <button id="bidButton" type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">ОТМЕНА</button>
                 </div>
+              </div>
+
             </div>
+          </div>
+          <!-- Buy Modal -->
+            <div class="modal fade" id="buyModal" role="dialog">
+              <div class="modal-dialog">
 
-        </div>
-    </div>
-    <!-- Buy Modal -->
-    <div class="modal fade" id="buyModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Подтверждение</h4>
+                    <h4 class="modal-title">ПОДТВЕРЖДЕНИЕ</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Вы уверены, что продолжаете данную операцию? Это действие нельзя будет отменить.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ОТМЕНА</button>
+                  </div>
                 </div>
-                <div class="modal-body" style="line-height: 1">
-                    <p>Вы уверены, что хотите продолжить?</p>
-                    <p>Это действие нельзя будет отменить!</p>
-                </div>
-                <div class="modal-footer">
-                    <button id="buy-button" type="button" class="btn btn-primary" data-dismiss="modal">Продолжить
-                    </button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                </div>
-            </div>
 
-        </div>
-    </div>
+              </div>
+            </div>
+    <%--МЕХАНИЗМ ТОРГОВ--%>
+
     <div class="row">
         <div class="col-sm-12">
             <button class="accordion">ПОДРОБНЕЕ</button>
@@ -341,76 +347,81 @@
                     <table style="width: 100%;">
                         <c:if test="${not empty auction.auctionMoreInfo.powerSteering}">
                             <tr class="border_bottom">
-                                <td>Усилитель руля: ${auction.auctionMoreInfo.powerSteering}</td>
+                                <td>Усилитель руля:</td>
+                                <td>${auction.auctionMoreInfo.powerSteering}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.climateControl}">
                             <tr class="border_bottom">
-                                <td>Управление климатом: ${auction.auctionMoreInfo.climateControl}</td>
+                                <td>Управление климатом:</td>
+                                <td>${auction.auctionMoreInfo.climateControl}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.controlOnWheel}">
                             <tr class="border_bottom">
                                 <td>Мультируль</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.leatherWheel}">
                             <tr class="border_bottom">
                                 <td>Отделка руля и рукоятки кпп кожей</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.heatedWheel}">
                             <tr class="border_bottom">
                                 <td>Подогрев руля</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.heatedSeats}">
                             <tr class="border_bottom">
-                                <td>Обогрев сидений: ${auction.auctionMoreInfo.heatedSeats}</td>
+                                <td>Обогрев сидений: </td>
+                                <td>${auction.auctionMoreInfo.heatedSeats}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.heatedMirrors}">
                             <tr class="border_bottom">
                                 <td>Электро обогрев и электро настройка зеркал</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.powerWindows}">
                             <tr class="border_bottom">
-                                <td>Электростеклоподъемники: ${auction.auctionMoreInfo.powerWindows}</td>
+                                <td>Электростеклоподъемники: </td>
+                                <td>${auction.auctionMoreInfo.powerWindows}</td>
 
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.powerSeatsFront}">
                             <tr class="border_bottom">
                                 <td>Электропривод передних сидений</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.rainSensor}">
                             <tr class="border_bottom">
                                 <td>Датчик дождя</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.frontParkingSensors}">
                             <tr class="border_bottom">
                                 <td>Датчики парковки передний</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.rearParkingSensors}">
                             <tr class="border_bottom">
                                 <td>Датчики парковки задний</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.cruiseControl}">
                             <tr class="border_bottom">
-                                <td>Круиз-контроль: ${auction.auctionMoreInfo.cruiseControl}</td>
+                                <td>Круиз-контроль:</td>
+                                <td>${auction.auctionMoreInfo.cruiseControl}</td>
                             </tr>
                         </c:if>
                     </table>
@@ -420,53 +431,56 @@
                         <c:if test="${auction.auctionMoreInfo.onBoardComputer}">
                             <tr class="border_bottom">
                                 <td>Бортовой компьютер</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.alarm}">
                             <tr class="border_bottom">
-                                <td>Сигнализация: ${auction.auctionMoreInfo.alarm}</td>
+                                <td>Сигнализация: </td>
+                                <td>${auction.auctionMoreInfo.alarm}</td>
 
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.airbags}">
                             <tr class="border_bottom">
                                 <td>Подушки безопасности</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.abs}">
                             <tr class="border_bottom">
                                 <td>Антиблокировочная система тормозов ABS</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.directionalStability}">
                             <tr class="border_bottom">
                                 <td>Система курсовой устойчивости ESP</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.antiSlip}">
                             <tr class="border_bottom">
                                 <td>Противобуксовочная система TCS</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.carStereo}">
                             <tr class="border_bottom">
-                                <td>Магнитола: ${auction.auctionMoreInfo.carStereo}</td>
+                                <td>Магнитола: </td>
+                                <td> ${auction.auctionMoreInfo.carStereo}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.audioSystem}">
                             <tr class="border_bottom">
-                                <td>Аудиоколонки: ${auction.auctionMoreInfo.audioSystem} шт.</td>
+                                <td>Динамики: </td>
+                                <td>${auction.auctionMoreInfo.audioSystem} шт.</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.backCamera}">
                             <tr class="border_bottom">
                                 <td>Камера заднего вида</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.headlights}">
@@ -476,25 +490,26 @@
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.wheels}">
                             <tr class="border_bottom">
-                                <td>Размер колес: ${auction.auctionMoreInfo.wheels}</td>
+                                <td>Размер колес: </td>
+                                <td>${auction.auctionMoreInfo.wheels}</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.winterTires}">
                             <tr class="border_bottom">
                                 <td>Зимние шины</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.vehicleLogBook}">
                             <tr class="border_bottom">
                                 <td>Сервисная книжка</td>
-                                    <%--<td>есть</td>--%>
+                                    <td>есть</td>
                             </tr>
                         </c:if>
                         <c:if test="${auction.auctionMoreInfo.warrantyOn}">
                             <tr class="border_bottom">
                                 <td>Заводская гарантия</td>
-                                    <%--<td>есть</td>--%>
+                                   <td>есть</td>
                             </tr>
                         </c:if>
                     </table>
@@ -529,12 +544,13 @@
 
 <script src=<c:url value="/resources/js/auction.js"/>></script>
 <script src=<c:url value="/resources/js/jquery.countdown.min.js"/>></script>
+<script src=<c:url value="/resources/js/style.js"/>></script>
 <script src=<c:url value="/resources/js/auction-carousels.js"/>></script>
 <script src=<c:url value="/resources/js/date.format.js"/>></script>
 <script src=<c:url value="/resources/js/bootstrap-confirmation.js"/>></script>
 <script src=<c:url value="/resources/js/star-rating.min.js"/>></script>
 
-<script src=<c:url value="/resources/unite_gallery/js/jquery-11.0.min.js"/>></script>
+<%--<script src=<c:url value="/resources/unite_gallery/js/jquery-11.0.min.js"/>></script>--%>
 <script src=<c:url value="/resources/unite_gallery/js/unitegallery.min.js"/>></script>
 <script src=<c:url value="/resources/unite_gallery/themes/default/ug-theme-default.js"/>></script>
 <%--<script src=<c:url value="/resources/unite_gallery/themes/slider/ug-theme-slider.js"/>></script>--%>
@@ -782,13 +798,11 @@
     /* Asychronous check of Bids */
     numberofBids = 0;
 
-    myBidIsLast = false;
-
     stopFlag = 0;
 
-    function pollforBids() {
+    function pollforBids(){
 
-        if (stopFlag == 1)   // Recursive returns
+        if(stopFlag == 1)   // Recursive returns
             return;
 
         var url = "/checkBids/" + auctionId
@@ -802,81 +816,41 @@
         var request = $.ajax({
             url: url,
             type: "GET",
-            data: {numofBids: numberofBids},
-            timeout: 45000,
-            success: function (data) {
-                myBidIsLast = data.info.lastBidIsMy;
-                console.log("myBidIsLast: " + myBidIsLast);
-                console.log("No new bids: " + data.info.buyer);
-                if (data.info.bought) {
-                    if (data.info.buyer == null)
-                        updateOver();
-                    else
-                        updateBought(data);
+            data: {numofBids : numberofBids},
+            timeout:45000,
+            success: function( data ) {
+                if(data.lastBidMy == true){
+                    $("#bidBtn").html('ВАША СТАВКА ЛИДИРУЕТ');
+                    $("#bidBtn").attr('disabled','disabled');
+                } else if(data.info.buyer == null && (numberofBids == 0 || numberofBids == null)){
+                    $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ');
+                    $("#bidBtn").removeAttr('disabled');
+                } else {
+                    var newBidAmount = data.info.latestBid + data.info.step;
+                    $("#bidBtn").html('СДЕЛАТЬ СТАВКУ ' + newBidAmount + ' Руб');
+                    $("#bidBtn").removeAttr('disabled');
+                }
+                if (data.info.numofBids == numberofBids) {
+                    console.log("No new bids: " + data.info.buyer);
+                    if(data.info.bought){
+                        if(data.info.buyer == null)
+                            updateOver();
+                        else
+                            updateBought(data);
+                    }
                 }
                 else {
-                    myBidIsLast = data.info.lastBidIsMy;
-                    console.log("myBidIsLast: " + myBidIsLast);
                     console.log('New bids: ' + (data.info.numofBids - numberofBids));
-                    console.log(data.bids);
+                    console.log(data.info.bids);
                     numberofBids = data.info.numofBids;
+                    updatePriceAndLiveFeed(data);
                     console.log(data.info.buyer);
-                    if (data.info.bought)
+                    if(data.info.bought)
                         updateBought(data);
                 }
-                updatePriceAndLiveFeed(data);
                 pollforBids();  // Recursion
             },
-            error: function (data) {
-                console.log("pollforBids: ERROR: " + data.responseText);
-                stopFlag = 1;
-            }
-        });
-    }
-
-
-    function pollforBidsSingle() {
-
-        console.log("myBisIsLast: " + myBidIsLast);
-
-        if (stopFlag == 1)   // Recursive returns
-            return;
-
-        var url = "/checkBids/" + auctionId
-
-        if (request) {
-            request.abort();  // abort any pending request
-        }
-
-        console.log("Polling for bids");
-
-        var request = $.ajax({
-            url: url,
-            type: "GET",
-            data: {numofBids: numberofBids},
-            timeout: 45000,
-            success: function (data) {
-                myBidIsLast = data.info.lastBidIsMy;
-                console.log("myBidIsLast: " + myBidIsLast);
-                console.log("No new bids: " + data.info.buyer);
-                if (data.info.bought) {
-                    if (data.info.buyer == null)
-                        updateOver();
-                    else
-                        updateBought(data);
-                }
-                else {
-                    myBidIsLast = data.info.lastBidIsMy;
-                    console.log('New bids: ' + (data.info.numofBids - numberofBids));
-                    console.log(data.bids);
-                    numberofBids = data.info.numofBids;
-                    console.log(data.info.buyer);
-                    if (data.info.bought)
-                        updateBought(data);
-                }
-                updatePriceAndLiveFeed(data);
-            },
-            error: function (data) {
+            error: function(data){
                 console.log("pollforBids: ERROR: " + data.responseText);
                 stopFlag = 1;
             }
@@ -884,34 +858,30 @@
     }
 
     function updatePriceAndLiveFeed(data) {
-        var latestBid = data.info.latestBid;
-        if (latestBid > 2) {
-            $('#currentPrice').text(data.info.latestBid + " 000 Руб");
+        $('#currentPrice').text(data.info.latestBid + " Руб");
+        $('#bidsSum').text('Всего ставок: ' + data.info.numofBids);
+        var buyPrice = '${auction.buyPrice}';
+        if (data.info.latestBid >= buyPrice) {
+            $('#buy-pricing').addClass('hidden');
         }
-        var bid = data.info.latestBid + 1;
-        if (bid > 2) {
-            $('#nextBid').text("СДЕЛАТЬ СТАВКУ " + bid + " 000 Руб");
-            $('#nextBid').removeAttr("disabled");
-        }
-        var bids = data.bids;
+
+        var bids = data.info.bids;
         var bid;
         var i;
-        if (bids.length > 0) {
-            $('#liveFeed').empty();
-        }
-        for (i = bids.length - 1; i >= 00; i--) {
+        $('#liveFeed').html("");
+        for(i = bids.length-1; i >= 00 ; i--) {
             bid = bids[i];
             console.log('Name: ' + bid.username);
             var time = new Date(bid.time);
             var formattedTime = time.format("isoTime");
 
-            $('#liveFeed').prepend('<li class="list-group-item">' + formattedTime + ' ' + bid.username + ' перебил ставкой ' + bid.amount + '000 Руб</li>');
+            $('#liveFeed').prepend('<li class="list-group-item">'+ formattedTime + ' ' + bid.username + ' ставка <b>'+ bid.amount + '</b> р.</li>');
         }
     }
 
     function updateBought(data) {
         $('.clock-div').addClass('hidden');
-        $('#soldto').text("Аукцион выигран участником " + data.info.buyer + " с конечной ценой " + data.info.latestBid + " 000 Руб");
+        $('#soldto').text("Лот был продан  " + data.info.buyer + " за " + data.info.latestBid + " Руб");
         $('#soldto-div').removeClass('hidden');
         $('#bid-pricing').addClass('hidden');
         $('#buy-pricing').addClass('hidden');
@@ -930,37 +900,36 @@
     }
 
     window.addEventListener('load',
-        function () {
-            pollforBids();
-        }, false);
+      function() {
+        pollforBids();
+    }, false);
 
     /* Function to ajax post the bid */
     function bidPost() {
+
         var bidUrl = "/auction/bid/" + auctionId;
 
-        // var amount = $('#bidInput').val();
-        var amount = 1; //hardcode!!!
+        var amount = $('#bidInput').val();
         console.log("Amount: " + amount);
 
         $.ajax({
             url: bidUrl,
             type: "POST",
-            data: {bidAmount: amount},
-            success: function (data) {
+            data: {bidAmount : amount},
+            success: function( data ) {
                 console.log("bidPost: " + data);
             },
-            error: function (data) {
+            error: function(data){
                 console.log("ERROR: " + data.responseText);
             }
         });
-        pollforBidsSingle();
     }
 
     <c:if test="${auction.buyPrice != null}">
     /* Function to ajax post the purchase */
     function buyPost() {
 
-        var bidUrl = "/auction/bid/" + auctionId;
+        var bidUrl = "/auction/buy/" + auctionId;
 
         var amount = ${auction.buyPrice};
         console.log("Amount: " + amount);
@@ -968,16 +937,15 @@
         $.ajax({
             url: bidUrl,
             type: "POST",
-            data: {bidAmount: amount},
-            success: function (data) {
+            data: {bidAmount : amount},
+            success: function( data ) {
                 console.log("bidPost: " + data);
             },
-            error: function (data) {
+            error: function(data){
                 console.log("ERROR: " + data.responseText);
             }
         });
     }
-
     </c:if>
 
     /* Google Maps */
@@ -987,66 +955,50 @@
 
     function loadMap() {
 
-        if (lat.length == 0) // If latitude is not given no google maps
+        if(lat.length == 0) // If latitude is not given no google maps
             return;
 
 
         var latlng = new google.maps.LatLng(lat, long);
         var myOptions = {
-            zoom: 4,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+          zoom: 4,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map_container"), myOptions);
+        var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
 
         var marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: "Auction Location"
+          position: latlng,
+          map: map,
+          title: "Auction Location"
         });
     }
-
     </c:if>
 
     /* Confirmation */
 
     /* On button click call bidPost() */
-    $('#nextBid').on('click', function () {
-        if (myBidIsLast) {
-            $('#bidModal').modal();
-        } else {
-            $('#nextBid').attr("disabled", true);
-            $('#nextBid').text("ОБРАБОТКА ЗАПРОСА");
-            console.log("nextBid clicked")
-            bidPost();
-            console.log(numberofBids + "numberofBids")
-        }
-        pollforBids();
-    });
-
-    $('#bidButton').on('click', function () {
-        $('#nextBid').attr("disabled", true);
-        $('#nextBid').text("ОБРАБОТКА ЗАПРОСА");
+    $('#bidButton').on('click', function(){
         console.log("bidButton clicked")
+        $("#bidBtn").html('обработка запроса...');
+        $("#bidBtn").attr('disabled','disabled');
         bidPost();
-        console.log(numberofBids + "numberofBids")
-        pollforBids();
     });
 
     /* Buy Auction */
-    $('#buy-button').on('click', function () {
+    $('#buy-button').on('click', function() {
         console.log("buy-button clicked")
         buyPost();
     });
 
     /* Rating */
     <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
-    $('#seller-rating').on('rating.change', function (event, value, caption) {
+    $('#seller-rating').on('rating.change', function(event, value, caption) {
         console.log(value);
         sellerRatingPost(value);
     });
 
-    $('#bidder-rating').on('rating.change', function (event, value, caption) {
+    $('#bidder-rating').on('rating.change', function(event, value, caption) {
         console.log(value);
         bidderRatingPost(value);
     });
@@ -1061,11 +1013,11 @@
         $.ajax({
             url: url,
             type: "POST",
-            data: {rating: value},
-            success: function (data) {
+            data: {rating : value},
+            success: function( data ) {
                 console.log("ratingPost: " + data);
             },
-            error: function (data) {
+            error: function(data){
                 console.log("ERROR: " + data.responseText);
             }
         });
@@ -1079,16 +1031,15 @@
         $.ajax({
             url: url,
             type: "POST",
-            data: {rating: value},
-            success: function (data) {
+            data: {rating : value},
+            success: function( data ) {
                 console.log("ratingPost: " + data);
             },
-            error: function (data) {
+            error: function(data){
                 console.log("ERROR: " + data.responseText);
             }
         });
     }
-
     </sec:authorize>
 
 </script>

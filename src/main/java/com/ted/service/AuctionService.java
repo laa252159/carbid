@@ -25,8 +25,10 @@ public interface AuctionService {
 	BidResponse checkBids(Integer numofBids, Integer id);
 	
 	String bidSave(Integer auctionId, Integer bidAmount);
-	
-	void initializeMapper(Integer auctionId);
+
+	String buySave(Integer auctionId, Integer bidAmount);
+
+	void initializeMapper(Integer auctionId, boolean force);
 
 	String validateFormAuction(FormAuction formAuction);
 

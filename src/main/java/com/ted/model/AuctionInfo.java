@@ -1,22 +1,41 @@
 package com.ted.model;
 
 
+import java.util.List;
+
+import static com.ted.service.AuctionServiceImpl.AUCTION_STEP;
 
 public class AuctionInfo {
-	
-	Integer numofBids;
-	
-	boolean bought;
 
-	boolean lastBidIsMy;
+    private Integer numofBids;
 
-	Integer latestBid;
-	
-	Integer buyPrice;
-	
-	Long ends; 
-	
-	String buyer;
+    private boolean bought;
+
+    private boolean lastBidIsMy;
+
+    private Integer latestBid;
+
+    private Integer buyPrice;
+
+    private Integer step;
+
+    private Long ends;
+
+    private String buyer;
+
+	private List<Bid> bids;
+
+	public Integer getStep() {
+		return AUCTION_STEP;
+	}
+
+	public List<Bid> getBids() {
+		return bids;
+	}
+
+	public void setBids(List<Bid> bids) {
+		this.bids = bids;
+	}
 
 	public String getBuyer() {
 		return buyer;
