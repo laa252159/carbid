@@ -819,7 +819,7 @@ public class AuctionServiceImpl implements AuctionService {
 			List<String> images = auctionPictureService.getAuctionPictures(auction);
 			if(images != null)
 				if(images.size() > 5){
-					images = images.subList(images.size()-5, images.size());
+					images = images.subList(0, 5);
 					auction.setImagesForGallery(images);
 				} else {
 					auction.setImagesForGallery(images);
