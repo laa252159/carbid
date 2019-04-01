@@ -70,10 +70,12 @@
                             <img src="data:image/jpeg;base64,${image}">
                         </c:forEach>
                     </c:if>
-                    <img alt="Примерчик как на перекупе будут выглядеть видосы"
+                    <c:if test="${not empty auction.youtube}">
+                    <img alt=""
                          data-type="youtube"
-                         data-videoid="hrxbnlxn6FU"
-                         data-description="Офигительный видос про секвою с ютуба для примерчика">
+                         data-videoid="${auction.youtube}"
+                         data-description="">
+                    </c:if>
                 </div>
             </div>
             <%--UNITE GALLERY--%>
@@ -509,7 +511,6 @@
                         <c:if test="${not empty auction.auctionMoreInfo.headlights}">
                             <tr class="border_bottom">
                                 <td>Головная оптика: ${auction.auctionMoreInfo.headlights}</td>
-                                <td>Головная оптика: ${auction.auctionMoreInfo.headlights}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.auctionMoreInfo.wheels}">
@@ -844,7 +845,7 @@
             timeout:45000,
             success: function( data ) {
                 if(data.lastBidMy == true){
-                    $("#bidBtn").html('ПРОШЛАЯ СТАВКА ВАША');
+                    $("#bidBtn").html('ВАША СТАВКА ЛИДИРУЕТ');
                     $("#bidBtn").attr('disabled','disabled');
                 } else if(data.info.buyer == null && (numberofBids == 0 || numberofBids == null)){
                     $("#bidBtn").html('ПРИНЯТЬ НАЧАЛЬНУЮ СТАВКУ');

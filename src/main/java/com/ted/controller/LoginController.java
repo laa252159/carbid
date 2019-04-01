@@ -22,6 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -105,10 +107,10 @@ public class LoginController extends AbstractController {
 		}
 
 
-        if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
-            model.addAttribute("captchaInvalid", "Введите капчу");
-            return "reg";
-        }
+//        if(!isCaptchaValid(request.getParameter("g-recaptcha-response"))){
+//            model.addAttribute("captchaInvalid", "Введите капчу");
+//            return "reg";
+//        }
 
         loginService.saveUser(user, null);
 		model.addAttribute("headerMsg", "Данные регистрации приняты");
@@ -132,8 +134,9 @@ public class LoginController extends AbstractController {
 		String login = user.getUsername();
 		String token = TokenEncryptorDescriptor.encrypt(login);
 		boolean showApplyContractButtons = user.getEmailApproved() == (byte)0;
-		model.addAttribute(APPLY_CONTRACT_AND_LOG_IN, "agreement-token?t="+token);
-		model.addAttribute(REJECT_CONTRACT_AND_REMOVE_USER, "decline-registration/"+token);
+		String uRLencodedToken = URLEncoder.encode(token, "UTF-8");
+		model.addAttribute(APPLY_CONTRACT_AND_LOG_IN, "agreement-token?t="+uRLencodedToken);
+		model.addAttribute(REJECT_CONTRACT_AND_REMOVE_USER, "decline-registration/"+uRLencodedToken);
 		model.addAttribute(SHOW_APPLY_CONTRACT_BUTTONS, showApplyContractButtons);
 		return "contract_page";
 	}
@@ -145,7 +148,8 @@ public class LoginController extends AbstractController {
 	public String loginBySingleLogin(Model model, @RequestParam(value = "t", required = true) String token)
 			throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeySpecException, IOException {
-		String login = TokenEncryptorDescriptor.decrypt(token);
+			String uRLDecodedToken = URLDecoder.decode(token, "UTF-8");
+		String login = TokenEncryptorDescriptor.decrypt(uRLDecodedToken);
 		User user = userService.getUserByUsername(login);
 		if (user != null && user.getEmailApproved() == (byte)0) {
 			loginService.approveEmail(user.getEmail());

@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `auctionerdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `auctionerdb` CHARACTER SET utf8 COLLATE utf8_general_ci/*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `auctionerdb`;
 UNLOCK TABLES;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
@@ -138,6 +138,7 @@ CREATE TABLE `auctions` (
   `owners` varchar(45),
   `vin` varchar(45),
   `gibdd` varchar(45),
+  `youtube` varchar(200),
   `fssp` varchar(45),
   `damaged_elements` varchar(45),
   `city` varchar(45),
@@ -398,7 +399,7 @@ CREATE TABLE `users` (
 --
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$8YVmT3D5yxBCiVInRboVsOK3k91umZxK1XXPwltTyakPFBh7d06Uq','9042440462','Саратов',NULL,NULL,1,1,0,0,0,0);
+INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$.e5ao7BXP/eZ2E2ybw7lNuwysIMHJgis4XL1Scupg2FhR7KecQPgO','+7-967-80-44-111','Саратов',NULL,NULL,1,1,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

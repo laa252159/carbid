@@ -22,7 +22,7 @@ import java.util.*;
 public class AuctionServiceImpl implements AuctionService {
 
 	private static final String DELIMETER = ":";
-	public static final int AUCTION_STEP = 1000; //рублей за шаг аукциона
+	public static final int AUCTION_STEP = 5000; //рублей за шаг аукциона
 
 	public static int AUCTIONS_ON_PAGE = 5;
 
@@ -265,7 +265,7 @@ public class AuctionServiceImpl implements AuctionService {
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 		info.setNumofBids(numofBids);
 
-		if (user != null && user.getUsername() != null) {
+		if (auction.getBuyer()!= null && user != null && user.getUsername() != null) {
 			isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 		}
 
@@ -600,6 +600,7 @@ public class AuctionServiceImpl implements AuctionService {
 			auction.setOwners(formAuction.getAuction().getOwners());
 			auction.setVin(formAuction.getAuction().getVin());
 			auction.setGibdd(formAuction.getAuction().getGibdd());
+			auction.setYoutube(formAuction.getAuction().getYoutube());
 			auction.setFssp(formAuction.getAuction().getFssp());
 			auction.setDriveState(formAuction.getAuction().getDriveState());
 			auction.setEngineState(formAuction.getAuction().getEngineState());
