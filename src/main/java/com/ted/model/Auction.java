@@ -427,7 +427,7 @@ public class Auction implements Serializable {
         List<String> elements = Arrays.asList(this.damagedElements.split(":"));
         for(String el : elements){
             String result[] = el.split("_");
-            if (!result[0].equals("12") && !result[0].equals("13")){
+            if (result.length > 1 && !result[0].equals("12") && !result[0].equals("13")){
                 if (result[1].equals("c")){
                     nums++;
                 }

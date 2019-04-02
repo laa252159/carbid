@@ -3,7 +3,6 @@ package com.ted.service;
 
 import com.ted.model.*;
 import com.ted.repository.*;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -351,7 +350,10 @@ public class AuctionServiceImpl implements AuctionService {
 
 		//Если ставка за меньше чем 10 минут до конца - добавляем время 10 минут
 		if(auction.getEnds().getTime() - new Date().getTime() < 10*60*1000){
-			auction.setEnds(DateUtils.addMinutes(auction.getEnds(), 10));
+            Calendar instance = Calendar.getInstance();
+            instance.add(Calendar.MINUTE, 10);
+            Date teenMinutesFromNow = instance.getTime();
+			auction.setEnds(teenMinutesFromNow);
 		}
 
 		/* Set Buyer */
