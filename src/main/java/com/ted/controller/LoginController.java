@@ -112,7 +112,7 @@ public class LoginController extends AbstractController {
 //            return "reg";
 //        }
 
-        loginService.saveUser(user, null);
+        loginService.saveNewUser(user, null);
 		model.addAttribute("headerMsg", "Данные регистрации приняты");
 		model.addAttribute("contentMsg", "На адрес Вашей электронной почты отправлена информация для подтверждения  почтового адреса.");
 		model.addAttribute(HIDE_ENT_BTN, true);
