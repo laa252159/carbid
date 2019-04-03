@@ -37,8 +37,13 @@ public class Mailer implements MailService {
     }
 
     @Override
-    public void notifyAdminAboutNewUser(User user) {
-        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался, принял условия и подтвердил почту новый пользователь", "Зарегистрировался : \n\n" + user);
+    public void notifyAdminAboutPostConfirmation(User user) {
+        notifyAdmins(SENDER, "На Perekup64.ru подтвердил почту пользователь " + user.getUsername(), "Подтвердил почту : \n\n" + user);
+    }
+
+    @Override
+    public void notifyAdminAboutRegistration(User user) {
+        notifyAdmins(SENDER, "На Perekup64.ru зарегистрировался пользователь " + user.getUsername(), "Зарегистрировался : \n\n" + user);
     }
 
     private void notifyAdmins(String from, String subject, String message) {
