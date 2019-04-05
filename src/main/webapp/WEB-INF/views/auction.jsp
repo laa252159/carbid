@@ -274,19 +274,9 @@
                                 <td>Пробег: ${auction.run}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.engineType}">
+                        <c:if test="${not empty auction.engineType && not empty auction.power && not empty auction.engineCapacity}">
                             <tr class="border_bottom">
-                                <td>Двигатель: ${auction.engineType}</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.engineCapacity}">
-                            <tr class="border_bottom">
-                                <td>Рабочий объём двигателя: ${auction.engineCapacity} л</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.engineState}">
-                            <tr class="border_bottom">
-                                <td>Состояние двигателя: ${auction.engineState}</td>
+                                <td>Двигатель: ${auction.engineType} / ${auction.power} л.с./ ${auction.engineCapacity} л.</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.transmission}">
@@ -299,19 +289,9 @@
                                 <td>Кузов: ${auction.body}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.bodyState}">
-                            <tr class="border_bottom">
-                                <td>Состояние кузова: ${auction.bodyState}</td>
-                            </tr>
-                        </c:if>
                         <c:if test="${not empty auction.drive}">
                             <tr class="border_bottom">
                                 <td>Привод: ${auction.drive}</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.power}">
-                            <tr class="border_bottom">
-                                <td>Мощность: ${auction.power}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.color}">
@@ -334,19 +314,14 @@
                                 <td>VIN: ${auction.vin}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.gibdd}">
+                        <c:if test="${not empty auction.numberPaintedElements}">
                             <tr class="border_bottom">
-                                <td>База ГИБДД РФ: ${auction.gibdd}</td>
+                                <td>Количество крашенных элементов: ${auction.numberPaintedElements}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.fssp}">
+                        <c:if test="${not empty auction.location.name}">
                             <tr class="border_bottom">
-                                <td>База судебных приставов: ${auction.fssp}</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.driveState}">
-                            <tr class="border_bottom">
-                                <td>Cостояние ходовой: ${auction.driveState}</td>
+                                <td>Город: ${auction.location.name}</td>
                             </tr>
                         </c:if>
                     </table>
