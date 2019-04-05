@@ -23,7 +23,8 @@ import javax.xml.bind.annotation.XmlType;
 		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
 		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
 		"owners", "vin", "gibdd", "fssp", "engineState", "damagedElements","city","additionalInfo",
-		"driveState", "engineCapacity"})
+		"driveState", "engineCapacity",
+        "ownersDB", "numberAccidentsDB", "wantedDB", "taxiDB", "mileageDB", "restrictionsDB"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -132,6 +133,24 @@ public class Auction implements Serializable {
 
 	@Column(name="additional_info", nullable = true)
 	private String additionalInfo;
+
+    @Column(name="owners_db", nullable = true)
+    private String ownersDB;
+
+    @Column(name="numberAccidents_db", nullable = true)
+    private String numberAccidentsDB;
+
+    @Column(name = "wanted_db")
+    boolean wantedDB;
+
+    @Column(name = "taxi_db")
+    boolean taxiDB;
+
+    @Column(name = "mileage_db")
+    boolean mileageDB;
+
+    @Column(name = "restrictions_db")
+    boolean restrictionsDB;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -418,6 +437,38 @@ public class Auction implements Serializable {
 		return this.damagedElements;
 	}
 
+    public boolean isRestrictionsDB() {
+        return restrictionsDB;
+    }
+
+    public void setRestrictionsDB(boolean restrictionsDB) {
+        this.restrictionsDB = restrictionsDB;
+    }
+
+    public boolean isMileageDB() {
+        return mileageDB;
+    }
+
+    public void setMileageDB(boolean mileageDB) {
+        this.mileageDB = mileageDB;
+    }
+
+    public boolean isWantedDB() {
+        return wantedDB;
+    }
+
+    public void setWantedDB(boolean wantedDB) {
+        this.wantedDB = wantedDB;
+    }
+
+    public boolean isTaxiDB() {
+        return taxiDB;
+    }
+
+    public void setTaxiDB(boolean taxiDB) {
+        this.taxiDB = taxiDB;
+    }
+
 	public List<String> getListOfDamagedElements() {
 		return Arrays.asList(this.damagedElements.split(":"));
 	}
@@ -688,5 +739,21 @@ public class Auction implements Serializable {
 
     public void setEngineCapacity(String engineCapacity) {
         this.engineCapacity = engineCapacity;
+    }
+
+    public String getOwnersDB() {
+        return ownersDB;
+    }
+
+    public void setOwnersDB(String ownersDB) {
+        this.ownersDB = ownersDB;
+    }
+
+    public String getNumberAccidentsDB() {
+        return numberAccidentsDB;
+    }
+
+    public void setNumberAccidentsDB(String numberAccidentsDB) {
+        this.numberAccidentsDB = numberAccidentsDB;
     }
 }

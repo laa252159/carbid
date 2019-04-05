@@ -606,6 +606,13 @@ public class AuctionServiceImpl implements AuctionService {
 			auction.setFssp(formAuction.getAuction().getFssp());
 			auction.setDriveState(formAuction.getAuction().getDriveState());
 			auction.setEngineState(formAuction.getAuction().getEngineState());
+
+            auction.setOwnersDB(formAuction.getAuction().getOwnersDB());
+            auction.setNumberAccidentsDB(formAuction.getAuction().getNumberAccidentsDB());
+            auction.setWantedDB(formAuction.getAuction().isWantedDB());
+            auction.setTaxiDB(formAuction.getAuction().isTaxiDB());
+            auction.setMileageDB(formAuction.getAuction().isMileageDB());
+            auction.setRestrictionsDB(formAuction.getAuction().isRestrictionsDB());
 		}
 
 		/* Location */

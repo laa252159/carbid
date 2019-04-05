@@ -146,6 +146,12 @@ CREATE TABLE `auctions` (
   `drive_state` mediumtext,
   `engine_state` mediumtext,
   `damagedElements`  varchar(250),
+  `owners_db` varchar(45),
+  `numberAccidents_db` varchar(45),
+  `wanted_db` tinyint(4) NOT NULL DEFAULT '0',
+  `taxi_db` tinyint(4) NOT NULL DEFAULT '0',
+  `mileage_db` tinyint(4) NOT NULL DEFAULT '0',
+  `restrictions_db` tinyint(4) NOT NULL DEFAULT '0',
 
 
   `first_bid` decimal(15,2) NOT NULL,
