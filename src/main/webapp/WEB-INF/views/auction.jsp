@@ -795,6 +795,8 @@
 
     ends = "${ends}";
 
+    var tempData = null;
+
     /* Asychronous check of Bids */
     numberofBids = 0;
 
@@ -819,6 +821,9 @@
             data: {numofBids : numberofBids},
             timeout:45000,
             success: function( data ) {
+                tempData = data.info.dateEnds;
+                updateClock();
+                ends = data.info.ends;
                 if(data.lastBidMy == true){
                     $("#bidBtn").html('ВАША СТАВКА ЛИДИРУЕТ');
                     $("#bidBtn").attr('disabled','disabled');
@@ -856,12 +861,13 @@
             }
         });
     }
+    <%-- за 2 шага убираем купить без торга--%>
 
     function updatePriceAndLiveFeed(data) {
         $('#currentPrice').text(data.info.latestBid + " Руб");
         $('#bidsSum').text('Всего ставок: ' + data.info.numofBids);
         var buyPrice = '${auction.buyPrice}';
-        if (data.info.latestBid >= buyPrice) {
+        if (data.info.latestBid >= buyPrice - (data.info.step * 2)) {
             $('#buy-pricing').addClass('hidden');
         }
 
@@ -879,9 +885,33 @@
         }
     }
 
+    function updateClock() {
+        $('#clock').countdown(tempData)
+            .on('update.countdown', function (event) {
+                var format = '%H:%M:%S';
+                if (event.offset.totalDays > 0) {
+                    format = '%-d day%!d ' + format;
+                }
+                if (event.offset.weeks > 0) {
+                    format = '%-w week%!w ' + format;
+                }
+                $(this).html(event.strftime(format));
+            })
+            .on('finish.countdown', function (event) {
+                $(this).html('This Auction is over!')
+                    .parent().addClass('disabled');
+
+            });
+    }
+
     function updateBought(data) {
         $('.clock-div').addClass('hidden');
-        $('#soldto').text("Лот был продан  " + data.info.buyer + " за " + data.info.latestBid + " Руб");
+        var boughtByCurrentUser = '${user.username}' == data.info.buyer;
+        if(boughtByCurrentUser){
+            $('#soldto').text("Ваша ставка " + data.info.latestBid + " р. победила на этом аукционе");
+        } else {
+            $('#soldto').text("Лот был продан  " + data.info.buyer + " за " + data.info.latestBid + " Руб");
+        }
         $('#soldto-div').removeClass('hidden');
         $('#bid-pricing').addClass('hidden');
         $('#buy-pricing').addClass('hidden');
