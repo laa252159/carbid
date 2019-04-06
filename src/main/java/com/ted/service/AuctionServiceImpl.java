@@ -228,6 +228,8 @@ public class AuctionServiceImpl implements AuctionService {
 					isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 				}
 				info.setNumofBids(numofBids);
+				info.setEnds(auction.getEnds().getTime());
+				info.setDateEnds(auction.getEnds());
 				bidResponse.setLastBidMy(isLastBidMy);
 				bidResponse.setInfo(info);
 
@@ -242,6 +244,8 @@ public class AuctionServiceImpl implements AuctionService {
 				auctionRepository.saveAndFlush(auction);
 
 				info.setNumofBids(numofBids);
+				info.setEnds(auction.getEnds().getTime());
+				info.setDateEnds(auction.getEnds());
 				bidResponse.setInfo(info);
 				return bidResponse;
 			}
@@ -263,6 +267,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 		info.setNumofBids(numofBids);
+		info.setEnds(auction.getEnds().getTime());
+		info.setDateEnds(auction.getEnds());
 
 		if (auction.getBuyer()!= null && user != null && user.getUsername() != null) {
 			isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
@@ -363,7 +369,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
-//		info.setEnds(auctionBidding.getTime().getTime());
+		info.setEnds(auction.getEnds().getTime());
+		info.setDateEnds(auction.getEnds());
 
 		Bid bid = new Bid();
 		bid.setAmount(auctionBid.getId().getAmount());
@@ -462,7 +469,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
-//		info.setEnds(auctionBidding.getTime().getTime());
+		info.setEnds(auction.getEnds().getTime());
+		info.setDateEnds(auction.getEnds());
 
 		Bid bid = new Bid();
 		bid.setAmount(auctionBid.getId().getAmount());
@@ -498,6 +506,7 @@ public class AuctionServiceImpl implements AuctionService {
 			/* Auction Info */
 			AuctionInfo info = new AuctionInfo();
 			info.setEnds(auction.getEnds().getTime());
+			info.setDateEnds(auction.getEnds());
 			info.setBuyPrice(auction.getBuyPrice());
 			info.setBought(auction.isBought());
 			info.setNumofBids(numofBids);

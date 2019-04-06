@@ -1,6 +1,7 @@
 package com.ted.model;
 
 
+import java.util.Date;
 import java.util.List;
 
 import static com.ted.service.AuctionServiceImpl.AUCTION_STEP;
@@ -20,6 +21,8 @@ public class AuctionInfo {
     private Integer step;
 
     private Long ends;
+
+    private Date dateEnds;
 
     private String buyer;
 
@@ -91,5 +94,13 @@ public class AuctionInfo {
 
 	public void setLastBidIsMy(boolean lastBidIsMy) {
 		this.lastBidIsMy = lastBidIsMy;
+	}
+
+	public Date getDateEnds() {
+		return dateEnds;
+	}
+
+	public void setDateEnds(Date dateEnds) {
+		this.dateEnds = dateEnds;
 	}
 }
