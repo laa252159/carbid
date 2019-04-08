@@ -194,8 +194,10 @@ public class AuctionServiceImpl implements AuctionService {
 		BidResponse bidResponse = new BidResponse();
 
 
-		/* Loop for 3 seconds */
-		for(int i = 0; i < 30; i++) {
+		/* Loop for 30 seconds */
+		int i = 0;
+		do {
+			i++;
 
 //			auction = getAuctionById(id);
 //
@@ -255,8 +257,8 @@ public class AuctionServiceImpl implements AuctionService {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 		}
+		while (i < 300);
 
 		//берем ставки с кеша
 		List<Bid> bids = auctionMapper.getAuctionInfo(auctionId).getBids();
