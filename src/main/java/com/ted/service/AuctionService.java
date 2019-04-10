@@ -25,18 +25,26 @@ public interface AuctionService {
 	BidResponse checkBids(Integer numofBids, Integer id);
 	
 	String bidSave(Integer auctionId, Integer bidAmount);
-	
-	void initializeMapper(Integer auctionId);
-	
-	String saveFormAuction(FormAuction formAuction);
+
+	String buySave(Integer auctionId, Integer bidAmount);
+
+	void initializeMapper(Integer auctionId, boolean force);
+
+	String validateFormAuction(FormAuction formAuction);
+
+	FormAuction allocateElements(FormAuction form, String damagedElements);
 
 	void suggestFormAuction(SuggestAuctionDto suggestAuctionDto);
+
+	void spamPromo(PromoDto promoDto);
 
 	List<Auction> getUserAuctions(User user);
 	
 	List<Auction> putPrimaryImage(List<Auction> auctions);
-	
-	String updateFormAuction(FormAuction formAuction);
+
+	List<Auction> putImagesForGallery(List<Auction> auctions);
+
+	void saveAndUpdateFormAuction(FormAuction formAuction);
 	
 	List<Auction> getBuyerAuctions(User user);
 	

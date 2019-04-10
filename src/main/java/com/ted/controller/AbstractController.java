@@ -11,6 +11,14 @@ import java.nio.charset.Charset;
 public class AbstractController {
     protected static final String secretKey = "6LeBTm8UAAAAAA7v_BAYNXWNNf0IjJfhV5ADUulr";
 
+    public static String HIDE_RUL_BTN = "hideRulBtn";
+    public static String HIDE_ENT_BTN = "hideEntBtn";
+    public static String HIDE_REG_BTN = "hideRegBtn";
+
+    public static String SHOW_APPLY_CONTRACT_BUTTONS = "showApplyContractButtons";
+    public static String APPLY_CONTRACT_AND_LOG_IN = "applyContractAndLogIn";
+    public static String REJECT_CONTRACT_AND_REMOVE_USER = "rejectContractAndRemoveUser";
+
     /**
      * Validates Google reCAPTCHA V2 or Invisible reCAPTCHA.
      *  secretKey Secret key (key given for communication between your site and Google)

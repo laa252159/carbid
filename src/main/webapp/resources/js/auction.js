@@ -15,7 +15,7 @@ window.addEventListener('load',
       $(this).html(event.strftime(format));
     })
     .on('finish.countdown', function(event) {
-      $(this).html('This Auction is over!')
+      $(this).html('Аукцион окончен')
         .parent().addClass('disabled');
 
     });

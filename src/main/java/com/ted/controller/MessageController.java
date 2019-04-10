@@ -1,26 +1,26 @@
 package com.ted.controller;
 
 import java.util.List;
+import java.util.regex.Matcher;
 
+import com.ted.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
-import com.ted.model.Auction;
-import com.ted.model.Dashboard;
-import com.ted.model.GlobalMessage;
-import com.ted.model.Message;
-import com.ted.model.User;
 import com.ted.service.AdminService;
 import com.ted.service.AuctionService;
 import com.ted.service.MessageService;
 import com.ted.service.UserService;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import static com.ted.controller.AbstractController.isCaptchaValid;
 
 @Controller
 @RequestMapping(value = "/messaging")

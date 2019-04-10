@@ -14,7 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <%--Yandex mail activate--%>
+    <meta name="yandex-verification" content="fece207c31d0ec5c" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -76,6 +77,16 @@
                             <a class="btn btn-lg btn-primary btn-block" href="/admin/boughtauctions">Выкупленные</a>
                         </div>
                     </div>
+                    <div class="col-lg-12 text-center intro-div">
+                        <div class="col-md-offset-3 col-md-2">
+                            <a class="btn btn-lg btn-danger btn-block" href="/promo-page">Промо-рассылка</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center intro-div">
+                        <div class="col-md-offset-3 col-md-2">
+                            <a class="btn btn-lg btn-info btn-block" href="/suggestions-page">Заявки с Cars64</a>
+                        </div>
+                    </div>
                 </sec:authorize>
             </sec:authorize>
             <%--<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">--%>
@@ -96,7 +107,7 @@
                  <div class="container">
                      <%--<h1 class="page-header"><strong>${filter.category.name}</strong></h1>--%>
                      <div class="row">
-                         <div class="col-md-9 col-xs-12" >
+                         <div class="col-md-12 col-xs-12" >
 
                              <%@ include file="auction-list.jsp" %>
 
@@ -155,9 +166,9 @@
             <div class="col-lg-12 text-center intro-div">
                     <%--<h1 style="font-size: 23px; font-family: 'Calibri Light'; color: #ff0400">Хотите знать больше или принять участие, - заходите!</h1>--%>
                     <%--<p class="lead" style="font-family: 'Helvetica Neue'">Покупай машину с выгодой</p>--%>
-                <div class="col-md-offset-0 col-md-4">
-                    <a href="/suggest-auction" class="btn_main btn-lg btn-success btn-block suggestbuttoncolor">Продать машину</a>
-                </div>
+                <%--<div class="col-md-offset-0 col-md-4">--%>
+                    <%--<a href="/suggest-auction" class="btn_main btn-lg btn-success btn-block suggestbuttoncolor">Продать машину</a>--%>
+                <%--</div>--%>
                 <div class="col-md-offset-0 col-md-2">
                     <a class="btn_main btn-lg btn-success btn-block" href="/login">Войти</a>
                 </div>
@@ -166,6 +177,53 @@
                 </div>
             </div>
         </sec:authorize>
+
+        <div class="col-md-12 col-xs-12" >
+
+            <div class="center-block">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-lg">
+                        <c:if test="${filter.pageNum > 1 }">
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=1" aria-label="First">
+                                    <span aria-hidden="true">&lt;&lt;</span>
+                                    <span class="sr-only">First</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=${filter.pageNum - 1}" aria-label="Previous">
+                                    <span aria-hidden="true">&lt;</span>
+                                    <span class="sr-only">Предыдущий</span>
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:forEach items="${filter.pages}" var="page">
+                            <c:if test="${page == filter.pageNum}">
+                                <li class="page-item active"><a class="page-link" href="/auctions?page=${page}">${page}</a></li>
+                            </c:if>
+                            <c:if test="${page != filter.pageNum}">
+                                <li class="page-item"><a class="page-link" href="/auctions?page=${page}">${page}</a></li>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${filter.pageNum < filter.numberofPages}">
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=${filter.pageNum + 1}" aria-label="Next">
+                                    <span aria-hidden="true">&gt;</span>
+                                    <span class="sr-only">Следующий</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="/auctions?page=${filter.numberofPages}" aria-label="Last">
+                                    <span aria-hidden="true">&gt;&gt;</span>
+                                    <span class="sr-only">Last</span>
+                                </a>
+                            </li>
+                        </c:if>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
 
      </div>
 

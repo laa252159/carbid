@@ -1,10 +1,11 @@
 package com.ted.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ted.model.*;
+import com.ted.repository.BidderRatingRepository;
+import com.ted.repository.SellerRatingRepository;
+import com.ted.repository.UserPictureRepository;
+import com.ted.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,21 +13,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ted.model.Authority;
-import com.ted.model.BidderRating;
-import com.ted.model.BidderRatingPK;
-import com.ted.model.SellerRating;
-import com.ted.model.SellerRatingPK;
-import com.ted.model.User;
-import com.ted.model.UserPicture;
-import com.ted.repository.BidderRatingRepository;
-import com.ted.repository.SellerRatingRepository;
-import com.ted.repository.UserPictureRepository;
-import com.ted.repository.UserRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-	
+
+	private static final String REMOVED = "removed_";
+
 	@Autowired
 	UserRepository userRepository;
 	
@@ -140,6 +134,11 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	@Override
+	public User getUserByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+
 	@Transactional
 	public void rateSeller(Integer id, float rating) {
 		
@@ -229,6 +228,13 @@ public class UserServiceImpl implements UserService {
 	public void deleteUserById(Integer id) {
 		User user = userRepository.findByUserid(id);
 		userRepository.delete(user);
+	}
+
+	@Override
+	public void pseudoRemoveUser(User user) {
+		user.setUsername(REMOVED + user.getUsername());
+		user.setEmail(REMOVED + user.getEmail());
+		userRepository.saveAndFlush(user);
 	}
 
 	@Override

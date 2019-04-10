@@ -63,7 +63,7 @@ max-height: 480px;
 }
 
 /*.col-item:hover .info {
-    background-color: #F5F5DC;
+    background-color: DeepPink;
 }*/
 .col-item .price
 {
@@ -85,8 +85,7 @@ max-height: 480px;
 
 .col-item .info .rating
 {
-    color: #777;
-}
+    color: #FF1493
 
 .col-item .rating
 {

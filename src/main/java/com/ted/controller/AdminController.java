@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -130,7 +131,7 @@ public class AdminController {
 		/* Auctions */
 		model.addAttribute("auctions", auctionService.getAllAuctions());
 
-		return "admin_auctions";
+		return "redirect:/";
 	}
 
 
@@ -142,6 +143,13 @@ public class AdminController {
 		model.addAttribute("number", auctionService.getBoughtAuctions().size());
 
 		return "auctions-bought";
+	}
+
+	@RequestMapping(value = "/admin/rebuild_server", method = RequestMethod.GET)
+	public String buildServer(Model model) throws IOException {
+		ProcessBuilder pb = new ProcessBuilder("/home/sanix/update_perekup.sh");
+		pb.start();
+		return "admin";
 	}
 	
 //	@RequestMapping(value = "/admin/xmlDownload", method = RequestMethod.GET)

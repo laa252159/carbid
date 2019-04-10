@@ -1,81 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns="http://www.springframework.org/schema/security"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/security"
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
-	<!-- <http pattern="/login" security="none" />
-	<http pattern="/loginFailed" security="none" /> -->
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<http auto-config="true" use-expressions="true">
-		<form-login login-page="/login" 
-			username-parameter="username"
-			password-parameter="password"
-			authentication-failure-url="/loginFailed"
-			default-target-url="/" />
-		<logout logout-success-url="/logout"/>
-		<access-denied-handler error-page="/403"/>
-		<intercept-url pattern="/login" access="permitAll" requires-channel="http"/>
-		<intercept-url pattern="/loginFailed" access="permitAll" requires-channel="http"/>
-		<intercept-url pattern="/logout" access="permitAll" requires-channel="http"/>
-		<intercept-url pattern="/registration" access="permitAll" requires-channel="http"/>
-		<intercept-url pattern="/403" access="permitAll" requires-channel="http"/>
-		<intercept-url pattern="/resources/**" access="permitAll" requires-channel="http"/>
-		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
-		<intercept-url pattern="/deleteuser/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
-		<intercept-url pattern="/myprofile/**" access="hasAnyRole('ROLE_BIDDER', 'ROLE_SELLER','ROLE_ADMIN')" requires-channel="http"/>
-		<intercept-url pattern="/profile/**" access="hasAnyRole('ROLE_ADMIN')" requires-channel="http"/>
-		<intercept-url pattern="/upgrade" access="hasRole('ROLE_BIDDER')" requires-channel="http"/>
-		<intercept-url pattern="/myauctions/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
-		<intercept-url pattern="/new-auction" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
-		<intercept-url pattern="/suggest-auction" access="permitAll" requires-channel="http"/>
-<!-- 		<intercept-url pattern="/messaging" access="hasRole('ROLE_BIDDER', 'ROLE_ADMIN')"/> -->
-		<intercept-url pattern="/**" access="permitAll" requires-channel="http"/>
-		
-		<!-- 
-		<intercept-url pattern="/loginFailed" access="permitAll"/>
-		<intercept-url pattern="/logout" access="permitAll"/>
-		<intercept-url pattern="/403" access="permitAll"/>
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
-		 -->
-	</http>
+    <!-- <http pattern="/login" security="none" />
+    <http pattern="/loginFailed" security="none" /> -->
 
-	<authentication-manager>
-		<authentication-provider> 
-			<password-encoder hash="bcrypt" />
-			<jdbc-user-service data-source-ref="dataSource"
-			
-		users-by-username-query="
-         SELECT username, password, CASE ENABLED WHEN 1 THEN 'true' ELSE 'false' END 'enabled' 
-         FROM users 
-         WHERE username=?;"
- 
-       authorities-by-username-query="
-        SELECT u.username, r.role
-        FROM users u, authorities r
-        WHERE u.userid = r.userid
-        AND u.username=?;"
-        />
-		</authentication-provider>
-		
-		<authentication-provider>
-	        <user-service>
-	            <user name="admin" password="secret" authorities="ROLE_ADMIN" />
-	        </user-service>
-   		</authentication-provider>
-   			
-	</authentication-manager>
-	
-	<mvc:annotation-driven>
-    <mvc:argument-resolvers>
-        <beans:bean class="org.springframework.security.web.bind.support.AuthenticationPrincipalArgumentResolver"/>
-    </mvc:argument-resolvers>
-</mvc:annotation-driven>
+    <http auto-config="true" use-expressions="true">
+        <form-login login-page="/login"
+                    username-parameter="username"
+                    password-parameter="password"
+                    authentication-failure-url="/loginFailed"
+                    default-target-url="/"/>
+        <logout logout-success-url="/logout"/>
+        <access-denied-handler error-page="/403"/>
+        <intercept-url pattern="/login" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/loginFailed" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/logout" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/registration" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/403" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/resources/**" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/agreement-token" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/decline-registration" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/deleteuser/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/myprofile/**" access="hasAnyRole('ROLE_BIDDER', 'ROLE_SELLER','ROLE_ADMIN')"
+                       requires-channel="http"/>
+        <intercept-url pattern="/profile/**" access="hasAnyRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/upgrade" access="hasRole('ROLE_BIDDER')" requires-channel="http"/>
+        <intercept-url pattern="/myauctions/**" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/new-auction" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/update-auction/*" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/suggest-auction" access="permitAll" requires-channel="http"/>
+        <intercept-url pattern="/promo-page" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/suggestions-page" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <intercept-url pattern="/success" access="hasRole('ROLE_ADMIN')" requires-channel="http"/>
+        <!-- 		<intercept-url pattern="/messaging" access="hasRole('ROLE_BIDDER', 'ROLE_ADMIN')"/> -->
+        <intercept-url pattern="/**" access="permitAll" requires-channel="http"/>
+
+        <!--
+        <intercept-url pattern="/loginFailed" access="permitAll"/>
+        <intercept-url pattern="/logout" access="permitAll"/>
+        <intercept-url pattern="/403" access="permitAll"/>
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+         -->
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailsServiceImpl">
+            <password-encoder ref="encoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userDetailsServiceImpl" class="com.ted.service.UserDetailsServiceImpl"></beans:bean>
+
+    <beans:bean id="encoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11"/>
+    </beans:bean>
+
+
+    <mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <beans:bean class="org.springframework.security.web.bind.support.AuthenticationPrincipalArgumentResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
 
 </beans:beans>

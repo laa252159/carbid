@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `auctionerdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `auctionerdb` CHARACTER SET utf8 COLLATE utf8_general_ci/*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `auctionerdb`;
 UNLOCK TABLES;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
@@ -71,6 +71,44 @@ CREATE TABLE `auction_pictures` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+DROP TABLE IF EXISTS `auction_more_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auction_more_info` (
+
+  `auctionid` int(11) NOT NULL,
+  `power_steering` varchar(45),                       -- Усилитель руля
+  `climate_control` varchar(45),                      -- Управление климатом
+  `control_on_wheel` tinyint(4) NOT NULL DEFAULT '0', -- Мультируль
+  `leather_wheel` tinyint(4) NOT NULL DEFAULT '0',    -- Отделка руля и рукоятки кпп кожей
+  `heated_wheel` tinyint(4) NOT NULL DEFAULT '0',     -- Подогрев руля
+  `heated_seats` varchar(45),                         -- Обогрев сидений
+  `heated_mirrors` tinyint(4) NOT NULL DEFAULT '0',   -- Электро обогрев и электро настройка зеркал
+  `power_windows` varchar(45),                           -- Электростеклоподъемники
+  `power_seats_front` tinyint(4) NOT NULL DEFAULT '0',   -- Электропривод передних сидений
+  `light_sensor` tinyint(4) NOT NULL DEFAULT '0',        -- Датчики света
+  `rain_sensor` tinyint(4) NOT NULL DEFAULT '0',         -- Датчики дождя
+  `front_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',  -- Датчики парковки передний
+  `rear_parking_sensors` tinyint(4) NOT NULL DEFAULT '0',   -- Датчики парковки задний
+  `cruise_control` varchar(45),                             -- Круиз-контроль
+  `on_board_computer` tinyint(4) NOT NULL DEFAULT '0',      -- Бортовой компьютер
+  `alarm` varchar(45),                                      -- Сигнализация
+  `airbags` tinyint(4) NOT NULL DEFAULT '0',                -- Подушки безопасности
+  `abs` tinyint(4) NOT NULL DEFAULT '0',                    -- Антиблокировочная система тормозов ABS
+  `directional_stability` tinyint(4) NOT NULL DEFAULT '0',  -- Система курсовой устойчивости ESP
+  `anti_slip` tinyint(4) NOT NULL DEFAULT '0',              -- Противобуксовочная система TCS
+  `car_stereo`  varchar(45),                                -- Магнитола
+  `audioSystem`  varchar(45),                               -- Аудиоколонки
+  `back_camera` tinyint(4) NOT NULL DEFAULT '0',            -- Камера заднего вида
+  `headlights` varchar(45),                                 -- Головная оптика
+  `wheels` varchar(45),                                     -- Размер колес
+  `winter_tires` tinyint(4) NOT NULL DEFAULT '0',           -- Зимние шины
+  `vehicle_log_book` tinyint(4) NOT NULL DEFAULT '0',       -- Сервисная книжка
+  `warranty_on` tinyint(4) NOT NULL DEFAULT '0',            -- Заводская гарантия
+
+  CONSTRAINT `fk_auctions` FOREIGN KEY (`auctionid`) REFERENCES `auctions` (`auctionid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `auctions`
 --
@@ -79,8 +117,8 @@ DROP TABLE IF EXISTS `auctions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auctions` (
-  `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `seller_userid` int(11) NOT NULL,
+  `auctionid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45),
   `description` mediumtext,
 
@@ -90,6 +128,7 @@ CREATE TABLE `auctions` (
   `run` varchar(45),
   `engine_type` varchar(45),
   `power` varchar(45),
+  `engine_capacity` varchar(45),
   `transmission` varchar(45),
   `body` varchar(45),
   `drive` varchar(45),
@@ -99,10 +138,15 @@ CREATE TABLE `auctions` (
   `owners` varchar(45),
   `vin` varchar(45),
   `gibdd` varchar(45),
+  `youtube` varchar(200),
   `fssp` varchar(45),
-  `collored_elements` varchar(45),
+  `damaged_elements` varchar(45),
+  `city` varchar(45),
+  `additional_info` mediumtext,
   `drive_state` mediumtext,
   `engine_state` mediumtext,
+  `damagedElements`  varchar(250),
+
 
   `first_bid` decimal(15,2) NOT NULL,
   `buy_price` decimal(15,2) DEFAULT NULL,
@@ -318,7 +362,7 @@ CREATE TABLE `users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
+  `last_name` varchar(45),
   `email` varchar(55) NOT NULL,
   `password` varchar(60) NOT NULL,
   `phone` varchar(45) NOT NULL,
@@ -327,6 +371,8 @@ CREATE TABLE `users` (
   `postal_code` varchar(45) DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL,
   `approved` tinyint(4) NOT NULL,
+  `email_approved` tinyint(4) DEFAULT '0',
+  `change_password` tinyint(4) DEFAULT '0',
   `bidder_rating` float DEFAULT NULL,
   `seller_rating` float DEFAULT NULL,
   `number_of_bidder_ratings` int(11) DEFAULT NULL,
@@ -353,7 +399,7 @@ CREATE TABLE `users` (
 --
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$8YVmT3D5yxBCiVInRboVsOK3k91umZxK1XXPwltTyakPFBh7d06Uq','9042440462','Саратов',NULL,NULL,1,1,0,0,0,0);
+INSERT INTO `users` VALUES (3936,'admin','Алексей','Жумаев','alexey221284@mail.ru','$2a$10$.e5ao7BXP/eZ2E2ybw7lNuwysIMHJgis4XL1Scupg2FhR7KecQPgO','+7-967-80-44-111','Саратов',NULL,NULL,1,1,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -374,4 +420,18 @@ LOCK TABLES `categories` WRITE;
 INSERT INTO `categories` VALUES (1,'cars',NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `suggestions`;
+
+CREATE TABLE `suggestions` (
+  `suggestionid` int(11) NOT NULL AUTO_INCREMENT,
+  `suggestion_date` datetime NOT NULL,
+  `brand_and_model` varchar(45) NOT NULL DEFAULT '-',
+  `release_date` varchar(45) NOT NULL DEFAULT '-',
+  `name` varchar(45) NOT NULL DEFAULT '-',
+  `phone_number` varchar(15) NOT NULL DEFAULT '-',
+  `description` mediumtext,
+  `sent_to_admin` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (suggestionid)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

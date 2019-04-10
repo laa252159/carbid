@@ -1,20 +1,23 @@
 package com.ted.service;
 
-import com.ted.model.Auction;
-import com.ted.model.SuggestAuctionDto;
-import com.ted.model.User;
+import com.ted.model.*;
 
 import java.util.List;
 
 public interface MailService {
 
-    String SENDER = "perekup64mail@gmail.com";
+    String SENDER = "test@perekup64.ru";
 
-    String GUMAEV_EMAIL = "alexey221284@mail.ru";
+    String[] admins_emails = {
+            "laa252159@gmail.com",
+            "alexey221284@mail.ru",
+            "svda16@mail.ru",
+            "mga3556276@gmail.com"
+    };
 
-    String DEV_EMAIL = "laa252159@gmail.com";
+    void notifyAdminAboutPostConfirmation(User user);
 
-    void notifyAdminAboutNewUser(User user);
+    void notifyAdminAboutRegistration(User user);
 
     void notifyUsersAboutNewAuction(Auction auction);
 
@@ -23,5 +26,13 @@ public interface MailService {
     void notifyUsersAboutVictory(Auction auction);
 
     void suggestAuction(SuggestAuctionDto suggestAuctionDto);
+
+    void suggestAuction(Suggestion suggestion);
+
+    void spamPromo(PromoDto promoDto);
+
+    void sendToUserMailConfirmationLink(User user);
+
+    void sendToUserChangePasswordLink(User user, String token);
 
 }

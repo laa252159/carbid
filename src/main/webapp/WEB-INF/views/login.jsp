@@ -52,10 +52,18 @@
 			 <div class="checkbox">
  			      <label><input type="checkbox"> Запомнить меня</label>
 			 </div>
-	  		 <button name="submit" type="submit"
-					value="submit" class="btn btn-success">Вход</button>
+            <button name="submit" type="submit" value="submit" class="btn btn-success">Вход</button>
+            <div class="row">
+                <div class="col-sm-9">
+                    <a href="registration" class="btn btn-success">Регистрация</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <a href="mail_check" class="btn btn-success">Забыли пароль ?</a>
+                </div>
+            </div>
 		</form>
-		<p>Нет логина? Зарегистрироваться <a href="registration">здесь</a><p>
 	</div>
 
 	<!-- Footer -->

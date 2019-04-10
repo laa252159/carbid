@@ -55,7 +55,7 @@
                         <%--</div>--%>
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
-                                <p class="price-tag"><strong>${auction.currently} 000 Руб</strong></p>
+                                <p class="price-tag"><strong>${auction.currently} Руб</strong></p>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <a class="btn_lot btn-primary" href="/auction/${auction.auctionid}">Подробнее</a>

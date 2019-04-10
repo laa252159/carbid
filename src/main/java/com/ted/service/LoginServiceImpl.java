@@ -1,16 +1,5 @@
 package com.ted.service;
 
-import java.io.IOException;
-import java.util.Map;
-
-import com.ted.mail.Mailer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.ted.model.Authority;
 import com.ted.model.AuthorityPK;
 import com.ted.model.User;
@@ -18,6 +7,15 @@ import com.ted.model.UserPicture;
 import com.ted.repository.AuthorityRepository;
 import com.ted.repository.UserPictureRepository;
 import com.ted.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.Map;
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
@@ -35,8 +33,33 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private MailService mailer;
 
+	@Override
+	public User approveEmail(String email) {
+
+		User user = userService.getUserByEmail(email);
+		if (user == null || (user.getEmailApproved() == (byte) 1)) {
+			return null;
+		}
+		user.setEmailApproved((byte) 1);
+		// Persist user
+		user = userRepository.saveAndFlush(user);
+
+		//notify admin about post confirmation
+		mailer.notifyAdminAboutPostConfirmation(user);
+		return user;
+	}
+
+    /**
+     * Изменение юзера
+     * @param user
+     */
+    @Transactional
+    public void saveUser(User user){
+        userRepository.saveAndFlush(user);
+    }
+
 	@Transactional
-	public User saveUser(User user, MultipartFile file) {
+	public User saveNewUser(User user, MultipartFile file) {
 		
 		// Enabled = true 
 		user.setEnabled((byte)1);
@@ -76,12 +99,16 @@ public class LoginServiceImpl implements LoginService {
 		Authority authority = new Authority();
 		authority.setId(authorityPK);
 		authority.setUser(user);
-		
+
 		// Persist authority
 		authorityRepository.saveAndFlush(authority);
 
-		//sending email about registration new user
-		mailer.notifyAdminAboutNewUser(user);
+		//sending confirmation link to user
+		mailer.sendToUserMailConfirmationLink(user);
+
+		//notify admins about registration
+		mailer.notifyAdminAboutRegistration(user);
+
 		return user;
 	}
 	
@@ -128,12 +155,33 @@ public class LoginServiceImpl implements LoginService {
 		return user;
 	}
 
+    /**
+     * Изменение пароля у юзера
+     * @param user
+     */
+    @Transactional
+    public void changeUserPassword(User user){
+
+        String passwordNew = user.getPassword();
+        User perUser = userRepository.findByUserid(user.getUserid());
+
+        if(!passwordNew.equals("p4DS*4a$hLA*4#ataPv")) {
+            // BCrypt password encryption
+            BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
+            String hashedPass = passEncoder.encode(passwordNew);
+            perUser.setPassword(hashedPass);
+            perUser.setChangePassword((byte) 0);
+
+            userRepository.saveAndFlush(perUser);
+        }
+    }
+
 	public String checkEmailUsername(User user) {
 		
 		if(userRepository.findByEmail(user.getEmail()) != null )
-			return "Email already in use";
+			return "Данный Email уже есть в системе";
 		if(userRepository.findByUsername(user.getUsername()) != null )
-			return "Username already in use";	
+			return "Такой логин уже занят";
 		return null;
 	}
 

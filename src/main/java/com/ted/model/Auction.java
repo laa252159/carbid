@@ -1,25 +1,9 @@
 package com.ted.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -38,7 +22,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {"name", "categories", "currentlyString", "buyPriceString", "firstBidString", "numberOfBids", 
 		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
 		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
-		"owners", "vin", "gibdd", "fssp", "engineState", "colloredElement", "driveState"})
+		"owners", "vin", "gibdd", "fssp", "engineState", "damagedElements","city","additionalInfo",
+		"driveState", "engineCapacity"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -83,7 +68,11 @@ public class Auction implements Serializable {
 	@Column(name="power", nullable = true)
 	private String power;
 
-	
+
+    @Column(name="engine_capacity", nullable = true)
+	private String engineCapacity;
+
+
 	@Column(name="transmission", nullable = true)
 	private String transmission;
 
@@ -119,6 +108,9 @@ public class Auction implements Serializable {
 	@Column(name="gibdd", nullable = true)
 	private String gibdd;
 
+	@Column(name="youtube", nullable = true)
+	private String youtube;
+
 	
 	@Column(name="fssp", nullable = true)
 	private String fssp;
@@ -132,8 +124,14 @@ public class Auction implements Serializable {
 	private String engineState;
 
 	
-	@Column(name="collored_elements", nullable = true)
-	private String colloredElement;
+	@Column(name="damaged_elements", nullable = true)
+	private String damagedElements;
+
+	@Column(name="city", nullable = true)
+	private String city;
+
+	@Column(name="additional_info", nullable = true)
+	private String additionalInfo;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -159,6 +157,10 @@ public class Auction implements Serializable {
 	// bi-directional many-to-one association to AuctionBidding
 	@OneToMany( mappedBy = "auction")
 	private List<AuctionBidding> auctionBiddings;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "auctionid", referencedColumnName = "auctionid")
+	private AuctionMoreInfo auctionMoreInfo;
 	
 	// bi-directional many-to-one association to Recommendation
 	@OneToMany(mappedBy = "auction")
@@ -218,7 +220,13 @@ public class Auction implements Serializable {
 	
 	@Transient
 	private String primaryImage;
-	
+
+	@Transient
+	private List<String> imagesForGallery;
+
+    @Transient
+    public String numberPaintedElements;
+
 	public Auction() {
 	}
 	
@@ -252,6 +260,14 @@ public class Auction implements Serializable {
 
 	public void setBrand(String brand) {
 		this.brand = brand;
+	}
+
+	public AuctionMoreInfo getAuctionMoreInfo() {
+		return auctionMoreInfo;
+	}
+
+	public void setAuctionMoreInfo(AuctionMoreInfo auctionMoreInfo) {
+		this.auctionMoreInfo = auctionMoreInfo;
 	}
 
 	public String getModel() {
@@ -366,6 +382,14 @@ public class Auction implements Serializable {
 		this.gibdd = gibdd;
 	}
 
+	public String getYoutube() {
+		return youtube;
+	}
+
+	public void setYoutube(String youtube) {
+		this.youtube = youtube;
+	}
+
 	public String getFssp() {
 		return fssp;
 	}
@@ -390,12 +414,46 @@ public class Auction implements Serializable {
 		this.engineState = engine_state;
 	}
 
-	public String getColloredElement() {
-		return colloredElement;
+	public String getDamagedElements() {
+		return this.damagedElements;
 	}
 
-	public void setColloredElement(String collored_elements) {
-		this.colloredElement = collored_elements;
+	public List<String> getListOfDamagedElements() {
+		return Arrays.asList(this.damagedElements.split(":"));
+	}
+
+    public int getNumberPaintedElements() {
+        int nums = 0;
+        List<String> elements = Arrays.asList(this.damagedElements.split(":"));
+        for(String el : elements){
+            String result[] = el.split("_");
+            if (result.length > 1 && !result[0].equals("12") && !result[0].equals("13")){
+                if (result[1].equals("c")){
+                    nums++;
+                }
+            }
+        }
+        return nums;
+    }
+
+	public String getCity() {
+		return this.city;
+	}
+
+	public String getAdditionalInfo() {
+		return this.additionalInfo;
+	}
+
+	public void setDamagedElements(String damagedElements) {
+		this.damagedElements = damagedElements;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setAdditionalInfo(String additionalInfo) {
+		this.additionalInfo = additionalInfo;
 	}
 
 	@XmlTransient
@@ -615,4 +673,20 @@ public class Auction implements Serializable {
 		this.xmlStarted = xmlStarted;
 	}
 
+
+	public List<String> getImagesForGallery() {
+		return imagesForGallery;
+	}
+
+	public void setImagesForGallery(List<String> imagesForGallery) {
+		this.imagesForGallery = imagesForGallery;
+	}
+
+    public String getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(String engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
 }
