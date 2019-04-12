@@ -3,7 +3,6 @@ package com.ted.service;
 
 import com.ted.model.*;
 import com.ted.repository.*;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -229,6 +228,8 @@ public class AuctionServiceImpl implements AuctionService {
 					isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
 				}
 				info.setNumofBids(numofBids);
+				info.setEnds(auction.getEnds().getTime());
+				info.setDateEnds(auction.getEnds());
 				bidResponse.setLastBidMy(isLastBidMy);
 				bidResponse.setInfo(info);
 
@@ -243,6 +244,8 @@ public class AuctionServiceImpl implements AuctionService {
 				auctionRepository.saveAndFlush(auction);
 
 				info.setNumofBids(numofBids);
+				info.setEnds(auction.getEnds().getTime());
+				info.setDateEnds(auction.getEnds());
 				bidResponse.setInfo(info);
 				return bidResponse;
 			}
@@ -264,6 +267,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		AuctionInfo info = auctionMapper.getAuctionInfo(auctionId);
 		info.setNumofBids(numofBids);
+		info.setEnds(auction.getEnds().getTime());
+		info.setDateEnds(auction.getEnds());
 
 		if (auction.getBuyer()!= null && user != null && user.getUsername() != null) {
 			isLastBidMy = user.getUsername().equals(auction.getBuyer().getUsername());
@@ -351,7 +356,10 @@ public class AuctionServiceImpl implements AuctionService {
 
 		//Если ставка за меньше чем 10 минут до конца - добавляем время 10 минут
 		if(auction.getEnds().getTime() - new Date().getTime() < 10*60*1000){
-			auction.setEnds(DateUtils.addMinutes(auction.getEnds(), 10));
+            Calendar instance = Calendar.getInstance();
+            instance.add(Calendar.MINUTE, 10);
+            Date teenMinutesFromNow = instance.getTime();
+			auction.setEnds(teenMinutesFromNow);
 		}
 
 		/* Set Buyer */
@@ -361,7 +369,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
-//		info.setEnds(auctionBidding.getTime().getTime());
+		info.setEnds(auction.getEnds().getTime());
+		info.setDateEnds(auction.getEnds());
 
 		Bid bid = new Bid();
 		bid.setAmount(auctionBid.getId().getAmount());
@@ -460,7 +469,8 @@ public class AuctionServiceImpl implements AuctionService {
 
 		info.setLatestBid(bidAmount);
 		info.setNumofBids(info.getNumofBids()+1);
-//		info.setEnds(auctionBidding.getTime().getTime());
+		info.setEnds(auction.getEnds().getTime());
+		info.setDateEnds(auction.getEnds());
 
 		Bid bid = new Bid();
 		bid.setAmount(auctionBid.getId().getAmount());
@@ -496,6 +506,7 @@ public class AuctionServiceImpl implements AuctionService {
 			/* Auction Info */
 			AuctionInfo info = new AuctionInfo();
 			info.setEnds(auction.getEnds().getTime());
+			info.setDateEnds(auction.getEnds());
 			info.setBuyPrice(auction.getBuyPrice());
 			info.setBought(auction.isBought());
 			info.setNumofBids(numofBids);

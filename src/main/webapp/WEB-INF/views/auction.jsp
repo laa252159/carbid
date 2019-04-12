@@ -274,19 +274,9 @@
                                 <td>Пробег: ${auction.run}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.engineType}">
+                        <c:if test="${not empty auction.engineType && not empty auction.power && not empty auction.engineCapacity}">
                             <tr class="border_bottom">
-                                <td>Двигатель: ${auction.engineType}</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.engineCapacity}">
-                            <tr class="border_bottom">
-                                <td>Рабочий объём двигателя: ${auction.engineCapacity} л</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.engineState}">
-                            <tr class="border_bottom">
-                                <td>Состояние двигателя: ${auction.engineState}</td>
+                                <td>Двигатель: ${auction.engineType} / ${auction.power} л.с./ ${auction.engineCapacity} л.</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.transmission}">
@@ -299,19 +289,9 @@
                                 <td>Кузов: ${auction.body}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.bodyState}">
-                            <tr class="border_bottom">
-                                <td>Состояние кузова: ${auction.bodyState}</td>
-                            </tr>
-                        </c:if>
                         <c:if test="${not empty auction.drive}">
                             <tr class="border_bottom">
                                 <td>Привод: ${auction.drive}</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.power}">
-                            <tr class="border_bottom">
-                                <td>Мощность: ${auction.power}</td>
                             </tr>
                         </c:if>
                         <c:if test="${not empty auction.color}">
@@ -334,19 +314,14 @@
                                 <td>VIN: ${auction.vin}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.gibdd}">
+                        <c:if test="${not empty auction.numberPaintedElements}">
                             <tr class="border_bottom">
-                                <td>База ГИБДД РФ: ${auction.gibdd}</td>
+                                <td>Количество крашенных элементов: ${auction.numberPaintedElements}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${not empty auction.fssp}">
+                        <c:if test="${not empty auction.location.name}">
                             <tr class="border_bottom">
-                                <td>База судебных приставов: ${auction.fssp}</td>
-                            </tr>
-                        </c:if>
-                        <c:if test="${not empty auction.driveState}">
-                            <tr class="border_bottom">
-                                <td>Cостояние ходовой: ${auction.driveState}</td>
+                                <td>Город: ${auction.location.name}</td>
                             </tr>
                         </c:if>
                     </table>
@@ -820,6 +795,8 @@
 
     ends = "${ends}";
 
+    var tempData = null;
+
     /* Asychronous check of Bids */
     numberofBids = 0;
 
@@ -844,6 +821,9 @@
             data: {numofBids : numberofBids},
             timeout:45000,
             success: function( data ) {
+                tempData = data.info.dateEnds;
+                updateClock();
+                ends = data.info.ends;
                 if(data.lastBidMy == true){
                     $("#bidBtn").html('ВАША СТАВКА ЛИДИРУЕТ');
                     $("#bidBtn").attr('disabled','disabled');
@@ -881,12 +861,13 @@
             }
         });
     }
+    <%-- за 2 шага убираем купить без торга--%>
 
     function updatePriceAndLiveFeed(data) {
         $('#currentPrice').text(data.info.latestBid + " Руб");
         $('#bidsSum').text('Всего ставок: ' + data.info.numofBids);
         var buyPrice = '${auction.buyPrice}';
-        if (data.info.latestBid >= buyPrice) {
+        if (data.info.latestBid >= buyPrice - (data.info.step * 2)) {
             $('#buy-pricing').addClass('hidden');
         }
 
@@ -898,15 +879,74 @@
             bid = bids[i];
             console.log('Name: ' + bid.username);
             var time = new Date(bid.time);
-            var formattedTime = time.format("isoTime");
+            var formattedTime = formatDate(time);
 
             $('#liveFeed').prepend('<li class="list-group-item">'+ formattedTime + ' ' + bid.username + ' ставка <b>'+ bid.amount + '</b> р.</li>');
         }
     }
 
+    function formatDate(date) {
+        var diff = new Date() - date; // разница в миллисекундах
+
+        if (diff < 1000) { // прошло менее 1 секунды
+            return 'только что';
+        }
+
+        var sec = Math.floor(diff / 1000); // округлить diff до секунд
+
+        if (sec < 60) {
+            return sec + ' сек. назад';
+        }
+
+        var min = Math.floor(diff / 60000); // округлить diff до минут
+        if (min < 60) {
+            return min + ' мин. назад';
+        }
+
+        // форматировать дату, с учетом того, что месяцы начинаются с 0
+        var d = date;
+        d = [
+            '0' + d.getDate(),
+            '0' + (d.getMonth() + 1),
+            '' + d.getFullYear(),
+            '0' + d.getHours(),
+            '0' + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++) {
+            d[i] = d[i].slice(-2);
+        }
+
+        return d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
+    }
+
+    function updateClock() {
+        $('#clock').countdown(tempData)
+            .on('update.countdown', function (event) {
+                var format = '%H:%M:%S';
+                if (event.offset.totalDays > 0) {
+                    format = '%-d day%!d ' + format;
+                }
+                if (event.offset.weeks > 0) {
+                    format = '%-w week%!w ' + format;
+                }
+                $(this).html(event.strftime(format));
+            })
+            .on('finish.countdown', function (event) {
+                $(this).html('This Auction is over!')
+                    .parent().addClass('disabled');
+
+            });
+    }
+
     function updateBought(data) {
         $('.clock-div').addClass('hidden');
-        $('#soldto').text("Лот был продан  " + data.info.buyer + " за " + data.info.latestBid + " Руб");
+        var boughtByCurrentUser = '${user.username}' == data.info.buyer;
+        if(boughtByCurrentUser){
+            $('#soldto').text("Ваша ставка " + data.info.latestBid + " р. победила на этом аукционе");
+        } else {
+            $('#soldto').text("Лот был продан  " + data.info.buyer + " за " + data.info.latestBid + " Руб");
+        }
         $('#soldto-div').removeClass('hidden');
         $('#bid-pricing').addClass('hidden');
         $('#buy-pricing').addClass('hidden');

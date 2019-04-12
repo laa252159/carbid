@@ -1,9 +1,7 @@
 package com.ted.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -226,6 +224,9 @@ public class Auction implements Serializable {
 	@Transient
 	private List<String> imagesForGallery;
 
+    @Transient
+    public String numberPaintedElements;
+
 	public Auction() {
 	}
 	
@@ -420,6 +421,20 @@ public class Auction implements Serializable {
 	public List<String> getListOfDamagedElements() {
 		return Arrays.asList(this.damagedElements.split(":"));
 	}
+
+    public int getNumberPaintedElements() {
+        int nums = 0;
+        List<String> elements = Arrays.asList(this.damagedElements.split(":"));
+        for(String el : elements){
+            String result[] = el.split("_");
+            if (result.length > 1 && !result[0].equals("12") && !result[0].equals("13")){
+                if (result[1].equals("c")){
+                    nums++;
+                }
+            }
+        }
+        return nums;
+    }
 
 	public String getCity() {
 		return this.city;

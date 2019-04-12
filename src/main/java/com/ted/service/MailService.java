@@ -15,7 +15,9 @@ public interface MailService {
             "mga3556276@gmail.com"
     };
 
-    void notifyAdminAboutNewUser(User user);
+    void notifyAdminAboutPostConfirmation(User user);
+
+    void notifyAdminAboutRegistration(User user);
 
     void notifyUsersAboutNewAuction(Auction auction);
 

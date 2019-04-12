@@ -44,8 +44,8 @@ public class LoginServiceImpl implements LoginService {
 		// Persist user
 		user = userRepository.saveAndFlush(user);
 
-		//notify admin about new user
-		mailer.notifyAdminAboutNewUser(user);
+		//notify admin about post confirmation
+		mailer.notifyAdminAboutPostConfirmation(user);
 		return user;
 	}
 
@@ -59,7 +59,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
 	@Transactional
-	public User saveUser(User user, MultipartFile file) {
+	public User saveNewUser(User user, MultipartFile file) {
 		
 		// Enabled = true 
 		user.setEnabled((byte)1);
@@ -105,6 +105,9 @@ public class LoginServiceImpl implements LoginService {
 
 		//sending confirmation link to user
 		mailer.sendToUserMailConfirmationLink(user);
+
+		//notify admins about registration
+		mailer.notifyAdminAboutRegistration(user);
 
 		return user;
 	}

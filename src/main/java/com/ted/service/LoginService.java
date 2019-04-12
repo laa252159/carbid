@@ -11,7 +11,7 @@ public interface LoginService {
 
     void saveUser(User user);
 
-	User saveUser(User user, MultipartFile picture);
+	User saveNewUser(User user, MultipartFile picture);
 
 	User updateUser(User user, MultipartFile picture);
 
