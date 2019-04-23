@@ -2374,6 +2374,114 @@
                     </div>
                 </div>
 
+                <h2 class="text-center">Проверка по БАЗАМ</h2>
+                <div class="row content-row">
+                    <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
+                            <%--Владельцы по БАЗАМ--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label class="input-label col-md-3">Факты ДТП:</label>
+                                <div class="col-lg-8">
+                                    <div class="in-group">
+                                        <form:input type="text" name="auction.numberAccidentsDB"
+                                                    path="auction.numberAccidentsDB" id="numberAccidentsDB"
+                                                    class="form-control" placeholder="Факты ДТП"
+                                                    value="${formAuction.auction.numberAccidentsDB}"/>
+                                        <form:errors path="auction.numberAccidentsDB" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Владельцы по БАЗАМ--%>
+                            <%--количество аварий по БАЗАМ--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label class="input-label col-md-3">Количество владельцев:</label>
+                                <div class="col-lg-8">
+                                    <div class="in-group">
+                                        <form:input type="text" name="auction.ownersDB"
+                                                    path="auction.ownersDB" id="ownersDB"
+                                                    class="form-control" placeholder="Количество владельцев"
+                                                    value="${formAuction.auction.ownersDB}"/>
+                                        <form:errors path="auction.ownersDB" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--количество аварий по БАЗАМ--%>
+                            <%--В угоне ?--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label class="input-label col-md-4">Нахождение в розыске:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="auction.wantedDB"
+                                                       name="auction.wantedDB"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--В угоне?--%>
+                            <%--В такси ?--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label class="input-label col-md-4">Использование в такси:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="auction.taxiDB"
+                                                       name="auction.taxiDB"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--В такси?--%>
+                            <%--Пробег по базе ТО--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label class="input-label col-md-4">Пробег по базе ТО:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:input type="text" name="auction.mileageDB"
+                                                    path="auction.mileageDB" id="mileageDB"
+                                                    class="form-control" placeholder="Пробег по базе ТО"
+                                                    value="${formAuction.auction.mileageDB}"/>
+                                        <form:errors path="auction.mileageDB" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Пробег по базе ТО--%>
+                            <%--Ограничения рег. действий--%>
+                        <div class="row easylook">
+                            <div class="form-group">
+                                <label class="input-label col-md-4">Ограничения рег. действий:</label>
+                                <div class="col-lg-4">
+                                    <div class="in-group">
+                                        <form:checkbox path="auction.restrictionsDB"
+                                                       name="auction.restrictionsDB"
+                                                       itemValue="value"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <%--Ограничения рег. действий--%>
+                    </div>
+                </div>
+
                 <h2 class="text-center">Ролик на YouTube</h2>
                 <div class="row content-row">
                     <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
