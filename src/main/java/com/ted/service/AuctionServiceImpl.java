@@ -611,7 +611,7 @@ public class AuctionServiceImpl implements AuctionService {
             auction.setNumberAccidentsDB(formAuction.getAuction().getNumberAccidentsDB());
             auction.setWantedDB(formAuction.getAuction().isWantedDB());
             auction.setTaxiDB(formAuction.getAuction().isTaxiDB());
-            auction.setMileageDB(formAuction.getAuction().isMileageDB());
+            auction.setMileageDB(formAuction.getAuction().getMileageDB());
             auction.setRestrictionsDB(formAuction.getAuction().isRestrictionsDB());
 		}
 

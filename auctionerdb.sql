@@ -150,7 +150,7 @@ CREATE TABLE `auctions` (
   `numberAccidents_db` varchar(45),
   `wanted_db` tinyint(4) NOT NULL DEFAULT '0',
   `taxi_db` tinyint(4) NOT NULL DEFAULT '0',
-  `mileage_db` tinyint(4) NOT NULL DEFAULT '0',
+  `mileage_db` varchar(45),
   `restrictions_db` tinyint(4) NOT NULL DEFAULT '0',
 
 

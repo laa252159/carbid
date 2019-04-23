@@ -146,8 +146,8 @@ public class Auction implements Serializable {
     @Column(name = "taxi_db")
     boolean taxiDB;
 
-    @Column(name = "mileage_db")
-    boolean mileageDB;
+    @Column(name = "mileage_db", nullable = true)
+    private String mileageDB;
 
     @Column(name = "restrictions_db")
     boolean restrictionsDB;
@@ -445,11 +445,11 @@ public class Auction implements Serializable {
         this.restrictionsDB = restrictionsDB;
     }
 
-    public boolean isMileageDB() {
+    public String getMileageDB() {
         return mileageDB;
     }
 
-    public void setMileageDB(boolean mileageDB) {
+    public void setMileageDB(String mileageDB) {
         this.mileageDB = mileageDB;
     }
 

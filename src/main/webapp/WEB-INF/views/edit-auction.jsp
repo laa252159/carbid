@@ -2378,7 +2378,7 @@
                 <div class="row content-row">
                     <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
                             <%--Владельцы по БАЗАМ--%>
-                                <div class="row">
+                                <div class="row easylook">
                                     <div class="form-group">
                                         <label for="numberAccidentsDB" class="input-label col-md-3">Факты ДТП:</label>
                                         <div class="col-lg-8">
@@ -2396,7 +2396,7 @@
                                 </div>
                             <%--Владельцы по БАЗАМ--%>
                             <%--количество аварий по БАЗАМ--%>
-                                <div class="row">
+                                <div class="row easylook">
                                     <div class="form-group">
                                         <label for="ownersDB" class="input-label col-md-3">Количество владельцев:</label>
                                         <div class="col-lg-8">
@@ -2414,13 +2414,13 @@
                                 </div>
                             <%--количество аварий по БАЗАМ--%>
                             <%--В угоне ?--%>
-                                <div class="row">
+                                <div class="row easylook">
                                     <div class="form-group">
                                         <label for="climateControl" class="input-label col-md-4">Нахождение в розыске:</label>
                                         <div class="col-lg-4">
                                             <div class="in-group">
-                                                <form:checkbox path="wantedDB"
-                                                               name="wantedDB"
+                                                <form:checkbox path="auction.wantedDB"
+                                                               name="auction.wantedDB"
                                                                itemValue="value"/>
                                             </div>
                                             <div class="err">
@@ -2430,13 +2430,13 @@
                                 </div>
                             <%--В угоне?--%>
                             <%--В такси ?--%>
-                                <div class="row">
+                                <div class="row easylook">
                                     <div class="form-group">
                                         <label for="climateControl" class="input-label col-md-4">Использование в такси:</label>
                                         <div class="col-lg-4">
                                             <div class="in-group">
-                                                <form:checkbox path="taxiDB"
-                                                               name="taxiDB"
+                                                <form:checkbox path="auction.taxiDB"
+                                                               name="auction.taxiDB"
                                                                itemValue="value"/>
                                             </div>
                                             <div class="err">
@@ -2446,14 +2446,16 @@
                                 </div>
                             <%--В такси?--%>
                             <%--Пробег по базе ТО--%>
-                                <div class="row">
+                                <div class="row easylook">
                                     <div class="form-group">
                                         <label for="climateControl" class="input-label col-md-4">Пробег по базе ТО:</label>
                                         <div class="col-lg-4">
                                             <div class="in-group">
-                                                <form:checkbox path="mileageDB"
-                                                               name="mileageDB"
-                                                               itemValue="value"/>
+                                                <form:input type="text" name="auction.mileageDB"
+                                                            path="auction.mileageDB" id="mileageDB"
+                                                            class="form-control" placeholder="Пробег по базе ТО"
+                                                            value="${formAuction.auction.mileageDB}"/>
+                                                <form:errors path="auction.mileageDB" cssClass="error"/>
                                             </div>
                                             <div class="err">
                                             </div>
@@ -2462,13 +2464,13 @@
                                 </div>
                             <%--Пробег по базе ТО--%>
                             <%--Ограничения рег. действий--%>
-                                <div class="row">
+                                <div class="row easylook">
                                     <div class="form-group">
                                         <label for="climateControl" class="input-label col-md-4">Ограничения рег. действий:</label>
                                         <div class="col-lg-4">
                                             <div class="in-group">
-                                                <form:checkbox path="restrictionsDB"
-                                                               name="restrictionsDB"
+                                                <form:checkbox path="auction.restrictionsDB"
+                                                               name="auction.restrictionsDB"
                                                                itemValue="value"/>
                                             </div>
                                             <div class="err">
