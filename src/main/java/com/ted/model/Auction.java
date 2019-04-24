@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlType;
 		"auctionBiddings", "location", "xmlStarted", "xmlEnds", "xmlSeller", "description", "brand", "model",
 		"released", "run", "engineType", "power", "transmission", "body", "drive", "color", "doors", "bodyState",
 		"owners", "vin", "gibdd", "fssp", "engineState", "damagedElements","city","additionalInfo",
-		"driveState", "engineCapacity"})
+		"driveState", "engineCapacity", "ownersDB", "numberAccidentsDB", "wantedDB", "taxiDB", "mileageDB", "restrictionsDB"})
 @XmlRootElement(name = "Item")
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -129,6 +129,32 @@ public class Auction implements Serializable {
 
 	@Column(name="city", nullable = true)
 	private String city;
+
+    public void setOwnersDB(String ownersDB) {
+        this.ownersDB = ownersDB;
+    }
+
+    @Column(name="owners_db", nullable = true)
+    private String ownersDB;
+
+    @Column(name="numberAccidents_db", nullable = true)
+    private String numberAccidentsDB;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    @Column(name = "wanted_db")
+    boolean wantedDB;
+
+    @Column(name = "taxi_db")
+    boolean taxiDB;
+
+    @Column(name = "mileage_db", nullable = true)
+    private String mileageDB;
+
+    @Column(name = "restrictions_db")
+    boolean restrictionsDB;
 
 	@Column(name="additional_info", nullable = true)
 	private String additionalInfo;
@@ -688,5 +714,49 @@ public class Auction implements Serializable {
 
     public void setEngineCapacity(String engineCapacity) {
         this.engineCapacity = engineCapacity;
+    }
+
+    public String getOwnersDB() {
+        return ownersDB;
+    }
+
+    public String getNumberAccidentsDB() {
+        return numberAccidentsDB;
+    }
+
+    public void setNumberAccidentsDB(String numberAccidentsDB) {
+        this.numberAccidentsDB = numberAccidentsDB;
+    }
+
+    public boolean isWantedDB() {
+        return wantedDB;
+    }
+
+    public void setWantedDB(boolean wantedDB) {
+        this.wantedDB = wantedDB;
+    }
+
+    public boolean isTaxiDB() {
+        return taxiDB;
+    }
+
+    public void setTaxiDB(boolean taxiDB) {
+        this.taxiDB = taxiDB;
+    }
+
+    public String getMileageDB() {
+        return mileageDB;
+    }
+
+    public void setMileageDB(String mileageDB) {
+        this.mileageDB = mileageDB;
+    }
+
+    public boolean isRestrictionsDB() {
+        return restrictionsDB;
+    }
+
+    public void setRestrictionsDB(boolean restrictionsDB) {
+        this.restrictionsDB = restrictionsDB;
     }
 }

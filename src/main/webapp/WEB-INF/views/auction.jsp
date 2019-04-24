@@ -518,10 +518,70 @@
 
             <button class="accordion">ПРОВЕРКА ПО БАЗАМ</button>
             <div class="panel_accordion">
-                <p>
-                    В процессе реализации
-                </p>
+                <div class="col-sm-6">
+                    <table style="width: 100%;">
+                        <c:if test="${not empty auction.ownersDB}">
+                            <tr class="border_bottom">
+                                <td>Количество владельцев</td>
+                                <td>${auction.ownersDB}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${auction.wantedDB}">
+                            <tr class="border_bottom">
+                                <td>Нахождение в розыске</td>
+                                <td>ДА</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${auction.wantedDB == false}">
+                            <tr class="border_bottom">
+                                <td>Нахождение в розыске</td>
+                                <td>Нет</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${auction.restrictionsDB}">
+                            <tr class="border_bottom">
+                                <td>Ограничение рег. действий</td>
+                                <td>ДА</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${auction.restrictionsDB == false}">
+                            <tr class="border_bottom">
+                                <td>Ограничение рег. действий</td>
+                                <td>Нет</td>
+                            </tr>
+                        </c:if>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <table style="width: 100%;">
+                        <c:if test="${not empty auction.numberAccidentsDB}">
+                            <tr class="border_bottom">
+                                <td>Факты ДТП</td>
+                                <td>${auction.numberAccidentsDB}</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${auction.taxiDB}">
+                            <tr class="border_bottom">
+                                <td>Использование в такси</td>
+                                <td>ДА</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${auction.taxiDB == false}">
+                            <tr class="border_bottom">
+                                <td>Использование в такси</td>
+                                <td>Нет</td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${not empty auction.mileageDB}">
+                            <tr class="border_bottom">
+                                <td>Пробег по базе ТО</td>
+                                <td>${auction.mileageDB}</td>
+                            </tr>
+                        </c:if>
+                    </table>
+                </div>
             </div>
+
             <button class="accordion">КОНТАКТНЫЕ ДАННЫЕ</button>
             <div class="panel_accordion">
                 <p>Отдел продаж</p>
