@@ -82,7 +82,7 @@
                                     <tr>
                                         <div id="fly-in" class="body-cinema">
                                             <div>
-                                                <span></span>проверено &nbsp;
+                                                <span></span><b style="color: red">проверено</b> &nbsp;
                                                 <c:if test="${not empty auction.evaluation}">
                                                     баллов: <b style="color: red">${auction.evaluation}</b> из 30
                                                 </c:if>
