@@ -79,6 +79,13 @@
                                             <td><b>&nbsp;&nbsp;&nbsp;${auction.drive}</b></td>
                                         </tr>
                                     </sec:authorize>
+                                    <c:if test="${not empty auction.evaluation}">
+                                        <tr>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td>Оценка по 30 бальной шкале:</td>
+                                            <td><b style="color: red">&nbsp;&nbsp;&nbsp;${auction.evaluation}</b>
+                                        </tr>
+                                    </c:if>
                                     <tr>
                                         <div id="fly-in" class="body-cinema">
                                             <div>
