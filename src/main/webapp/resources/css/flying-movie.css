@@ -34,7 +34,7 @@
     opacity: 0;
     /*left: 10vw;*/
     /*width: 80vw;*/
-    animation: switch 120s;
+    animation: switch 32s;
 }
 
 #fly-in div:nth-child(2) { animation-delay: 4s}
