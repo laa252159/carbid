@@ -154,6 +154,8 @@ CREATE TABLE `auctions` (
   `mileage_db` varchar(45),
   `restrictions_db` tinyint(4) NOT NULL DEFAULT '0',
 
+  `evaluation` varchar(45) DEFAULT NULL,
+
   `first_bid` decimal(15,2) NOT NULL,
   `buy_price` decimal(15,2) DEFAULT NULL,
   `currently` decimal(15,2) NOT NULL,

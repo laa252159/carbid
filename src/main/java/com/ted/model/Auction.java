@@ -111,7 +111,9 @@ public class Auction implements Serializable {
 	@Column(name="youtube", nullable = true)
 	private String youtube;
 
-	
+	@Column(name="evaluation", nullable = true)
+	private String evaluation;
+
 	@Column(name="fssp", nullable = true)
 	private String fssp;
 
@@ -414,6 +416,14 @@ public class Auction implements Serializable {
 
 	public void setYoutube(String youtube) {
 		this.youtube = youtube;
+	}
+
+	public String getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(String evaluation) {
+		this.evaluation = evaluation;
 	}
 
 	public String getFssp() {
