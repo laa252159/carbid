@@ -2503,6 +2503,27 @@
                     </div>
                 </div>
 
+                <h2 class="text-center">Оценка авто в баллах</h2>
+                <div class="row content-row">
+                    <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc;">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="brand" class="input-label col-md-3">Оценка авто в баллах:</label>
+                                <div class="col-lg-8">
+                                    <div class="in-group">
+                                        <form:input type="text" name="auction.evaluation" path="auction.evaluation" id="evaluation"
+                                                    class="form-control" placeholder="Оценка в баллах"
+                                                    value="${formAuction.auction.evaluation}"/>
+                                        <form:errors path="auction.evaluation" cssClass="error"/>
+                                    </div>
+                                    <div class="err">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="text-center">Загрузить фото</h2>
                 <div class="row content-row">
                     <input id="input-1" name="input1" type="file" class="file-loading" multiple

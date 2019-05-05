@@ -81,7 +81,12 @@
                                     </sec:authorize>
                                     <tr>
                                         <div id="fly-in" class="body-cinema">
-                                            <div><span></span>проверено</div>
+                                            <div>
+                                                <span></span>проверено &nbsp;
+                                                <c:if test="${not empty auction.evaluation}">
+                                                    баллов: ${auction.evaluation} из 30
+                                                </c:if>
+                                            </div>
                                         </div>
                                     </tr>
                                 </table>
