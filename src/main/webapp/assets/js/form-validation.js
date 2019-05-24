@@ -1,0 +1,1 @@
+$(function(){$("form[name='suggestion']").validate({rules:{brandAndModel:{required:!0},releaseDate:{required:!0,number:!0},name:{required:!0},phoneNumber:{required:!0,number:!0}},messages:{brandAndModel:"Введите марку и модель",releaseDate:"Введите год выпуска авто",name:"Введите имя",phoneNumber:"Введите телефон"},submitHandler:function(e){e.submit()}})});
