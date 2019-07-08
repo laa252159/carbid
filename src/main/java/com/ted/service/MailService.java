@@ -12,7 +12,7 @@ public interface MailService {
             "laa252159@gmail.com",
             "alexey221284@mail.ru",
             "svda16@mail.ru",
-            "mga3556276@gmail.com"
+            "sourw@bk.ru"
     };
 
     void notifyAdminAboutPostConfirmation(User user);
