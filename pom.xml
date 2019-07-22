@@ -256,7 +256,7 @@
   </dependencies>
   
   <build>
-    <finalName>ROOT</finalName>
+    <finalName>auction</finalName>
 	  <plugins>
 		  <plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
