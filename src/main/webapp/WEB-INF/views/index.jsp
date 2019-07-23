@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <%--Yandex mail activate--%>
-    <meta name="yandex-verification" content="fece207c31d0ec5c" />
+    <meta name="yandex-verification" content="be8895a45e0c13c6" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
