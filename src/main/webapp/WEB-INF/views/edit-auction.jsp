@@ -20,7 +20,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Perekup64</title>
+    <title>cars64</title>
 
 </head>
 

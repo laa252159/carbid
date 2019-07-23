@@ -1,6 +1,6 @@
 <div class="myfooter">
     <div class="container text-center" style="color: #FFFFFF; font-size: 12pt" >
-        <p>&copy; Perekup64 2019</p>
+        <p>&copy; cars64 2019</p>
     </div>
 </div>
 

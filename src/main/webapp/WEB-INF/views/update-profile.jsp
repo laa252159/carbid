@@ -24,7 +24,7 @@
 
     <link href=<c:url value="/resources/css/fileinput.min.css" /> rel="stylesheet" type="text/css">
 
-    <title>Perekup64</title>
+    <title>cars64</title>
 
 </head>
 

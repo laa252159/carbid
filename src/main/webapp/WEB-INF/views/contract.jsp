@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>сервис www.perekup64.ru</title>
+    <title>сервис www.cars64.ru</title>
 
 </head>
 
@@ -84,7 +84,7 @@
                             <meta name="description" content="">
                             <meta name="author" content="">
 
-                            <title>Perekup64</title>
+                            <title>cars64</title>
 
                         </head>
 
@@ -283,7 +283,7 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
 процессе пользования услугами последней, так и перед другими Пользователями (в
 случае заключения с последними сделок).<br>
 5.2.5. Нести полную ответственность относительно автомобилей, выставляемых на
-продажу в Торговой системе perekup64.ru, оставаясь при этом единственным лицом,
+продажу в Торговой системе cars64.ru, оставаясь при этом единственным лицом,
 ответственным за недостатки таких автомобилей, а также за их соответствие
 описанию, без отсылки на ответственность третьих лиц: поставщиков,
 производителей и др.<br>
@@ -294,7 +294,7 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
 автомобиль на момент создания лота. Договор купли-продажи заключается
 непосредственно между продавцом и покупателем, выигравшим аукцион.<br>
 5.3. Сервис </span><span lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
-color:#333333'>www.perekup64.ru</span><span lang=RU style='text-align: left;font-size:10.0pt;
+color:#333333'>www.cars64.ru</span><span lang=RU style='text-align: left;font-size:10.0pt;
 font-family:"Cambria",serif;color:#333333'> вправе:<br>
 5.3.1. В случае неисполнения Пользователем обязательств по заявленной ставке
 или выставленному лоту приостанавливать или полностью блокировать использование
@@ -427,8 +427,8 @@ font-family:"Cambria",serif;color:#333333'>perekup</span><span lang=RU
                                 lang=RU style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;color:#333333'>, не
 участвуя в правоотношениях между Пользователями по поводу заключения сделок, не
 несет ответственности за действия Пользователей.<br>
-7.1.3. Сервис www.perekup64.ru не несет ответственности за достоверность
-информации, размещаемой Пользователями на сайте perekup64.ru, а также за
+7.1.3. Сервис www.cars64.ru не несет ответственности за достоверность
+информации, размещаемой Пользователями на сайте cars64.ru, а также за
 правомерность ее размещения.<br>
 7.1.4. Сервис </span><span lang=EN-US style='text-align: left;font-size:10.0pt;font-family:"Cambria",serif;
 color:#333333'>www</span><span lang=RU style='text-align: left;font-size:10.0pt;font-family:
