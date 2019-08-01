@@ -104,4 +104,5 @@
 
 
   <display-name>Archetype Created Web Application</display-name>
+	<absolute-ordering></absolute-ordering>
 </web-app>
