@@ -98,7 +98,7 @@ public class Mailer implements MailService {
             message.append("\nКупить до завершения аукциона можно за - ");
             message.append(auction.getBuyPrice() + " р.");
             message.append("\nДля получения более подробной информации зайдите на сайт под своей учетной записью");
-            message.append("\nСсылка для незарегистрированных пользователей: http://www.cars64.ru/auction/" + auction.getAuctionid());
+            message.append("\nСсылка для незарегистрированных пользователей: http://auction.cars64.ru/.ru/auction/" + auction.getAuctionid());
 
             sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
         }
@@ -281,7 +281,7 @@ public class Mailer implements MailService {
 
         message.append("\n В последующем, в течение суток, Ваш аккаунт будет подтвержден администрацией сайта. \n");
         message.append("\n Для завершения регистрации, проследуйте по ссылке: \n");
-        message.append("http://www.cars64.ru/approve-and-contract?email=" + user.getEmail() + " \n");
+        message.append("http://auction.cars64.ru/.ru/approve-and-contract?email=" + user.getEmail() + " \n");
         message.append("Если Вы не совершали действий по регистрации в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
@@ -292,7 +292,7 @@ public class Mailer implements MailService {
         StringBuilder message = new StringBuilder();
         subject.append("cars64 Восстановление пароля");
         message.append("\n Для завершения восстановления пароля, проследуйте по ссылке: \n");
-        message.append("http://www.cars64.ru/password_recovery?token=" + token + " \n");
+        message.append("http://auction.cars64.ru/.ru/password_recovery?token=" + token + " \n");
         message.append("Если Вы не совершали действий по восстановлению пароля в нашей системе – игнорируйте данное письмо!!!");
         sendMail(SENDER, user.getEmail(), subject.toString(), message.toString());
     }
@@ -300,7 +300,7 @@ public class Mailer implements MailService {
     @Override
     public void notifyUsersAboutVictory(Auction auction) {
         StringBuilder sb = new StringBuilder();
-        sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://www.cars64.ru/auction/" + auction.getAuctionid() + "\n");
+        sb.append(auction.getBuyer().getUsername() + ", поздравляем Вас! Вы выйграли аукцион http://auction.cars64.ru/.ru/auction/" + auction.getAuctionid() + "\n");
         sb.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb.append("За " + auction.getCurrently() + " р. \n");
         sendMail(SENDER, auction.getBuyer().getEmail(), "Победа на аукционе", sb.toString());
@@ -308,7 +308,7 @@ public class Mailer implements MailService {
 
 
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://www.cars64.ru/auction/" + auction.getAuctionid() + "\n");
+        sb2.append(auction.getBuyer().getUsername() + ", пользователь выйграл аукцион http://auction.cars64.ru/.ru/auction/" + auction.getAuctionid() + "\n");
         sb2.append(auction.getBrand() + " " + auction.getModel() + " " + auction.getReleased() + "\n");
         sb2.append("За " + auction.getCurrently() + " р. \n");
         notifyAdmins(SENDER, "Победа на аукционе", sb2.toString());
