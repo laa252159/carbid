@@ -90,11 +90,11 @@
 .icon-travel-car:before {
   /*content: "\1F3CE";*/
   /*font-size: 100px;*/
-  content: url(../images/nom_pereku_64.jpg);
+  content: url(../images/nom_pereku_64.png);
 }
 
 .icon-travel-car-small:before {
   /*content: "\1F3CE";*/
   /*font-size: 40px;*/
-  content: url(../images/nom_pereku_64.jpg);
+  content: url(../images/nom_pereku_64.png);
 }
