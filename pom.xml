@@ -19,7 +19,7 @@
 		<javaee-web-api.version>6.0</javaee-web-api.version>
 		<bootstrap.version>3.2.0</bootstrap.version>
 		<jquery.version>1.9.1</jquery.version>
-		<mysql-connector.version>6.0.2</mysql-connector.version>
+		<mysql-connector.version>8.0.28</mysql-connector.version>
 		<hibernate.version>5.1.0.Final</hibernate.version>
 		<jta.version>1.1</jta.version>
 	  	<tomcat.version>8.5.23</tomcat.version>
